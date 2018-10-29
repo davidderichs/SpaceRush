@@ -33,7 +33,7 @@ Zweidimensional, Schachbrettmuster (unsichtbar)
 ## Objekte im Raum
 
 - Schiffe
-- Planeten
+- Planeten, Monde, Raumstationen
 - Gegenstände
 
 ### Schiffe-Eigenschaften
@@ -42,11 +42,51 @@ Position, Blickrichtung, Lebenspunkte, Schaden, Waffe(n), Boost, Geschwindigkeit
 
 ### Planeten-Eigenschaften
 
-Größe, Gravitation, Position
+Größe, Gravitation, Position, Masse
 
 ### Gegenstände-Eigenschaften
 
 Zugehörigkeit zu Schiff/Spieler, Addiert Eigenschaften zum Schiff
+
+**Items**
+
+Gravitationsmine: Löst bei eintritt in Aktivierungs-Radius der Mine aus. Der Spieler kann entscheiden ob sie wegstößt oder heranzieht. Kann leichte Objekte (Weltraumschrott, Satelieten) verschieben.
+
+Raumschiff Grav.welle: Das Raumschiff kann eine Welle auslösen welche Gegenstände und Raumschiffe vom Raumschiff wegschiebt.
+
+EMP-Granate: Die EMP schaltet bestimmte Aktionen des Schiffes aus. Z.B. Weniger Aktionen pro Runde oder Items fallen aus.
+
+Laser: Das Raumschiff schießt auf ein Ziehl. Kann Raumschiffe, Gegenstände beschädigen.
+
+Rakete: Das Raumschiff schießt eine Rakete welche in einem Radius schaden zufügt.
+
+Schild: Das Raumschiff bekommt einen Schild welcher eine bestimmte Menge an Schaden abblockt.
+
+Reparatur: Repariert schäden am Schiff.
+
+Zusätzlicher Treibstoff: Erhöht die Menge des Treibstoffes für die nächste Runde.
+
+**Umgebung**
+
+Monde: Um Planeten fliegende Monde welche Schiffe bei kontakt beschädigen.
+
+Sonnen: Hohe Anziehungskraft und Sonnenwinde welche das Schiff schwer beschädigen.
+
+Schwarzes Loch: Beschädigt das Raumschiff stark. Anschließend wird man (zurückgesetzt zum letzten Checkpoint?)
+
+Wurmloch: Schnelle Transportmöglichkeit zwischen zwei festen Punkten. Beschädigt das Schiff leicht.
+
+Weltraumschrott: Beweglicher Schrott im Weltraum welcher Schiffe bei kontakt beschädigt.
+
+Asteroiden: Sich bewegende Asteroiden welche von Planeten und Sonnen abgelenkt werden.
+
+Meteroiten-Gürtel: Sich schnell bewegende Meteroiten welche das Schiff bei kontakt Beschädigen.
+
+Raumstationen: Besitzen eine Radiusbasierte-Waffe welche den Spieler anvisiert.
+
+ 
+
+
 
 # Big Idea
 
