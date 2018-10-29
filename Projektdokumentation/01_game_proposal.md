@@ -20,8 +20,6 @@ Man hat nur begrenzt Treibstoff zur Verfügung.
 
 ## Interaktionen
 
-![spaceRush Concept Image](./images/spaceRushConceptArt01.jpg)
-
 ### Interaktionen mit anderen Schiffen
 
 Die Schiffe sind mit Waffen ausgestattet, beispielsweise Gravitationsbomben. Außerdem haben sie Kraftfelder, durch welche sie sich gegenseitig von ihrer Flugbahn ablenken können, ohne Schaden zu nehmen.
@@ -107,7 +105,7 @@ Beschädigt das Raumschiff stark. Anschließend wird man (zurückgesetzt zum let
 
 Schnelle Transportmöglichkeit zwischen zwei festen Punkten. Beschädigt das Schiff leicht.
 
-###Weltraumschrott ###
+### Weltraumschrott ###
 
  Beweglicher Schrott im Weltraum welcher Schiffe bei kontakt beschädigt.
 
@@ -124,10 +122,6 @@ Besitzen eine Radiusbasierte-Waffe welche den Spieler anvisiert.
 ### Sammel-Objekt-Eigenschaften
 
 Position, "Sammelradius", wenn gesammelt Zugehörigkeit zu Schiff/Spieler, Addiert Eigenschaften zum Schiff
-
-### Satelliten, Schrott, Asteoriten-Eigenschaften
-
-Position, Größe (Radius), Masse, Schadenswirkung
 
 # Big Idea
 
