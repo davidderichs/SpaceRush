@@ -50,8 +50,4 @@ Wir haben auch gemerkt, dass es wohl sinnvoll ist eine Art Bremse (Reverse Boost
 
 Auch ist uns aufgefallen das eine lineare Map in der man von A nach B fliegt kompliziert ist und sich wenig lohnt. Daraufhin entwafen wir Checkpoints welche einen Mehrfach über die Map fliegen lassen. Dies führte zu dem gewünschten Ergebniss das die Items und Waffen verwendet werden konnten.
 
-Das Spiel an sich hat einigen Spaß gemacht. Die Grundkonzepte wurden gut durchdacht und wir konnten 
-
-## Wichtige Erkenntnisse
-
-Der Prototyp hat schlussendlich einiges überworfen. Die 
+Wir konnten durch kleine Situationen schnell Äderungen vornehmen ohne dabei viel neu zu erarbeiten. Anschließen haben wir das Spiel komplett gespielt und es wurde nach wenigen Änderungen spielbar. Das Spiel hat Spaß gemacht.
