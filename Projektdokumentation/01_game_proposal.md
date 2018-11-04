@@ -152,23 +152,25 @@ Space Rush vereint ein runden-basiertes Spiel mit Geschwindigkeit, Action, Strat
 
 **Milestone #02:** Gravitationsskript für Planeten, Monde, Raumschiff etc.
 
-**Milestone #03:** Kollision und  Radius-basierte Auslöser (vorerst Konsolenausgabe)
+**Milestone #03:** vordefinierte Raumschiffaktionen erstellen und mit dem Raumschiff verknüpfen (ersetzt Tastatur-Steuerung)
 
-**Milestone #04:** vordefinierte Raumschiffaktionen erstellen und mit dem Raumschiff verknüpfen (ersetzt Tastatur-Steuerung)
+**Milestone #04:** Checkpoints und End-Checkpoint (Finish) (Prinzip und Verwaltung)
 
-**Milestone #05:** Collectables (Grundprinzip und allgemeine Verwaltung) und Checkpoints und End-Checkpoint (Finish) (Prinzip und Verwaltung)
+**Milestone #05:** Raumschiff Lebenspunkte und Schild, Treibstoff und Checkpoint Properties und Funktionalität (sammeln)
 
-**Milestone #06:** Raumschiff Lebenspunkte und Schild, Treibstoff, Items und Checkpoint Properties und Funktionalität (sammeln)
-
-**Milestone #07:** Erstellen von ersten Planeten (einfache Spheres), Verknüpfung mit Kollision und Raumschiff Lebens, Geschwindigkeit und Checkpoint Properties
-
-**Milestone #08:** 
+**Milestone #06:** Erstellen von ersten Planeten (einfache Spheres), Verknüpfung mit Kollision und Raumschiff Lebens, Geschwindigkeit und Checkpoint Properties
 
 ## Minimalziel
+
+**Milestone #07:** Multiplayer (lokal, nacheinander)
+
+**Milestone #08:** Collectables, radiusbasiertes aufsammeln von Items (Treibstoff, Schild)
 
 ## Ziel
 
 ## Wunschziel
+
+Wurmloch
 
 ## Extras
 
