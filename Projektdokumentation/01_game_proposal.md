@@ -138,11 +138,31 @@ Position, "Sammelradius", wenn gesammelt Zugehörigkeit zu Schiff/Spieler, Addie
 
 # Big Idea
 
+Die Idee ist es einen Wettrennen gegen einen anderen Spieler im Weltall zu gewinnen. Daraus ergibt sich ein **schnelles** 2D Spiel. Die Spieler wählen für ihre Runde Aktionen die schließlich in Echtzeit ablaufen. Da alle Aktionen **vorausgewählt** sind, hat man während der Simulation **keinen Einfluss** mehr auf sein Schiff. Beide Spieler versuchen durch **cleveres einsetzen von Umgebung und Items** zu gewinnen. Die Spieler haben begrenzte Zeit und Aktionen zu verfügung und müssen so ihren Weg durch das All bezwingen.
 
+Es kommt also nicht nur auf **Geschick** an, sondern genauso auf **Vorstellungskraft, Ressourcenmanagement** und vor Allem auf eine **gute Strategie**. Man muss versuchen seinen Gegner so gut es geht **einschätzen** zu können. Wohin wird er fliegen? Auf welche Items hat er es abgesehen? Wo platziere ich am Besten meine Minen? Wo löse ich meine on-board Waffen aus? Sammle ich am Besten Items, wie Schilder und Waffen, oder kann ich voll auf Angriff gehen?
+
+Space Rush vereint ein runden-basiertes Spiel mit Geschwindigkeit, Action, Strategie und Geschick. Somit ist die Zielgruppe recht weit gefächert. Fans von runden-basierten Spielen, aber auch von Strategie-Spielen werden dieses Spiel mögen.
 
 # Entwicklungszeitplan
 
 ## Funktionales Minimum
+
+**Milestone #01:** Manövrierfähiges Raumschiff (vorerst Steuerung über Tastatur, einfaches GameObject z.B. Sphere)
+
+**Milestone #02:** Gravitationsskript für Planeten, Monde, Raumschiff etc.
+
+**Milestone #03:** Kollision und  Radius-basierte Auslöser (vorerst Konsolenausgabe)
+
+**Milestone #04:** vordefinierte Raumschiffaktionen erstellen und mit dem Raumschiff verknüpfen (ersetzt Tastatur-Steuerung)
+
+**Milestone #05:** Collectables (Grundprinzip und allgemeine Verwaltung) und Checkpoints und End-Checkpoint (Finish) (Prinzip und Verwaltung)
+
+**Milestone #06:** Raumschiff Lebenspunkte und Schild, Treibstoff, Items und Checkpoint Properties und Funktionalität (sammeln)
+
+**Milestone #07:** Erstellen von ersten Planeten (einfache Spheres), Verknüpfung mit Kollision und Raumschiff Lebens, Geschwindigkeit und Checkpoint Properties
+
+**Milestone #08:** 
 
 ## Minimalziel
 
@@ -158,6 +178,8 @@ Position, "Sammelradius", wenn gesammelt Zugehörigkeit zu Schiff/Spieler, Addie
 
 ### Producer
 
+- Jakob
+
 ### Programmierung
 
 - David
@@ -166,4 +188,10 @@ Position, "Sammelradius", wenn gesammelt Zugehörigkeit zu Schiff/Spieler, Addie
 
 ### Design
 
+- David
+- Tjark
+- Jakob
+
 ### Game-Art
+
+- Jakob
