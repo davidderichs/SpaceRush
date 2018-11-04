@@ -1,3 +1,5 @@
+![spaceRushEmblemV1](images/spaceRushLogo.jpg)
+
 # Spielbeschreibung
 
 ## SpaceRush
@@ -9,6 +11,8 @@ Ziel des Spiels ist es, sich gegen den Widerstand des Weltraums und anderer Spie
 ## Spielbereich
 
 SpaceRush spielt sich im Schwerelosen Weltall ab (keine Reibungskräfte). Der Raum, in dem sich die Schiffe befinden, ist zweidimensional. Im Raum befinden sich Planeten und andere Objekte, die Kraftfelder (Gravitation) ausstrahlen können und mit denen Schiffe kollidieren und interagieren können. 
+
+![spaceRushConceptArt](images/spaceRushConceptArt.jpg)
 
 ## Bewegung
 
@@ -130,7 +134,11 @@ Alle Power-Ups und Waffen müssen im Raum aufgesammelt werden.
 
 Position, "Sammelradius", wenn gesammelt Zugehörigkeit zu Schiff/Spieler, Addiert Eigenschaften zum Schiff
 
+![IMG_1806](images/IMG_1806.JPG)
+
 # Big Idea
+
+
 
 # Entwicklungszeitplan
 
