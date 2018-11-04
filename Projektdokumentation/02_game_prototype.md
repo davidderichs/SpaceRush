@@ -37,3 +37,16 @@ Wird der Slot erreicht, löst die Waffe aus. Hier z.B. die Gravitationswelle, we
 ![IMG_1878](images/IMG_1878.JPG)
 
 ![IMG_1879](images/IMG_1879.JPG)
+
+## Erfahrungen
+
+Insgesamt war der Prototyp mehr Arbeit als wir gedacht hatten, da wir uns vorher noch keine Gedanken über Anzeigen, Hub sowie Anordnung und Menge der Objekte im Raum gemacht hatten und wir uns dazu noch Konzepte überlegen mussten. Auch das Basteln an sich war einiges an Arbeit und sehr ungewohnt, da man sonst nur Code vor sich hat.
+
+Im Endeffekt finden wir jedoch, dass es sich gelohnt hat, da wir so unser Konzept einmal durchspielen konnten und Schwächen schnell identifizieren konnten.
+
+So haben wir z.B. gemerkt, dass wir wohl mehr Weltraumschrott auf der Map verteilen müssen, als wir dachten, damit es nicht zu einfach ist durchs All zu manövrieren. Somit kann man nicht einfach mit Vollspeed zum Ziel schießen, sondern ist gezwungen sich durch eine Art Labyrinth zu kämpfen.
+
+Wir haben auch gemerkt, dass es wohl sinnvoll ist eine Art Bremse (Reverse Booster) einzubauen, da es sonst mit zunehmender Geschwindigkeit schwieriger wird zu manövrieren.
+
+## Wichtige Erkenntnisse
+
