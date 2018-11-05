@@ -150,7 +150,7 @@ Space Rush vereint ein runden-basiertes Spiel mit Geschwindigkeit, Action, Strat
 
 **Milestone #01:** Manövrierfähiges Raumschiff (vorerst Steuerung über Tastatur, einfaches GameObject z.B. Sphere)
 
-**Milestone #02:** Gravitationsskript für Planeten, Monde, Raumschiff etc.
+**Milestone #02:** Gravitationsskript für Planeten, Raumschiff etc.
 
 **Milestone #03:** vordefinierte Raumschiffaktionen erstellen und mit dem Raumschiff verknüpfen (ersetzt Tastatur-Steuerung)
 
@@ -160,21 +160,67 @@ Space Rush vereint ein runden-basiertes Spiel mit Geschwindigkeit, Action, Strat
 
 **Milestone #06:** Erstellen von ersten Planeten (einfache Spheres), Verknüpfung mit Kollision und Raumschiff Lebens, Geschwindigkeit und Checkpoint Properties
 
+**Zusammenfassung:** Simulation des Spiels ohne Interaktion des Spielers
+
 ## Minimalziel
 
 **Milestone #07:** Multiplayer (lokal, nacheinander)
 
-**Milestone #08:** Collectables, radiusbasiertes aufsammeln von Items (Treibstoff, Schild)
+**Milestone #08:** basic Sounds
+
+**Milestone #09:** HUD funktioniert
+
+**Milestone #10:** Collectables, radiusbasiertes aufsammeln von Power Ups (Treibstoff, Schild)
+
+**Milestone #11:** Bewegungskarten ermöglichen Bewegung der Spieler
+
+**Zusammenfassung:** Hud und spielergesteuerte Bewegung funktionieren
+
+
 
 ## Ziel
 
+**Milestone #12:** Gamemanager für Runden
+
+**Milestone #13:** Auswahl aus den zufälligen Aktionskarten
+
+**Milestone #14:** Collectables, Waffen sind einsammelbar
+
+**Milestone #15:** Weltraumschrott mit Kollision und Abbremsung des Raumschiffes
+
+**Milestone #16:** Minen ablegen und radiusbasierte Auslösung
+
+**Milestone #17:** Raketen abschießen und explodieren
+
+**Milestone #18:** EMP - Granate ablegen und zeitbasierte Auslösung
+
+**Milestone #19:** Hintergrund-Musik 
+
+**Milestone #20:**  basic Models
+
+**Zusammenfassung:** Rundenbasiertes Spiel 
+
 ## Wunschziel
 
-Wurmloch
+**Milestone #21:** Monde sind im Orbit der Planeten
+
+**Milestone #22:** Sonne mit radiusbasiertem Schaden
+
+**Milestone #23:** Wurmlöcher
+
+**Milestone #24:** bewaffnete Raumstation/Sateliten im Orbit 
+
+**Milestone #25:** optimierte Sounds
+
+**Milestone #26:**  optimierte Models
 
 ## Extras
 
+**Milestone #27:** Multiplayer(online)
 
+**Milestone #28:** Speichern des Spiels
+
+**Milestone #29:** Custom Maps 
 
 # Teamaufteilung
 
