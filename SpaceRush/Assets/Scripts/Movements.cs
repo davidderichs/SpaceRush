@@ -42,8 +42,6 @@ public class Movements : MonoBehaviour {
 		 // 90° wende nach Links
 		 if (Input.GetKeyDown(KeyCode.G)){
 			 spaceCraft.AddBoost(SpaceCraftControl.Booster.RIGHT, bdir);
-			 
-			 spaceCraft.AddBoost(SpaceCraftControl.Booster.LEFT, bdir);
 		 }
 	}
 

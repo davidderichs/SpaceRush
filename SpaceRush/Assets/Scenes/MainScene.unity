@@ -153,11 +153,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: cdcf3615a15843f4daee8bed0f784e28, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -259
+      value: -182
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cdcf3615a15843f4daee8bed0f784e28, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cdcf3615a15843f4daee8bed0f784e28, type: 3}
       propertyPath: m_LocalPosition.z
@@ -195,6 +195,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: cdcf3615a15843f4daee8bed0f784e28, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f1b79bf95ffccef40b2502361136a0a1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdcf3615a15843f4daee8bed0f784e28, type: 3}
   m_IsPrefabAsset: 0
@@ -209,6 +213,7 @@ GameObject:
   - component: {fileID: 698685159}
   - component: {fileID: 698685158}
   - component: {fileID: 698685157}
+  - component: {fileID: 698685162}
   - component: {fileID: 698685161}
   m_Layer: 0
   m_Name: Planet
@@ -247,7 +252,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d3e2d9e3c1ffd1643bcd9ffa5e5a71eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -280,25 +285,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 698685156}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.86602545, z: 0, w: 0.49999994}
   m_LocalPosition: {x: -370.52524, y: 2.7608805, z: 60.97351}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 330417191}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 120, z: 0}
 --- !u!114 &698685161
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 698685156}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3769d15f3e851c41be72934c0d2a4aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attracted: 0
+--- !u!50 &698685162
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 698685156}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1034148214
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,6 +476,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1425206473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1425206465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3769d15f3e851c41be72934c0d2a4aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attracted: 1
 --- !u!1 &1930229495
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +499,7 @@ GameObject:
   - component: {fileID: 1930229499}
   - component: {fileID: 1930229498}
   - component: {fileID: 1930229497}
+  - component: {fileID: 1930229501}
   - component: {fileID: 1930229500}
   m_Layer: 0
   m_Name: Planet
@@ -513,7 +551,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d3e2d9e3c1ffd1643bcd9ffa5e5a71eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -546,12 +584,32 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1930229495}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3769d15f3e851c41be72934c0d2a4aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attracted: 0
+--- !u!50 &1930229501
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1930229495}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2005829998
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,6 +698,7 @@ GameObject:
   - component: {fileID: 2135968123}
   - component: {fileID: 2135968122}
   - component: {fileID: 2135968121}
+  - component: {fileID: 2135968125}
   - component: {fileID: 2135968124}
   m_Layer: 0
   m_Name: Planet
@@ -654,13 +713,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2135968119}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.9914449, y: 0, z: 0, w: 0.13052626}
   m_LocalPosition: {x: 315.67477, y: -90.03912, z: 60.97351}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 330417191}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 165, y: 0, z: 0}
 --- !u!58 &2135968121
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -691,7 +750,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d3e2d9e3c1ffd1643bcd9ffa5e5a71eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -730,3 +789,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attracted: 0
+--- !u!50 &2135968125
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2135968119}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
