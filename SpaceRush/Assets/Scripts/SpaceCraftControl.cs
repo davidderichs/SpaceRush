@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SpaceCraftControl : MonoBehaviour
 {
-    public enum Booster { FORWARD, BACKWARD, LEFT, RIGHT };
-
+     public enum Booster { FORWARD, BACKWARD, LEFT, RIGHT };
+   
     private Rigidbody2D rb;
     public float boostForwardForce = 10;
     public float boostBackwardForce = 10;
