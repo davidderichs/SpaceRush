@@ -9,6 +9,8 @@ public class Player : MonoBehaviour {
     private int cards;
     private int fuel; 
 
+    public SpaceCraftControl space;
+
     // Only for Debug/Testing
      private Movements movements;
 
