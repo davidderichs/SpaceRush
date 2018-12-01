@@ -352,7 +352,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.94596183, g: 0.9528302, b: 0.78653437, a: 1}
   m_Intensity: 5
   m_Range: 500
   m_SpotAngle: 30
@@ -731,6 +731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pl1: {fileID: 21420403}
+  pl2: {fileID: 0}
 --- !u!4 &1727859188
 Transform:
   m_ObjectHideFlags: 0
