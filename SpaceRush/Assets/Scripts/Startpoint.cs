@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
-	public Player pl1;
-	public Player pl2;
+public class Startpoint : MonoBehaviour {
+	
 
 
 	// Use this for initialization
