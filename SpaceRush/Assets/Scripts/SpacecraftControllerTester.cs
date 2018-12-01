@@ -15,8 +15,8 @@ public class SpacecraftControllerTester : MonoBehaviour
         timer = 0;
         spacecraftManeuvers = new ArrayList();
 
-        spacecraftManeuvers.Add(new SpacecraftManeuverAction("forwards", 2, 2, this));
-        spacecraftManeuvers.Add(new SpacecraftManeuverAction("backwards", 6, 2, this));
+        spacecraftManeuvers.Add(new SpacecraftManeuverAction("forwards", 1, 3, this));
+        spacecraftManeuvers.Add(new SpacecraftManeuverAction("backwards", 6, 3, this));
         spacecraftManeuvers.Add(new SpacecraftManeuverAction("backwards", 12, 4, this));
         spacecraftManeuvers.Add(new SpacecraftManeuverAction("forwards", 18, 4, this));
 
