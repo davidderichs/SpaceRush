@@ -25,6 +25,12 @@ public class Movements : MonoBehaviour {
 		 if (Input.GetKeyDown(KeyCode.D)){
 			 spacecraft.Rotate(4,SpacecraftController.Direction.Right);
 		 }
+		 if (Input.GetKeyDown(KeyCode.Q)){
+			 spacecraft.Rotate(2,SpacecraftController.Direction.Left);
+		 }
+		 if (Input.GetKeyDown(KeyCode.E)){
+			 spacecraft.Rotate(2,SpacecraftController.Direction.Right);
+		 }
 	}
 
 }
