@@ -39,12 +39,18 @@ public class SpacecraftController : MonoBehaviour
             if (rotationDirection == Direction.Left)
             {
                 transform.Rotate(new Vector3(0, 0, angularSpeed * fac));
-                rb.velocity = transform.right * rb.velocity.magnitude;
             }
-            else if (rotationDirection == Direction.Right)
+            else
             {
                 transform.Rotate(new Vector3(0, 0, -angularSpeed * fac));
+            }
+            if (rb.velocity.x >= 0)
+            {
                 rb.velocity = transform.right * rb.velocity.magnitude;
+            }
+            else
+            {
+                rb.velocity = transform.right * -rb.velocity.magnitude;
             }
         }
 
