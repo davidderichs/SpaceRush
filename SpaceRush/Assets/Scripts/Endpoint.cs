@@ -9,12 +9,11 @@ public class Endpoint : MonoBehaviour {
 	void Start () {
 		position = transform.position;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 	void OnTriggerEnter(Collider other)
+    {
+            Debug.Log("entered");
+    }
+	void OnTriggerStay(Collider other)
     {
             Debug.Log("entered");
     }

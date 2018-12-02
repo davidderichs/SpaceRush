@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 342648827}
-  m_IndirectSpecularColor: {r: 0.006280071, g: 0.016688023, b: 0.033383653, a: 1}
+  m_IndirectSpecularColor: {r: 0.006280071, g: 0.016688026, b: 0.033383656, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -673,15 +673,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 851456798}
-  - component: {fileID: 851456797}
   - component: {fileID: 851456796}
   - component: {fileID: 851456799}
+  - component: {fileID: 851456797}
   m_Layer: 0
   m_Name: Endpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!108 &851456796
 Light:
@@ -739,7 +739,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 851456795}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 184, y: -21.077162, z: 0}
+  m_LocalPosition: {x: 220, y: -15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -768,7 +768,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10, y: 10}
+  m_Size: {x: 30, y: 30}
   m_EdgeRadius: 0
 --- !u!1 &1425206465 stripped
 GameObject:
@@ -884,7 +884,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1575798105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -254, y: 47, z: -300}
+  m_LocalPosition: {x: -254, y: 47, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 342648826}
