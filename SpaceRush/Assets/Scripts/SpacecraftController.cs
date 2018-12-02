@@ -44,7 +44,9 @@ public class SpacecraftController : MonoBehaviour
             {
                 transform.Rotate(new Vector3(0, 0, -angularSpeed * fac));
             }
-            if (rb.velocity.x >= 0)
+
+            float dot = Vector2.Dot(transform.right.normalized, rb.velocity.normalized);
+            if (dot >= 0)
             {
                 rb.velocity = transform.right * rb.velocity.magnitude;
             }
