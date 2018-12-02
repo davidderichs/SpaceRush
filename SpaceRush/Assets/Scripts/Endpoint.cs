@@ -14,7 +14,7 @@ public class Endpoint : MonoBehaviour {
 	void Update () {
 		
 	}
-	private void OnTriggerEnter()
+	void OnTriggerEnter(Collider other)
     {
             Debug.Log("entered");
     }
