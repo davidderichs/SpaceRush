@@ -36,7 +36,7 @@ public class Orbiter : MonoBehaviour
         float value = timeQuotient / orbitTime * 2 * Mathf.PI;
         float newX = Mathf.Cos(value) * maxDistance;
         float newY = Mathf.Sin(value) * minDistance;
-        Vector2 newPosition = Vector2Extensions.Rotate(new Vector2(newX, newY), ellipseRotation) + new Vector2(offsetX, offsetY);
+        Vector2 newPosition = Vector2Extensions.Rotate(new Vector2(newX, newY), (ellipseRotation * Mathf.Deg2Rad)) + new Vector2(offsetX, offsetY);
         transform.position = parent.transform.position + new Vector3(newPosition.x, newPosition.y, 0);
     }
 }

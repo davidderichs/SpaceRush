@@ -318,12 +318,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 698685156}
-  minDistance: 100
-  maxDistance: 100
-  orbitTime: 10
-  ellipseRotation: 0
-  offsetX: 0
-  offsetY: 0
+  minDistance: 180
+  maxDistance: 200
+  orbitTime: 20
+  ellipseRotation: 10
+  offsetX: 20
+  offsetY: 10
   clockwise: 0
 --- !u!58 &235879789
 CircleCollider2D:
@@ -351,7 +351,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -628,7 +628,7 @@ Transform:
   m_GameObject: {fileID: 698685156}
   m_LocalRotation: {x: -0, y: 0.86602545, z: -0, w: 0.49999994}
   m_LocalPosition: {x: -357.1, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 150, y: 150, z: 150}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -656,7 +656,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000
+  m_Mass: 15000
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -870,7 +870,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1575798110}
-  - component: {fileID: 1575798106}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -878,21 +877,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &1575798106
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1575798105}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!4 &1575798110
 Transform:
   m_ObjectHideFlags: 0
@@ -1086,7 +1070,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1930229495}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -61.299995, y: 97.8, z: 0}
+  m_LocalPosition: {x: 51, y: 117, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1172,7 +1156,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000
+  m_Mass: 10000
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -1298,8 +1282,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2135968119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 329.1, y: -92.8, z: 0}
-  m_LocalScale: {x: 100, y: 100.000046, z: 100.000046}
+  m_LocalPosition: {x: 383, y: -56, z: 0}
+  m_LocalScale: {x: 120, y: 120, z: 120}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1384,7 +1368,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000
+  m_Mass: 12000
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
