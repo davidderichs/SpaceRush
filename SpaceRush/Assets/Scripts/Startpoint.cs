@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Startpoint : MonoBehaviour {
-	
+	public Vector3 position;
 
 
 	// Use this for initialization
 	void Start () {
-		
+		position = transform.position;
 	}
 	
 	// Update is called once per frame

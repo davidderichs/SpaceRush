@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
     private int cards;
     private int fuel; 
 
-    public SpaceCraftControl space;
+    public GameObject space;
 
     // Only for Debug/Testing
      private Movements movements;
@@ -40,6 +40,11 @@ public class Player : MonoBehaviour {
     }
     void fuelChange(int change){
         fuel = fuel + change;
+    }
+
+    Vector2 getPosition(){
+        Vector3 pos = space.transform.position;
+        return new Vector2(pos.x, pos.y);
     }
 
 }
