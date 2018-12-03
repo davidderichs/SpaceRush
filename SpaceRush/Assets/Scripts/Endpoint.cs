@@ -6,15 +6,12 @@ public class Endpoint : MonoBehaviour {
 	public Vector3 position;
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
 		position = transform.position;
 	}
 	void OnTriggerEnter(Collider other)
     {
-            Debug.Log("entered");
-    }
-	void OnTriggerStay(Collider other)
-    {
-            Debug.Log("entered");
+		Light point = GetComponent<Light>();
+		point.color = Color.green;
     }
 }
