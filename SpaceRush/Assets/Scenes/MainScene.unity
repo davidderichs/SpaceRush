@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 235879790}
   - component: {fileID: 235879789}
   - component: {fileID: 235879788}
+  - component: {fileID: 235879794}
   m_Layer: 0
   m_Name: moon_moon
   m_TagString: Untagged
@@ -408,13 +409,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 235879787}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -354, y: 135, z: 0}
   m_LocalScale: {x: 25, y: 25, z: 25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &235879794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 235879787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde8c82e9705849c6b3615a78b92a16b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullRotationTime: 60
 --- !u!1 &342648825
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +569,7 @@ GameObject:
   - component: {fileID: 698685157}
   - component: {fileID: 698685162}
   - component: {fileID: 698685161}
+  - component: {fileID: 698685163}
   m_Layer: 0
   m_Name: planet_makemake
   m_TagString: Untagged
@@ -626,13 +640,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 698685156}
-  m_LocalRotation: {x: -0, y: 0.86602545, z: -0, w: 0.49999994}
+  m_LocalRotation: {x: -0, y: -0, z: 0.24916397, w: 0.96846133}
   m_LocalPosition: {x: -357.1, y: 0, z: 0}
   m_LocalScale: {x: 150, y: 150, z: 150}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 120, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 28.856}
 --- !u!114 &698685161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,6 +679,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 3
+--- !u!114 &698685163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 698685156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde8c82e9705849c6b3615a78b92a16b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullRotationTime: 360
 --- !u!1 &851456795
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,7 +907,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1575798105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -254, y: 47, z: -500}
+  m_LocalPosition: {x: 198, y: 47, z: -500}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 342648826}
@@ -1053,6 +1079,7 @@ GameObject:
   - component: {fileID: 1930229497}
   - component: {fileID: 1930229501}
   - component: {fileID: 1930229500}
+  - component: {fileID: 1930229502}
   m_Layer: 0
   m_Name: planet_mars
   m_TagString: Untagged
@@ -1066,13 +1093,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1930229495}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.13356233, w: 0.99104047}
   m_LocalPosition: {x: 51, y: 117, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15.351001}
 --- !u!58 &1930229497
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1162,6 +1189,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 3
+--- !u!114 &1930229502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1930229495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde8c82e9705849c6b3615a78b92a16b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullRotationTime: 240
 --- !u!1 &2005829998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,6 +1304,7 @@ GameObject:
   - component: {fileID: 2135968121}
   - component: {fileID: 2135968125}
   - component: {fileID: 2135968124}
+  - component: {fileID: 2135968126}
   m_Layer: 0
   m_Name: planet_venus
   m_TagString: Untagged
@@ -1278,13 +1318,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2135968119}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 383, y: -56, z: 0}
-  m_LocalScale: {x: 120, y: 120, z: 120}
+  m_LocalRotation: {x: -0.17612854, y: 0.044844117, z: -0.24262881, w: 0.9529423}
+  m_LocalPosition: {x: 386, y: -95, z: 0}
+  m_LocalScale: {x: 180, y: 180, z: 180}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -18.296001, y: 10.372001, z: -30.244001}
 --- !u!58 &2135968121
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1365,7 +1405,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 12000
+  m_Mass: 18000
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -1374,3 +1414,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 3
+--- !u!114 &2135968126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2135968119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde8c82e9705849c6b3615a78b92a16b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullRotationTime: 240
