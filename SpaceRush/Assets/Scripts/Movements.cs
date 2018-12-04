@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Movements : MonoBehaviour
 {
-    public SpacecraftController spacecraft;
+    private SpacecraftController spacecraft;
 
 
     // Use this for initialization
-    void Start()
+    void OnEnable()
     {
-
+        spacecraft = GetComponent<SpacecraftController>();
     }
 
     // Update is called once per frame

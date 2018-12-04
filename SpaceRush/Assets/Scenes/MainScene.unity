@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 342648827}
-  m_IndirectSpecularColor: {r: 0.006280071, g: 0.016688023, b: 0.033383653, a: 1}
+  m_IndirectSpecularColor: {r: 0.006280071, g: 0.016688026, b: 0.033383656, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7dba42975b2e56408b40572fdeb3c1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerId: 1
   space: {fileID: 1425206465}
 --- !u!4 &21420404
 Transform:
@@ -503,7 +504,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: cdcf3615a15843f4daee8bed0f784e28, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -194.4
+      value: -178
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cdcf3615a15843f4daee8bed0f784e28, type: 3}
       propertyPath: m_LocalPosition.y
@@ -701,7 +702,7 @@ GameObject:
   - component: {fileID: 851456798}
   - component: {fileID: 851456796}
   - component: {fileID: 851456799}
-  - component: {fileID: 851456797}
+  - component: {fileID: 851456800}
   m_Layer: 0
   m_Name: Endpoint
   m_TagString: Untagged
@@ -746,18 +747,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &851456797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 851456795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c830eaf67f2948d41b94ba73abaf2949, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 0, y: 0, z: 0}
 --- !u!4 &851456798
 Transform:
   m_ObjectHideFlags: 0
@@ -765,7 +754,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 851456795}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 220, y: -15, z: 0}
+  m_LocalPosition: {x: -58, y: -15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -786,6 +775,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 20
+--- !u!114 &851456800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 851456795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4575bfe4d7c55e4c8fbb6a3e5828bcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  game: {fileID: 0}
 --- !u!1 &1425206465 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: cdcf3615a15843f4daee8bed0f784e28,
@@ -799,10 +801,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1425206465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ded8197bb0134743947816206dd1a74, type: 3}
+  m_Script: {fileID: 11500000, guid: 8fc8387b91a7bc141917d8c2d66c7681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spacecraft: {fileID: 1425206474}
+  play: {fileID: 21420403}
 --- !u!60 &1425206468
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -871,20 +873,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attracted: 1
---- !u!114 &1425206474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1425206465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25a707bce25a4094e8c3fbffb397b2ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boostForwardsForce: 200
-  boostBackwardsForce: 200
-  angularSpeed: 20
 --- !u!1 &1575798105
 GameObject:
   m_ObjectHideFlags: 0

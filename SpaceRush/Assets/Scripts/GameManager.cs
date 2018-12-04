@@ -10,11 +10,6 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		pl1.space.transform.position = start.position;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-         
-	}
 	public void checkpointTriggered(int id, Player player){
 
 	}

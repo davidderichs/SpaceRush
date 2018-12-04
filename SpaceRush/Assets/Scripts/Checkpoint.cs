@@ -13,8 +13,9 @@ public class Checkpoint : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		GameObject gameObject = other.gameObject;
-		Debug.Log(gameObject.name);
+		if (other.gameObject.tag == "MyGameObjectTag"){
+
+		}
 		//game.checkpointTriggered(id, );
 	}
 }
