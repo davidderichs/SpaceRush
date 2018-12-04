@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
     //Attributes for Players
+    public int playerId;
     private int lives;
     private int shields;
     private int cards;

@@ -15,5 +15,7 @@ public class GameManager : MonoBehaviour {
 	void Update () {
          
 	}
+	public void checkpointTriggered(int id, Player player){
 
+	}
 }
