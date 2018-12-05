@@ -104,4 +104,4 @@
     Erster Entwurf in Szene gespeichert <tt>Assets/Scenes/HUDScene</tt>
 </p>
 
-![HUD](images\Progress\05-Dez-2018\HUD.JPG)
+![HUD](images/Progress/05-Dez-2018/HUD.JPG)
