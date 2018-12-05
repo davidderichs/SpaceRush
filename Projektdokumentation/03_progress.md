@@ -99,9 +99,10 @@
 	herauszufinden, dass man die Bilder von Unity als Sprite für UI einlesen lassen muss, 
 	sonst wurde nichts dargestellt.</i>
 </p>
+
 ### Erstentwurf
+
 <p>
     Erster Entwurf in Szene gespeichert <tt>Assets/Scenes/HUDScene</tt>
 </p>
-
-![HUD](images/Progress/05-Dez-2018/HUD.JPG)
+![HUD](images\Progress\05-Dez-2018\HUD.JPG)
