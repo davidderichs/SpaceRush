@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     private int shields;
     private int cards;
     private int fuel; 
+    public List<int> check;
 
     public GameObject space;
 
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour {
         shields = 0;
         cards = 10;
         fuel = 5;
+        check = new List<int>();
 	}
 	
 	// Update is called once per frame
@@ -46,6 +48,9 @@ public class Player : MonoBehaviour {
     Vector2 getPosition(){
         Vector3 pos = space.transform.position;
         return new Vector2(pos.x, pos.y);
+    }
+    public void addCheckpoint(int checkpoint){
+        check.Add(checkpoint); 
     }
 
 }
