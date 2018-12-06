@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
 	}
 	void Update(){
 		if (pl1.check.Count == 4){
-			// Win Condition
+			Debug.Log("Player 1 Win");
 		}
 	}
 
