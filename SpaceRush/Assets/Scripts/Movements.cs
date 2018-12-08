@@ -18,19 +18,19 @@ public class Movements : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            spacecraft.BoostForwards(1);
+            spacecraft.BoostForwards(100);
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            spacecraft.BoostBackwards(1);
+            spacecraft.BoostBackwards(100);
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            spacecraft.Rotate(1, SpacecraftController.Direction.Left);
+            spacecraft.Rotate(100, SpacecraftController.Direction.Left);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            spacecraft.Rotate(1, SpacecraftController.Direction.Right);
+            spacecraft.Rotate(100, SpacecraftController.Direction.Right);
         }
     }
 
