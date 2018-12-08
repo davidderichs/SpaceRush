@@ -17,7 +17,7 @@ public class HUD_Live_Indicator : HUD_Component_Template {
 	}
 	
 	override public void initColors(){
-		this.color_active = new Color32(255, 23, 0, 255);
-		this.color_inactive = new Color32(204, 32, 1, 109);
+		this.color_active = new Color32(0, 203, 34, 255);
+		this.color_inactive = new Color32(0, 246, 27, 59);
 	}
 }
