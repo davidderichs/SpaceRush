@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HUD_Live_Indicator : HUD_Component_Template {
+public class HUD_Main_Fuel_Indicator : HUD_Component_Template {
 
 	override public void Awake (){
-		Debug.Log("Initializing HUD_Live_Indicator");
+		Debug.Log("Initializing HUD_Fuel_Indicator");
 		this.initColors();
-		this.maxValue = 10;
+		this.maxValue = 5;
 		this.item_List = new List<KeyValuePair<int, GameObject>>();
-		this.itemNameClass = "HUD_Live_Item_";
-		this.useSprite = false;
-		this.spritePath = "";
+		this.itemNameClass = "HUD_Main_Fuel_Item_";
+		this.useSprite = true;
+		this.spritePath = "Sprites/TankIndicator_Item_Image";
 		this.initItems();
 	}
 	

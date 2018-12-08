@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Space
+  - HUD
+  - space
+  - HUD_Live_Indicator
+  - HUD_Main_Fuel_Indicator
   layers:
   - Default
   - TransparentFX

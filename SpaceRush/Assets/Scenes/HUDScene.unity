@@ -157,7 +157,6 @@ GameObject:
   m_Component:
   - component: {fileID: 17236034}
   - component: {fileID: 17236036}
-  - component: {fileID: 17236035}
   m_Layer: 5
   m_Name: HUD_Live_Item_7
   m_TagString: Untagged
@@ -183,33 +182,6 @@ RectTransform:
   m_AnchoredPosition: {x: -2.9999752, y: 23.2}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &17236035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 17236033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.24214028, g: 0.6603774, b: 0.21493416, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &17236036
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -245,8 +217,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerId: 1
+  lives: 0
+  shields: 0
+  cards: 0
+  main_fuel: 0
+  add_fuel: 0
   check: 
   space: {fileID: 1425206465}
+  hud: {fileID: 0}
 --- !u!4 &21420404
 Transform:
   m_ObjectHideFlags: 0
@@ -604,9 +582,8 @@ GameObject:
   m_Component:
   - component: {fileID: 150161854}
   - component: {fileID: 150161856}
-  - component: {fileID: 150161855}
   m_Layer: 5
-  m_Name: HUD_Tank_Item_3
+  m_Name: HUD_Main_Fuel_Item_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -630,33 +607,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000024795532, y: -8.7}
   m_SizeDelta: {x: 90, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &150161855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 150161853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.09031585, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7cae3711984d6d242a9d2de18b895191, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &150161856
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -673,7 +623,6 @@ GameObject:
   m_Component:
   - component: {fileID: 205722626}
   - component: {fileID: 205722628}
-  - component: {fileID: 205722627}
   m_Layer: 5
   m_Name: HUD_Live_Item_9
   m_TagString: Untagged
@@ -699,33 +648,6 @@ RectTransform:
   m_AnchoredPosition: {x: -3, y: 67}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &205722627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 205722625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.24214028, g: 0.6603774, b: 0.21493416, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &205722628
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1020,9 +942,10 @@ GameObject:
   - component: {fileID: 268261624}
   - component: {fileID: 268261626}
   - component: {fileID: 268261625}
+  - component: {fileID: 268261627}
   m_Layer: 5
   m_Name: HUD_Live_Indicator
-  m_TagString: Untagged
+  m_TagString: HUD_Live_Indicator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1089,6 +1012,23 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 268261623}
   m_CullTransparentMesh: 0
+--- !u!114 &268261627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 268261623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0820ff4e3549a4c8295dac937aa9eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color_active: {r: 0, g: 0, b: 0, a: 0}
+  color_inactive: {r: 0, g: 0, b: 0, a: 0}
+  itemNameClass: 
+  maxValue: 0
+  useSprite: 0
+  spritePath: 
 --- !u!1 &304362960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,9 +1038,8 @@ GameObject:
   m_Component:
   - component: {fileID: 304362961}
   - component: {fileID: 304362963}
-  - component: {fileID: 304362962}
   m_Layer: 5
-  m_Name: HUD_Tank_Item_4
+  m_Name: HUD_Main_Fuel_Item_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1124,33 +1063,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000024795532, y: -41.7}
   m_SizeDelta: {x: 90, y: 34.3}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &304362962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 304362960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.09031585, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7cae3711984d6d242a9d2de18b895191, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &304362963
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1233,7 +1145,6 @@ GameObject:
   m_Component:
   - component: {fileID: 343109923}
   - component: {fileID: 343109925}
-  - component: {fileID: 343109924}
   m_Layer: 5
   m_Name: HUD_Shield_Item_5
   m_TagString: Untagged
@@ -1259,33 +1170,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000024795532, y: -16.599995}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &343109924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 343109922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.21306513, g: 0.6309343, b: 0.7924528, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &343109925
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1371,7 +1255,6 @@ GameObject:
   m_Component:
   - component: {fileID: 379917701}
   - component: {fileID: 379917703}
-  - component: {fileID: 379917702}
   m_Layer: 5
   m_Name: HUD_Shield_Item_9
   m_TagString: Untagged
@@ -1397,33 +1280,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000024795532, y: 68.600006}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &379917702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 379917700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.21306513, g: 0.6309343, b: 0.7924528, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &379917703
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1440,9 +1296,8 @@ GameObject:
   m_Component:
   - component: {fileID: 409748568}
   - component: {fileID: 409748570}
-  - component: {fileID: 409748569}
   m_Layer: 5
-  m_Name: HUD_Additional_Tank_Item_5 (1)
+  m_Name: HUD_Add_Fuel_Item_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1466,33 +1321,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.2, y: -74.6}
   m_SizeDelta: {x: 90, y: 37.7}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &409748569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 409748567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.033775367, g: 0.37628174, b: 0.6509434, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7cae3711984d6d242a9d2de18b895191, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &409748570
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1710,8 +1538,9 @@ GameObject:
   - component: {fileID: 637404028}
   - component: {fileID: 637404030}
   - component: {fileID: 637404029}
+  - component: {fileID: 637404031}
   m_Layer: 5
-  m_Name: HUD_Additional_Tank_Indicator
+  m_Name: HUD_Additional_Fuel_Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1774,6 +1603,23 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 637404027}
   m_CullTransparentMesh: 0
+--- !u!114 &637404031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 637404027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8193795e9c6f7b44ca9d7cdecbf1c86a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color_active: {r: 0, g: 0, b: 0, a: 0}
+  color_inactive: {r: 0, g: 0, b: 0, a: 0}
+  itemNameClass: 
+  maxValue: 0
+  useSprite: 0
+  spritePath: 
 --- !u!1 &693322000
 GameObject:
   m_ObjectHideFlags: 0
@@ -1987,7 +1833,6 @@ GameObject:
   m_Component:
   - component: {fileID: 709122268}
   - component: {fileID: 709122270}
-  - component: {fileID: 709122269}
   m_Layer: 5
   m_Name: HUD_Shield_Item_6
   m_TagString: Untagged
@@ -2013,33 +1858,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000024795532, y: 3.100006}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &709122269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 709122267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.21306513, g: 0.6309343, b: 0.7924528, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &709122270
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2056,7 +1874,6 @@ GameObject:
   m_Component:
   - component: {fileID: 713695186}
   - component: {fileID: 713695188}
-  - component: {fileID: 713695187}
   m_Layer: 5
   m_Name: HUD_Live_Item_10
   m_TagString: Untagged
@@ -2082,33 +1899,6 @@ RectTransform:
   m_AnchoredPosition: {x: -2.9999752, y: 87.4}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &713695187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 713695185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.24214028, g: 0.6603774, b: 0.21493416, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &713695188
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2194,7 +1984,6 @@ GameObject:
   m_Component:
   - component: {fileID: 819964731}
   - component: {fileID: 819964733}
-  - component: {fileID: 819964732}
   m_Layer: 5
   m_Name: HUD_Shield_Item_1
   m_TagString: Untagged
@@ -2220,33 +2009,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000024795532, y: -92.52}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &819964732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 819964730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.21306513, g: 0.6309343, b: 0.7924528, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &819964733
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2497,9 +2259,8 @@ GameObject:
   m_Component:
   - component: {fileID: 894821147}
   - component: {fileID: 894821149}
-  - component: {fileID: 894821148}
   m_Layer: 5
-  m_Name: HUD_Additional_Tank_Item_2 (1)
+  m_Name: HUD_Add_Fuel_Item_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2523,33 +2284,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.2000122, y: 25.2}
   m_SizeDelta: {x: 90, y: 40.6}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &894821148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 894821146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.033775367, g: 0.37628174, b: 0.6509434, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7cae3711984d6d242a9d2de18b895191, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &894821149
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2566,7 +2300,6 @@ GameObject:
   m_Component:
   - component: {fileID: 921272439}
   - component: {fileID: 921272441}
-  - component: {fileID: 921272440}
   m_Layer: 5
   m_Name: HUD_Shield_Item_10
   m_TagString: Untagged
@@ -2592,33 +2325,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 89}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &921272440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 921272438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.21306513, g: 0.6309343, b: 0.7924528, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &921272441
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2635,7 +2341,6 @@ GameObject:
   m_Component:
   - component: {fileID: 924853028}
   - component: {fileID: 924853030}
-  - component: {fileID: 924853029}
   m_Layer: 5
   m_Name: HUD_Shield_Item_3
   m_TagString: Untagged
@@ -2661,33 +2366,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000024795532, y: -54.819992}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &924853029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 924853027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.21306513, g: 0.6309343, b: 0.7924528, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &924853030
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2704,9 +2382,8 @@ GameObject:
   m_Component:
   - component: {fileID: 955311352}
   - component: {fileID: 955311354}
-  - component: {fileID: 955311353}
   m_Layer: 5
-  m_Name: HUD_Tank_Item_5
+  m_Name: HUD_Main_Fuel_Item_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2730,33 +2407,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000024795532, y: -72.9}
   m_SizeDelta: {x: 90, y: 32.1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &955311353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 955311351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.09031585, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7cae3711984d6d242a9d2de18b895191, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &955311354
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2777,8 +2427,8 @@ GameObject:
   - component: {fileID: 994303714}
   - component: {fileID: 994303718}
   m_Layer: 5
-  m_Name: HUD_Canvas
-  m_TagString: Untagged
+  m_Name: HUD
+  m_TagString: HUD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2877,6 +2527,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9c4485745f00e44b7d94f0171296d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  live: {fileID: 0}
+  main_fuel: {fileID: 0}
+  add_fuel: {fileID: 0}
 --- !u!1 &1017869795
 GameObject:
   m_ObjectHideFlags: 0
@@ -2961,7 +2614,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1059727261}
   - component: {fileID: 1059727263}
-  - component: {fileID: 1059727262}
   m_Layer: 5
   m_Name: HUD_Shield_Item_2
   m_TagString: Untagged
@@ -2987,33 +2639,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000024795532, y: -73.63999}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1059727262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1059727260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.21306513, g: 0.6309343, b: 0.7924528, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1059727263
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3066,9 +2691,10 @@ GameObject:
   - component: {fileID: 1102982421}
   - component: {fileID: 1102982423}
   - component: {fileID: 1102982422}
+  - component: {fileID: 1102982424}
   m_Layer: 5
-  m_Name: HUD_Main_Tank_Indicator
-  m_TagString: Untagged
+  m_Name: HUD_Main_Fuel_Indicator
+  m_TagString: HUD_Main_Fuel_Indicator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3130,6 +2756,23 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1102982420}
   m_CullTransparentMesh: 0
+--- !u!114 &1102982424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1102982420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706f1801d0fd23743aacb3a9a1720b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color_active: {r: 0, g: 0, b: 0, a: 0}
+  color_inactive: {r: 0, g: 0, b: 0, a: 0}
+  itemNameClass: 
+  maxValue: 0
+  useSprite: 0
+  spritePath: 
 --- !u!1 &1109127311
 GameObject:
   m_ObjectHideFlags: 0
@@ -3222,7 +2865,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1128569709}
   - component: {fileID: 1128569711}
-  - component: {fileID: 1128569710}
   m_Layer: 5
   m_Name: HUD_Shield_Item_4
   m_TagString: Untagged
@@ -3248,33 +2890,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000024795532, y: -35.949993}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1128569710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1128569708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.21306513, g: 0.6309343, b: 0.7924528, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1128569711
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3366,7 +2981,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1202769760}
   - component: {fileID: 1202769762}
-  - component: {fileID: 1202769761}
   m_Layer: 5
   m_Name: HUD_Live_Item_1
   m_TagString: Untagged
@@ -3392,33 +3006,6 @@ RectTransform:
   m_AnchoredPosition: {x: -2.9999752, y: -94.12}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1202769761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1202769759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.24214028, g: 0.6603774, b: 0.21493416, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1202769762
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3573,9 +3160,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1299156536}
   - component: {fileID: 1299156538}
-  - component: {fileID: 1299156537}
   m_Layer: 5
-  m_Name: HUD_Tank_Item_2
+  m_Name: HUD_Main_Fuel_Item_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3599,33 +3185,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 26.1}
   m_SizeDelta: {x: 90, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1299156537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1299156535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.09031585, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7cae3711984d6d242a9d2de18b895191, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1299156538
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3728,9 +3287,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1340167964}
   - component: {fileID: 1340167966}
-  - component: {fileID: 1340167965}
   m_Layer: 5
-  m_Name: HUD_Additional_Tank_Item_1 (1)
+  m_Name: HUD_Add_Fuel_Item_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3754,33 +3312,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.2000122, y: 59.4}
   m_SizeDelta: {x: 90, y: 37.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1340167965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1340167963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.033775367, g: 0.37628174, b: 0.6509434, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7cae3711984d6d242a9d2de18b895191, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1340167966
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3797,7 +3328,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1356109960}
   - component: {fileID: 1356109962}
-  - component: {fileID: 1356109961}
   m_Layer: 5
   m_Name: HUD_Shield_Item_7
   m_TagString: Untagged
@@ -3823,33 +3353,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000024795532, y: 24.800007}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1356109961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1356109959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.21306513, g: 0.6309343, b: 0.7924528, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1356109962
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3866,9 +3369,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1384426589}
   - component: {fileID: 1384426591}
-  - component: {fileID: 1384426590}
   m_Layer: 5
-  m_Name: HUD_Additional_Tank_Item_4 (1)
+  m_Name: HUD_Add_Fuel_Item_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3892,33 +3394,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.2000122, y: -41.6}
   m_SizeDelta: {x: 90, y: 36.3}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1384426590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1384426588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.033775367, g: 0.37628174, b: 0.6509434, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7cae3711984d6d242a9d2de18b895191, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1384426591
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4138,7 +3613,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1439939269}
   - component: {fileID: 1439939271}
-  - component: {fileID: 1439939270}
   m_Layer: 5
   m_Name: HUD_Live_Item_4
   m_TagString: Untagged
@@ -4164,33 +3638,6 @@ RectTransform:
   m_AnchoredPosition: {x: -2.9999752, y: -37.55}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1439939270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1439939268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.24214028, g: 0.6603774, b: 0.21493416, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1439939271
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4277,6 +3724,7 @@ GameObject:
   - component: {fileID: 1462229431}
   - component: {fileID: 1462229433}
   - component: {fileID: 1462229432}
+  - component: {fileID: 1462229434}
   m_Layer: 5
   m_Name: HUD_Shield_Indicator
   m_TagString: Untagged
@@ -4346,6 +3794,23 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1462229430}
   m_CullTransparentMesh: 0
+--- !u!114 &1462229434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1462229430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d0ba042348eb84aa9c28bfeb878a69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color_active: {r: 0, g: 0, b: 0, a: 0}
+  color_inactive: {r: 0, g: 0, b: 0, a: 0}
+  itemNameClass: 
+  maxValue: 0
+  useSprite: 0
+  spritePath: 
 --- !u!1 &1473096531
 GameObject:
   m_ObjectHideFlags: 0
@@ -4355,7 +3820,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1473096532}
   - component: {fileID: 1473096534}
-  - component: {fileID: 1473096533}
   m_Layer: 5
   m_Name: HUD_Live_Item_8
   m_TagString: Untagged
@@ -4381,33 +3845,6 @@ RectTransform:
   m_AnchoredPosition: {x: -2.9999752, y: 44.4}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1473096533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1473096531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.24214028, g: 0.6603774, b: 0.21493416, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1473096534
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4424,7 +3861,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1489763159}
   - component: {fileID: 1489763161}
-  - component: {fileID: 1489763160}
   m_Layer: 5
   m_Name: HUD_Live_Item_2
   m_TagString: Untagged
@@ -4450,33 +3886,6 @@ RectTransform:
   m_AnchoredPosition: {x: -2.9999752, y: -75.24}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1489763160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1489763158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.24214028, g: 0.6603774, b: 0.21493416, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1489763161
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4525,9 +3934,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1610522642}
   - component: {fileID: 1610522644}
-  - component: {fileID: 1610522643}
   m_Layer: 5
-  m_Name: HUD_Additional_Tank_Item_3 (1)
+  m_Name: HUD_Add_Fuel_Item_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4551,33 +3959,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.2000122, y: -7.9}
   m_SizeDelta: {x: 90, y: 37}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1610522643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1610522641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.033775367, g: 0.37628174, b: 0.6509434, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7cae3711984d6d242a9d2de18b895191, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1610522644
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4594,7 +3975,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1629935833}
   - component: {fileID: 1629935835}
-  - component: {fileID: 1629935834}
   m_Layer: 5
   m_Name: HUD_Shield_Item_8
   m_TagString: Untagged
@@ -4620,33 +4000,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000024795532, y: 46.000008}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1629935834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1629935832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.21306513, g: 0.6309343, b: 0.7924528, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1629935835
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5147,7 +4500,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1827646776}
   - component: {fileID: 1827646778}
-  - component: {fileID: 1827646777}
   m_Layer: 5
   m_Name: HUD_Live_Item_3
   m_TagString: Untagged
@@ -5173,33 +4525,6 @@ RectTransform:
   m_AnchoredPosition: {x: -2.9999752, y: -56.42}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1827646777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1827646775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.24214028, g: 0.6603774, b: 0.21493416, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1827646778
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5216,7 +4541,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1870529356}
   - component: {fileID: 1870529358}
-  - component: {fileID: 1870529357}
   m_Layer: 5
   m_Name: HUD_Live_Item_5
   m_TagString: Untagged
@@ -5242,33 +4566,6 @@ RectTransform:
   m_AnchoredPosition: {x: -2.9999752, y: -18.2}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1870529357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1870529355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.24214028, g: 0.6603774, b: 0.21493416, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1870529358
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5489,9 +4786,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1913064498}
   - component: {fileID: 1913064500}
-  - component: {fileID: 1913064499}
   m_Layer: 5
-  m_Name: HUD_Tank_Item_1
+  m_Name: HUD_Main_Fuel_Item_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5513,35 +4809,8 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.000024795532, y: 59.1}
-  m_SizeDelta: {x: 90, y: 38.5}
+  m_SizeDelta: {x: 90, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1913064499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1913064497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.8018868, g: 0.12712435, b: 0.003782494, a: 0.42745098}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7cae3711984d6d242a9d2de18b895191, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1913064500
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5962,7 +5231,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2072634152}
   - component: {fileID: 2072634154}
-  - component: {fileID: 2072634153}
   m_Layer: 5
   m_Name: HUD_Live_Item_6
   m_TagString: Untagged
@@ -5988,33 +5256,6 @@ RectTransform:
   m_AnchoredPosition: {x: -2.9999752, y: 1.5}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2072634153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2072634151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.24214028, g: 0.6603774, b: 0.21493416, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &2072634154
 CanvasRenderer:
   m_ObjectHideFlags: 0
