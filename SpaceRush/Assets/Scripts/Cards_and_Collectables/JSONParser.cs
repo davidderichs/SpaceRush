@@ -10,14 +10,9 @@ public static class JSONParser {
 
 		MoveCards cardList = new MoveCards();
 
-		Debug.Log("Reading File from JSON");
-
-		string filePath = Path.Combine(Application.streamingAssetsPath, "../Resources/JSONFiles/default_Movement_Stack.json");
-
-		Debug.Log("filepath: " + filePath);
+		string filePath = Path.Combine(Application.streamingAssetsPath, "../Resources/JSONFiles/default_Movement_Stack");
 
 		if(File.Exists(filePath)){
-			Debug.Log("file exists");
 
 			string[] objectArray = File.ReadAllLines(filePath);
 			string dataAsJson;
@@ -29,10 +24,8 @@ public static class JSONParser {
 			}	
 
 		} else {
-			Debug.Log("File doesn't exist");
+			Debug.Log("JSON-File doesn't exist");
 		}
-
-		Debug.Log("Created CardList: " + cardList);
 
 		return cardList;
 	}
