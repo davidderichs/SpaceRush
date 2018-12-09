@@ -105,7 +105,7 @@
     Erster Entwurf in Szene gespeichert <tt>Assets/Scenes/HUDScene</tt>
 </p>
 
-![HUD](images/Progress/05-Dez-2018/HUD.JPG)
+![HUD](images/Progress/05-Dez-2018/HUD.JPG) <br><br>
 
 ## 08.12.2018 HUD-Update
 ### Abstrakte Klasse HUD_Component_Template
@@ -207,6 +207,69 @@
     <tt> this.hud.shield.set_ActiveItemsColor(this.shields);</tt> 
 </p>
 
-### HUD aktueller Stand 08.12.2018
+### HUD Screenshots
 
 ![HUD](images/Progress/08-Dez-2018/HUD.JPG)
+<p><br><br></p>
+
+## 09.12.2018 HUD-Update, JSONSerialization, MovementCards
+<p>
+	<i>von: David </br>
+	Die im HUD angezeigeten "Karten", also Bewegungen, Rotationen etc. können jetzt aus 	Dateien geparsed und serialisiert werden. Die einzelnen <tt>MoveCard</tt> Objekte 
+	werden in Listen der Klasse <tt>MoveCards</tt> gespeichert. <br><br>
+	Sobald das Player_Script geladen wird, erhält der Spieler (nur temporär und im Moment) 
+	Karten aus diesem Stapel zugewiesen. Später kann er aus einem größeren Stapel von 
+	Karte auswählen. Allerdings habe ich diese Funktionalität aus Zeitmangel noch nicht 
+	implementiert.
+	</i>
+</p>
+### Klasse MoveCards und MoveCard
+<p>
+	Die Klasse <tt>MoveCards</tt> wird als "Kartenstapel" verwendet. Bei erzeugung kann 
+	eine beliebige Stapelgröße gewählt werden.
+</p>
+<p>
+	Die Methode <tt>get_random_Movecards(_anzahl_)</tt> nutzt einen JSON-Parser, um aus 
+	einer bereits hinterlegten Liste, einen Stapel zu erzeugen. Momentan ist das ein 
+	vorgefertigter Kartenstapel aus 50 Karten verschiedener Bewegungen. Diese "Random" 
+	Karten sieht man auch, wenn die Szene gestartet wird. Sie sind jedes Mal anders belegt.
+</p>
+
+### JSONParser
+<p>
+	Die Klasse <tt>JSONParser</tt> kann derzeit Text-Dateien einlesen und, sofern sie in 
+	JSON-Format gespeichert sind, Zeilenweise Objekte daraus erzeugen. Die Klasse ist recht 
+	klein und erzeugt derzeit nur Objekte vom Typ <tt>MoveCards</tt> also der 
+	Kartenstapel-Klasse.
+</p>
+
+### HUD_Selected_Movements und HUD_Available_Movements
+<p>
+	Die Klasse <tt>HUD_Selected_Movements</tt> und <tt>HUD_Available_Movements</tt> 
+	sind Unterkomponenten des HUD. Sie können Kartenstapel anzeigen. 
+</p>
+
+<p>
+	<tt>HUD_Selected_Movements</tt> kann 5 Karten anzeigen, die per Objekt vom Typ 
+	<tt>MoveCards</tt> (dem Kartenstapel) übergeben werden.
+</p>
+
+<p>
+	<tt>HUD_Selected_Movements</tt> kann derzeit 10 Karten anzeigen, die per Objekt vom 	Typ <tt>MoveCards</tt> (dem Kartenstapel) übergeben werden. Allerdings soll dieser 
+	Stapel später, beim Einsammeln von Schildpunkten noch auf bis zu 15 Karten erhöht 
+	werden können. So weit sind wir aber noch nicht.
+</p>
+
+### HUD Screenshots
+
+![HUD](images/Progress/09-Dez-2018/HUD_Szene_nicht_gestartet.JPG) 
+<p>Leere Szene (nicht gestartet)<br><br></p>
+
+![HUD](images/Progress/09-Dez-2018/HUD_Szene_gestartet.JPG) 
+<p>Sobald die Szene gestartet wird, werden die Daten geladen und das HUD gefüllt.<br><br></p>
+
+![HUD](images/Progress/09-Dez-2018/Movement_Stack_JSON.JPG)
+<p>
+	Die Objekt-Daten für die Kartenstapel kommen aus einer vorgefertigten Stapel-Datei
+</p>
+
