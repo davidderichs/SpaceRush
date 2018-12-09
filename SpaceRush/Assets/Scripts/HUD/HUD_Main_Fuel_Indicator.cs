@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HUD_Main_Fuel_Indicator : HUD_Component_Template {
 
 	override public void Awake (){
-		Debug.Log("Initializing HUD_Fuel_Indicator");
+		// Debug.Log("Initializing HUD_Fuel_Indicator");
 		this.initColors();
 		this.maxValue = 5;
 		this.item_List = new List<KeyValuePair<int, GameObject>>();

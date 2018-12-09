@@ -5,7 +5,7 @@ using UnityEngine;
 public class HUD_Shield_Indicator : HUD_Component_Template {
 
 	override public void Awake (){
-		Debug.Log("Initializing HUD_Shield_Indicator");
+		// Debug.Log("Initializing HUD_Shield_Indicator");
 		this.initColors();
 		this.maxValue = 10;
 		this.item_List = new List<KeyValuePair<int, GameObject>>();

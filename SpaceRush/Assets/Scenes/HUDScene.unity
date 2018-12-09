@@ -219,7 +219,8 @@ MonoBehaviour:
   playerId: 1
   lives: 0
   shields: 0
-  cards: 0
+  card_Stack: {fileID: 0}
+  card_Selection: {fileID: 0}
   main_fuel: 0
   add_fuel: 0
   check: 
@@ -2503,11 +2504,11 @@ RectTransform:
   - {fileID: 1102982421}
   - {fileID: 637404028}
   - {fileID: 268261624}
-  - {fileID: 1109127312}
+  - {fileID: 1462229431}
   - {fileID: 1333199529}
   - {fileID: 1643746962}
+  - {fileID: 1109127312}
   - {fileID: 1413267429}
-  - {fileID: 1462229431}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2784,7 +2785,6 @@ GameObject:
   - component: {fileID: 1109127312}
   - component: {fileID: 1109127315}
   - component: {fileID: 1109127314}
-  - component: {fileID: 1109127313}
   m_Layer: 5
   m_Name: HUD_Weapons
   m_TagString: Untagged
@@ -2805,24 +2805,13 @@ RectTransform:
   - {fileID: 265292853}
   - {fileID: 1630060875}
   m_Father: {fileID: 994303717}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: -657.8, y: 125}
   m_SizeDelta: {x: 300, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1109127313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1109127311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f65a1ce921341e47ab87927afc1371f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1109127314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3203,7 +3192,6 @@ GameObject:
   - component: {fileID: 1333199529}
   - component: {fileID: 1333199531}
   - component: {fileID: 1333199530}
-  - component: {fileID: 1333199532}
   m_Layer: 5
   m_Name: HUD_Selected_Movements
   m_TagString: Untagged
@@ -3268,17 +3256,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1333199528}
   m_CullTransparentMesh: 0
---- !u!114 &1333199532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1333199528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f65a1ce921341e47ab87927afc1371f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1340167963
 GameObject:
   m_ObjectHideFlags: 0
@@ -3412,7 +3389,6 @@ GameObject:
   - component: {fileID: 1413267429}
   - component: {fileID: 1413267432}
   - component: {fileID: 1413267431}
-  - component: {fileID: 1413267430}
   m_Layer: 5
   m_Name: HUD_Items
   m_TagString: Untagged
@@ -3433,24 +3409,13 @@ RectTransform:
   - {fileID: 510468916}
   - {fileID: 865238993}
   m_Father: {fileID: 994303717}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 655.7, y: 125}
   m_SizeDelta: {x: 300, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1413267430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1413267428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f65a1ce921341e47ab87927afc1371f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1413267431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3754,7 +3719,7 @@ RectTransform:
   - {fileID: 379917701}
   - {fileID: 921272439}
   m_Father: {fileID: 994303717}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

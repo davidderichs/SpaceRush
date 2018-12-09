@@ -38,8 +38,8 @@ public abstract class HUD_Component_Template : MonoBehaviour {
 	}
 
 	public void initItems(){
-		Debug.Log("Initialising Items in Template");
-		Debug.Log("MaxValue: " + maxValue);
+		// Debug.Log("Initialising Items in Template");
+		// Debug.Log("MaxValue: " + maxValue);
 		for (int i=1; i<=maxValue; i++){
 			GameObject runtime_GameObject = GameObject.Find(this.itemNameClass + i);
 
