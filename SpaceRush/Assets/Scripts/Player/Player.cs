@@ -11,10 +11,15 @@ public class Player : MonoBehaviour {
     public int shields;
     private int m_shields;
 
+    public int number_of_cards;
+    private int m_number_of_cards;
+    public int number_of_selected_cards;
+    private int m_numberof_selected_cards;
+
     public MoveCards card_Stack;
-    private int m_card_Stack_size;
+    private MoveCards m_card_Stack;
     public MoveCards card_Selection;
-    private int m_card_selection_size;
+    private MoveCards m_card_selection;
     public int main_fuel; 
     private int m_main_fuel;
     public int add_fuel; 
@@ -57,11 +62,17 @@ public class Player : MonoBehaviour {
     }
 
     void init_card_Stack(){
-        this.card_Selection = new MoveCards(0);
-        this.m_card_selection_size = 0;
+        this.card_Selection = MoveCards.get_random_Movecards(5);
+        m_card_selection = null;
 
         this.card_Stack = MoveCards.get_random_Movecards(10);
-        this.m_card_Stack_size = 0;
+        m_card_Stack = null;
+
+        this.number_of_cards = this.card_Stack.size();
+        m_number_of_cards = 0;
+
+        this.number_of_selected_cards = 0;
+        m_numberof_selected_cards = 0;
     }
 
     void init_HUD(){
@@ -72,8 +83,8 @@ public class Player : MonoBehaviour {
 	void Update () {
         if (m_lives != lives) liveChange();
         if (m_main_fuel != main_fuel) fuelChange();
-        if (m_card_selection_size != card_Selection.size()) selected_Cards_Changed();
-        if (m_card_Stack_size != card_Stack.size()) available_Cards_Changed();
+        if (m_card_selection != card_Selection) selected_Cards_Changed();
+        // if (m_card_Stack != card_Stack) available_Cards_Changed();
         if (m_add_fuel != add_fuel) add_fuel_change();
         if (m_shields != shields) shieldChange();
 	}
@@ -88,15 +99,13 @@ public class Player : MonoBehaviour {
         m_shields = shields;
     }
 
-    public void selected_Cards_Changed(){
-        Debug.Log("Card Selection has changed");
+    void selected_Cards_Changed(){
         this.hud.selected_movements.set_MoveCards(this.card_Selection);
-        m_card_selection_size = card_Selection.size();
+        m_card_selection = card_Selection;
     }
     void available_Cards_Changed(){
-        Debug.Log("Card Stack has changed");
         this.hud.available_movements.set_MoveCards(this.card_Stack);
-        this.m_card_Stack_size = this.card_Stack.size();
+        m_card_Stack = card_Stack;
     }
     void fuelChange(){
         this.hud.main_fuel.set_ActiveItemsColor(this.main_fuel);
