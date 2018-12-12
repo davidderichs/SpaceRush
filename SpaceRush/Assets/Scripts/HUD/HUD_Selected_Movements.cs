@@ -23,10 +23,11 @@ public class HUD_Selected_Movements : MonoBehaviour {
 	}
 
 	public void set_MoveCards(MoveCards movecards){
-		for (int i=1; i<=5; i++){
 
+		this.reset_moveCards();
+
+		for (int i=1; i<=movecards.size(); i++){
 			MoveCard currentCard = movecards.get_MoveCard(i-1);
-
 			GameObject moveImage = GameObject.Find(this.cardImageNamePrefix + i);
 			Image image = moveImage.AddComponent<Image>();
 			if(currentCard.useSprite) {
@@ -40,6 +41,16 @@ public class HUD_Selected_Movements : MonoBehaviour {
 			textComponent.alignment = TextAnchor.MiddleCenter;
 			textComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
 			textComponent.fontSize = 40;
+		}
+	}
+
+	private void reset_moveCards(){
+		Debug.Log("Resetting Images and Texts");
+		for (int i=1; i<=5; i++){
+			GameObject moveImage = GameObject.Find(this.cardImageNamePrefix + i);
+			Destroy(moveImage.GetComponent<Image>());
+			GameObject moveText = GameObject.Find(this.cardTextNamePrefix + i);
+			Destroy(moveText.GetComponent<Text>());
 		}
 	}
 
