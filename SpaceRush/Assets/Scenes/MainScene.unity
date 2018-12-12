@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 342648827}
-  m_IndirectSpecularColor: {r: 0.006280071, g: 0.016688026, b: 0.033383656, a: 1}
+  m_IndirectSpecularColor: {r: 0.006280071, g: 0.016688023, b: 0.033383653, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -141,8 +141,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerId: 1
+  lives: 0
+  shields: 0
+  number_of_cards: 0
+  number_of_selected_cards: 0
+  main_fuel: 0
+  add_fuel: 0
   check: 
   space: {fileID: 1425206465}
+  hud: {fileID: 0}
 --- !u!4 &21420404
 Transform:
   m_ObjectHideFlags: 0
@@ -1441,10 +1448,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1425206465}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d015b71a53cc484683d61abc1fce893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenMovements: 3
+  firstMovement: boost,forwards,410,3
+  secondMovement: rotate,right,40,1
+  thirdMovement: rotate,left,40,1
+  fourthMovement: boost,backwards,250,1
+  fifthMovement: rotate,left,20,2
+--- !u!114 &1425206467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1425206465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fc8387b91a7bc141917d8c2d66c7681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  play: {fileID: 21420403}
+  player: {fileID: 0}
 --- !u!60 &1425206468
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1501,7 +1525,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1425206473
+--- !u!114 &1425206470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1425206465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a707bce25a4094e8c3fbffb397b2ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1425206474
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

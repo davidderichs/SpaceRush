@@ -16,6 +16,7 @@ public class Movements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /* 
         if (Input.GetKeyDown(KeyCode.W))
         {
             spacecraft.BoostForwards(100);
@@ -31,7 +32,7 @@ public class Movements : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             spacecraft.Rotate(100, SpacecraftController.Direction.Right);
-        }
+        }*/
     }
 
 }

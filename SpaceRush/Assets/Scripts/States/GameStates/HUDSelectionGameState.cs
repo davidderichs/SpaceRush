@@ -10,12 +10,12 @@ public class HUDSelectionGameState : GameState
     public override void OnStateEnter()
     {
         /*move camera, show hud, show card stack, start selecting cards 
-		
-		*/
+        gm.showHUD(); //???*/
     }
 
     public override void OnStateExit()
     {
-        /*hide hud, hide card stack */
+        /*hide hud, hide card stack 
+		gm.hideHud(); //???*/
     }
 }

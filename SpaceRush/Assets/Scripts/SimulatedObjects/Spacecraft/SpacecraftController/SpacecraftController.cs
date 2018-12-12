@@ -4,29 +4,27 @@ using UnityEngine;
 
 public class SpacecraftController : MonoBehaviour
 {
-    public enum Direction { Forwards, Backwards, Left, Right, None }
 
-    public float boostForwardsForce;
-    public float boostBackwardsForce;
-    public float angularSpeed;
+    private float boostForce;
+    private float angularSpeed;
     private Rigidbody2D rb;
     private float boostTimer;
     private float rotationTimer;
-    private Direction boostDirection;
-    private Direction rotationDirection;
+    private SpacecraftMovement.Direction boostDirection;
+    private SpacecraftMovement.Direction rotationDirection;
 
     void OnEnable()
     {
         rb = GetComponent<Rigidbody2D>();
         boostTimer = 0;
-        boostDirection = Direction.None;
-        rotationDirection = Direction.None;
+        boostDirection = SpacecraftMovement.Direction.None;
+        rotationDirection = SpacecraftMovement.Direction.None;
         rotationTimer = 0;
     }
 
     void Update()
     {
-        if (rotationDirection != Direction.None)
+        if (rotationDirection != SpacecraftMovement.Direction.None)
         {
             rotationTimer -= Time.deltaTime;
             float fac = Time.deltaTime;
@@ -34,9 +32,9 @@ public class SpacecraftController : MonoBehaviour
             {
                 fac += rotationTimer;
                 rotationTimer = 0;
-                rotationDirection = Direction.None;
+                rotationDirection = SpacecraftMovement.Direction.None;
             }
-            if (rotationDirection == Direction.Left)
+            if (rotationDirection == SpacecraftMovement.Direction.Left)
             {
                 transform.Rotate(new Vector3(0, 0, angularSpeed * fac));
             }
@@ -56,7 +54,7 @@ public class SpacecraftController : MonoBehaviour
             }
         }
 
-        if (boostDirection != Direction.None)
+        if (boostDirection != SpacecraftMovement.Direction.None)
         {
             boostTimer -= Time.deltaTime;
             float fac = Time.deltaTime;
@@ -64,37 +62,36 @@ public class SpacecraftController : MonoBehaviour
             {
                 fac += boostTimer;
                 boostTimer = 0;
-                boostDirection = Direction.None;
+                boostDirection = SpacecraftMovement.Direction.None;
             }
-            if (boostDirection == Direction.Forwards)
+            if (boostDirection == SpacecraftMovement.Direction.Forwards)
             {
-                rb.AddRelativeForce(new Vector2(boostForwardsForce * fac, 0));
+                rb.AddRelativeForce(new Vector2(boostForce * fac, 0));
             }
-            else if (boostDirection == Direction.Backwards)
+            else if (boostDirection == SpacecraftMovement.Direction.Backwards)
             {
-                rb.AddRelativeForce(new Vector2(-boostBackwardsForce * fac, 0));
+                rb.AddRelativeForce(new Vector2(-boostForce * fac, 0));
             }
         }
     }
 
-    public void BoostForwards(float time)
+    public void Boost(SpacecraftMovement.Direction direction, float force, float duration)
     {
-        boostDirection = Direction.Forwards;
-        boostTimer = time;
-    }
-
-    public void BoostBackwards(float time)
-    {
-        boostDirection = Direction.Backwards;
-        boostTimer = time;
-    }
-
-    public void Rotate(float time, Direction direction)
-    {
-        if (direction == Direction.Left || direction == Direction.Right)
+        if (direction == SpacecraftMovement.Direction.Forwards || direction == SpacecraftMovement.Direction.Backwards)
         {
-            rotationTimer = time;
+            boostDirection = direction;
+            boostForce = force;
+            boostTimer = duration;
+        }
+    }
+
+    public void Rotate(SpacecraftMovement.Direction direction, float speed, float duration)
+    {
+        if (direction == SpacecraftMovement.Direction.Left || direction == SpacecraftMovement.Direction.Right)
+        {
             rotationDirection = direction;
+            angularSpeed = speed;
+            rotationTimer = duration;
         }
     }
 }
