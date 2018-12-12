@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HUD_Selected_Movements : MonoBehaviour {
+public class HUD_Selected_Cards : MonoBehaviour {
 
 	string cardImageNamePrefix = "HUD_Move_CardImage_";
 	string cardTextNamePrefix = "HUD_Move_Text_";

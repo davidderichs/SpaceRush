@@ -100,11 +100,11 @@ public class Player : MonoBehaviour {
     }
 
     void selected_Cards_Changed(){
-        this.hud.selected_movements.set_MoveCards(this.card_Selection);
+        this.hud.selected_cards.set_MoveCards(this.card_Selection);
         m_card_selection = card_Selection;
     }
     void available_Cards_Changed(){
-        this.hud.available_movements.set_MoveCards(this.card_Stack);
+        this.hud.card_stack.set_MoveCards(this.card_Stack);
         m_card_Stack = card_Stack;
     }
     void fuelChange(){

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HUD_Live_Indicator : HUD_Component_Template {
+public class HUD_Live_Indicator : HUD_Indicator {
 
 	override public void Awake (){
 		// Debug.Log("Initializing HUD_Live_Indicator");

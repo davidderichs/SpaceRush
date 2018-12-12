@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HUD_Shield_Indicator : HUD_Component_Template {
+public class HUD_Shield_Indicator : HUD_Indicator {
 
 	override public void Awake (){
 		// Debug.Log("Initializing HUD_Shield_Indicator");

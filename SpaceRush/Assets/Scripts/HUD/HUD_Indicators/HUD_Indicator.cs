@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class HUD_Component_Template : MonoBehaviour {
+public abstract class HUD_Indicator : MonoBehaviour {
 
 	public List<KeyValuePair<int,GameObject>>  item_List;
 
@@ -26,7 +26,7 @@ public abstract class HUD_Component_Template : MonoBehaviour {
 	public void set_ActiveItemsColor(int activeItems){
 
 		if (activeItems < 0) activeItems = 0;
-		if (activeItems > maxValue) activeItems = maxValue;
+		if (activeItems > this.maxValue) activeItems = this.maxValue;
 
 		foreach(KeyValuePair<int, GameObject> entry in this.item_List){
 			if (entry.Key <= activeItems){
