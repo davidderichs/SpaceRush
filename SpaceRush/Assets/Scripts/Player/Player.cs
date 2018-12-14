@@ -62,17 +62,17 @@ public class Player : MonoBehaviour {
     }
 
     void init_card_Stack(){
-        this.card_Selection = MoveCards.get_random_Movecards(5);
-        m_card_selection = null;
+        this.card_Selection = MoveCards.get_random_Movecards(0);
+        this.m_card_selection = null;
 
         this.card_Stack = MoveCards.get_random_Movecards(10);
-        m_card_Stack = null;
+        this.m_card_Stack = null;
 
         this.number_of_cards = this.card_Stack.size();
-        m_number_of_cards = 0;
+        this.m_number_of_cards = 0;
 
         this.number_of_selected_cards = 0;
-        m_numberof_selected_cards = 0;
+        this.m_numberof_selected_cards = 0;
     }
 
     void init_HUD(){
@@ -84,7 +84,7 @@ public class Player : MonoBehaviour {
         if (m_lives != lives) liveChange();
         if (m_main_fuel != main_fuel) fuelChange();
         if (m_card_selection != card_Selection) selected_Cards_Changed();
-        // if (m_card_Stack != card_Stack) available_Cards_Changed();
+        if (m_card_Stack != card_Stack) available_Cards_Changed();
         if (m_add_fuel != add_fuel) add_fuel_change();
         if (m_shields != shields) shieldChange();
 	}
@@ -100,8 +100,10 @@ public class Player : MonoBehaviour {
     }
 
     void selected_Cards_Changed(){
-        this.hud.selected_cards.set_MoveCards(this.card_Selection);
-        m_card_selection = card_Selection;
+        if (this.hud.selected_cards != null){
+            this.hud.selected_cards.set_MoveCards(this.card_Selection);
+            m_card_selection = card_Selection;
+        }
     }
     void available_Cards_Changed(){
         this.hud.card_stack.set_MoveCards(this.card_Stack);

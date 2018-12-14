@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class HUD_Card_Stack : MonoBehaviour {
 
@@ -11,8 +12,11 @@ public class HUD_Card_Stack : MonoBehaviour {
 	Button[] available_moves;
 	MoveCards moveCards;
 
-	void Awake(){
+	private UnityAction HUD_Listener;
 
+	void Awake(){		
+		// this.HUD_Listener = new UnityAction(delegate {EventManager.TriggerEvent("HUD_Card_Selected");});
+        // EventManager.StartListening ("HUD_Card_Selected", HUD_Listener);
 	}
 
 	// Use this for initialization
@@ -22,66 +26,13 @@ public class HUD_Card_Stack : MonoBehaviour {
 
 	void setOnClickListeners(){
 		for(int i=0; i<moveCards.size(); i++){
-			available_moves[i] = GameObject.Find("HUD_Available_Move_" + (i+1)).GetComponent<Button>();
-			switch (i){
-				case 0:
-					available_moves[i].onClick.AddListener(delegate {available_Move_Clicked(0);});
-					break;
-				case 1:
-					available_moves[i].onClick.AddListener(delegate {available_Move_Clicked(2);});
-					break;
-				case 2:
-					available_moves[i].onClick.AddListener(delegate {available_Move_Clicked(2);});
-					break;
-				case 3:
-					available_moves[i].onClick.AddListener(delegate {available_Move_Clicked(3);});
-					break;
-				case 4:
-					available_moves[i].onClick.AddListener(delegate {available_Move_Clicked(4);});
-					break;
-				case 5:
-					available_moves[i].onClick.AddListener(delegate {available_Move_Clicked(5);});
-					break;
-				case 6:
-					available_moves[i].onClick.AddListener(delegate {available_Move_Clicked(6);});
-					break;
-				case 7:
-					available_moves[i].onClick.AddListener(delegate {available_Move_Clicked(7);});
-					break;
-				case 8:
-					available_moves[i].onClick.AddListener(delegate {available_Move_Clicked(8);});
-					break;
-				case 9:
-					available_moves[i].onClick.AddListener(delegate {available_Move_Clicked(9);});
-					break;
-				case 10:
-					available_moves[i].onClick.AddListener(delegate {available_Move_Clicked(10);});
-					break;
-				case 11:
-					available_moves[i].onClick.AddListener(delegate {available_Move_Clicked(11);});
-					break;
-				case 12:
-					available_moves[i].onClick.AddListener(delegate {available_Move_Clicked(12);});
-					break;
-				case 13:
-					available_moves[i].onClick.AddListener(delegate {available_Move_Clicked(13);});
-					break;
-				case 14:
-					available_moves[i].onClick.AddListener(delegate {available_Move_Clicked(14);});
-					break;
-			}
+			// available_moves[i] = GameObject.Find("HUD_Available_Move_" + (i+1)).GetComponent<Button>();
+			// available_moves[i].onClick.AddListener(this.HUD_Listener);
 		}
 	}
 
-	void available_Move_Clicked(int id){
+	void card_selected(int id){
 		Debug.Log("Available Move Clicked with index: " + id);
-		MoveCard clickedCard = this.moveCards.get_MoveCard(id);
-		Player player = GameObject.Find("Player").GetComponent<Player>();
-		if(player.card_Selection.size()<5){
-			// player.card_Selection.add_MoveCard(clickedCard);			
-			// this.reset_moveCards();
-			// player.card_Stack.remove_MoveCard(clickedCard);
-		}		
 	}
 	
 	// Update is called once per frame

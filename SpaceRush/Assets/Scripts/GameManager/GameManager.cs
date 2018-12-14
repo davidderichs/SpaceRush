@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour {
 
 	public Startpoint start;
 	// Use this for initialization
+
+	void Awake(){
+		
+	}
+
 	void Start () {
 		pl1.space.transform.position = start.position;
 	}
