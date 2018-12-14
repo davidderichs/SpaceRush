@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
 
 public class HUD_Card_Stack : MonoBehaviour {
 
@@ -12,11 +11,8 @@ public class HUD_Card_Stack : MonoBehaviour {
 	Button[] available_moves;
 	MoveCards moveCards;
 
-	private UnityAction HUD_Listener;
+	void Awake(){
 
-	void Awake(){		
-		// this.HUD_Listener = new UnityAction(delegate {EventManager.TriggerEvent("HUD_Card_Selected");});
-        // EventManager.StartListening ("HUD_Card_Selected", HUD_Listener);
 	}
 
 	// Use this for initialization
@@ -26,13 +22,55 @@ public class HUD_Card_Stack : MonoBehaviour {
 
 	void setOnClickListeners(){
 		for(int i=0; i<moveCards.size(); i++){
-			// available_moves[i] = GameObject.Find("HUD_Available_Move_" + (i+1)).GetComponent<Button>();
-			// available_moves[i].onClick.AddListener(this.HUD_Listener);
+			available_moves[i] = GameObject.Find("HUD_Available_Move_" + (i)).GetComponent<Button>();
+			switch (i){
+				case 0:
+					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_0_Clicked", new EventInformation(0, "HUD_Card_Stack_Item"));});
+					break;
+				case 1:
+					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_1_Clicked", new EventInformation(1, "HUD_Card_Stack_Item"));});
+					break;
+				case 2:
+					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_2_Clicked", new EventInformation(2, "HUD_Card_Stack_Item"));});
+					break;
+				case 3:
+					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_3_Clicked", new EventInformation(3, "HUD_Card_Stack_Item"));});
+					break;
+				case 4:
+					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_4_Clicked", new EventInformation(4, "HUD_Card_Stack_Item"));});
+					break;
+				case 5:
+					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_5_Clicked", new EventInformation(5, "HUD_Card_Stack_Item"));});
+					break;
+				case 6:
+					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_6_Clicked", new EventInformation(6, "HUD_Card_Stack_Item"));});
+					break;
+				case 7:
+					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_7_Clicked", new EventInformation(7, "HUD_Card_Stack_Item"));});
+					break;
+				case 8:
+					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_8_Clicked", new EventInformation(8, "HUD_Card_Stack_Item"));});
+					break;
+				case 9:
+					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_9_Clicked", new EventInformation(9, "HUD_Card_Stack_Item"));});
+					break;
+				case 10:
+					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_10_Clicked", new EventInformation(10, "HUD_Card_Stack_Item"));});
+					break;
+				case 11:
+					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_11_Clicked", new EventInformation(11, "HUD_Card_Stack_Item"));});
+					break;
+				case 12:
+					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_12_Clicked", new EventInformation(12, "HUD_Card_Stack_Item"));});
+					break;
+				case 13:
+					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_13_Clicked", new EventInformation(13, "HUD_Card_Stack_Item"));});
+					break;
+				case 14:
+					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_14_Clicked", new EventInformation(14, "HUD_Card_Stack_Item"));});
+					break;
+			}
 		}
-	}
-
-	void card_selected(int id){
-		Debug.Log("Available Move Clicked with index: " + id);
 	}
 	
 	// Update is called once per frame
