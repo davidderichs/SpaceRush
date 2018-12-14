@@ -7,7 +7,7 @@ public class Reseter : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.gameObject.tag == "Space"){
-				game.resetPlayer(game.pl1);
+				game.resetPlayer(game.player_1);
 		}
 	}
 

@@ -17,7 +17,7 @@ public class Checkpoint : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.gameObject.tag == "Space"){
 			point.color = Color.green;
-			game.checkpointTriggered(id, game.pl1);
+			game.checkpointTriggered(id, game.player_1);
 		}
 	}
 }

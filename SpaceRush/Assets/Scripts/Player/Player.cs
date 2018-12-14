@@ -41,7 +41,6 @@ public class Player : MonoBehaviour {
 	void Start () {
         init_Start_Values();
         init_card_Stack();
-        init_HUD();
 	}
 
     
@@ -74,10 +73,6 @@ public class Player : MonoBehaviour {
         this.number_of_selected_cards = 0;
         this.m_numberof_selected_cards = 0;
     }
-
-    void init_HUD(){
-        this.hud = GameObject.FindWithTag("HUD").GetComponent<HUD>();
-    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -90,37 +85,29 @@ public class Player : MonoBehaviour {
 	}
 
     void liveChange(){
-        this.hud.live.set_ActiveItemsColor(this.lives);
         m_lives = lives;
         EventManager.TriggerEvent("Player_Live_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"live"));
     }
 
     void shieldChange(){
-        this.hud.shield.set_ActiveItemsColor(this.shields);
         m_shields = shields;
         EventManager.TriggerEvent("Player_Shield_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"shield"));
     }
 
     void selected_Cards_Changed(){
-        if (this.hud.selected_cards != null){
-            this.hud.selected_cards.set_MoveCards(this.card_Selection);
-            m_card_selection = card_Selection;
-            EventManager.TriggerEvent("Player_Card_Selection_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"card_selection"));
-        }
+        m_card_selection = card_Selection;
+        EventManager.TriggerEvent("Player_Card_Selection_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"card_selection"));
     }
     void available_Cards_Changed(){
-        this.hud.card_stack.set_MoveCards(this.card_Stack);
         m_card_Stack = card_Stack;
         EventManager.TriggerEvent("Player_Card_Stack_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"card_stack"));
     }
     void fuelChange(){
-        this.hud.main_fuel.set_ActiveItemsColor(this.main_fuel);
         m_main_fuel = main_fuel;
-        EventManager.TriggerEvent("Player_Fuel_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"fuel"));
+        EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"fuel"));
     }
 
     void add_fuel_change(){
-        this.hud.add_fuel.set_ActiveItemsColor(this.add_fuel);
         m_add_fuel = add_fuel;
         EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"add_fuel"));
     }
@@ -130,9 +117,9 @@ public class Player : MonoBehaviour {
         return new Vector2(pos.x, pos.y);
         EventManager.TriggerEvent("Player_Position_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"position"));
     }
+
     public void addCheckpoint(int checkpoint){
         check.Add(checkpoint); 
         EventManager.TriggerEvent("Player_Reached_A_Checkpoint", new EventInformation(this.playerId, "Player"+this.playerId+"checkpoint"));
     }
-
 }
