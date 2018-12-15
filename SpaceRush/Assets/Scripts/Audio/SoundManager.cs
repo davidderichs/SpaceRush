@@ -43,7 +43,6 @@ public class SoundManager : MonoBehaviour {
 	}
 
 	void play_sound_card_selected(){
-		// this.HUD_Button_Ready.GetComponentInChildren<Text>().color = new Color32(255, 255, 255, 255);
 		GameObject.Find("Audio_Source_Card_Selected").GetComponent<AudioSource>().Play();
 	}
 	void play_sound_card_unselected(){

@@ -32,12 +32,17 @@ public class HUD : MonoBehaviour {
 	public void activate_Ready_Button(){
 
 		this.HUD_Button_Ready.onClick.RemoveAllListeners();
-		
-		this.HUD_Button_Ready.GetComponent<Image>().color = new Color32(0,255,0,255);
-		this.HUD_Button_Ready.GetComponentInChildren<Text>().color = new Color32(255, 255, 255, 255);
+
+		if(this.HUD_Button_Ready.GetComponent<Button>().IsActive()){
+			this.HUD_Button_Ready.GetComponent<Image>().color = new Color32(0,255,0,255);
+			this.HUD_Button_Ready.GetComponentInChildren<Text>().color = new Color32(255, 255, 255, 255);
+		} else {
+			this.HUD_Button_Ready.GetComponent<Image>().color = new Color32(84,111,84,255);
+			this.HUD_Button_Ready.GetComponentInChildren<Text>().color = new Color32(255, 255, 255, 100);
+		}
 
 		this.HUD_Button_Ready.onClick.AddListener(delegate {
-			Debug.Log("Button clicked: Ready");
+			Debug.Log("Ready Button clicked");
 		});
 	}
 	public void deactivate_Ready_Button(){

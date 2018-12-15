@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour {
 	private UnityAction player_shield_listener;
 	private UnityAction player_card_stack_listener;
 	private UnityAction player_card_selection_listener;
-
 	private UnityAction player_selection_complete_listener;
 	private UnityAction player_selection_incomplete_listener;
 
