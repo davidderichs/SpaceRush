@@ -37,7 +37,7 @@
 ### HUD_Shield
 <p>
     HUD_Shield ist von <tt>UI_Panel</tt> abgeleitet.
-    Zeigt die aktuellen "Schildpunkte" des Spielers bzw. seines Raumschiffes an.
+    Zeigt die aktuellen "Schildpunkte" des Spielers bzw. seines Raumschiffes an. 
 </p>
 
 ### HUD_Shield_Item
