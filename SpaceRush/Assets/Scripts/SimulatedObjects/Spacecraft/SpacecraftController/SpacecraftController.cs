@@ -63,6 +63,7 @@ public class SpacecraftController : MonoBehaviour
                 fac += boostTimer;
                 boostTimer = 0;
                 boostDirection = SpacecraftMovement.Direction.None;
+                EventManager.TriggerEvent("spacecraft_boost_stop");
             }
             if (boostDirection == SpacecraftMovement.Direction.Forwards)
             {
@@ -82,6 +83,8 @@ public class SpacecraftController : MonoBehaviour
             boostDirection = direction;
             boostForce = force;
             boostTimer = duration;
+
+            EventManager.TriggerEvent("spacecraft_boost_start");
         }
     }
 

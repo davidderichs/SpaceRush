@@ -6,17 +6,46 @@ public class Spacecraft : MonoBehaviour, ISimulatedObject
 {
     public Player player;
     private SpacecraftController controller;
-    private ArrayList movements;
+    private List<SpacecraftMovement> movements;
     private Rigidbody2D rb;
-    private Vector2 velocity_b;
-    private float angularVelocity_b;
+    private Attractor attractor;
+    private Vector2 m_velocity;
+    private float m_angularVelocity;
+    private bool sleeping;
 
+    private static List<ISpacecraftCollisionListener> listeners;
 
+    public static void AddCollisionListener(ISpacecraftCollisionListener listener)
+    {
+        if (listeners == null)
+        {
+            listeners = new List<ISpacecraftCollisionListener>();
+        }
+        listeners.Add(listener);
+    }
+
+    public static void RemoveCollisionListener(ISpacecraftCollisionListener listener)
+    {
+        if (listener != null)
+        {
+            listeners.Remove(listener);
+        }
+    }
 
     void Awake()
     {
         controller = GetComponent<SpacecraftController>();
-        movements = new ArrayList();
+        movements = new List<SpacecraftMovement>();
+        rb = GetComponent<Rigidbody2D>();
+        attractor = GetComponent<Attractor>();
+    }
+
+    void Update()
+    {
+        if (sleeping)
+        {
+            rb.Sleep();
+        }
     }
 
     public void AddMovement(SpacecraftMovement movement)
@@ -28,7 +57,7 @@ public class Spacecraft : MonoBehaviour, ISimulatedObject
     {
         if (movements.Count > 0)
         {
-            object movement = movements[0];
+            SpacecraftMovement movement = movements[0];
             if (movement is SpacecraftBoost)
             {
                 SpacecraftBoost boost = (SpacecraftBoost)movement;
@@ -44,20 +73,33 @@ public class Spacecraft : MonoBehaviour, ISimulatedObject
         }
     }
 
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (listeners != null)
+        {
+            foreach (ISpacecraftCollisionListener listener in listeners)
+            {
+                listener.OnSpacecraftCollision(this, col.collider.gameObject);
+            }
+        }
+    }
+
 
     public void StartPhysics()
     {
         controller.enabled = true;
-        rb.WakeUp();
-        rb.velocity = velocity_b;
-        rb.angularVelocity = angularVelocity_b;
+        attractor.enabled = true;
+        rb.velocity = m_velocity;
+        rb.angularVelocity = m_angularVelocity;
+        sleeping = false;
     }
 
     public void StopPhysics()
     {
         controller.enabled = false;
-        velocity_b = rb.velocity;
-        angularVelocity_b = rb.angularVelocity;
-        rb.Sleep();
+        attractor.enabled = false;
+        m_velocity = rb.velocity;
+        m_angularVelocity = rb.angularVelocity;
+        sleeping = true;
     }
 }
