@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
 	private UnityAction player_main_fuel_listener;
 	private UnityAction player_add_fuel_listener;
 	private UnityAction player_shield_listener;
+	private UnityAction player_card_stack_listener;
 
 	public Startpoint start;
 	// Use this for initialization
@@ -33,6 +34,10 @@ public class GameManager : MonoBehaviour {
 
 		player_shield_listener = new UnityAction (propagate_Player_shield_change);
 		EventManager.StartListening("Player_Shield_Has_Changed", player_shield_listener);	
+
+		player_card_stack_listener = new UnityAction (propagate_Player_stack_change);
+		EventManager.StartListening("Player_Card_Stack_Changed", player_card_stack_listener);	
+
 	}
 
 	void Start () {
@@ -54,6 +59,9 @@ public class GameManager : MonoBehaviour {
 	}
 	void propagate_Player_shield_change(){
 		this.hud.shield.set_ActiveItemsColor(this.player_1.shields);
+	}
+	void propagate_Player_stack_change(){
+		this.hud.card_stack.set_MoveCards(this.player_1.card_Stack);
 	}
 
 	public void checkpointTriggered(int id, Player player){

@@ -59,6 +59,7 @@ public class Player : MonoBehaviour {
     void init_card_Stack(){
         this.card_Selection = new MoveCards(0);
         this.card_Stack = MoveCards.get_random_Movecards(10);
+        m_number_of_cards = 0;
     }
 	
 	// Update is called once per frame
@@ -67,7 +68,13 @@ public class Player : MonoBehaviour {
         if (m_main_fuel != main_fuel) fuelChange();
         if (m_add_fuel != add_fuel) add_fuel_change();
         if (m_shields != shields) shieldChange();
+        if (m_number_of_cards != card_Stack.size()) card_stack_changed();
 	}
+
+    void card_stack_changed(){
+        m_number_of_cards = card_Stack.size();
+        EventManager.TriggerEvent("Player_Card_Stack_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"live"));
+    }
 
     void liveChange(){
         m_lives = lives;

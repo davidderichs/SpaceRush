@@ -37,6 +37,8 @@ public class MoveCards {
 		this.card_List.Remove(card);
 	}
 	public void remove_MoveCard_With_Index(int index){
+		Debug.Log("card_list.count: " + this.card_List.Count);
+		Debug.Log("index: " + index);
 		this.card_List.RemoveAt(index);
 	}
 
