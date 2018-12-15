@@ -219,8 +219,6 @@ MonoBehaviour:
   playerId: 1
   lives: 0
   shields: 0
-  number_of_cards: 0
-  number_of_selected_cards: 0
   main_fuel: 0
   add_fuel: 0
   check: 
@@ -323,7 +321,7 @@ GameObject:
   - component: {fileID: 31435066}
   - component: {fileID: 31435067}
   m_Layer: 5
-  m_Name: HUD_Available_Move_Text_7
+  m_Name: HUD_Available_Move_Text_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -405,7 +403,7 @@ GameObject:
   - component: {fileID: 84657197}
   - component: {fileID: 84657198}
   m_Layer: 5
-  m_Name: HUD_Available_Move_5
+  m_Name: HUD_Available_Move_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -696,7 +694,7 @@ GameObject:
   - component: {fileID: 210795425}
   - component: {fileID: 210795426}
   m_Layer: 5
-  m_Name: HUD_Available_Move_2
+  m_Name: HUD_Available_Move_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -773,7 +771,7 @@ GameObject:
   - component: {fileID: 231494504}
   - component: {fileID: 231494505}
   m_Layer: 5
-  m_Name: HUD_Available_Move_Text_1
+  m_Name: HUD_Available_Move_Text_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1122,7 +1120,7 @@ GameObject:
   - component: {fileID: 293479117}
   - component: {fileID: 293479118}
   m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_2
+  m_Name: HUD_Available_Move_CardImage_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1311,7 +1309,7 @@ GameObject:
   - component: {fileID: 345614888}
   - component: {fileID: 345614889}
   m_Layer: 5
-  m_Name: HUD_Available_Move_4
+  m_Name: HUD_Available_Move_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1573,7 +1571,7 @@ GameObject:
   - component: {fileID: 443605116}
   - component: {fileID: 443605117}
   m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_3
+  m_Name: HUD_Available_Move_CardImage_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1614,7 +1612,7 @@ GameObject:
   - component: {fileID: 461960096}
   - component: {fileID: 461960097}
   m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_4
+  m_Name: HUD_Available_Move_CardImage_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1724,7 +1722,7 @@ GameObject:
   - component: {fileID: 531214036}
   - component: {fileID: 531214037}
   m_Layer: 5
-  m_Name: HUD_Available_Move_Text_2
+  m_Name: HUD_Available_Move_Text_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1765,7 +1763,7 @@ GameObject:
   - component: {fileID: 618102717}
   - component: {fileID: 618102718}
   m_Layer: 5
-  m_Name: HUD_Available_Move_8
+  m_Name: HUD_Available_Move_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2151,7 +2149,7 @@ GameObject:
   - component: {fileID: 775968516}
   - component: {fileID: 775968517}
   m_Layer: 5
-  m_Name: HUD_Available_Move_Text_5
+  m_Name: HUD_Available_Move_Text_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2233,7 +2231,7 @@ GameObject:
   - component: {fileID: 804860943}
   - component: {fileID: 804860944}
   m_Layer: 5
-  m_Name: HUD_Available_Move_7
+  m_Name: HUD_Available_Move_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2310,7 +2308,7 @@ GameObject:
   - component: {fileID: 818709715}
   - component: {fileID: 818709716}
   m_Layer: 5
-  m_Name: HUD_Available_Move_Text_6
+  m_Name: HUD_Available_Move_Text_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2598,7 +2596,7 @@ GameObject:
   - component: {fileID: 911372273}
   - component: {fileID: 911372274}
   m_Layer: 5
-  m_Name: HUD_Available_Move_9
+  m_Name: HUD_Available_Move_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2675,7 +2673,7 @@ GameObject:
   - component: {fileID: 916390980}
   - component: {fileID: 916390981}
   m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_9
+  m_Name: HUD_Available_Move_CardImage_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2798,7 +2796,7 @@ GameObject:
   - component: {fileID: 928793145}
   - component: {fileID: 928793146}
   m_Layer: 5
-  m_Name: HUD_Available_Move_Text_4
+  m_Name: HUD_Available_Move_Text_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2839,7 +2837,7 @@ GameObject:
   - component: {fileID: 929075739}
   - component: {fileID: 929075740}
   m_Layer: 5
-  m_Name: HUD_Available_Move_Text_9
+  m_Name: HUD_Available_Move_Text_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3122,7 +3120,7 @@ GameObject:
   - component: {fileID: 1061788254}
   - component: {fileID: 1061788255}
   m_Layer: 5
-  m_Name: HUD_Available_Move_1
+  m_Name: HUD_Available_Move_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3199,7 +3197,7 @@ GameObject:
   - component: {fileID: 1086858956}
   - component: {fileID: 1086858957}
   m_Layer: 5
-  m_Name: HUD_Available_Move_Text_10
+  m_Name: HUD_Available_Move_Text_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3520,7 +3518,7 @@ GameObject:
   - component: {fileID: 1178139810}
   - component: {fileID: 1178139811}
   m_Layer: 5
-  m_Name: HUD_Available_Move_3
+  m_Name: HUD_Available_Move_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3638,7 +3636,7 @@ GameObject:
   - component: {fileID: 1224692567}
   - component: {fileID: 1224692568}
   m_Layer: 5
-  m_Name: HUD_Available_Move_6
+  m_Name: HUD_Available_Move_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3756,7 +3754,7 @@ GameObject:
   - component: {fileID: 1277588884}
   - component: {fileID: 1277588885}
   m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_6
+  m_Name: HUD_Available_Move_CardImage_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3965,7 +3963,7 @@ GameObject:
   - component: {fileID: 1340618301}
   - component: {fileID: 1340618302}
   m_Layer: 5
-  m_Name: HUD_Available_Move_Text_3
+  m_Name: HUD_Available_Move_Text_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4499,7 +4497,7 @@ GameObject:
   - component: {fileID: 1498099921}
   - component: {fileID: 1498099922}
   m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_10
+  m_Name: HUD_Available_Move_CardImage_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4540,7 +4538,7 @@ GameObject:
   - component: {fileID: 1499953876}
   - component: {fileID: 1499953877}
   m_Layer: 5
-  m_Name: HUD_Available_Move_Text_8
+  m_Name: HUD_Available_Move_Text_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4613,7 +4611,7 @@ GameObject:
   - component: {fileID: 1598139196}
   - component: {fileID: 1598139197}
   m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_1
+  m_Name: HUD_Available_Move_CardImage_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4903,7 +4901,7 @@ GameObject:
   - component: {fileID: 1661790772}
   - component: {fileID: 1661790773}
   m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_7
+  m_Name: HUD_Available_Move_CardImage_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5126,7 +5124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d12c6a3b6973a54b86b221e15ff2652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pl1: {fileID: 21420403}
+  player_1: {fileID: 0}
   checkpoint1: {fileID: 0}
   checkpoint2: {fileID: 0}
   checkpoint3: {fileID: 0}
@@ -5237,7 +5235,7 @@ GameObject:
   - component: {fileID: 1780794280}
   - component: {fileID: 1780794281}
   m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_8
+  m_Name: HUD_Available_Move_CardImage_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5602,7 +5600,7 @@ GameObject:
   - component: {fileID: 1964202289}
   - component: {fileID: 1964202290}
   m_Layer: 5
-  m_Name: HUD_Available_Move_10
+  m_Name: HUD_Available_Move_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5845,7 +5843,7 @@ GameObject:
   - component: {fileID: 2063510542}
   - component: {fileID: 2063510543}
   m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_5
+  m_Name: HUD_Available_Move_CardImage_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

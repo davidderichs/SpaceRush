@@ -8,66 +8,92 @@ public class HUD_Card_Stack : MonoBehaviour {
 	string cardImageNamePrefix = "HUD_Available_Move_CardImage_";
 	string cardTextNamePrefix = "HUD_Available_Move_Text_";
 
-	Button[] available_moves;
-	MoveCards moveCards;
-
 	void Awake(){
 
 	}
 
 	// Use this for initialization
 	void Start () {	
-		available_moves = new Button[15];
 	}
 
 	void setOnClickListeners(){
-		for(int i=0; i<moveCards.size(); i++){
-			available_moves[i] = GameObject.Find("HUD_Available_Move_" + (i)).GetComponent<Button>();
+		for(int i=0; i<GameObject.Find("Player").GetComponent<Player>().card_Stack.size(); i++){
+			Button HUD_clickable_Card = GameObject.Find("HUD_Available_Move_" + (i)).GetComponent<Button>();
 			switch (i){
 				case 0:
-					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_0_Clicked", new EventInformation(0, "HUD_Card_Stack_Item"));});
+					HUD_clickable_Card.onClick.AddListener(delegate {
+						Debug.Log("HUD_Stack_Card Clicked");
+					});
 					break;
 				case 1:
-					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_1_Clicked", new EventInformation(1, "HUD_Card_Stack_Item"));});
+					HUD_clickable_Card.onClick.AddListener(delegate {
+						Debug.Log("HUD_Stack_Card Clicked");
+					});
 					break;
 				case 2:
-					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_2_Clicked", new EventInformation(2, "HUD_Card_Stack_Item"));});
+					HUD_clickable_Card.onClick.AddListener(delegate {
+						Debug.Log("HUD_Stack_Card Clicked");
+					});
 					break;
 				case 3:
-					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_3_Clicked", new EventInformation(3, "HUD_Card_Stack_Item"));});
+					HUD_clickable_Card.onClick.AddListener(delegate {
+						Debug.Log("HUD_Stack_Card Clicked");
+					});
 					break;
 				case 4:
-					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_4_Clicked", new EventInformation(4, "HUD_Card_Stack_Item"));});
+					HUD_clickable_Card.onClick.AddListener(delegate {
+						Debug.Log("HUD_Stack_Card Clicked");
+					});
 					break;
 				case 5:
-					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_5_Clicked", new EventInformation(5, "HUD_Card_Stack_Item"));});
+					HUD_clickable_Card.onClick.AddListener(delegate {
+						Debug.Log("HUD_Stack_Card Clicked");
+					});
 					break;
 				case 6:
-					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_6_Clicked", new EventInformation(6, "HUD_Card_Stack_Item"));});
+					HUD_clickable_Card.onClick.AddListener(delegate {
+						Debug.Log("HUD_Stack_Card Clicked");
+					});
 					break;
 				case 7:
-					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_7_Clicked", new EventInformation(7, "HUD_Card_Stack_Item"));});
+					HUD_clickable_Card.onClick.AddListener(delegate {
+						Debug.Log("HUD_Stack_Card Clicked");
+					});
 					break;
 				case 8:
-					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_8_Clicked", new EventInformation(8, "HUD_Card_Stack_Item"));});
+					HUD_clickable_Card.onClick.AddListener(delegate{
+						Debug.Log("HUD_Stack_Card Clicked");
+					});
 					break;
 				case 9:
-					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_9_Clicked", new EventInformation(9, "HUD_Card_Stack_Item"));});
+					HUD_clickable_Card.onClick.AddListener(delegate {
+						Debug.Log("HUD_Stack_Card Clicked");
+					});
 					break;
 				case 10:
-					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_10_Clicked", new EventInformation(10, "HUD_Card_Stack_Item"));});
+					HUD_clickable_Card.onClick.AddListener(delegate {
+						Debug.Log("HUD_Stack_Card Clicked");
+					});
 					break;
 				case 11:
-					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_11_Clicked", new EventInformation(11, "HUD_Card_Stack_Item"));});
+					HUD_clickable_Card.onClick.AddListener(delegate {
+						Debug.Log("HUD_Stack_Card Clicked");
+					});
 					break;
 				case 12:
-					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_12_Clicked", new EventInformation(12, "HUD_Card_Stack_Item"));});
+					HUD_clickable_Card.onClick.AddListener(delegate {
+						Debug.Log("HUD_Stack_Card Clicked");
+					});
 					break;
 				case 13:
-					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_13_Clicked", new EventInformation(13, "HUD_Card_Stack_Item"));});
+					HUD_clickable_Card.onClick.AddListener(delegate {
+						Debug.Log("HUD_Stack_Card Clicked");
+					});
 					break;
 				case 14:
-					available_moves[i].onClick.AddListener(delegate {EventManager.TriggerEvent("HUD_Card_Stack_Item_14_Clicked", new EventInformation(14, "HUD_Card_Stack_Item"));});
+					HUD_clickable_Card.onClick.AddListener(delegate {
+						Debug.Log("HUD_Stack_Card Clicked");
+					});
 					break;
 			}
 		}
@@ -75,21 +101,45 @@ public class HUD_Card_Stack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 	private void reset_moveCards(){
-		for (int i=1; i<=this.moveCards.size(); i++){
+		if(GameObject.Find("Player").GetComponent<Player>().card_Stack != null){
+			for (int i=0; i<GameObject.Find("Player").GetComponent<Player>().card_Stack.size(); i++){
+				GameObject cardImage = GameObject.Find(this.cardImageNamePrefix + i);
+				Destroy(cardImage.GetComponent<Image>());
+				GameObject cardText = GameObject.Find(this.cardTextNamePrefix + i);
+				Destroy(cardText.GetComponent<Text>());
+			}
+		}
+	}
+
+	public void set_MoveCards_FromPlayer(){
+		reset_moveCards();
+
+		for (int i=0; i<GameObject.Find("Player").GetComponent<Player>().card_Stack.size(); i++){
+
+			MoveCard currentCard = GameObject.Find("Player").GetComponent<Player>().card_Stack.get_MoveCard(i);
+
 			GameObject moveImage = GameObject.Find(this.cardImageNamePrefix + i);
-			Destroy(moveImage.GetComponent<Image>());
+
+			Image image = moveImage.AddComponent<Image>();
+			if(currentCard.useSprite) {
+				addSpriteToImage(image, currentCard.spritePath + currentCard.direction);
+			}
+			setImageColor(image, currentCard.color);
+
 			GameObject moveText = GameObject.Find(this.cardTextNamePrefix + i);
-			Destroy(moveText.GetComponent<Text>());
+			Text textComponent = moveText.AddComponent<Text>();
+			
+			textComponent.text =  currentCard.intensity.ToString();
+			textComponent.alignment = TextAnchor.MiddleCenter;
+			textComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+			textComponent.fontSize = 40;
 		}
 	}
 	public void set_MoveCards(MoveCards movecards){
 
-		this.moveCards = movecards;
-
-		setOnClickListeners();
+		reset_moveCards();
 
 		for (int i=1; i<=movecards.size(); i++){
 
@@ -111,6 +161,8 @@ public class HUD_Card_Stack : MonoBehaviour {
 			textComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
 			textComponent.fontSize = 40;
 		}
+
+		setOnClickListeners();
 	}		
 
 	public void setImageColor (Image image, Color32 color){

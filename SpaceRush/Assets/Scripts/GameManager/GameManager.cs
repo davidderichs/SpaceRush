@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour {
 		EventManager.StartListening("Player_Add_Fuel_Has_Changed", player_add_fuel_listener);		
 
 		player_shield_listener = new UnityAction (propagate_Player_shield_change);
-		EventManager.StartListening("Player_Shield_Has_Changed", player_shield_listener);		
+		EventManager.StartListening("Player_Shield_Has_Changed", player_shield_listener);	
 	}
 
 	void Start () {

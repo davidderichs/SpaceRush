@@ -29,10 +29,15 @@ public class MoveCards {
 	}
 
 	public void add_MoveCard(MoveCard card){
+		Debug.Log("MoveCards adding Card");
 		this.card_List.Add(card);
 	}
 	public void remove_MoveCard(MoveCard card){
+		Debug.Log("MoveCards removing Card");
 		this.card_List.Remove(card);
+	}
+	public void remove_MoveCard_With_Index(int index){
+		this.card_List.RemoveAt(index);
 	}
 
 	public MoveCard get_MoveCard(int index){

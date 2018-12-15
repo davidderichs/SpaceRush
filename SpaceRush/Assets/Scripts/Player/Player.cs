@@ -11,15 +11,11 @@ public class Player : MonoBehaviour {
     public int shields;
     private int m_shields;
 
-    public int number_of_cards;
     private int m_number_of_cards;
-    public int number_of_selected_cards;
-    private int m_numberof_selected_cards;
+    private int m_number_of_selected_cards;
 
     public MoveCards card_Stack;
-    private MoveCards m_card_Stack;
     public MoveCards card_Selection;
-    private MoveCards m_card_selection;
     public int main_fuel; 
     private int m_main_fuel;
     public int add_fuel; 
@@ -61,25 +57,14 @@ public class Player : MonoBehaviour {
     }
 
     void init_card_Stack(){
-        this.card_Selection = MoveCards.get_random_Movecards(0);
-        this.m_card_selection = null;
-
+        this.card_Selection = new MoveCards(0);
         this.card_Stack = MoveCards.get_random_Movecards(10);
-        this.m_card_Stack = null;
-
-        this.number_of_cards = this.card_Stack.size();
-        this.m_number_of_cards = 0;
-
-        this.number_of_selected_cards = 0;
-        this.m_numberof_selected_cards = 0;
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (m_lives != lives) liveChange();
         if (m_main_fuel != main_fuel) fuelChange();
-        if (m_card_selection != card_Selection) selected_Cards_Changed();
-        if (m_card_Stack != card_Stack) available_Cards_Changed();
         if (m_add_fuel != add_fuel) add_fuel_change();
         if (m_shields != shields) shieldChange();
 	}
@@ -94,14 +79,6 @@ public class Player : MonoBehaviour {
         EventManager.TriggerEvent("Player_Shield_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"shield"));
     }
 
-    void selected_Cards_Changed(){
-        m_card_selection = card_Selection;
-        EventManager.TriggerEvent("Player_Card_Selection_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"card_selection"));
-    }
-    void available_Cards_Changed(){
-        m_card_Stack = card_Stack;
-        EventManager.TriggerEvent("Player_Card_Stack_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"card_stack"));
-    }
     void fuelChange(){
         m_main_fuel = main_fuel;
         EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"fuel"));
@@ -114,8 +91,8 @@ public class Player : MonoBehaviour {
 
     Vector2 getPosition(){
         Vector3 pos = space.transform.position;
-        return new Vector2(pos.x, pos.y);
         EventManager.TriggerEvent("Player_Position_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"position"));
+        return new Vector2(pos.x, pos.y);
     }
 
     public void addCheckpoint(int checkpoint){
