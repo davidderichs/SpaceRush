@@ -43,19 +43,20 @@ public class SoundManager : MonoBehaviour {
 	}
 
 	void play_sound_card_selected(){
-		
+		// this.HUD_Button_Ready.GetComponentInChildren<Text>().color = new Color32(255, 255, 255, 255);
+		GameObject.Find("Audio_Source_Card_Selected").GetComponent<AudioSource>().Play();
 	}
 	void play_sound_card_unselected(){
-
+		GameObject.Find("Audio_Source_Card_Unselected").GetComponent<AudioSource>().Play();
 	}
 	void play_sound_card_selection_impossible(){
-
+		GameObject.Find("Audio_Source_Card_Selection_Impossible").GetComponent<AudioSource>().Play();
 	}
 	void play_sound_card_selection_complete(){
-
+		GameObject.Find("Audio_Source_Card_Selection_Complete").GetComponent<AudioSource>().Play();
 	}
 	void play_sound_spacecraft_collition(){
-
+		GameObject.Find("Audio_Source_Spacecraft_Collition").GetComponent<AudioSource>().Play();
 	}
 	void play_sound_spacecraft_boost(){
 
