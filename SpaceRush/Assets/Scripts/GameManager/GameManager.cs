@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour {
 	private UnityAction player_add_fuel_listener;
 	private UnityAction player_shield_listener;
 	private UnityAction player_card_stack_listener;
+	private UnityAction player_card_selection_listener;
+
+	private UnityAction player_selection_complete_listener;
+	private UnityAction player_selection_incomplete_listener;
 
 	public Startpoint start;
 	// Use this for initialization
@@ -38,6 +42,15 @@ public class GameManager : MonoBehaviour {
 		player_card_stack_listener = new UnityAction (propagate_Player_stack_change);
 		EventManager.StartListening("Player_Card_Stack_Changed", player_card_stack_listener);	
 
+		player_card_selection_listener = new UnityAction (propagate_Player_Selection_change);
+		EventManager.StartListening("Player_Card_Selection_Changed", player_card_selection_listener);	
+
+		player_selection_complete_listener = new UnityAction (propagate_Player_Selection_complete);
+		EventManager.StartListening("Player_Card_Selection_Complete", player_selection_complete_listener);	
+
+		player_selection_incomplete_listener = new UnityAction (propagate_Player_Selection_incomplete);
+		EventManager.StartListening("Player_Card_Selection_Incomplete", player_selection_incomplete_listener);	
+
 	}
 
 	void Start () {
@@ -46,6 +59,13 @@ public class GameManager : MonoBehaviour {
 		this.player_1 = GameObject.Find("Player").GetComponent<Player>();
 
 		player_1.space.transform.position = start.position;
+	}
+
+	void propagate_Player_Selection_complete(){
+		this.hud.activate_Ready_Button();
+	}
+	void propagate_Player_Selection_incomplete(){
+		this.hud.deactivate_Ready_Button();
 	}
 
 	void propagate_Player_live_change(){
@@ -62,6 +82,11 @@ public class GameManager : MonoBehaviour {
 	}
 	void propagate_Player_stack_change(){
 		this.hud.card_stack.set_MoveCards(this.player_1.card_Stack);
+		this.hud.selected_cards.set_MoveCards(this.player_1.card_Selection);
+	}
+	void propagate_Player_Selection_change(){
+		this.hud.card_stack.set_MoveCards(this.player_1.card_Stack);
+		this.hud.selected_cards.set_MoveCards(this.player_1.card_Selection);
 	}
 
 	public void checkpointTriggered(int id, Player player){

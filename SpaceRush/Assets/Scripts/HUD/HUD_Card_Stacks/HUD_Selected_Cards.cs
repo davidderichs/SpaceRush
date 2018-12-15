@@ -8,6 +8,8 @@ public class HUD_Selected_Cards : MonoBehaviour {
 	string cardImageNamePrefix = "HUD_Move_CardImage_";
 	string cardTextNamePrefix = "HUD_Move_Text_";
 
+	int m_card_stack_size;
+
 	void Awake(){
 
 	}
@@ -22,37 +24,118 @@ public class HUD_Selected_Cards : MonoBehaviour {
 		
 	}
 
+	void setOnClickListeners(){
+
+		for(int i=0; i<GameObject.Find("Player").GetComponent<Player>().card_Selection.size(); i++){
+			// Debug.Log("Setting up Listeners in HUD_Card_Selection");
+			Button HUD_clickable_Card = GameObject.Find("HUD_Selected_Move_" + (i)).GetComponent<Button>();
+			switch (i){
+				case 0:					
+					HUD_clickable_Card.onClick.AddListener(delegate {
+							GameObject.Find("Player").GetComponent<Player>().card_Stack.add_MoveCard(
+								GameObject.Find("Player").GetComponent<Player>().card_Selection.get_MoveCard(0)
+							);
+							GameObject.Find("Player").GetComponent<Player>().card_Selection.remove_MoveCard_With_Index(0);
+							// Debug.Log("HUD_Selected_Card Clicked with id: 0");
+					});
+					break;
+				case 1:
+					HUD_clickable_Card.onClick.AddListener(delegate {
+							GameObject.Find("Player").GetComponent<Player>().card_Stack.add_MoveCard(
+								GameObject.Find("Player").GetComponent<Player>().card_Selection.get_MoveCard(1)
+							);
+							GameObject.Find("Player").GetComponent<Player>().card_Selection.remove_MoveCard_With_Index(1);
+							// Debug.Log("HUD_Selected_Card Clicked with id: 1");
+					});
+					break;
+				case 2:
+					HUD_clickable_Card.onClick.AddListener(delegate {
+							GameObject.Find("Player").GetComponent<Player>().card_Stack.add_MoveCard(
+								GameObject.Find("Player").GetComponent<Player>().card_Selection.get_MoveCard(2)
+							);
+							GameObject.Find("Player").GetComponent<Player>().card_Selection.remove_MoveCard_With_Index(2);
+							// Debug.Log("HUD_Selected_Card Clicked with id: 2");
+					});
+					break;
+				case 3:
+					HUD_clickable_Card.onClick.AddListener(delegate {
+							GameObject.Find("Player").GetComponent<Player>().card_Stack.add_MoveCard(
+								GameObject.Find("Player").GetComponent<Player>().card_Selection.get_MoveCard(3)
+							);
+							GameObject.Find("Player").GetComponent<Player>().card_Selection.remove_MoveCard_With_Index(3);
+							// Debug.Log("HUD_Selected_Card Clicked with id: 3");
+					});
+					break;
+				case 4:
+					HUD_clickable_Card.onClick.AddListener(delegate {
+							GameObject.Find("Player").GetComponent<Player>().card_Stack.add_MoveCard(
+								GameObject.Find("Player").GetComponent<Player>().card_Selection.get_MoveCard(4)
+							);
+							GameObject.Find("Player").GetComponent<Player>().card_Selection.remove_MoveCard_With_Index(4);
+							// Debug.Log("HUD_Selected_Card Clicked with id: 4");
+					});
+					break;				
+			}
+		}
+	}
+
 	public void set_MoveCards(MoveCards movecards){
 
 		this.reset_moveCards();
 
-		for (int i=1; i<=movecards.size(); i++){
-			MoveCard currentCard = movecards.get_MoveCard(i-1);
+		m_card_stack_size = movecards.size();
+
+		for (int i=0; i<movecards.size(); i++){
+
+			MoveCard currentCard = movecards.get_MoveCard(i);
+
+
 			GameObject moveImage = GameObject.Find(this.cardImageNamePrefix + i);
-			Image image = moveImage.AddComponent<Image>();
+
+			Image image;
+			if (moveImage.GetComponent<Image>() == null){
+				moveImage.AddComponent<Image>();
+			}	
+			image = moveImage.GetComponent<Image>();	
+
 			if(currentCard.useSprite) {
 				addSpriteToImage(image, currentCard.spritePath + currentCard.direction);
 			}
 			setImageColor(image, currentCard.color);
 
 			GameObject moveText = GameObject.Find(this.cardTextNamePrefix + i);
-			Text textComponent = moveText.AddComponent<Text>();
+
+			Text textComponent;
+			if(moveText.GetComponent<Text>() == null){
+				moveText.AddComponent<Text>();
+			}
+			textComponent = moveText.GetComponent<Text>();
+			
 			textComponent.text =  currentCard.intensity.ToString();
 			textComponent.alignment = TextAnchor.MiddleCenter;
 			textComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
 			textComponent.fontSize = 40;
 		}
+
+		setOnClickListeners();
 	}
 
 	private void reset_moveCards(){
-		Debug.Log("Resetting Images and Texts");
-		for (int i=1; i<=5; i++){
-			GameObject moveImage = GameObject.Find(this.cardImageNamePrefix + i);
-			Destroy(moveImage.GetComponent<Image>());
-			GameObject moveText = GameObject.Find(this.cardTextNamePrefix + i);
-			Destroy(moveText.GetComponent<Text>());
-		}
+		for (int i=0; i<m_card_stack_size; i++){
+			GameObject.Find(this.cardImageNamePrefix + i).GetComponent<Image>().sprite = Resources.Load <Sprite>("Sprites/empty");
+			GameObject.Find(this.cardTextNamePrefix + i).GetComponent<Text>().text = "";	
+			GameObject.Find("HUD_Selected_Move_" + (i)).GetComponent<Button>().onClick.RemoveAllListeners();	
+		}		
 	}
+	// private void reset_moveCards(){
+	// 	Debug.Log("Resetting Images and Texts");
+	// 	for (int i=1; i<=5; i++){
+	// 		GameObject moveImage = GameObject.Find(this.cardImageNamePrefix + i);
+	// 		Destroy(moveImage.GetComponent<Image>());
+	// 		GameObject moveText = GameObject.Find(this.cardTextNamePrefix + i);
+	// 		Destroy(moveText.GetComponent<Text>());
+	// 	}
+	// }
 
 	public void setImageColor (Image image, Color32 color){
 		image.color = color;

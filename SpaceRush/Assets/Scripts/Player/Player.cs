@@ -69,41 +69,51 @@ public class Player : MonoBehaviour {
         if (m_add_fuel != add_fuel) add_fuel_change();
         if (m_shields != shields) shieldChange();
         if (m_number_of_cards != card_Stack.size()) card_stack_changed();
+        if (m_number_of_selected_cards != card_Selection.size()) card_selection_changed();
 	}
 
     void card_stack_changed(){
-        m_number_of_cards = card_Stack.size();
-        EventManager.TriggerEvent("Player_Card_Stack_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"live"));
+        m_number_of_cards = card_Stack.size();        
+        EventManager.TriggerEvent("Player_Card_Stack_Changed");
+    }
+    void card_selection_changed(){
+        m_number_of_selected_cards = card_Selection.size();
+        if(card_Selection.size() == 5) {
+            EventManager.TriggerEvent("Player_Card_Selection_Complete");
+        } else {
+            EventManager.TriggerEvent("Player_Card_Selection_Incomplete");
+        }
+        EventManager.TriggerEvent("Player_Card_Selection_Changed");
     }
 
     void liveChange(){
         m_lives = lives;
-        EventManager.TriggerEvent("Player_Live_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"live"));
+        EventManager.TriggerEvent("Player_Live_Has_Changed");
     }
 
     void shieldChange(){
         m_shields = shields;
-        EventManager.TriggerEvent("Player_Shield_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"shield"));
+        EventManager.TriggerEvent("Player_Shield_Has_Changed");
     }
 
     void fuelChange(){
         m_main_fuel = main_fuel;
-        EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"fuel"));
+        EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");
     }
 
     void add_fuel_change(){
         m_add_fuel = add_fuel;
-        EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"add_fuel"));
+        EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed");
     }
 
     Vector2 getPosition(){
         Vector3 pos = space.transform.position;
-        EventManager.TriggerEvent("Player_Position_Has_Changed", new EventInformation(this.playerId, "Player"+this.playerId+"position"));
+        EventManager.TriggerEvent("Player_Position_Has_Changed");
         return new Vector2(pos.x, pos.y);
     }
 
     public void addCheckpoint(int checkpoint){
         check.Add(checkpoint); 
-        EventManager.TriggerEvent("Player_Reached_A_Checkpoint", new EventInformation(this.playerId, "Player"+this.playerId+"checkpoint"));
+        EventManager.TriggerEvent("Player_Reached_A_Checkpoint");
     }
 }
