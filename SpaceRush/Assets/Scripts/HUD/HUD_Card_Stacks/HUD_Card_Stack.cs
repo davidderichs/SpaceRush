@@ -27,165 +27,210 @@ public class HUD_Card_Stack : MonoBehaviour {
 				case 0:					
 					HUD_clickable_Card.onClick.AddListener(delegate {
 						if(GameObject.Find("Player").GetComponent<Player>().card_Selection.size() < 5){
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.add_MoveCard(
 								GameObject.Find("Player").GetComponent<Player>().card_Stack.get_MoveCard(0)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Stack.remove_MoveCard_With_Index(0);
 							// Debug.Log("HUD_Stack_Card Clicked with id: 0");
+						} else {
+							EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
 						}
 					});
 					break;
 				case 1:
 					HUD_clickable_Card.onClick.AddListener(delegate {
 						if(GameObject.Find("Player").GetComponent<Player>().card_Selection.size() < 5){
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.add_MoveCard(
 								GameObject.Find("Player").GetComponent<Player>().card_Stack.get_MoveCard(1)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Stack.remove_MoveCard_With_Index(1);
 							// Debug.Log("HUD_Stack_Card Clicked with id: 1");
+						} else {
+							EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
 						}
 					});
 					break;
 				case 2:
 					HUD_clickable_Card.onClick.AddListener(delegate {
 						if(GameObject.Find("Player").GetComponent<Player>().card_Selection.size() < 5){
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.add_MoveCard(
 								GameObject.Find("Player").GetComponent<Player>().card_Stack.get_MoveCard(2)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Stack.remove_MoveCard_With_Index(2);
 							// Debug.Log("HUD_Stack_Card Clicked with id: 2");
+						} else {
+							EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
 						}
 					});
 					break;
 				case 3:
 					HUD_clickable_Card.onClick.AddListener(delegate {
 						if(GameObject.Find("Player").GetComponent<Player>().card_Selection.size() < 5){
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.add_MoveCard(
 								GameObject.Find("Player").GetComponent<Player>().card_Stack.get_MoveCard(3)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Stack.remove_MoveCard_With_Index(3);
 							// Debug.Log("HUD_Stack_Card Clicked with id: 3");
+						} else {
+							EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
 						}
 					});
 					break;
 				case 4:
 					HUD_clickable_Card.onClick.AddListener(delegate {
 						if(GameObject.Find("Player").GetComponent<Player>().card_Selection.size() < 5){
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.add_MoveCard(
 								GameObject.Find("Player").GetComponent<Player>().card_Stack.get_MoveCard(4)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Stack.remove_MoveCard_With_Index(4);
 							// Debug.Log("HUD_Stack_Card Clicked with id: 4");
+						} else {
+							EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
 						}
 					});
 					break;
 				case 5:
 					HUD_clickable_Card.onClick.AddListener(delegate {
 						if(GameObject.Find("Player").GetComponent<Player>().card_Selection.size() < 5){
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.add_MoveCard(
 								GameObject.Find("Player").GetComponent<Player>().card_Stack.get_MoveCard(5)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Stack.remove_MoveCard_With_Index(5);
 							// Debug.Log("HUD_Stack_Card Clicked with id: 5");
+						} else {
+							EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
 						}
 					});
 					break;
 				case 6:
 					HUD_clickable_Card.onClick.AddListener(delegate {
 						if(GameObject.Find("Player").GetComponent<Player>().card_Selection.size() < 5){
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.add_MoveCard(
 								GameObject.Find("Player").GetComponent<Player>().card_Stack.get_MoveCard(6)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Stack.remove_MoveCard_With_Index(6);
 							// Debug.Log("HUD_Stack_Card Clicked with id: 6");
+						} else {
+							EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
 						}
 					});
 					break;
 				case 7:
 					HUD_clickable_Card.onClick.AddListener(delegate {
 						if(GameObject.Find("Player").GetComponent<Player>().card_Selection.size() < 5){
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.add_MoveCard(
 								GameObject.Find("Player").GetComponent<Player>().card_Stack.get_MoveCard(7)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Stack.remove_MoveCard_With_Index(7);
 							// Debug.Log("HUD_Stack_Card Clicked with id: 7");
+						} else {
+							EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
 						}
 					});
 					break;
 				case 8:
 					HUD_clickable_Card.onClick.AddListener(delegate{
 						if(GameObject.Find("Player").GetComponent<Player>().card_Selection.size() < 5){
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.add_MoveCard(
 								GameObject.Find("Player").GetComponent<Player>().card_Stack.get_MoveCard(8)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Stack.remove_MoveCard_With_Index(8);
 							// Debug.Log("HUD_Stack_Card Clicked with id: 8");
+						} else {
+							EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
 						}
 					});
 					break;
 				case 9:
 					HUD_clickable_Card.onClick.AddListener(delegate {
 						if(GameObject.Find("Player").GetComponent<Player>().card_Selection.size() < 5){
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.add_MoveCard(
 								GameObject.Find("Player").GetComponent<Player>().card_Stack.get_MoveCard(9)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Stack.remove_MoveCard_With_Index(9);
 							// Debug.Log("HUD_Stack_Card Clicked with id: 9");
+						} else {
+							EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
 						}
 					});
 					break;
 				case 10:
 					HUD_clickable_Card.onClick.AddListener(delegate {
 						if(GameObject.Find("Player").GetComponent<Player>().card_Selection.size() < 5){
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.add_MoveCard(
 								GameObject.Find("Player").GetComponent<Player>().card_Stack.get_MoveCard(10)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Stack.remove_MoveCard_With_Index(10);
 							// Debug.Log("HUD_Stack_Card Clicked with id: 10");
+						} else {
+							EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
 						}
 					});
 					break;
 				case 11:
 					HUD_clickable_Card.onClick.AddListener(delegate {
 						if(GameObject.Find("Player").GetComponent<Player>().card_Selection.size() < 5){
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.add_MoveCard(
 								GameObject.Find("Player").GetComponent<Player>().card_Stack.get_MoveCard(11)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Stack.remove_MoveCard_With_Index(11);
 							// Debug.Log("HUD_Stack_Card Clicked with id: 11");
+						} else {
+							EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
 						}
 					});
 					break;
 				case 12:
 					HUD_clickable_Card.onClick.AddListener(delegate {
 						if(GameObject.Find("Player").GetComponent<Player>().card_Selection.size() < 5){
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.add_MoveCard(
 								GameObject.Find("Player").GetComponent<Player>().card_Stack.get_MoveCard(12)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Stack.remove_MoveCard_With_Index(12);
 							// Debug.Log("HUD_Stack_Card Clicked with id: 12");
+						} else {
+							EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
 						}
 					});
 					break;
 				case 13:
 					HUD_clickable_Card.onClick.AddListener(delegate {
 						if(GameObject.Find("Player").GetComponent<Player>().card_Selection.size() < 5){
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.add_MoveCard(
 								GameObject.Find("Player").GetComponent<Player>().card_Stack.get_MoveCard(13)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Stack.remove_MoveCard_With_Index(13);
 							// Debug.Log("HUD_Stack_Card Clicked with id: 13");
+						} else {
+							EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
 						}
 					});
 					break;
 				case 14:
 					HUD_clickable_Card.onClick.AddListener(delegate {
 						if(GameObject.Find("Player").GetComponent<Player>().card_Selection.size() < 5){
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.add_MoveCard(
 								GameObject.Find("Player").GetComponent<Player>().card_Stack.get_MoveCard(14)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Stack.remove_MoveCard_With_Index(14);
 							// Debug.Log("HUD_Stack_Card Clicked with id: 14");
+						} else {
+							EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
 						}
 					});
 					break;

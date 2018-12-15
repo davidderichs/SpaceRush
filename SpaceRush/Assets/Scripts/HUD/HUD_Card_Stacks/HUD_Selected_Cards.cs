@@ -36,6 +36,7 @@ public class HUD_Selected_Cards : MonoBehaviour {
 								GameObject.Find("Player").GetComponent<Player>().card_Selection.get_MoveCard(0)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.remove_MoveCard_With_Index(0);
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
 							// Debug.Log("HUD_Selected_Card Clicked with id: 0");
 					});
 					break;
@@ -45,6 +46,7 @@ public class HUD_Selected_Cards : MonoBehaviour {
 								GameObject.Find("Player").GetComponent<Player>().card_Selection.get_MoveCard(1)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.remove_MoveCard_With_Index(1);
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
 							// Debug.Log("HUD_Selected_Card Clicked with id: 1");
 					});
 					break;
@@ -54,6 +56,7 @@ public class HUD_Selected_Cards : MonoBehaviour {
 								GameObject.Find("Player").GetComponent<Player>().card_Selection.get_MoveCard(2)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.remove_MoveCard_With_Index(2);
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
 							// Debug.Log("HUD_Selected_Card Clicked with id: 2");
 					});
 					break;
@@ -63,6 +66,7 @@ public class HUD_Selected_Cards : MonoBehaviour {
 								GameObject.Find("Player").GetComponent<Player>().card_Selection.get_MoveCard(3)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.remove_MoveCard_With_Index(3);
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
 							// Debug.Log("HUD_Selected_Card Clicked with id: 3");
 					});
 					break;
@@ -72,6 +76,7 @@ public class HUD_Selected_Cards : MonoBehaviour {
 								GameObject.Find("Player").GetComponent<Player>().card_Selection.get_MoveCard(4)
 							);
 							GameObject.Find("Player").GetComponent<Player>().card_Selection.remove_MoveCard_With_Index(4);
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
 							// Debug.Log("HUD_Selected_Card Clicked with id: 4");
 					});
 					break;				
