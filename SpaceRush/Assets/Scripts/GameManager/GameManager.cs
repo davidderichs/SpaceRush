@@ -85,6 +85,8 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
 	void propagate_Player_ready(){
 		this.hud.card_stack.hide();
+        Gameloop();
+        StartSimulation();
 	}
 
 	public void checkpointTriggered(int id, Player player){
@@ -201,4 +203,19 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             spacecraft.StopPhysics();
         }
     }
+
+        private void Gameloop(){
+           foreach (Spacecraft spacecraft in spacecrafts)
+            {
+                MoveCards cards = spacecraft.player.card_Selection;
+                for (int i=0; i < cards.card_List.Count; i++)
+                {
+                    SpacecraftMovement move = CardParser.ParseCard(cards.get_MoveCard(i));
+                    spacecraft.AddMovement(move);
+                    Debug.Log(move.duration);
+                }
+            }
+            StopSimulation();
+
+        }
 }
