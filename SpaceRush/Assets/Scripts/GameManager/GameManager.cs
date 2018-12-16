@@ -67,7 +67,8 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         spacecrafts.Add(GameObject.Find("Spacecraft").GetComponent<Spacecraft>());
         //spacecrafts.Add(GameObject.Find("Spacecraft2").GetComponent<Spacecraft>());
 
-        camera.SetBoundaries(-400, -100, -100, 400, 100, -800);
+        camera = GameObject.Find("Main Camera").GetComponent<CameraController>();
+        camera.SetBoundaries(-400, -150, -1000, 450, 47, -300);
     }
 
     void Start()
@@ -91,6 +92,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
     void propagate_Player_ready()
     {
+        this.hud.card_stack.hide();
         Gameloop();
         StartSimulation();
         propagate_Player_Selection_incomplete();
@@ -194,6 +196,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             foreach (Spacecraft spacecraft in spacecrafts)
             {
                 spacecraft.StartNextMovement();
+                this.hud.card_stack.hide();
             }
         }
     }
@@ -201,12 +204,12 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     private void StartSimulation()
     {
         Debug.Log("Starting Simulation");
-        tickTimer.StartTimer();
         foreach (Spacecraft spacecraft in spacecrafts)
         {
             spacecraft.StartPhysics();
         }
         camera.FollowObject(spacecrafts[0].gameObject);
+        tickTimer.StartTimer();
     }
 
     private void StopSimulation()
