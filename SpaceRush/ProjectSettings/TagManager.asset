@@ -8,6 +8,7 @@ TagManager:
   - space
   - HUD_Live_Indicator
   - HUD_Main_Fuel_Indicator
+  - Spacecraft
   layers:
   - Default
   - TransparentFX
