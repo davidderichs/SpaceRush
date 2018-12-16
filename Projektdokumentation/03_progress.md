@@ -273,3 +273,41 @@
 	Die Objekt-Daten für die Kartenstapel kommen aus einer vorgefertigten Stapel-Datei
 </p>
 
+
+## Layer-Fortschritt
+
+Der Layer 1 ist abgeschlossen, Layer 2 zum Großteil vervollständigt und der Gamemanager aus Layer 3 implementiert.
+
+
+
+![Planets](C:\Users\Tjark\Documents\Unity\SpaceRush\Projektdokumentation\images\Progress\16-Dez-2018\Planets.png)
+
+Die Planeten sowie die dazugehörige Gravitation sind vollständig implementiert.
+
+![Spacecraft](C:\Users\Tjark\Documents\Unity\SpaceRush\Projektdokumentation\images\Progress\16-Dez-2018\BasicSpacecraft.png)
+
+Das Basic Raumschiff ist implementiert und die Steuerung ist wie in Layer 2 beschrieben. 
+
+![Checkpoints](C:\Users\Tjark\Documents\Unity\SpaceRush\Projektdokumentation\images\Progress\16-Dez-2018\Checkpoints.png)
+
+Die Checkpoints sind funktionsfähig und es gibt Barriers um die Map. 
+
+![HUD](images/Progress/09-Dez-2018/HUD_Szene_gestartet.JPG)
+
+Das Hud und ein Eventsystem sind außerdem hinzugefügt. 
+
+Layer 2 ist funktionsfähig es fehlt jedoch der Multiplayer. 
+
+Die Basic Sounds werden gespielt und es gibt Hintergrundmusik. 
+
+Die Bewegung des Schiffes erfolgt über die vorgesehene Steuerung durch Bewegungskarten.
+
+Der in Layer 3 geplante Gamemanager wurde vorgezogen und Implementiert.
+
+
+
+### Herausforderungen
+
+Nach der Fertigstellung des ersten Layers ist unser Fokus durch die Notwendigkeit eines Gamemanagers und der dazugehörigen Spieler dahin abgewichen. Den in der Planung in Layer 3 ansässigen Gamemanager  wurde somit in den zweiten Layer verlegt da dieser Vorzeitig benötigt wurde. Durch diesen Vorschub ist es uns möglich geworden die nötigen HUD und Bewegungskarten sofort auf den Gamemanager umzustellen. Dies ermöglicht uns eine finalisierte Implementierung dieser und einer Nutzung des Eventsystems wie in der Planung vorgesehen.
+
+Herausfordernd war die Implementierung der Bewegungskarten und des HUD's. Nach zeitaufwändiger anfänglicher Planung kam es durch unvorhergesehene kleine Probleme zu großer Debugarbeit. Das Großteil des HUD's welches nur von dieser Debugarbeit zurückgehalten wurde verlangsamte die Entwicklung der Bewegungskarten da diese direkt mit dem HUD verwoben sind. Nach diesen Schwierigkeiten kamen wir aber zu einem erfreulichen Fortschritt welcher unser Zwischenbericht berschreibt. Unsere Probleme mit Unity waren kaum nennenswert und wir hatten durch gute Planung wenige Mergeprobleme.
