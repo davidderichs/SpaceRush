@@ -403,6 +403,14 @@ Konnte bislang nicht implementiert werden.
 
 Es gibt nun ein Skript, welches einer Kamera hinzugefügt werden kann. Die Kamerasteuerung erfolgt in Form einer State Machine. das Kamera Skript kann verschiedene States annehmen, dadurch verhält sich die Kamera entsprechend anders. Die Kamera kann bis jetzt einem Objekt folgen, eine fixe Position einnehmen sowie navigierbar sein. Eine Fixe Position könnte hilfreich sein, um schnell einen Überblick zu bekommen. Die Navigation der Kamera im Navigations-State erfolgt über die Arrow-Keys (x und y Achse) und das Maus-Rad zum Zoomen (z Achse). Die Navigation ist zum Planen der Karten wichtig, da man sich leicht einen Überblick verschaffen kann und sich frei auf der Map bewegen kann. Die Kamera kann mit Boundaries versehen werden, sodass man nicht bis ins unendliche zoomen oder sich bis ins unendliche Bewegen kann. Wenn die Kamera die Position ändert, egal ob innerhalb eines States (z.B. Verfolgung eines Objektes) oder beim Wechsel in einen anderen State, passiert dies nicht schlagartig, sondern wird von einer eigenen Klasse animiert, sodass alles "smoother" aussieht.
 
+![camera_follow](images/Progress/general/camera_follow.gif)
+
+Die Kamera verfolgt das Spacecraft.
+
+![camera_navigation](images/Progress/general/camera_navigation.gif)
+
+Die Kamera kann im Navigations State mit den Arrow-Keys und dem Mausrad gesteuert werden.
+
 ### Herausforderungen
 
 Nach der Fertigstellung des ersten Layers ist unser Fokus durch die Notwendigkeit eines Gamemanagers und der dazugehörigen Spieler dahin abgewichen. Den in der Planung in Layer 3 ansässigen Gamemanager  wurde somit in den zweiten Layer verlegt da dieser Vorzeitig benötigt wurde. Durch diesen Vorschub ist es uns möglich geworden die nötigen HUD und Bewegungskarten sofort auf den Gamemanager umzustellen. Dies ermöglicht uns eine finalisierte Implementierung dieser und einer Nutzung des Eventsystems wie in der Planung vorgesehen.
