@@ -4,35 +4,21 @@ using UnityEngine;
 
 public class MovementsTester : MonoBehaviour
 {
-
-    public float timeBetweenMovements;
     public string firstMovement;
     public string secondMovement;
     public string thirdMovement;
     public string fourthMovement;
     public string fifthMovement;
     private Spacecraft spacecraft;
-    private float timer;
 
     void Start()
     {
         spacecraft = GetComponent<Spacecraft>();
-        timer = 0f;
         addMovement(firstMovement);
         addMovement(secondMovement);
         addMovement(thirdMovement);
         addMovement(fourthMovement);
         addMovement(fifthMovement);
-    }
-
-    void Update()
-    {
-        timer += Time.deltaTime;
-        if (timer >= timeBetweenMovements)
-        {
-            spacecraft.StartNextMovement();
-            timer = 0;
-        }
     }
 
     private void addMovement(string description)
