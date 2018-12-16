@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
     private TickTimer tickTimer;
     private List<Spacecraft> spacecrafts;
+    private CameraController camera;
 
     private UnityAction player_live_listener;
     private UnityAction player_main_fuel_listener;
@@ -65,6 +66,8 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         spacecrafts.Add(GameObject.Find("Spacecraft").GetComponent<Spacecraft>());
         //spacecrafts.Add(GameObject.Find("Spacecraft2").GetComponent<Spacecraft>());
 
+        camera = GameObject.Find("Main Camera").GetComponent<CameraController>();
+
     }
 
     void Start()
@@ -76,6 +79,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         player_1.space.transform.position = start.position;
 
         tickTimer.StartTimer();
+        camera.FollowObject(spacecrafts[0].gameObject);
     }
 
     void propagate_Player_Selection_complete()
@@ -196,6 +200,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         {
             spacecraft.StopPhysics();
         }
+        Test();
     }
 
     private void StartSimulation()
@@ -205,5 +210,17 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         {
             spacecraft.StartPhysics();
         }
+    }
+
+    private void Test()
+    {
+        /* 
+        List<GameObject> followObjects = new List<GameObject>();
+        followObjects.Add(GameObject.Find("planet_mars"));
+        followObjects.Add(GameObject.Find("planet_makemake"));
+        followObjects.Add(GameObject.Find("moon_moon"));
+        camera.FollowObjects(followObjects);*/
+        //camera.SetFixedPosition(new Vector3(0, 0, -1000));
+        camera.FreeNavigation();
     }
 }
