@@ -332,7 +332,7 @@ Der Layer 1 ist abgeschlossen, Layer 2 zum Großteil vervollständigt und der Ga
 
 ### Raumschiff
 
-![Spacecraft](images\Progress\16-Dez-2018\BasicSpacecraft.png)
+![Spacecraft](images/Progress/16-Dez-2018/BasicSpacecraft.png)
 
 <p>
 Das Basic Raumschiff ist implementiert und die Steuerung ist wie in Layer 2 beschrieben. Das Raumschiff kann per MoveCards gesteuert werden. Die MoveCards werden in SpacecraftMovements umgewandelt und dem Raumschiff als Aktionen hizugefügt. Der GameManager sorgt dann dafür, dass das Raumschiff während der Simulation die jeweils nächste Aktion ausführt. Der GameManager ist als CollisionListener beim Spacecraft angemeldet und wird bei einer Kollision benachrichtigt. Die Steuerung des Spacecrafts erfolgt über einen Controller. Für Boosts werden Kräfte zum zugehörigen RigidBody hinzugefügt, während die Rotation nicht über den RigidBody abgewickelt wird, sondern animiert ist.
@@ -340,7 +340,7 @@ Das Basic Raumschiff ist implementiert und die Steuerung ist wie in Layer 2 besc
 
 
 ### Planeten, Monde, Gravitation
-![Planets](images\Progress\16-Dez-2018\Planets.png)
+![Planets](images/Progress/16-Dez-2018/Planets.png)
 
 <p>
 Die Planeten und Monde sowie die dazugehörige Gravitation sind vollständig implementiert. Das Raumschiff und die Planeten interagieren entsprechend ihrer Gravitation. Die Planeten drehen sich um eine festgelegt Rotationsachse mit einer festgelegten Geschwindigkeit. Die Monde können sich über ein Skript im Orbit eines Planeten bewegen. Die Umlaufbahn ist frei einstellbar, sodass man Abstand, Zeit einer Umrundung, Offset, elliptische Verzerrung und Rotation der Umlaufbahn setzten kann.
@@ -348,7 +348,7 @@ Die Planeten und Monde sowie die dazugehörige Gravitation sind vollständig imp
 
 
 ### Checkpoints
-![Checkpoints](images\Progress\16-Dez-2018\Checkpoints.png)
+![Checkpoints](images/Progress/16-Dez-2018/Checkpoints.png)
 
 <p>
 Die Checkpoints sind funktionsfähig und es gibt Barriers um die Map. 
