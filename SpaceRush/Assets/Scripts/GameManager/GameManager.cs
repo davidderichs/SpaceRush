@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour {
 	private UnityAction player_card_selection_listener;
 	private UnityAction player_selection_complete_listener;
 	private UnityAction player_selection_incomplete_listener;
+	private UnityAction player_ready_listener;
 
 	public Startpoint start;
 	// Use this for initialization
@@ -49,6 +50,9 @@ public class GameManager : MonoBehaviour {
 
 		player_selection_incomplete_listener = new UnityAction (propagate_Player_Selection_incomplete);
 		EventManager.StartListening("Player_Card_Selection_Incomplete", player_selection_incomplete_listener);	
+
+		player_ready_listener = new UnityAction (propagate_Player_ready);
+		EventManager.StartListening("HUD_Player_is_ready", player_ready_listener);
 
 	}
 
@@ -86,6 +90,10 @@ public class GameManager : MonoBehaviour {
 	void propagate_Player_Selection_change(){
 		this.hud.card_stack.set_MoveCards(this.player_1.card_Stack);
 		this.hud.selected_cards.set_MoveCards(this.player_1.card_Selection);
+	}
+
+	void propagate_Player_ready(){
+		this.hud.card_stack.hide();
 	}
 
 	public void checkpointTriggered(int id, Player player){

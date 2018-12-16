@@ -297,4 +297,8 @@ public class HUD_Card_Stack : MonoBehaviour {
 	public void addSpriteToImage(Image image, string spritePath){		
 		image.sprite = Resources.Load <Sprite>(spritePath);
 	}
+
+	public void hide(){
+		reset_moveCards();
+	}
 }

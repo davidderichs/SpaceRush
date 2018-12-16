@@ -42,7 +42,7 @@ public class HUD : MonoBehaviour {
 		}
 
 		this.HUD_Button_Ready.onClick.AddListener(delegate {
-			Debug.Log("Ready Button clicked");
+			EventManager.TriggerEvent("HUD_Player_is_ready");
 		});
 	}
 	public void deactivate_Ready_Button(){
