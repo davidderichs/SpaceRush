@@ -274,36 +274,127 @@
 </p>
 
 
+## Update 16.12.2018 HUD, EventManager, SoundManager, GameManager
+
+<p>
+	<i>von: David </br>
+	ES wurde ein <tt>EventManager</tt> implementiert, um globale Events propagieren und 
+	behandeln zu können. Der GameManager ist mit mehreren Listener-Objekten 
+	ausgestattet, die das HUD entsprechend aktualisieren. <br>
+	Außerdem habe ich einen <tt>SoundManager</tt> eingebaut, der auch auf bestimmte 
+	globale Events hört und entsprechende Sounds ausgibt. <br><br>
+	<b>Probleme:</b><br>
+	Hatte Probleme bei der Methode <tt>invoke()</tt> zum Propagieren von Event-Triggern. 
+	Ich habe keine Möglichkeit gefunden, Events mit Zusatz-Informationen auszustatten. 
+	Hatte zu diesem Zweck eigentlich eine zusätzliche Klasse geschrieben, die diese 
+	Informationen enthalten sollte. Aber nach reichlicher Überlegung brauchen wir diese 
+	Informationen letztendlich nicht und nutzen nun einfach nur die Event-Namen.
+	</i>
+</p>
+
+### HUD
+<p>
+Das HUD steht mittels des <tt>GameManager</tt>'s in direktem "Kontakt" zum 
+<tt>Player</tt>	und seinen aktuellen Werten, die auch die Kartenstapel beinhalten. Es wurde um einige Funktionen erweitert und bietet nun die Möglichkeit, Karten aus dem "Stapel" auszuwählen, die dann in die Karten-Auswahl des Spielers übertragen werden und auch so im HUD angezeigt werden. Auch in die andere Richtung können Karten wieder 	entsprechend aus der Auswahl entfernt und zurück in den "Stapel" gelegt werden. Ist die 	Auswahl getroffen, kann der Spieler einen nun sichtbaren Button betätigen, der dem 	GameManager signalisiert, dass der Spieler mit seinen "Zügen" fertig ist.
+</p>
+
+### EventManager
+<p>
+	Statische Klasse, die es ermöglicht beliebig viele Listener Objekte vom Typ <tt>UnityAction</tt> zu hinterlegen. Diese werden in einem Dictionary gespeichert.
+	Angemeldete Listener hören auf das angegebene Event. Ist noch kein Event mit diesem Namen vorhanden, wird dieses erstellt.
+</p>
+
+<p>
+	Im Projekt können alle Komponenten die Methoden <tt>StartListening(), StopListening(), 
+	TriggerEvent()</tt> nutzen, um Listener anzumelden, abzumelden und um globale Events 
+	zu triggern.
+</p>
+
+### GameManager
+<p>
+	Der GameManager hört auf globale Events, die z.B. vom Player, Spacecraft oder HUD 
+	getriggered werden können und führt entsprechende Methoden aus. So ist z.B. eine 
+	bidirektionale Interaktion zwischen Player und HUD möglich.
+</p>
+
+### SoundManager
+<p>
+	Der <tt>SoundManager</tt>  hört auf globale Events, die eine Sound-Ausgabe auslösen 
+	sollen. Das GameObjekt SoundManager enthält diverse Komponenten vom Typ 
+	<tt>AudioSource</tt>. Diese enthalten die im Projekt enthaltenen Sounds.
+</p>
+
 ## Layer-Fortschritt
 
+<p>
 Der Layer 1 ist abgeschlossen, Layer 2 zum Großteil vervollständigt und der Gamemanager aus Layer 3 implementiert.
+</p>
 
+### Raumschiff
 
+![Spacecraft](images\Progress\16-Dez-2018\BasicSpacecraft.png)
 
-![Planets](C:\Users\Tjark\Documents\Unity\SpaceRush\Projektdokumentation\images\Progress\16-Dez-2018\Planets.png)
+<p>
+Das Basic Raumschiff ist implementiert und die Steuerung ist wie in Layer 2 beschrieben. Das Raumschiff kann ebenfalls per MoveCards gesteuert werden.
+</p>
 
-Die Planeten sowie die dazugehörige Gravitation sind vollständig implementiert.
+### Planeten, Gravitation
+![Planets](images\Progress\16-Dez-2018\Planets.png)
 
-![Spacecraft](C:\Users\Tjark\Documents\Unity\SpaceRush\Projektdokumentation\images\Progress\16-Dez-2018\BasicSpacecraft.png)
+<p>
+Die Planeten sowie die dazugehörige Gravitation sind vollständig implementiert. Das Raumschiff und die Planeten interagieren entsprechend ihrer Gravitation.
+</p>
 
-Das Basic Raumschiff ist implementiert und die Steuerung ist wie in Layer 2 beschrieben. 
+### Checkpoints
+![Checkpoints](images\Progress\16-Dez-2018\Checkpoints.png)
 
-![Checkpoints](C:\Users\Tjark\Documents\Unity\SpaceRush\Projektdokumentation\images\Progress\16-Dez-2018\Checkpoints.png)
-
+<p>
 Die Checkpoints sind funktionsfähig und es gibt Barriers um die Map. 
+</p>
 
-![HUD](images/Progress/09-Dez-2018/HUD_Szene_gestartet.JPG)
+### HUD
 
-Das Hud und ein Eventsystem sind außerdem hinzugefügt. 
+![HUD](images/Progress/16-Dez-2018/HUD_Stack.JPG)
 
-Layer 2 ist funktionsfähig es fehlt jedoch der Multiplayer. 
+<p>
+Das HUD ist entsprechend Layer 2 funktionsfähig. Es stellt zu Beginn den aktuellen Karten-Stapel des Spielers dar, aus dem er 5 Karten bzw. Bewegungen auswählen kann. Dabei wird die Karte aus dem Stapel entfernt und in die Auswahl übertragen. Anders herum kann diese Auswahl auch wieder rückgängig gemacht werden. 
+</p>
 
-Die Basic Sounds werden gespielt und es gibt Hintergrundmusik. 
+![HUD](images/Progress/16-Dez-2018/HUD_Selection_Complete.JPG)
 
-Die Bewegung des Schiffes erfolgt über die vorgesehene Steuerung durch Bewegungskarten.
+<p>
+Hat der Spieler seine Auswahl getätigt, kann er den dann erschienenen Button "Ready" betätigen, um die Auswahl zu beenden.
+</p>
 
-Der in Layer 3 geplante Gamemanager wurde vorgezogen und Implementiert.
+### EventSystem
+<p>
+Es können globale Events getriggered werden, die z.B. vom GameManager für deren Abhandlung genutzt werden. Diese Events triggern Sounds, Karten-Auswahl, Änderungen der Spieler-Attribute wie z.B. Lebenspunkte. Sie könne aber auch angeben, dass eine Kollision stattgefunden hat usw. 
+</p>
 
+### BasicSounds
+<p>
+im <tt>SoundManager</tt> werden bereits für verschiedene globale Events Sound-Trigger abgehandelt. HUD-Aktionen werden mit Sounds unterlegt und es wird ein Sound-Track im Hintergrund abgespielt, sobald die Szene startet.
+</p>
+
+### Bewegungskarten
+<p>
+Die Bewegungskarten können aus vordefinierten Stapel-Dateien eingelesen werden. Sie werden vom Player genutzt, um Aktionen auszuwählen. Später werden sie in Aktionen/Bewegungen des SpaceCrafts umgewandelt und interpretiert. Sie sind in form echter Objekte in das Spiel integriert.
+</p>
+
+### Game Manager
+<p>
+Der <tt>GameManager</tt> ist zwar erst in Layer 3 definiert, aber bereits jetzt fester Bestandteil des Spiels und in großem Umfang funktionsfähig. Er sorgt für die korrekte Interaktion von HUD und Player, kann aber auch die Spiel Zustände festlegen und den Spielfluß steuern.
+</p>
+
+### Musik
+<p>
+Es ist  bereits ein Soundtrack in das Spiel integriert, welcher auch im Einklang mit Trigger-Sounds ist und beim Start der Szene abgespielt wird..
+</p>
+
+### Multiplayer
+<p>
+Konnte bislang nicht implementiert werden.
+</p>
 
 
 ### Herausforderungen
