@@ -68,7 +68,6 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         //spacecrafts.Add(GameObject.Find("Spacecraft2").GetComponent<Spacecraft>());
 
         camera = GameObject.Find("Main Camera").GetComponent<CameraController>();
-        camera.SetBoundaries(-400, -150, -1000, 450, 47, -300);
     }
 
     void Start()
@@ -78,6 +77,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         this.player_1 = GameObject.Find("Player").GetComponent<Player>();
 
         player_1.space.transform.position = start.position;
+        camera.SetBoundaries(-400, -150, -1000, 450, 47, -300);
         StopSimulation();
     }
 
