@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HUD_Card_Stack : MonoBehaviour {
+public class HUD_Card_Stack : MonoBehaviour
+{
 
-	string cardImageNamePrefix = "HUD_Available_Move_CardImage_";
-	string cardTextNamePrefix = "HUD_Available_Move_Text_";
+    string cardImageNamePrefix = "HUD_Available_Move_CardImage_";
+    string cardTextNamePrefix = "HUD_Available_Move_Text_";
 
-	int m_card_stack_size;
+    int m_card_stack_size;
 
-	void Awake(){
+    void Awake()
+    {
 
-	}
+    }
 
-	// Use this for initialization
-	void Start () {	
-	}
+    // Use this for initialization
+    void Start()
+    {
+    }
 
-	void setOnClickListeners(){	
+    void setOnClickListeners()
+    {
 
 		for(int i=0; i<GameObject.Find("Player").GetComponent<Player>().card_Stack.size(); i++){
 			// Debug.Log("Setting up Listeners in HUD_Card_Stack");
@@ -249,54 +253,75 @@ public class HUD_Card_Stack : MonoBehaviour {
 		}		
 	}
 
-	public void set_MoveCards(MoveCards movecards){
+    // Update is called once per frame
+    void Update()
+    {
+    }
+    private void reset_moveCards()
+    {
+        for (int i = 0; i < m_card_stack_size; i++)
+        {
+            GameObject.Find(this.cardImageNamePrefix + i).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/empty");
+            GameObject.Find(this.cardTextNamePrefix + i).GetComponent<Text>().text = "";
+            GameObject.Find("HUD_Available_Move_" + (i)).GetComponent<Button>().onClick.RemoveAllListeners();
+        }
+    }
 
-		reset_moveCards();
+    public void set_MoveCards(MoveCards movecards)
+    {
 
-		m_card_stack_size = movecards.size();
+        reset_moveCards();
 
-		for (int i=0; i<movecards.size(); i++){
+        m_card_stack_size = movecards.size();
 
-			MoveCard currentCard = movecards.get_MoveCard(i);
+        for (int i = 0; i < movecards.size(); i++)
+        {
+
+            MoveCard currentCard = movecards.get_MoveCard(i);
 
 
-			GameObject moveImage = GameObject.Find(this.cardImageNamePrefix + i);
+            GameObject moveImage = GameObject.Find(this.cardImageNamePrefix + i);
 
-			Image image;
-			if (moveImage.GetComponent<Image>() == null){
-				moveImage.AddComponent<Image>();
-			}	
-			image = moveImage.GetComponent<Image>();	
+            Image image;
+            if (moveImage.GetComponent<Image>() == null)
+            {
+                moveImage.AddComponent<Image>();
+            }
+            image = moveImage.GetComponent<Image>();
 
-			if(currentCard.useSprite) {
-				addSpriteToImage(image, currentCard.spritePath + currentCard.direction);
-			}
-			setImageColor(image, currentCard.color);
+            if (currentCard.useSprite)
+            {
+                addSpriteToImage(image, currentCard.spritePath + currentCard.direction);
+            }
+            setImageColor(image, currentCard.color);
 
-			GameObject moveText = GameObject.Find(this.cardTextNamePrefix + i);
+            GameObject moveText = GameObject.Find(this.cardTextNamePrefix + i);
 
-			Text textComponent;
-			if(moveText.GetComponent<Text>() == null){
-				moveText.AddComponent<Text>();
-			}
-			textComponent = moveText.GetComponent<Text>();
-			
-			textComponent.text =  currentCard.intensity.ToString();
-			textComponent.alignment = TextAnchor.MiddleCenter;
-			textComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
-			textComponent.fontSize = 40;
-		}
+            Text textComponent;
+            if (moveText.GetComponent<Text>() == null)
+            {
+                moveText.AddComponent<Text>();
+            }
+            textComponent = moveText.GetComponent<Text>();
 
-		setOnClickListeners();
-	}		
+            textComponent.text = currentCard.intensity.ToString();
+            textComponent.alignment = TextAnchor.MiddleCenter;
+            textComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+            textComponent.fontSize = 40;
+        }
 
-	public void setImageColor (Image image, Color32 color){
-		image.color = color;
-	}
+        setOnClickListeners();
+    }
 
-	public void addSpriteToImage(Image image, string spritePath){		
-		image.sprite = Resources.Load <Sprite>(spritePath);
-	}
+    public void setImageColor(Image image, Color32 color)
+    {
+        image.color = color;
+    }
+
+    public void addSpriteToImage(Image image, string spritePath)
+    {
+        image.sprite = Resources.Load<Sprite>(spritePath);
+    }
 
 	public void hide(){
 		reset_moveCards();
