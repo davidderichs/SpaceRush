@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 342648827}
-  m_IndirectSpecularColor: {r: 0.006280071, g: 0.016688026, b: 0.033383656, a: 1}
+  m_IndirectSpecularColor: {r: 0.006280071, g: 0.016688023, b: 0.033383653, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6067,7 +6067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d12c6a3b6973a54b86b221e15ff2652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player_1: {fileID: 0}
+  player_1: {fileID: 21420403}
   checkpoint1: {fileID: 0}
   checkpoint2: {fileID: 0}
   checkpoint3: {fileID: 0}
@@ -6944,10 +6944,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2005829998}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6df292184ede148da8543d03bcf32b9a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ef2bcabfcecb4ccf8b73078e4965227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clampObject: {fileID: 1425206465}
 --- !u!1 &2026001246
 GameObject:
   m_ObjectHideFlags: 0
