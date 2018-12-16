@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickable{
+public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickable
+{
     public Player player_1;
     //public Player pl2;
     public Checkpoint checkpoint1;
@@ -19,7 +20,9 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     private UnityAction player_shield_listener;
     private UnityAction player_card_stack_listener;
     private UnityAction player_card_selection_listener;
-	private UnityAction player_ready_listener;
+    private UnityAction player_ready_listener;
+
+    private CameraController camera;
 
     private UnityAction player_selection_complete_listener;
     private UnityAction player_selection_incomplete_listener;
@@ -52,8 +55,8 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         player_selection_complete_listener = new UnityAction(propagate_Player_Selection_complete);
         EventManager.StartListening("Player_Card_Selection_Complete", player_selection_complete_listener);
 
-		player_ready_listener = new UnityAction (propagate_Player_ready);
-		EventManager.StartListening("HUD_Player_is_ready", player_ready_listener);
+        player_ready_listener = new UnityAction(propagate_Player_ready);
+        EventManager.StartListening("HUD_Player_is_ready", player_ready_listener);
 
         Spacecraft.AddCollisionListener(this);
 
@@ -64,44 +67,52 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         spacecrafts.Add(GameObject.Find("Spacecraft").GetComponent<Spacecraft>());
         //spacecrafts.Add(GameObject.Find("Spacecraft2").GetComponent<Spacecraft>());
 
+        camera.SetBoundaries(-400, -100, -100, 400, 100, -800);
     }
 
-    void Start() {
+    void Start()
+    {
 
         this.hud = GameObject.FindWithTag("HUD").GetComponent<HUD>();
         this.player_1 = GameObject.Find("Player").GetComponent<Player>();
 
-		player_1.space.transform.position = start.position;
+        player_1.space.transform.position = start.position;
         StopSimulation();
-	}
+    }
 
-    void propagate_Player_Selection_complete() {
+    void propagate_Player_Selection_complete()
+    {
         this.hud.activate_Ready_Button();
     }
-    void propagate_Player_Selection_incomplete() {
+    void propagate_Player_Selection_incomplete()
+    {
         this.hud.deactivate_Ready_Button();
     }
 
-	void propagate_Player_ready(){
+    void propagate_Player_ready()
+    {
         Gameloop();
         StartSimulation();
         propagate_Player_Selection_incomplete();
-	}
+    }
 
-	public void checkpointTriggered(int id, Player player){
-		player_1.addCheckpoint(id);
-	}
-	void Update(){
-		if (player_1.check.Count == 4){
-			Debug.Log("Player 1 Win");
-		}
+    public void checkpointTriggered(int id, Player player)
+    {
+        player_1.addCheckpoint(id);
+    }
+    void Update()
+    {
+        if (player_1.check.Count == 4)
+        {
+            Debug.Log("Player 1 Win");
+        }
 
-		// ONLY TESTING when simulation stopped -> reenable physics with klick on space
+        // ONLY TESTING when simulation stopped -> reenable physics with klick on space
         if (Input.GetKeyDown("space"))
         {
             StartSimulation();
         }
-	}
+    }
     void propagate_Player_live_change()
     {
         this.hud.live.set_ActiveItemsColor(this.player_1.lives);
@@ -187,39 +198,43 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         }
     }
 
-    private void StartSimulation() {
+    private void StartSimulation()
+    {
         Debug.Log("Starting Simulation");
         tickTimer.StartTimer();
         foreach (Spacecraft spacecraft in spacecrafts)
         {
             spacecraft.StartPhysics();
         }
+        camera.FollowObject(spacecrafts[0].gameObject);
     }
 
-	    private void StopSimulation()
+    private void StopSimulation()
     {
         Debug.Log("Stopping Simulation");
         foreach (Spacecraft spacecraft in spacecrafts)
         {
             spacecraft.StopPhysics();
         }
+        camera.FreeNavigation();
     }
 
-        private void Gameloop(){
-           foreach (Spacecraft spacecraft in spacecrafts)
+    private void Gameloop()
+    {
+        foreach (Spacecraft spacecraft in spacecrafts)
+        {
+            MoveCards cards = spacecraft.player.card_Selection;
+            for (int i = 0; i < cards.card_List.Count; i++)
             {
-                MoveCards cards = spacecraft.player.card_Selection;
-                for (int i=0; i < cards.card_List.Count; i++)
-                {
-                    SpacecraftMovement move = CardParser.ParseCard(cards.get_MoveCard(i));
-                    spacecraft.AddMovement(move);
-                    Debug.Log(move.duration);
-                }
-                spacecraft.player.card_Selection.card_List.Clear();
-                MoveCards newCards = MoveCards.get_random_Movecards(5);
-                for (int i = 0; i < newCards.size(); i++)
-                spacecraft.player.card_Stack.card_List.Add(newCards.get_MoveCard(i));
-                this.hud.card_stack.hide();
+                SpacecraftMovement move = CardParser.ParseCard(cards.get_MoveCard(i));
+                spacecraft.AddMovement(move);
+                Debug.Log(move.duration);
             }
+            spacecraft.player.card_Selection.card_List.Clear();
+            MoveCards newCards = MoveCards.get_random_Movecards(5);
+            for (int i = 0; i < newCards.size(); i++)
+                spacecraft.player.card_Stack.card_List.Add(newCards.get_MoveCard(i));
+            this.hud.card_stack.hide();
         }
+    }
 }
