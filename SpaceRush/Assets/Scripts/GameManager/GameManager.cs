@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     }
 
 	void propagate_Player_ready(){
+        this.hud.card_stack.hide();
         Gameloop();
         StartSimulation();
         propagate_Player_Selection_incomplete();
@@ -183,6 +184,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             foreach (Spacecraft spacecraft in spacecrafts)
             {
                 spacecraft.StartNextMovement();
+                this.hud.card_stack.hide();
             }
         }
     }
