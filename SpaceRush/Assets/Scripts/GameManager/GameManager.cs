@@ -72,7 +72,6 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         this.player_1 = GameObject.Find("Player").GetComponent<Player>();
 
 		player_1.space.transform.position = start.position;
-        camera.
         StopSimulation();
 	}
 
@@ -87,6 +86,8 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 		this.hud.card_stack.hide();
         Gameloop();
         StartSimulation();
+        propagate_Player_Selection_incomplete();
+        propagate_Player_stack_change();
 	}
 
 	public void checkpointTriggered(int id, Player player){
@@ -176,6 +177,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         {
             Debug.Log("DONE.");
             StopSimulation();
+            
         }
         else
         {
@@ -215,6 +217,8 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
                     spacecraft.AddMovement(move);
                     Debug.Log(move.duration);
                 }
+                spacecraft.player.card_Selection.card_List.Clear();
+                MoveCards.get_random_Movecards(5);
             }
         }
 }

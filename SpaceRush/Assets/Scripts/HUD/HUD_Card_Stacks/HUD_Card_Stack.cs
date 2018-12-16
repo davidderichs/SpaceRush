@@ -312,4 +312,5 @@ public class HUD_Card_Stack : MonoBehaviour
 	public void hide(){
 		reset_moveCards();
 	}
+	
 }
