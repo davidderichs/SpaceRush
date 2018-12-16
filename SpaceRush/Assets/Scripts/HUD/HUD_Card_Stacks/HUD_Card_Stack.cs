@@ -253,20 +253,6 @@ public class HUD_Card_Stack : MonoBehaviour
 		}		
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-    private void reset_moveCards()
-    {
-        for (int i = 0; i < m_card_stack_size; i++)
-        {
-            GameObject.Find(this.cardImageNamePrefix + i).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/empty");
-            GameObject.Find(this.cardTextNamePrefix + i).GetComponent<Text>().text = "";
-            GameObject.Find("HUD_Available_Move_" + (i)).GetComponent<Button>().onClick.RemoveAllListeners();
-        }
-    }
-
     public void set_MoveCards(MoveCards movecards)
     {
 
