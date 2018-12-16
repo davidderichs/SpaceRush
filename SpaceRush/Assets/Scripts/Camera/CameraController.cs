@@ -8,12 +8,25 @@ public class CameraController : MonoBehaviour
     private float moveTime;
     private float easeOutFactor;
     private Animator animator;
+    private float minX;
+    private float maxX;
+    private float minY;
+    private float maxY;
+    private float minZ;
+    private float maxZ;
 
     void Awake()
     {
         moveTime = 2f;
         easeOutFactor = 2;
         animator = new Animator();
+
+        minX = float.MinValue;
+        maxX = float.MaxValue;
+        minY = float.MinValue;
+        maxY = float.MaxValue;
+        minZ = float.MinValue;
+        maxZ = 0;
     }
 
     void Update()
@@ -28,8 +41,42 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    public void SetBoundaries(float minX, float minY, float minZ, float maxX, float maxY, float maxZ)
+    {
+        this.minX = minX;
+        this.maxX = maxX;
+        this.minY = minY;
+        this.maxY = maxY;
+        this.minZ = minZ;
+        this.maxZ = maxZ;
+    }
+
     public void AnimateTo(Vector3 position)
     {
+        if (position.x > maxX)
+        {
+            position.x = maxX;
+        }
+        if (position.x < minX)
+        {
+            position.x = minX;
+        }
+        if (position.y > maxY)
+        {
+            position.y = maxY;
+        }
+        if (position.y < minY)
+        {
+            position.y = minY;
+        }
+        if (position.z > maxZ)
+        {
+            position.z = maxZ;
+        }
+        if (position.z < minZ)
+        {
+            position.z = minZ;
+        }
         animator.SetAnimation(gameObject.transform.position, position, moveTime, easeOutFactor);
     }
 

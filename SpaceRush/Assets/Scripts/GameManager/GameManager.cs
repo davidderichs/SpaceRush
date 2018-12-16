@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         //spacecrafts.Add(GameObject.Find("Spacecraft2").GetComponent<Spacecraft>());
 
         camera = GameObject.Find("Main Camera").GetComponent<CameraController>();
-
+        camera.SetBoundaries(-400, -150, -1000, 450, 47, -300);
     }
 
     void Start()
@@ -78,8 +78,9 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
         player_1.space.transform.position = start.position;
 
-        tickTimer.StartTimer();
-        camera.FollowObject(spacecrafts[0].gameObject);
+        camera.FreeNavigation();
+
+        StopSimulation();
     }
 
     void propagate_Player_Selection_complete()
@@ -200,27 +201,17 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         {
             spacecraft.StopPhysics();
         }
-        Test();
+        camera.FreeNavigation();
     }
 
     private void StartSimulation()
     {
+        tickTimer.StartTimer();
         Debug.Log("Starting Simulation");
         foreach (Spacecraft spacecraft in spacecrafts)
         {
             spacecraft.StartPhysics();
         }
-    }
-
-    private void Test()
-    {
-        /* 
-        List<GameObject> followObjects = new List<GameObject>();
-        followObjects.Add(GameObject.Find("planet_mars"));
-        followObjects.Add(GameObject.Find("planet_makemake"));
-        followObjects.Add(GameObject.Find("moon_moon"));
-        camera.FollowObjects(followObjects);*/
-        //camera.SetFixedPosition(new Vector3(0, 0, -1000));
-        camera.FreeNavigation();
+        camera.FollowObject(spacecrafts[0].gameObject);
     }
 }

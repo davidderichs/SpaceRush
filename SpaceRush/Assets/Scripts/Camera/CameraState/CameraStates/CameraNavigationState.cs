@@ -43,6 +43,14 @@ public class CameraNavigationState : CameraState
         {
             position.x += moveStep;
         }
+        if (Input.mouseScrollDelta.y > 0)
+        {
+            position.z /= zoomFactor;
+        }
+        if (Input.mouseScrollDelta.y < 0)
+        {
+            position.z *= zoomFactor;
+        }
 
         camera.AnimateTo(position);
     }

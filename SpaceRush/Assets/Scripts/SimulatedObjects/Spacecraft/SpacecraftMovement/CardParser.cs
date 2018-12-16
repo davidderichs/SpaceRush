@@ -5,22 +5,22 @@ using UnityEngine;
 public class CardParser
 {
     public static SpacecraftMovement ParseCard(MoveCard card)
-    {/* 
-        float forceOrVelocity = card.force;
+    {
+        float forceOrVelocity = card.forceOrVelocity;
         float duration = card.duration;
         SpacecraftMovement.Direction direction = SpacecraftMovement.Direction.None;
         switch (card.direction)
         {
-            case "forwards":
+            case "forward":
                 direction = SpacecraftMovement.Direction.Forwards;
                 break;
-            case "backwards":
+            case "backward":
                 direction = SpacecraftMovement.Direction.Backwards;
                 break;
-            case "left":
+            case "Rotate_Left":
                 direction = SpacecraftMovement.Direction.Left;
                 break;
-            case "right":
+            case "Rotate_Right":
                 direction = SpacecraftMovement.Direction.Right;
                 break;
         }
@@ -28,11 +28,9 @@ public class CardParser
         {
             case "boost":
                 return new SpacecraftBoost(direction, forceOrVelocity, duration);
-                break;
             case "rotate":
                 return new SpacecraftRotation(direction, forceOrVelocity, duration);
-                break;
-		}*/
+        }
         return null;
     }
 }
