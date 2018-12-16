@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         Spacecraft.AddCollisionListener(this);
 
         tickTimer = gameObject.AddComponent<TickTimer>();
-        tickTimer.SetProperties(this, 3, 5);
+        tickTimer.SetProperties(this, 2, 5);
 
         spacecrafts = new List<Spacecraft>();
         spacecrafts.Add(GameObject.Find("Spacecraft").GetComponent<Spacecraft>());
@@ -72,8 +72,8 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         this.player_1 = GameObject.Find("Player").GetComponent<Player>();
 
 		player_1.space.transform.position = start.position;
-
-		tickTimer.StartTimer();
+        camera.
+        StopSimulation();
 	}
 
     void propagate_Player_Selection_complete() {
@@ -189,6 +189,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
     private void StartSimulation() {
         Debug.Log("Starting Simulation");
+        tickTimer.StartTimer();
         foreach (Spacecraft spacecraft in spacecrafts)
         {
             spacecraft.StartPhysics();
@@ -215,7 +216,5 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
                     Debug.Log(move.duration);
                 }
             }
-            StopSimulation();
-
         }
 }
