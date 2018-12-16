@@ -335,15 +335,17 @@ Der Layer 1 ist abgeschlossen, Layer 2 zum Großteil vervollständigt und der Ga
 ![Spacecraft](images\Progress\16-Dez-2018\BasicSpacecraft.png)
 
 <p>
-Das Basic Raumschiff ist implementiert und die Steuerung ist wie in Layer 2 beschrieben. Das Raumschiff kann ebenfalls per MoveCards gesteuert werden.
+Das Basic Raumschiff ist implementiert und die Steuerung ist wie in Layer 2 beschrieben. Das Raumschiff kann per MoveCards gesteuert werden. Die MoveCards werden in SpacecraftMovements umgewandelt und dem Raumschiff als Aktionen hizugefügt. Der GameManager sorgt dann dafür, dass das Raumschiff während der Simulation die jeweils nächste Aktion ausführt. Der GameManager ist als CollisionListener beim Spacecraft angemeldet und wird bei einer Kollision benachrichtigt. Die Steuerung des Spacecrafts erfolgt über einen Controller. Für Boosts werden Kräfte zum zugehörigen RigidBody hinzugefügt, während die Rotation nicht über den RigidBody abgewickelt wird, sondern animiert ist.
 </p>
 
-### Planeten, Gravitation
+
+### Planeten, Monde, Gravitation
 ![Planets](images\Progress\16-Dez-2018\Planets.png)
 
 <p>
-Die Planeten sowie die dazugehörige Gravitation sind vollständig implementiert. Das Raumschiff und die Planeten interagieren entsprechend ihrer Gravitation.
+Die Planeten und Monde sowie die dazugehörige Gravitation sind vollständig implementiert. Das Raumschiff und die Planeten interagieren entsprechend ihrer Gravitation. Die Planeten drehen sich um eine festgelegt Rotationsachse mit einer festgelegten Geschwindigkeit. Die Monde können sich über ein Skript im Orbit eines Planeten bewegen. Die Umlaufbahn ist frei einstellbar, sodass man Abstand, Zeit einer Umrundung, Offset, elliptische Verzerrung und Rotation der Umlaufbahn setzten kann.
 </p>
+
 
 ### Checkpoints
 ![Checkpoints](images\Progress\16-Dez-2018\Checkpoints.png)
@@ -383,22 +385,28 @@ Die Bewegungskarten können aus vordefinierten Stapel-Dateien eingelesen werden.
 
 ### Game Manager
 <p>
-Der <tt>GameManager</tt> ist zwar erst in Layer 3 definiert, aber bereits jetzt fester Bestandteil des Spiels und in großem Umfang funktionsfähig. Er sorgt für die korrekte Interaktion von HUD und Player, kann aber auch die Spiel Zustände festlegen und den Spielfluß steuern.
+Der <tt>GameManager</tt> ist zwar erst in Layer 3 definiert, aber bereits jetzt fester Bestandteil des Spiels und in großem Umfang funktionsfähig. Er sorgt für die korrekte Interaktion von HUD und Player, kann aber auch die Spiel Zustände festlegen und den Spielfluss steuern. Er steht auch in ständiger Kommunikation mit dem Spacecraft. Er lässt das Raumschiff neue Aktionen ausführen und kann auf Kollisionen des Raumschiffes reagieren. Wann es Zeit ist neue Karten auszuführen bestimmt ein eigenes Timer Skript, welches dem GameManager bescheid gibt, wenn es soweit ist. Außerdem startet und beendet der GameManager die Simulierten Objekte, sodass man die Simulation pausieren kann um neue Karten zu wählen um danach die Simulation fortzusetzen. Er ist auch für die Kameraeinstellungen zuständig, d.h. er derigiert das Kamera Skript.
 </p>
+
 
 ### Musik
 <p>
-Es ist  bereits ein Soundtrack in das Spiel integriert, welcher auch im Einklang mit Trigger-Sounds ist und beim Start der Szene abgespielt wird..
+Es ist  bereits ein Soundtrack in das Spiel integriert, welcher auch im Einklang mit Trigger-Sounds ist und beim Start der Szene abgespielt wird.
 </p>
+
 
 ### Multiplayer
 <p>
 Konnte bislang nicht implementiert werden.
 </p>
+### Kamera
 
+Es gibt nun ein Skript, welches einer Kamera hinzugefügt werden kann. Die Kamerasteuerung erfolgt in Form einer State Machine. das Kamera Skript kann verschiedene States annehmen, dadurch verhält sich die Kamera entsprechend anders. Die Kamera kann bis jetzt einem Objekt folgen, eine fixe Position einnehmen sowie navigierbar sein. Eine Fixe Position könnte hilfreich sein, um schnell einen Überblick zu bekommen. Die Navigation der Kamera im Navigations-State erfolgt über die Arrow-Keys (x und y Achse) und das Maus-Rad zum Zoomen (z Achse). Die Navigation ist zum Planen der Karten wichtig, da man sich leicht einen Überblick verschaffen kann und sich frei auf der Map bewegen kann. Die Kamera kann mit Boundaries versehen werden, sodass man nicht bis ins unendliche zoomen oder sich bis ins unendliche Bewegen kann. Wenn die Kamera die Position ändert, egal ob innerhalb eines States (z.B. Verfolgung eines Objektes) oder beim Wechsel in einen anderen State, passiert dies nicht schlagartig, sondern wird von einer eigenen Klasse animiert, sodass alles "smoother" aussieht.
 
 ### Herausforderungen
 
 Nach der Fertigstellung des ersten Layers ist unser Fokus durch die Notwendigkeit eines Gamemanagers und der dazugehörigen Spieler dahin abgewichen. Den in der Planung in Layer 3 ansässigen Gamemanager  wurde somit in den zweiten Layer verlegt da dieser Vorzeitig benötigt wurde. Durch diesen Vorschub ist es uns möglich geworden die nötigen HUD und Bewegungskarten sofort auf den Gamemanager umzustellen. Dies ermöglicht uns eine finalisierte Implementierung dieser und einer Nutzung des Eventsystems wie in der Planung vorgesehen.
 
-Herausfordernd war die Implementierung der Bewegungskarten und des HUD's. Nach zeitaufwändiger anfänglicher Planung kam es durch unvorhergesehene kleine Probleme zu großer Debugarbeit. Das Großteil des HUD's welches nur von dieser Debugarbeit zurückgehalten wurde verlangsamte die Entwicklung der Bewegungskarten da diese direkt mit dem HUD verwoben sind. Nach diesen Schwierigkeiten kamen wir aber zu einem erfreulichen Fortschritt welcher unser Zwischenbericht berschreibt. Unsere Probleme mit Unity waren kaum nennenswert und wir hatten durch gute Planung wenige Mergeprobleme.
+Herausfordernd war die Implementierung der Bewegungskarten und des HUD's. Nach zeitaufwändiger anfänglicher Planung kam es durch unvorhergesehene kleine Probleme zu großer Debugarbeit. Der Großteil des HUD's welches nur von dieser Debugarbeit zurückgehalten wurde verlangsamte die Entwicklung der Bewegungskarten da diese direkt mit dem HUD verwoben sind. Nach diesen Schwierigkeiten kamen wir aber zu einem erfreulichen Fortschritt welcher unser Zwischenbericht berschreibt. Unsere Probleme mit Unity waren kaum nennenswert und wir hatten durch gute Planung wenige Mergeprobleme.
+
+Ebenfalls herausfordernd war die Implementierung des SpaceraftControllers welcher die Bewegungen des Spacecrafts steuert. Nachdem wir anfänglich eine "zu realistische" Variante implementiert hatten, wurde uns klar, dass wir das Konzept grundlegend verändern müssen, was wir auch taten. Nun ist es möglich richtige Kurven zu fliegen, da die Rotation nun Animiert ist und nicht physikalisch korrekt bis ins unendliche weiter dreht. Als dies geschafft war wurde das Skript so angepasst, dass man Aktionen vorgelegen kann und somit eine Karten-Steuerung möglich ist.
