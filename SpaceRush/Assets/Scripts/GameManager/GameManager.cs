@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         this.player_1 = GameObject.Find("Player").GetComponent<Player>();
 
         player_1.space.transform.position = start.position;
-        camera.SetBoundaries(-400, -150, -1000, 450, 47, -300);
+        camera.SetBoundaries(-700, -150, -1500, 650, 850, -300);
         StopSimulation();
     }
 
