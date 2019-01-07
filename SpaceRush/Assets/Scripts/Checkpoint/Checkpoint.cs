@@ -7,13 +7,14 @@ public class Checkpoint : MonoBehaviour
     private Collider2D coll;
     private Light point;
     public int id;
-    public GameManager game;
+    private GameManager game;
 
     // Use this for initialization
     void Start()
     {
         coll = GetComponent<Collider2D>();
         point = GetComponent<Light>();
+        game = GameObject.Find("GameManager").GetComponent<GameManager>();;
     }
 
     void OnTriggerEnter2D(Collider2D other)

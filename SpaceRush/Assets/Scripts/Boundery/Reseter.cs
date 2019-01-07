@@ -6,7 +6,7 @@ public class Reseter : MonoBehaviour {
 	public GameManager game;
 	
 	void OnTriggerEnter2D(Collider2D other){
-		if (other.gameObject.tag == "Space"){
+		if (other.gameObject.tag == "SpaceCraft"){
 				game.resetPlayer(game.player_1);
 		}
 	}
