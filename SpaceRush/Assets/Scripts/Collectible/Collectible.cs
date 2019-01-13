@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Collectible : MonoBehaviour {
-
+	public string path;
 
 	// Use this for initialization
 	void Start () {
