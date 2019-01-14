@@ -14,6 +14,8 @@ public class Player : MonoBehaviour {
     private int m_number_of_cards;
     private int m_number_of_selected_cards;
 
+    private int last_Checkpoint;
+
     public MoveCards card_Stack;
     public MoveCards card_Selection;
     public int main_fuel; 
@@ -116,7 +118,8 @@ public class Player : MonoBehaviour {
     }
 
     public void addCheckpoint(int checkpoint){
-        check.Add(checkpoint); 
+        check.Add(checkpoint);
+        last_Checkpoint = checkpoint;
         EventManager.TriggerEvent("Player_Reached_A_Checkpoint");
     }
 
@@ -135,5 +138,9 @@ public class Player : MonoBehaviour {
             weapon_1 = "";
         if(wpnr == 2)
             weapon_2 = "";
+    }
+
+    int getLastCheckpoint(){
+        return last_Checkpoint;
     }
 }

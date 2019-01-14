@@ -140,23 +140,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
     public void resetPlayer(Player player)
     {
-        int number = player.check.Count;
-        int lastDig = player.check[number - 1];
-        Debug.Log(lastDig);
-        switch(lastDig){
-            case 1:
-                player.space.transform.position = GameObject.Find("Checkpoint1").GetComponent<Checkpoint>().transform.position;
-                break;
-            case 2:
-                player.space.transform.position = GameObject.Find("Checkpoint2").GetComponent<Checkpoint>().transform.position;
-                break;
-            case 3:
-                player.space.transform.position = GameObject.Find("Checkpoint3").GetComponent<Checkpoint>().transform.position;
-                break;
-            case 4:
-                player.space.transform.position = GameObject.Find("Checkpoint4").GetComponent<Checkpoint>().transform.position;
-                break;
-        }
+        //
     }
 
     public void OnSpacecraftCollision(Spacecraft spacecraft, GameObject collider)

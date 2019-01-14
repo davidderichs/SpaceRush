@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Laser : Collectible {
-    void OnTriggerEnter2D(Collider2D other){
+public class Repair : Collectible {
+
+	void OnTriggerEnter2D(Collider2D other){
 		findGameManager();
 		if (other.transform.gameObject.name == "Spacecraft"){
-			game.player_1.addWeapon("Laser");
+			//game.player_1.add_fuel(5);
 			Debug.Log("collected");
 		}
 		collected();

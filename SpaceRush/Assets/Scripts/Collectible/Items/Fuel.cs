@@ -6,7 +6,7 @@ public class Fuel : Collectible {
 
 	void OnTriggerEnter2D(Collider2D other){
 		findGameManager();
-		if (other.gameObject.tag == "Spacecraft"){
+		if (other.transform.gameObject.name == "Spacecraft"){
 			//game.player_1.add_fuel(5);
 			Debug.Log("collected");
 		}

@@ -12,15 +12,17 @@ public class Checkpoint : MonoBehaviour
     void Start()
     {
         point = GetComponent<Light>();
-        game = GameObject.Find("GameManager").GetComponent<GameManager>();;
+        game = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Spacecraft")
+        if (other.transform.gameObject.name == "Spacecraft")
         {
-            point.color = Color.green;
-            game.checkpointTriggered(id, game.player_1);
+            if(point.color != Color.green){
+                point.color = Color.green;
+                game.checkpointTriggered(id, game.player_1);
+            }
         }
     }
 }
