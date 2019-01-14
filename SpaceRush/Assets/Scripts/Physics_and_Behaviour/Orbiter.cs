@@ -12,12 +12,14 @@ public class Orbiter : MonoBehaviour
     public float ellipseRotation;
     public float offsetX;
     public float offsetY;
+    public float offsetTime;
     public bool clockwise;
     private float timePassed;
+    private bool active;
 
-    void OnEnable()
+    void Start()
     {
-        timePassed = 0;
+        timePassed = offsetTime;
     }
 
     // Update is called once per frame
