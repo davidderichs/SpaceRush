@@ -1523,6 +1523,7 @@ GameObject:
   - component: {fileID: 489956491}
   - component: {fileID: 489956493}
   - component: {fileID: 489956492}
+  - component: {fileID: 489956494}
   m_Layer: 5
   m_Name: Fuel
   m_TagString: Untagged
@@ -1609,6 +1610,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &489956494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 489956490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab702f267b418824ba6f8b0abf83307b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &510468915
 GameObject:
   m_ObjectHideFlags: 0
@@ -8518,6 +8530,7 @@ MonoBehaviour:
   ellipseRotation: 10
   offsetX: 20
   offsetY: 10
+  offsetTime: 0
   clockwise: 0
 --- !u!58 &2118740410
 CircleCollider2D:
