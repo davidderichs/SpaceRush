@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Reseter : MonoBehaviour {
-	public GameManager game;
-	
-	void OnTriggerEnter2D(Collider2D other){
-		if (other.gameObject.tag == "Spacecraft"){
-				game.resetPlayer(game.player_1);
-		}
-	}
+public class Fuel : Collectible {
 
+	void OnTriggerEnter2D(Collider2D other){
+		findGameManager();
+		if (other.gameObject.tag == "Spacecraft"){
+			//game.player_1.add_fuel(5);
+			Debug.Log("collected");
+		}
+		collected();
+	}
 }

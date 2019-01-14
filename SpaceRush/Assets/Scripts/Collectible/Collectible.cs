@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Collectible : MonoBehaviour {
-	public string path;
-
+	protected GameManager game;
 	// Use this for initialization
 	void Start () {
 	}
@@ -14,7 +13,11 @@ public class Collectible : MonoBehaviour {
 		
 	}
 
-	void collected(){
+	protected void collected(){
 		Destroy(gameObject);
+	}
+
+	protected void findGameManager(){
+		game = GameObject.Find("GameManager").GetComponent<GameManager>();
 	}
 }

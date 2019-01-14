@@ -26,6 +26,9 @@ public class Player : MonoBehaviour {
 
     public HUD hud;
 
+    private string weapon_1;
+
+    private string weapon_2;
     // Only for Debug/Testing
      private Movements movements;
 
@@ -115,5 +118,22 @@ public class Player : MonoBehaviour {
     public void addCheckpoint(int checkpoint){
         check.Add(checkpoint); 
         EventManager.TriggerEvent("Player_Reached_A_Checkpoint");
+    }
+
+    public void addWeapon(string weapon){
+        if(weapon_1 == "")
+        {
+            weapon_1 = weapon;
+        }else if(weapon_2 == "")
+        {
+            weapon_2 = weapon;
+        }
+    }
+
+    public void removeWeapon(int wpnr){
+        if(wpnr == 1)
+            weapon_1 = "";
+        if(wpnr == 2)
+            weapon_2 = "";
     }
 }
