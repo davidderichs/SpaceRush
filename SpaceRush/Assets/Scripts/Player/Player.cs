@@ -140,7 +140,7 @@ public class Player : MonoBehaviour {
             weapon_2 = "";
     }
 
-    int getLastCheckpoint(){
+    public int getLastCheckpoint(){
         return last_Checkpoint;
     }
 }

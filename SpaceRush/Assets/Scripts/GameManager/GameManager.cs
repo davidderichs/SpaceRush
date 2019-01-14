@@ -140,24 +140,47 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
     public void resetPlayer(Player player)
     {
-        //
+        string last = "Checkpoint" + player.getLastCheckpoint();
+        player.space.transform.position = GameObject.Find(last).GetComponent<Checkpoint>().transform.position;
     }
 
     public void OnSpacecraftCollision(Spacecraft spacecraft, GameObject collider)
     {
         Debug.Log(spacecraft.name + " collided with " + collider.name);
-        switch (collider.tag)
+        
+        if(collider.name.Contains("planet")){
+            EventManager.TriggerEvent("spacecraft_planet_collision");
+                spacecraft.player.lives = spacecraft.player.lives - 3;
+                resetPlayer(spacecraft.player);
+        }
+        if(collider.name.Contains("moon")){
+            EventManager.TriggerEvent("spacecraft_planet_collision");
+                spacecraft.player.lives = spacecraft.player.lives - 2;
+                resetPlayer(spacecraft.player);
+        }
+        if(collider.name.Contains("spacecraft")){
+            EventManager.TriggerEvent("spacecraft_planet_collision");
+                spacecraft.player.lives = spacecraft.player.lives - 1;
+                resetPlayer(spacecraft.player);
+        }
+        /* switch (collider.name)
         {
             case "planet":
                 EventManager.TriggerEvent("spacecraft_planet_collision");
+                spacecraft.player.lives = spacecraft.player.lives - 3;
+                resetPlayer(spacecraft.player);
                 break;
             case "moon":
                 EventManager.TriggerEvent("spacecraft_planet_collision");
+                spacecraft.player.lives = spacecraft.player.lives - 2;
+                resetPlayer(spacecraft.player);
                 break;
             case "spacecraft":
                 EventManager.TriggerEvent("spacecraft_spacecraft_collision");
+                spacecraft.player.lives = spacecraft.player.lives - 1;
+                resetPlayer(spacecraft.player);
                 break;
-        }
+        }*/
     }
 
     public void Tick(bool done)
