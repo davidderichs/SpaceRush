@@ -5,10 +5,14 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickable
 {
+
+    private StateMachine stateMachine;
     public int start_checkpoint;
     public Player player_1;
-    //public Player pl2;
+    
+    public Player player_2;
 
+    private Player acti_player;
     private TickTimer tickTimer;
     private List<Spacecraft> spacecrafts;
     private UnityAction player_live_listener;
@@ -61,19 +65,25 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
         spacecrafts = new List<Spacecraft>();
         spacecrafts.Add(GameObject.Find("Spacecraft").GetComponent<Spacecraft>());
-        //spacecrafts.Add(GameObject.Find("Spacecraft2").GetComponent<Spacecraft>());
+        spacecrafts.Add(GameObject.Find("Spacecraft2").GetComponent<Spacecraft>());
 
         camera = GameObject.Find("Main Camera").GetComponent<CameraController>();
     }
 
     void Start()
     {
-
-        this.hud = GameObject.FindWithTag("HUD").GetComponent<HUD>();
-        this.player_1 = GameObject.Find("Player").GetComponent<Player>();
-        
+        if(this.stateMachine == null) 
+        {
+            this.stateMachine = new StateMachine();
+        }
+        hud = GameObject.FindWithTag("HUD").GetComponent<HUD>();
+        player_1 = GameObject.Find("Player1").GetComponent<Player>();
+        player_2 = GameObject.Find("Player2").GetComponent<Player>();
+        setActivePlayer(player_1);
         SelectStart();
-        camera.SetBoundaries(-400, -150, -1000, 450, 47, -300);
+        Vector3 start = new Vector3(this.player_1.space.transform.position.x,this.player_1.space.transform.position.y,-400);
+        this.camera.transform.position = start;
+        camera.SetBoundaries(-1400, -1500, -1000, 1450, 470, -300);
         StopSimulation();
     }
 
@@ -88,10 +98,10 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
     void propagate_Player_ready()
     {
-        this.hud.card_stack.hide();
-        Gameloop();
-        StartSimulation();
         propagate_Player_Selection_incomplete();
+        //this.hud.card_stack.hide();
+        propagate_Player_change();
+        StartStateMachine();
     }
 
     public void checkpointTriggered(int id, Player player)
@@ -113,31 +123,50 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     }
     void propagate_Player_live_change()
     {
-        this.hud.live.set_ActiveItemsColor(this.player_1.lives);
+        this.hud.live.set_ActiveItemsColor(this.acti_player.lives);
     }
     void propagate_Player_main_fuel_change()
     {
-        this.hud.main_fuel.set_ActiveItemsColor(this.player_1.main_fuel);
+        this.hud.main_fuel.set_ActiveItemsColor(this.acti_player.main_fuel);
     }
     void propagate_Player_add_fuel_change()
     {
-        this.hud.add_fuel.set_ActiveItemsColor(this.player_1.add_fuel);
+        this.hud.add_fuel.set_ActiveItemsColor(this.acti_player.add_fuel);
     }
     void propagate_Player_shield_change()
     {
-        this.hud.shield.set_ActiveItemsColor(this.player_1.shields);
+        this.hud.shield.set_ActiveItemsColor(this.acti_player.shields);
     }
     void propagate_Player_stack_change()
     {
-        this.hud.card_stack.set_MoveCards(this.player_1.card_Stack);
-        this.hud.selected_cards.set_MoveCards(this.player_1.card_Selection);
+        this.hud.card_stack.set_MoveCards(this.acti_player.card_Stack);
+        this.hud.selected_cards.set_MoveCards(this.acti_player.card_Selection);
     }
     void propagate_Player_Selection_change()
     {
-        this.hud.card_stack.set_MoveCards(this.player_1.card_Stack);
-        this.hud.selected_cards.set_MoveCards(this.player_1.card_Selection);
+        this.hud.card_stack.set_MoveCards(this.acti_player.card_Stack);
+        this.hud.selected_cards.set_MoveCards(this.acti_player.card_Selection);
     }
 
+    void propagate_Player_change(){
+        if(acti_player==player_1)
+        {
+            acti_player = player_2;
+            this.hud.card_stack.changePlayer(2);
+            Debug.Log("New Player: Player 2");
+        } else
+        {
+            acti_player = player_1;
+            this.hud.card_stack.changePlayer(1);
+            Debug.Log("New Player: Player 1");
+        }
+        propagate_Player_live_change();
+        propagate_Player_shield_change();
+        propagate_Player_main_fuel_change();
+        propagate_Player_add_fuel_change();
+        propagate_Player_Selection_change();
+        propagate_Player_stack_change();
+    }
     public void resetPlayer(Player player)
     {
         string last = "Checkpoint" + player.getLastCheckpoint();
@@ -150,17 +179,17 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         
         if(collider.name.Contains("planet")){
             EventManager.TriggerEvent("spacecraft_planet_collision");
-                spacecraft.player.lives = spacecraft.player.lives - 3;
+                spacecraft.player.looseLive(3);
                 resetPlayer(spacecraft.player);
         }
         if(collider.name.Contains("moon")){
             EventManager.TriggerEvent("spacecraft_planet_collision");
-                spacecraft.player.lives = spacecraft.player.lives - 2;
+                spacecraft.player.looseLive(2);
                 resetPlayer(spacecraft.player);
         }
-        if(collider.name.Contains("spacecraft")){
+        if(collider.name.Contains("Spacecraft")){
             EventManager.TriggerEvent("spacecraft_planet_collision");
-                spacecraft.player.lives = spacecraft.player.lives - 1;
+                spacecraft.player.looseLive(1);
                 resetPlayer(spacecraft.player);
         }
         /* switch (collider.name)
@@ -187,13 +216,13 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     {
         if (done)
         {
-            Debug.Log("DONE.");
+            //Debug.Log("DONE.");
             StopSimulation();
             propagate_Player_stack_change();
         }
         else
         {
-            Debug.Log("Tick");
+            //Debug.Log("Tick");
             foreach (Spacecraft spacecraft in spacecrafts)
             {
                 spacecraft.StartNextMovement();
@@ -227,7 +256,10 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     {
         player_1.addCheckpoint(start_checkpoint);   
         string start = "Checkpoint" + start_checkpoint;
-        player_1.space.transform.position = GameObject.Find(start).GetComponent<Checkpoint>().transform.position; 
+        player_1.space.transform.position = GameObject.Find(start).GetComponent<Checkpoint>().transform.position;
+        player_2.addCheckpoint(start_checkpoint);   
+        string start2 = "Checkpoint" + start_checkpoint;
+        player_2.space.transform.position = GameObject.Find(start).GetComponent<Checkpoint>().transform.position;  
     }
 
     private void Gameloop()
@@ -239,7 +271,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             {
                 SpacecraftMovement move = CardParser.ParseCard(cards.get_MoveCard(i));
                 spacecraft.AddMovement(move);
-                Debug.Log(move.duration);
+                //Debug.Log(move.duration);
             }
             spacecraft.player.card_Selection.card_List.Clear();
             MoveCards newCards = MoveCards.get_random_Movecards(5);
@@ -248,4 +280,28 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             this.hud.card_stack.hide();
         }
     }
+
+    void setActivePlayer(Player player)
+    {
+        acti_player = player;
+    }
+    
+    private void StartStateMachine(){
+        Debug.Log(stateMachine.getState());
+        if(stateMachine.getState()==3)
+        {
+            Gameloop();
+            StartSimulation();
+            stateMachine.setState(1);
+        }else{
+            if(stateMachine.getState() != 4){
+                stateMachine.nextState();
+                if(stateMachine.getState()==3){
+                    StartStateMachine();
+                }
+            }
+        }
+    }
+
+
 }

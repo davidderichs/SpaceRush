@@ -143,4 +143,14 @@ public class Player : MonoBehaviour {
     public int getLastCheckpoint(){
         return last_Checkpoint;
     }
+
+    public void looseLive(int damage){
+        if(shields>0){
+            shields = shields - damage;
+            if(shields < 0){
+                lives = lives + shields;
+                shields = 0;
+            }
+        }
+    }
 }

@@ -3,16 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StateMachine : MonoBehaviour {
-	private int state;
+	private int state = 1;
 
-	void Start () 
-	{
-			state = 1;
-	}
 
-	void nextState()
+	public void nextState()
 	{
-		if(state == 3)
+		if(state == 4)
 		{
 			state = 1;
 		}
@@ -20,6 +16,13 @@ public class StateMachine : MonoBehaviour {
 		{	
 			state++;
 		}
-		Debug.Log("State changed.");
+		Debug.Log("State changed to " + state);
+	}
+	public int getState(){
+		return state;
+	}
+
+	public void setState(int status){
+		state = status;
 	}
 }

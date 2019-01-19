@@ -8,6 +8,8 @@ public class HUD_Selected_Cards : MonoBehaviour {
 	string cardImageNamePrefix = "HUD_Move_CardImage_";
 	string cardTextNamePrefix = "HUD_Move_Text_";
 
+	public int playerNr;
+	private Player player;
 	int m_card_stack_size;
 
 	void Awake(){
@@ -16,7 +18,8 @@ public class HUD_Selected_Cards : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		string playername = "Player" + playerNr;
+		player = GameObject.Find(playername).GetComponent<Player>();
 	}
 	
 	// Update is called once per frame
@@ -26,56 +29,56 @@ public class HUD_Selected_Cards : MonoBehaviour {
 
 	void setOnClickListeners(){
 
-		for(int i=0; i<GameObject.Find("Player").GetComponent<Player>().card_Selection.size(); i++){
+		for(int i=0; i<player.card_Selection.size(); i++){
 			// Debug.Log("Setting up Listeners in HUD_Card_Selection");
 			Button HUD_clickable_Card = GameObject.Find("HUD_Selected_Move_" + (i)).GetComponent<Button>();
 			switch (i){
 				case 0:					
 					HUD_clickable_Card.onClick.AddListener(delegate {
-							GameObject.Find("Player").GetComponent<Player>().card_Stack.add_MoveCard(
-								GameObject.Find("Player").GetComponent<Player>().card_Selection.get_MoveCard(0)
+							player.card_Stack.add_MoveCard(
+								player.card_Selection.get_MoveCard(0)
 							);
-							GameObject.Find("Player").GetComponent<Player>().card_Selection.remove_MoveCard_With_Index(0);
+							player.card_Selection.remove_MoveCard_With_Index(0);
 							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
 							// Debug.Log("HUD_Selected_Card Clicked with id: 0");
 					});
 					break;
 				case 1:
 					HUD_clickable_Card.onClick.AddListener(delegate {
-							GameObject.Find("Player").GetComponent<Player>().card_Stack.add_MoveCard(
-								GameObject.Find("Player").GetComponent<Player>().card_Selection.get_MoveCard(1)
+							player.card_Stack.add_MoveCard(
+								player.card_Selection.get_MoveCard(1)
 							);
-							GameObject.Find("Player").GetComponent<Player>().card_Selection.remove_MoveCard_With_Index(1);
+							player.card_Selection.remove_MoveCard_With_Index(1);
 							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
 							// Debug.Log("HUD_Selected_Card Clicked with id: 1");
 					});
 					break;
 				case 2:
 					HUD_clickable_Card.onClick.AddListener(delegate {
-							GameObject.Find("Player").GetComponent<Player>().card_Stack.add_MoveCard(
-								GameObject.Find("Player").GetComponent<Player>().card_Selection.get_MoveCard(2)
+							player.card_Stack.add_MoveCard(
+								player.card_Selection.get_MoveCard(2)
 							);
-							GameObject.Find("Player").GetComponent<Player>().card_Selection.remove_MoveCard_With_Index(2);
+							player.card_Selection.remove_MoveCard_With_Index(2);
 							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
 							// Debug.Log("HUD_Selected_Card Clicked with id: 2");
 					});
 					break;
 				case 3:
 					HUD_clickable_Card.onClick.AddListener(delegate {
-							GameObject.Find("Player").GetComponent<Player>().card_Stack.add_MoveCard(
-								GameObject.Find("Player").GetComponent<Player>().card_Selection.get_MoveCard(3)
+							player.card_Stack.add_MoveCard(
+								player.card_Selection.get_MoveCard(3)
 							);
-							GameObject.Find("Player").GetComponent<Player>().card_Selection.remove_MoveCard_With_Index(3);
+							player.card_Selection.remove_MoveCard_With_Index(3);
 							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
 							// Debug.Log("HUD_Selected_Card Clicked with id: 3");
 					});
 					break;
 				case 4:
 					HUD_clickable_Card.onClick.AddListener(delegate {
-							GameObject.Find("Player").GetComponent<Player>().card_Stack.add_MoveCard(
-								GameObject.Find("Player").GetComponent<Player>().card_Selection.get_MoveCard(4)
+							player.card_Stack.add_MoveCard(
+								player.card_Selection.get_MoveCard(4)
 							);
-							GameObject.Find("Player").GetComponent<Player>().card_Selection.remove_MoveCard_With_Index(4);
+							player.card_Selection.remove_MoveCard_With_Index(4);
 							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
 							// Debug.Log("HUD_Selected_Card Clicked with id: 4");
 					});
@@ -125,7 +128,7 @@ public class HUD_Selected_Cards : MonoBehaviour {
 		setOnClickListeners();
 	}
 
-	private void reset_moveCards(){
+	public void reset_moveCards(){
 		for (int i=0; i<m_card_stack_size; i++){
 			GameObject.Find(this.cardImageNamePrefix + i).GetComponent<Image>().sprite = Resources.Load <Sprite>("Sprites/empty");
 			GameObject.Find(this.cardTextNamePrefix + i).GetComponent<Text>().text = "";	
