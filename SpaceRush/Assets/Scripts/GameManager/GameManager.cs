@@ -250,7 +250,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     private void Gameloop()
     {
         foreach (Spacecraft spacecraft in spacecrafts)
-        {
+        {   
             MoveCards cards = spacecraft.player.card_Selection;
             for (int i = 0; i < cards.card_List.Count; i++)
             {
