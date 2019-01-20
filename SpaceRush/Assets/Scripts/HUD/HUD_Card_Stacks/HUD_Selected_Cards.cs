@@ -152,4 +152,9 @@ public class HUD_Selected_Cards : MonoBehaviour {
 	public void addSpriteToImage(Image image, string spritePath){		
 		image.sprite = Resources.Load <Sprite>(spritePath);
 	}
+
+		public void changePlayer(int playerNr){
+		string playername = "Player" + playerNr;
+		player = GameObject.Find(playername).GetComponent<Player>();
+	}
 }

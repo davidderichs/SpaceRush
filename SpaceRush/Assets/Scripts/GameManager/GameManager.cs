@@ -115,10 +115,10 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         }
 
         // ONLY TESTING when simulation stopped -> reenable physics with klick on space
-        if (Input.GetKeyDown("space"))
+        /*if (Input.GetKeyDown("space"))
         {
             StartSimulation();
-        }
+        } */
     }
     void propagate_Player_live_change()
     {
@@ -148,16 +148,18 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     }
 
     void propagate_Player_change(){
-        if(acti_player==player_1)
+        if(acti_player == player_1)
         {
             acti_player = player_2;
             this.hud.card_stack.changePlayer(2);
-            Debug.Log("New Player: Player 2");
+            this.hud.selected_cards.changePlayer(2);
+            // Debug.Log("New Player: Player 2");
         } else
         {
             acti_player = player_1;
             this.hud.card_stack.changePlayer(1);
-            Debug.Log("New Player: Player 1");
+            this.hud.selected_cards.changePlayer(1);
+            // Debug.Log("New Player: Player 1");
         }
         propagate_Player_live_change();
         propagate_Player_shield_change();
@@ -191,24 +193,6 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
                 spacecraft.player.looseLive(1);
                 resetPlayer(spacecraft.player);
         }
-        /* switch (collider.name)
-        {
-            case "planet":
-                EventManager.TriggerEvent("spacecraft_planet_collision");
-                spacecraft.player.lives = spacecraft.player.lives - 3;
-                resetPlayer(spacecraft.player);
-                break;
-            case "moon":
-                EventManager.TriggerEvent("spacecraft_planet_collision");
-                spacecraft.player.lives = spacecraft.player.lives - 2;
-                resetPlayer(spacecraft.player);
-                break;
-            case "spacecraft":
-                EventManager.TriggerEvent("spacecraft_spacecraft_collision");
-                spacecraft.player.lives = spacecraft.player.lives - 1;
-                resetPlayer(spacecraft.player);
-                break;
-        }*/
     }
 
     public void Tick(bool done)
@@ -253,12 +237,14 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
     private void SelectStart()
     {
-        player_1.addCheckpoint(start_checkpoint);   
         string start = "Checkpoint" + start_checkpoint;
-        player_1.space.transform.position = GameObject.Find(start).GetComponent<Checkpoint>().transform.position;
+        Vector3 starting = GameObject.Find(start).GetComponent<Checkpoint>().transform.position;
+        Vector3 startin = new Vector3(starting.x,starting.y + 20,starting.z);
+        starting = new Vector3(starting.x,starting.y - 20,starting.z);
+        player_1.addCheckpoint(start_checkpoint);   
         player_2.addCheckpoint(start_checkpoint);   
-        string start2 = "Checkpoint" + start_checkpoint;
-        player_2.space.transform.position = GameObject.Find(start).GetComponent<Checkpoint>().transform.position;  
+        player_1.space.transform.position = starting;
+        player_2.space.transform.position = startin;
     }
 
     private void Gameloop()
