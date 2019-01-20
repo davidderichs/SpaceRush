@@ -5,39 +5,24 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     private CameraState state;
-    private float moveTime;
-    private float easeOutFactor;
-    private Animator animator;
-    private float minX;
-    private float maxX;
-    private float minY;
-    private float maxY;
-    private float minZ;
-    private float maxZ;
+    public float smoothFac;
+    public Vector3 offset;
+    public float extraDist;
+    public float minX;
+    public float maxX;
+    public float minY;
+    public float maxY;
+    public float minZ;
+    public float maxZ;
 
     void Awake()
-    {
-        moveTime = 2f;
-        easeOutFactor = 2;
-        animator = new Animator();
+    { }
 
-        minX = float.MinValue;
-        maxX = float.MaxValue;
-        minY = float.MinValue;
-        maxY = float.MaxValue;
-        minZ = float.MinValue;
-        maxZ = 0;
-    }
-
-    void Update()
+    void FixedUpdate()
     {
         if (state != null)
         {
             state.Tick();
-        }
-        if (animator.IsRunning())
-        {
-            gameObject.transform.position = animator.NextPosition(Time.deltaTime);
         }
     }
 
@@ -51,38 +36,34 @@ public class CameraController : MonoBehaviour
         this.maxZ = maxZ;
     }
 
-    public void AnimateTo(Vector3 position)
+    public void AnimateTo(Vector3 desiredPosition)
     {
-        if (position.x > maxX)
+        if (desiredPosition.x > maxX)
         {
-            position.x = maxX;
+            desiredPosition.x = maxX;
         }
-        if (position.x < minX)
+        if (desiredPosition.x < minX)
         {
-            position.x = minX;
+            desiredPosition.x = minX;
         }
-        if (position.y > maxY)
+        if (desiredPosition.y > maxY)
         {
-            position.y = maxY;
+            desiredPosition.y = maxY;
         }
-        if (position.y < minY)
+        if (desiredPosition.y < minY)
         {
-            position.y = minY;
+            desiredPosition.y = minY;
         }
-        if (position.z > maxZ)
+        if (desiredPosition.z > maxZ)
         {
-            position.z = maxZ;
+            desiredPosition.z = maxZ;
         }
-        if (position.z < minZ)
+        if (desiredPosition.z < minZ)
         {
-            position.z = minZ;
+            desiredPosition.z = minZ;
         }
-        animator.SetAnimation(gameObject.transform.position, position, moveTime, easeOutFactor);
-    }
-
-    public void StopAnimating()
-    {
-        animator.Reset();
+        Vector3 smoothedPos = Vector3.Lerp(transform.position, desiredPosition, smoothFac);
+        transform.position = smoothedPos;
     }
 
     public void FollowObject(GameObject gameObject)
@@ -121,6 +102,5 @@ public class CameraController : MonoBehaviour
             state.OnStateEnter();
         }
     }
-
 
 }

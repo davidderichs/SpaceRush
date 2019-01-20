@@ -12,6 +12,8 @@ public class CameraFollowObjectsState : CameraState
     private float centerX;
     private float centerY;
     private float maxSize;
+    private float aspectRation;
+    private float tanFOV;
 
     public CameraFollowObjectsState(CameraController camera, List<GameObject> gameObjects) : base(camera)
     {
@@ -20,53 +22,22 @@ public class CameraFollowObjectsState : CameraState
 
     public override void OnStateEnter()
     {
-        CalcValues();
-        camera.AnimateTo(GetNewPosition());
+        aspectRation = Screen.width / Screen.height;
+        tanFOV = Mathf.Tan(Mathf.Deg2Rad * Camera.main.fieldOfView / 2f);
     }
 
     public override void OnStateExit() { }
 
     public override void Tick()
     {
-        CalcValues();
-        camera.AnimateTo(GetNewPosition());
-    }
-
-    private void CalcValues()
-    {
-        minX = float.MaxValue;
-        maxX = float.MinValue;
-        minY = float.MaxValue;
-        maxX = float.MinValue;
-        foreach (GameObject obj in gameObjects)
-        {
-            Vector3 pos = obj.transform.position;
-            if (pos.x < minX)
-            {
-                minX = pos.x;
-            }
-            if (pos.x > maxX)
-            {
-                maxX = pos.x;
-            }
-            if (pos.y < minY)
-            {
-                minY = pos.y;
-            }
-            if (pos.y > maxY)
-            {
-                maxY = pos.y;
-            }
-        }
-        float sizeX = maxX - minX;
-        float sizeY = maxY - minY;
-        centerX = minX + sizeX / 2;
-        centerY = minY + sizeY / 2;
-    }
-
-    private Vector3 GetNewPosition()
-    {
-        float distance = (maxSize / 2) / Mathf.Tan(camera.GetComponent<Camera>().fieldOfView / 2);
-        return new Vector3(centerX, centerY, -1000);
+        Vector3 camPos = camera.transform.position;
+        Vector3 vecBetweenObjs = gameObjects[1].transform.position - gameObjects[0].transform.position;
+        float distance = vecBetweenObjs.magnitude;
+        Vector3 middle = gameObjects[0].transform.position + 0.5f * vecBetweenObjs;
+        float camDist = (distance / 2.0f / aspectRation) / tanFOV;
+        camPos.x = middle.x;
+        camPos.y = middle.y;
+        camPos.z = middle.z - camDist - camera.extraDist;
+        camera.AnimateTo(camPos);
     }
 }

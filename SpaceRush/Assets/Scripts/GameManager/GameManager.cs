@@ -83,7 +83,6 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         SelectStart();
         Vector3 start = new Vector3(this.player_1.space.transform.position.x,this.player_1.space.transform.position.y,-400);
         this.camera.transform.position = start;
-        camera.SetBoundaries(-1400, -1500, -1000, 1450, 470, -300);
         StopSimulation();
     }
 
@@ -238,7 +237,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         {
             spacecraft.StartPhysics();
         }
-        camera.FollowObject(spacecrafts[0].gameObject);
+        camera.FollowObjects(new List<GameObject>() {spacecrafts[0].gameObject, spacecrafts[1].gameObject});
         tickTimer.StartTimer();
     }
 
