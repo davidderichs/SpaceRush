@@ -261,8 +261,8 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             MoveCards cards = spacecraft.player.card_Selection;
             for (int i = 0; i < cards.card_List.Count; i++)
             {
-                SpacecraftAction move = CardParser.ParseCard(cards.get_MoveCard(i));
-                spacecraft.AddAction(move);
+                SpacecraftAction action = CardParser.ParseCard(cards.get_MoveCard(i));
+                spacecraft.AddAction(action);
                 //Debug.Log(move.duration);
             }
             spacecraft.player.card_Selection.card_List.Clear();
