@@ -280,7 +280,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
     private void StartStateMachine()
     {
-        Debug.Log(stateMachine.getState());
+        //Debug.Log(stateMachine.getState());
         if (stateMachine.getState() == 3)
         {
             Gameloop();
