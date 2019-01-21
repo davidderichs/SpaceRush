@@ -9,6 +9,10 @@ public class Laser : Collectible {
 			game.player_1.addWeapon("Laser");
 			Debug.Log("collected");
 		}
+		if (other.transform.gameObject.name == "Spacecraft2"){
+			game.player_2.addWeapon("Laser");
+			Debug.Log("collected");
+		}
 		collected();
 	}
 }

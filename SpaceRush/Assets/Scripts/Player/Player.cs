@@ -153,4 +153,13 @@ public class Player : MonoBehaviour {
             }
         }
     }
+
+    public String getWeapon(int nr){
+        if(nr == 1){
+            return weapon_1;
+        } else if (nr == 2){
+            return weapon_2;
+        } else return "";
+         
+    }
 }

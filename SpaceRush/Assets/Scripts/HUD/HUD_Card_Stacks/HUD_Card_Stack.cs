@@ -244,7 +244,29 @@ public class HUD_Card_Stack : MonoBehaviour
 					break;
 			}
 		}
-	}
+		
+		if(player.getWeapon(1) != ""){
+			Button Weapon1 = GameObject.Find("HUD_Weapon_1").GetComponent<Button>();
+			Weapon1.onClick.AddListener(delegate {
+						if(player.card_Selection.size() < 5){
+							player.card_Selection.add_MoveCard(createWeaponCard(player.getWeapon(1)));
+						}else {
+							EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
+						}
+			});
+		}
+		if(player.getWeapon(2) != ""){
+			Button Weapon2 = GameObject.Find("HUD_Weapon_2").GetComponent<Button>();
+			Weapon2.onClick.AddListener(delegate {
+						if(player.card_Selection.size() < 5){
+							player.card_Selection.add_MoveCard(createWeaponCard(player.getWeapon(2)));
+						}else {
+							EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
+						}
+				});
+			}
+		}
+	
 	
 	// Update is called once per frame
 	void Update () {
@@ -254,7 +276,9 @@ public class HUD_Card_Stack : MonoBehaviour
 			GameObject.Find(this.cardImageNamePrefix + i).GetComponent<Image>().sprite = Resources.Load <Sprite>("Sprites/empty");
 			GameObject.Find(this.cardTextNamePrefix + i).GetComponent<Text>().text = "";	
 			GameObject.Find("HUD_Available_Move_" + (i)).GetComponent<Button>().onClick.RemoveAllListeners();		
-		}		
+		}
+		GameObject.Find("HUD_Weapon_1").GetComponent<Button>().onClick.RemoveAllListeners();
+		GameObject.Find("HUD_Weapon_2").GetComponent<Button>().onClick.RemoveAllListeners();
 	}
 
     public void set_MoveCards(MoveCards movecards)
@@ -302,6 +326,12 @@ public class HUD_Card_Stack : MonoBehaviour
 
         setOnClickListeners();
     }
+
+	private MoveCard createWeaponCard(string Name)
+	{
+		MoveCard weaponMove = new MoveCard("",0,new Color(1,1,1,1),true , "Sprites/", name,2,0);
+		return weaponMove;
+	}
 
     public void setImageColor(Image image, Color32 color)
     {

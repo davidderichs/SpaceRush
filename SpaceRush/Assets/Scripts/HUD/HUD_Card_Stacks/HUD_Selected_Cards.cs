@@ -33,7 +33,8 @@ public class HUD_Selected_Cards : MonoBehaviour {
 			// Debug.Log("Setting up Listeners in HUD_Card_Selection");
 			Button HUD_clickable_Card = GameObject.Find("HUD_Selected_Move_" + (i)).GetComponent<Button>();
 			switch (i){
-				case 0:					
+				case 0:
+					if(player.card_Selection.get_MoveCard(0).kind_Of_Movement == "boost" || player.card_Selection.get_MoveCard(0).kind_Of_Movement == "Rotation"){			
 					HUD_clickable_Card.onClick.AddListener(delegate {
 							player.card_Stack.add_MoveCard(
 								player.card_Selection.get_MoveCard(0)
@@ -42,8 +43,16 @@ public class HUD_Selected_Cards : MonoBehaviour {
 							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
 							// Debug.Log("HUD_Selected_Card Clicked with id: 0");
 					});
+					}
+					else{
+						HUD_clickable_Card.onClick.AddListener(delegate {
+							player.card_Selection.remove_MoveCard_With_Index(0);
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
+						});
+					}
 					break;
 				case 1:
+				if(player.card_Selection.get_MoveCard(1).kind_Of_Movement == "boost" || player.card_Selection.get_MoveCard(1).kind_Of_Movement == "Rotation"){			
 					HUD_clickable_Card.onClick.AddListener(delegate {
 							player.card_Stack.add_MoveCard(
 								player.card_Selection.get_MoveCard(1)
@@ -52,8 +61,16 @@ public class HUD_Selected_Cards : MonoBehaviour {
 							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
 							// Debug.Log("HUD_Selected_Card Clicked with id: 1");
 					});
+					}
+					else{
+						HUD_clickable_Card.onClick.AddListener(delegate {
+							player.card_Selection.remove_MoveCard_With_Index(1);
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
+						});
+					}
 					break;
 				case 2:
+				if(player.card_Selection.get_MoveCard(2).kind_Of_Movement == "boost" || player.card_Selection.get_MoveCard(2).kind_Of_Movement == "Rotation"){			
 					HUD_clickable_Card.onClick.AddListener(delegate {
 							player.card_Stack.add_MoveCard(
 								player.card_Selection.get_MoveCard(2)
@@ -62,8 +79,16 @@ public class HUD_Selected_Cards : MonoBehaviour {
 							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
 							// Debug.Log("HUD_Selected_Card Clicked with id: 2");
 					});
+					}
+					else{
+						HUD_clickable_Card.onClick.AddListener(delegate {
+							player.card_Selection.remove_MoveCard_With_Index(2);
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
+						});
+					}
 					break;
 				case 3:
+				if(player.card_Selection.get_MoveCard(3).kind_Of_Movement == "boost" || player.card_Selection.get_MoveCard(3).kind_Of_Movement == "Rotation"){			
 					HUD_clickable_Card.onClick.AddListener(delegate {
 							player.card_Stack.add_MoveCard(
 								player.card_Selection.get_MoveCard(3)
@@ -72,8 +97,16 @@ public class HUD_Selected_Cards : MonoBehaviour {
 							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
 							// Debug.Log("HUD_Selected_Card Clicked with id: 3");
 					});
+					}
+					else{
+						HUD_clickable_Card.onClick.AddListener(delegate {
+							player.card_Selection.remove_MoveCard_With_Index(3);
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
+						});
+					}
 					break;
 				case 4:
+				if(player.card_Selection.get_MoveCard(4).kind_Of_Movement == "boost" || player.card_Selection.get_MoveCard(4).kind_Of_Movement == "Rotation"){			
 					HUD_clickable_Card.onClick.AddListener(delegate {
 							player.card_Stack.add_MoveCard(
 								player.card_Selection.get_MoveCard(4)
@@ -82,6 +115,13 @@ public class HUD_Selected_Cards : MonoBehaviour {
 							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
 							// Debug.Log("HUD_Selected_Card Clicked with id: 4");
 					});
+					}
+					else{
+						HUD_clickable_Card.onClick.AddListener(delegate {
+							player.card_Selection.remove_MoveCard_With_Index(4);
+							EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
+						});
+					}
 					break;				
 			}
 		}
@@ -133,7 +173,7 @@ public class HUD_Selected_Cards : MonoBehaviour {
 			GameObject.Find(this.cardImageNamePrefix + i).GetComponent<Image>().sprite = Resources.Load <Sprite>("Sprites/empty");
 			GameObject.Find(this.cardTextNamePrefix + i).GetComponent<Text>().text = "";	
 			GameObject.Find("HUD_Selected_Move_" + (i)).GetComponent<Button>().onClick.RemoveAllListeners();	
-		}		
+		}
 	}
 	// private void reset_moveCards(){
 	// 	Debug.Log("Resetting Images and Texts");

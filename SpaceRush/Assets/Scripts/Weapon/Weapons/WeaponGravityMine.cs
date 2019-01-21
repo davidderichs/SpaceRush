@@ -38,7 +38,6 @@ public class WeaponGravityMine : Weapon
     private void Activate()
     {
         light.range = 150;
-
     }
 
     public void OnTriggerEnter2D(Collider2D other)
