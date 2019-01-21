@@ -160,7 +160,9 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             this.hud.card_stack.changePlayer(1);
             this.hud.selected_cards.changePlayer(1);
             // Debug.Log("New Player: Player 1");
+            
         }
+        camera.AnimateTo(acti_player.space.transform.position);
         propagate_Player_live_change();
         propagate_Player_shield_change();
         propagate_Player_main_fuel_change();
