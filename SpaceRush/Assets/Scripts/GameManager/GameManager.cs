@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     private StateMachine stateMachine;
     public int start_checkpoint;
     public Player player_1;
-    
+
     public Player player_2;
 
     private Player acti_player;
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
     void Start()
     {
-        if(this.stateMachine == null) 
+        if (this.stateMachine == null)
         {
             this.stateMachine = new StateMachine();
         }
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         player_2 = GameObject.Find("Player2").GetComponent<Player>();
         setActivePlayer(player_1);
         SelectStart();
-        Vector3 start = new Vector3(this.player_1.space.transform.position.x,this.player_1.space.transform.position.y,-400);
+        Vector3 start = new Vector3(this.player_1.space.transform.position.x, this.player_1.space.transform.position.y, -400);
         this.camera.transform.position = start;
         StopSimulation();
     }
@@ -147,20 +147,22 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         this.hud.selected_cards.set_MoveCards(this.acti_player.card_Selection);
     }
 
-    void propagate_Player_change(){
-        if(acti_player == player_1)
+    void propagate_Player_change()
+    {
+        if (acti_player == player_1)
         {
             acti_player = player_2;
             this.hud.card_stack.changePlayer(2);
             this.hud.selected_cards.changePlayer(2);
             // Debug.Log("New Player: Player 2");
-        } else
+        }
+        else
         {
             acti_player = player_1;
             this.hud.card_stack.changePlayer(1);
             this.hud.selected_cards.changePlayer(1);
             // Debug.Log("New Player: Player 1");
-            
+
         }
         camera.AnimateTo(acti_player.space.transform.position);
         propagate_Player_live_change();
@@ -179,21 +181,24 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     public void OnSpacecraftCollision(Spacecraft spacecraft, GameObject collider)
     {
         Debug.Log(spacecraft.name + " collided with " + collider.name);
-        
-        if(collider.name.Contains("planet")){
+
+        if (collider.name.Contains("planet"))
+        {
             EventManager.TriggerEvent("spacecraft_planet_collision");
-                spacecraft.player.looseLive(3);
-                resetPlayer(spacecraft.player);
+            spacecraft.player.looseLive(3);
+            resetPlayer(spacecraft.player);
         }
-        if(collider.name.Contains("moon")){
+        if (collider.name.Contains("moon"))
+        {
             EventManager.TriggerEvent("spacecraft_planet_collision");
-                spacecraft.player.looseLive(2);
-                resetPlayer(spacecraft.player);
+            spacecraft.player.looseLive(2);
+            resetPlayer(spacecraft.player);
         }
-        if(collider.name.Contains("Spacecraft")){
+        if (collider.name.Contains("Spacecraft"))
+        {
             EventManager.TriggerEvent("spacecraft_planet_collision");
-                spacecraft.player.looseLive(1);
-                resetPlayer(spacecraft.player);
+            spacecraft.player.looseLive(1);
+            resetPlayer(spacecraft.player);
         }
     }
 
@@ -210,7 +215,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             //Debug.Log("Tick");
             foreach (Spacecraft spacecraft in spacecrafts)
             {
-                spacecraft.StartNextMovement();
+                spacecraft.StartNextAction();
                 this.hud.card_stack.hide();
             }
         }
@@ -223,7 +228,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         {
             spacecraft.StartPhysics();
         }
-        camera.FollowObjects(new List<GameObject>() {spacecrafts[0].gameObject, spacecrafts[1].gameObject});
+        camera.FollowObjects(new List<GameObject>() { spacecrafts[0].gameObject, spacecrafts[1].gameObject });
         tickTimer.StartTimer();
     }
 
@@ -241,10 +246,10 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     {
         string start = "Checkpoint" + start_checkpoint;
         Vector3 starting = GameObject.Find(start).GetComponent<Checkpoint>().transform.position;
-        Vector3 startin = new Vector3(starting.x,starting.y + 20,starting.z);
-        starting = new Vector3(starting.x,starting.y - 20,starting.z);
-        player_1.addCheckpoint(start_checkpoint);   
-        player_2.addCheckpoint(start_checkpoint);   
+        Vector3 startin = new Vector3(starting.x, starting.y + 20, starting.z);
+        starting = new Vector3(starting.x, starting.y - 20, starting.z);
+        player_1.addCheckpoint(start_checkpoint);
+        player_2.addCheckpoint(start_checkpoint);
         player_1.space.transform.position = starting;
         player_2.space.transform.position = startin;
     }
@@ -252,12 +257,12 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     private void Gameloop()
     {
         foreach (Spacecraft spacecraft in spacecrafts)
-        {   
+        {
             MoveCards cards = spacecraft.player.card_Selection;
             for (int i = 0; i < cards.card_List.Count; i++)
             {
-                SpacecraftMovement move = CardParser.ParseCard(cards.get_MoveCard(i));
-                spacecraft.AddMovement(move);
+                SpacecraftAction move = CardParser.ParseCard(cards.get_MoveCard(i));
+                spacecraft.AddAction(move);
                 //Debug.Log(move.duration);
             }
             spacecraft.player.card_Selection.card_List.Clear();
@@ -272,18 +277,23 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     {
         acti_player = player;
     }
-    
-    private void StartStateMachine(){
+
+    private void StartStateMachine()
+    {
         Debug.Log(stateMachine.getState());
-        if(stateMachine.getState()==3)
+        if (stateMachine.getState() == 3)
         {
             Gameloop();
             StartSimulation();
             stateMachine.setState(1);
-        }else{
-            if(stateMachine.getState() != 4){
+        }
+        else
+        {
+            if (stateMachine.getState() != 4)
+            {
                 stateMachine.nextState();
-                if(stateMachine.getState()==3){
+                if (stateMachine.getState() == 3)
+                {
                     StartStateMachine();
                 }
             }

@@ -6,7 +6,7 @@ public class Spacecraft : MonoBehaviour, ISimulatedObject
 {
     public Player player;
     private SpacecraftController controller;
-    private List<SpacecraftMovement> movements;
+    private List<SpacecraftAction> actions;
     private Rigidbody2D rb;
     private Attractor attractor;
     private Vector2 m_velocity;
@@ -35,7 +35,7 @@ public class Spacecraft : MonoBehaviour, ISimulatedObject
     void Awake()
     {
         controller = GetComponent<SpacecraftController>();
-        movements = new List<SpacecraftMovement>();
+        actions = new List<SpacecraftAction>();
         rb = GetComponent<Rigidbody2D>();
         attractor = GetComponent<Attractor>();
     }
@@ -48,27 +48,30 @@ public class Spacecraft : MonoBehaviour, ISimulatedObject
         }
     }
 
-    public void AddMovement(SpacecraftMovement movement)
+    public void AddAction(SpacecraftAction action)
     {
-        movements.Add(movement);
+        actions.Add(action);
     }
 
-    public void StartNextMovement()
+    public void StartNextAction()
     {
-        if (movements.Count > 0)
+        if (actions.Count > 0)
         {
-            SpacecraftMovement movement = movements[0];
-            if (movement is SpacecraftBoost)
+            SpacecraftAction action = actions[0];
+            if (action == null) return;
+            if (action is SpacecraftBoost)
             {
-                SpacecraftBoost boost = (SpacecraftBoost)movement;
+                SpacecraftBoost boost = (SpacecraftBoost)action;
+                if (boost.direction == SpacecraftAction.Direction.None) return;
                 controller.Boost(boost.direction, boost.boostForce, boost.duration);
-                movements.RemoveAt(0);
+                actions.RemoveAt(0);
             }
-            else if (movement is SpacecraftRotation)
+            else if (action is SpacecraftRotation)
             {
-                SpacecraftRotation rotation = (SpacecraftRotation)movement;
+                SpacecraftRotation rotation = (SpacecraftRotation)action;
+                if (rotation.direction == SpacecraftAction.Direction.None) return;
                 controller.Rotate(rotation.direction, rotation.angularSpeed, rotation.duration);
-                movements.RemoveAt(0);
+                actions.RemoveAt(0);
             }
         }
     }

@@ -10,21 +10,21 @@ public class SpacecraftController : MonoBehaviour
     private Rigidbody2D rb;
     private float boostTimer;
     private float rotationTimer;
-    private SpacecraftMovement.Direction boostDirection;
-    private SpacecraftMovement.Direction rotationDirection;
+    private SpacecraftAction.Direction boostDirection;
+    private SpacecraftAction.Direction rotationDirection;
 
     void OnEnable()
     {
         rb = GetComponent<Rigidbody2D>();
         boostTimer = 0;
-        boostDirection = SpacecraftMovement.Direction.None;
-        rotationDirection = SpacecraftMovement.Direction.None;
+        boostDirection = SpacecraftAction.Direction.None;
+        rotationDirection = SpacecraftAction.Direction.None;
         rotationTimer = 0;
     }
 
     void Update()
     {
-        if (rotationDirection != SpacecraftMovement.Direction.None)
+        if (rotationDirection != SpacecraftAction.Direction.None)
         {
             rotationTimer -= Time.deltaTime;
             float fac = Time.deltaTime;
@@ -32,9 +32,9 @@ public class SpacecraftController : MonoBehaviour
             {
                 fac += rotationTimer;
                 rotationTimer = 0;
-                rotationDirection = SpacecraftMovement.Direction.None;
+                rotationDirection = SpacecraftAction.Direction.None;
             }
-            if (rotationDirection == SpacecraftMovement.Direction.Left)
+            if (rotationDirection == SpacecraftAction.Direction.Left)
             {
                 transform.Rotate(new Vector3(0, 0, angularSpeed * fac));
             }
@@ -54,7 +54,7 @@ public class SpacecraftController : MonoBehaviour
             }
         }
 
-        if (boostDirection != SpacecraftMovement.Direction.None)
+        if (boostDirection != SpacecraftAction.Direction.None)
         {
             boostTimer -= Time.deltaTime;
             float fac = Time.deltaTime;
@@ -62,23 +62,23 @@ public class SpacecraftController : MonoBehaviour
             {
                 fac += boostTimer;
                 boostTimer = 0;
-                boostDirection = SpacecraftMovement.Direction.None;
+                boostDirection = SpacecraftAction.Direction.None;
                 EventManager.TriggerEvent("spacecraft_boost_stop");
             }
-            if (boostDirection == SpacecraftMovement.Direction.Forwards)
+            if (boostDirection == SpacecraftAction.Direction.Forwards)
             {
                 rb.AddRelativeForce(new Vector2(boostForce * fac, 0));
             }
-            else if (boostDirection == SpacecraftMovement.Direction.Backwards)
+            else if (boostDirection == SpacecraftAction.Direction.Backwards)
             {
                 rb.AddRelativeForce(new Vector2(-boostForce * fac, 0));
             }
         }
     }
 
-    public void Boost(SpacecraftMovement.Direction direction, float force, float duration)
+    public void Boost(SpacecraftAction.Direction direction, float force, float duration)
     {
-        if (direction == SpacecraftMovement.Direction.Forwards || direction == SpacecraftMovement.Direction.Backwards)
+        if (direction == SpacecraftAction.Direction.Forwards || direction == SpacecraftAction.Direction.Backwards)
         {
             boostDirection = direction;
             boostForce = force;
@@ -88,9 +88,9 @@ public class SpacecraftController : MonoBehaviour
         }
     }
 
-    public void Rotate(SpacecraftMovement.Direction direction, float speed, float duration)
+    public void Rotate(SpacecraftAction.Direction direction, float speed, float duration)
     {
-        if (direction == SpacecraftMovement.Direction.Left || direction == SpacecraftMovement.Direction.Right)
+        if (direction == SpacecraftAction.Direction.Left || direction == SpacecraftAction.Direction.Right)
         {
             rotationDirection = direction;
             angularSpeed = speed;
