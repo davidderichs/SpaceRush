@@ -58,7 +58,6 @@ public class Spacecraft : MonoBehaviour, ISimulatedObject
         if (actions.Count > 0)
         {
             SpacecraftAction action = actions[0];
-            if (action == null) return;
             if (action is SpacecraftBoost)
             {
                 SpacecraftBoost boost = (SpacecraftBoost)action;

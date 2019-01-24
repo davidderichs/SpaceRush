@@ -38,6 +38,8 @@ public class WeaponGravityMine : Weapon
     private void Activate()
     {
         light.range = 150;
+        light.color = Color.green;
+        active = true;
     }
 
     public void OnTriggerEnter2D(Collider2D other)
