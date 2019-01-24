@@ -113,6 +113,11 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         {
             Debug.Log("Player 1 Win");
         }
+        if (player_2.check.Count == 4)
+        {
+            Debug.Log("Player 2 Win");
+        }
+
 
         // ONLY TESTING when simulation stopped -> reenable physics with klick on space
         /*if (Input.GetKeyDown("space"))
