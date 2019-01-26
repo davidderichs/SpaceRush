@@ -9,6 +9,10 @@ TagManager:
   - HUD_Live_Indicator
   - HUD_Main_Fuel_Indicator
   - Spacecraft
+  - MainMenu_Panel
+  - Loading_Circle
+  - Loading_Progress_Circle
+  - Loading_Text
   layers:
   - Default
   - TransparentFX
