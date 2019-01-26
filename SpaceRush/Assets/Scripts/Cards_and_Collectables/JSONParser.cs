@@ -13,7 +13,7 @@ public static class JSONParser
         MoveCards cardList = new MoveCards();
 
         string filePath = Path.Combine(Application.dataPath, "Resources/JSONFiles/default_Movement_Stack");//Application.streamingAssetsPath, "../Resources/JSONFiles/default_Movement_Stack");
-        Debug.Log(filePath);
+        // Debug.Log(filePath);
         if (File.Exists(filePath))
         {
 

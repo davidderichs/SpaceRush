@@ -151,14 +151,14 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     {
         if (acti_player == player_1)
         {
-            acti_player = player_2;
+            setActivePlayer(player_2);
             this.hud.card_stack.changePlayer(2);
             this.hud.selected_cards.changePlayer(2);
             // Debug.Log("New Player: Player 2");
         }
         else
         {
-            acti_player = player_1;
+            setActivePlayer(player_1);
             this.hud.card_stack.changePlayer(1);
             this.hud.selected_cards.changePlayer(1);
             // Debug.Log("New Player: Player 1");
@@ -180,7 +180,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
     public void OnSpacecraftCollision(Spacecraft spacecraft, GameObject collider)
     {
-        Debug.Log(spacecraft.name + " collided with " + collider.name);
+        // Debug.Log(spacecraft.name + " collided with " + collider.name);
 
         if (collider.name.Contains("planet"))
         {
@@ -224,6 +224,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     private void StartSimulation()
     {
         Debug.Log("Starting Simulation");
+        this.hud.hide();
         foreach (Spacecraft spacecraft in spacecrafts)
         {
             spacecraft.StartPhysics();
@@ -233,13 +234,14 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     }
 
     private void StopSimulation()
-    {
+    {        
         Debug.Log("Stopping Simulation");
         foreach (Spacecraft spacecraft in spacecrafts)
         {
             spacecraft.StopPhysics();
         }
         camera.FreeNavigation();
+        this.hud.show();
     }
 
     private void SelectStart()
@@ -276,6 +278,11 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     void setActivePlayer(Player player)
     {
         acti_player = player;
+        if (acti_player.playerId == 1){            
+            this.hud.setHUDColorToBlue();
+        } else {
+            this.hud.setHUDColorToYellow();
+        }
     }
 
     private void StartStateMachine()

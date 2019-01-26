@@ -272,8 +272,6 @@ public class HUD_Card_Stack : MonoBehaviour
 	void Update () {
 	}
 	public void reset_moveCards(){
-		Debug.Log("Mein____DEBUG______________");
-		Debug.Log("M_Card_Stack_Size" + m_card_stack_size);
 		for (int i=0; i<m_card_stack_size; i++){
 
 			GameObject.Find(this.cardImageNamePrefix + i).GetComponent<Image>().sprite = Resources.Load <Sprite>("Sprites/empty");
@@ -282,6 +280,7 @@ public class HUD_Card_Stack : MonoBehaviour
 		}
 		GameObject.Find("HUD_Weapon_1").GetComponent<Button>().onClick.RemoveAllListeners();
 		GameObject.Find("HUD_Weapon_2").GetComponent<Button>().onClick.RemoveAllListeners();
+
 	}
 
     public void set_MoveCards(MoveCards movecards)
