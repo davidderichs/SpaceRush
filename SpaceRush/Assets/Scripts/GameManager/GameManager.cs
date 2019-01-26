@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     private UnityAction player_card_selection_listener;
     private UnityAction player_ready_listener;
 
+    private UnityAction player_1_reset;
+
+    private UnityAction player_2_reset;
+
     private CameraController camera;
 
     private UnityAction player_selection_complete_listener;
@@ -57,6 +61,12 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
         player_ready_listener = new UnityAction(propagate_Player_ready);
         EventManager.StartListening("HUD_Player_is_ready", player_ready_listener);
+
+        player_1_reset = new UnityAction(propagate_Player_1_reset);
+        EventManager.StartListening("Player_1_reset", player_1_reset);
+
+        player_2_reset = new UnityAction(propagate_Player_2_reset);
+        EventManager.StartListening("Player_2_reset", player_2_reset);
 
         Spacecraft.AddCollisionListener(this);
 
@@ -177,6 +187,17 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         propagate_Player_Selection_change();
         propagate_Player_stack_change();
     }
+
+    void propagate_Player_1_reset()
+    {
+        resetPlayer(player_1);
+    }
+
+    void propagate_Player_2_reset()
+    {
+        resetPlayer(player_2);
+    }
+
     public void resetPlayer(Player player)
     {
         string last = "Checkpoint" + player.getLastCheckpoint();
@@ -271,7 +292,61 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
                 //Debug.Log(move.duration);
             }
             spacecraft.player.card_Selection.card_List.Clear();
-            MoveCards newCards = MoveCards.get_random_Movecards(5);
+
+            // Wichtig für Erfassung vorhandener Waffenkarten
+            string weapon_1_name = spacecraft.player.getWeapon(1);
+            string weapon_2_name = spacecraft.player.getWeapon(2);
+
+            bool weapon_1_found = false;
+            bool weapon_2_found = false;
+
+            for (int i = 0; i < 5; i++)
+            {
+                MoveCard card = spacecraft.player.card_Stack.card_List[i];
+                Debug.Log(card.direction);
+                if (card.direction == weapon_1_name)
+                {
+                    weapon_1_found = true;
+                }
+                if (card.direction == weapon_2_name)
+                {
+                    weapon_2_found = true;
+                }
+            }
+
+            MoveCards newCards = new MoveCards();
+            int counter = 0;
+            if (weapon_1_name != "" || weapon_2_name != "")
+            {
+                //Debug.Log("weapon 1 oder 2 gefunden");
+                if (weapon_1_name != "")
+                {
+                    //Debug.Log("weapon_1_name:" + weapon_1_name);
+                    if (!weapon_1_found)
+                    {
+                        //Debug.Log("Drin");
+                        newCards.add_MoveCard(MoveCards.get_Weaponcard(weapon_1_name));
+                        counter++;
+                    }
+                }
+
+                if (weapon_2_name != "")
+                {
+                    if (!weapon_2_found)
+                    {
+                        newCards.add_MoveCard(MoveCards.get_Weaponcard(weapon_2_name));
+                        counter++;
+                    }
+                }
+                MoveCards random_cards = MoveCards.get_random_Movecards(5 - counter);
+                for (int i = 0; i < 5 - counter; i++)
+                {
+                    newCards.add_MoveCard(random_cards.card_List[i]);
+                }
+
+            }
+            else
+                newCards = MoveCards.get_random_Movecards(5);
             for (int i = 0; i < newCards.size(); i++)
                 spacecraft.player.card_Stack.card_List.Add(newCards.get_MoveCard(i));
             this.hud.card_stack.hide();

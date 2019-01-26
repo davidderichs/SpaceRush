@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
     //Attributes for Players
     public int playerId;
     public int lives;
@@ -18,9 +19,9 @@ public class Player : MonoBehaviour {
 
     public MoveCards card_Stack;
     public MoveCards card_Selection;
-    public int main_fuel; 
+    public int main_fuel;
     private int m_main_fuel;
-    public int add_fuel; 
+    public int add_fuel;
     private int m_add_fuel;
     public List<int> check;
 
@@ -32,20 +33,25 @@ public class Player : MonoBehaviour {
 
     private string weapon_2;
     // Only for Debug/Testing
-     private Movements movements;
+    private Movements movements;
 
 
-    void Awake(){
-        
+    void Awake()
+    {
+
     }
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         init_Start_Values();
         init_card_Stack();
-	}
+        weapon_1 = "";
+        weapon_2 = "";
+    }
 
-    
-    void init_Start_Values(){
+
+    void init_Start_Values()
+    {
         lives = 10;
         m_lives = 0;
 
@@ -61,105 +67,126 @@ public class Player : MonoBehaviour {
         check = new List<int>();
     }
 
-    void init_card_Stack(){
+    void init_card_Stack()
+    {
         this.card_Selection = new MoveCards(0);
         this.card_Stack = MoveCards.get_random_Movecards(10);
         m_number_of_cards = 0;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         if (m_lives != lives) liveChange();
         if (m_main_fuel != main_fuel) fuelChange();
         if (m_add_fuel != add_fuel) add_fuel_change();
         if (m_shields != shields) shieldChange();
         if (m_number_of_cards != card_Stack.size()) card_stack_changed();
         if (m_number_of_selected_cards != card_Selection.size()) card_selection_changed();
-	}
+    }
 
-    void card_stack_changed(){
-        m_number_of_cards = card_Stack.size();        
+    void card_stack_changed()
+    {
+        m_number_of_cards = card_Stack.size();
         EventManager.TriggerEvent("Player_Card_Stack_Changed");
     }
-    void card_selection_changed(){
+    void card_selection_changed()
+    {
         m_number_of_selected_cards = card_Selection.size();
-        if(card_Selection.size() == 5) {
+        if (card_Selection.size() == 5)
+        {
             EventManager.TriggerEvent("Player_Card_Selection_Complete");
-        } else {
+        }
+        else
+        {
             EventManager.TriggerEvent("Player_Card_Selection_Incomplete");
         }
         EventManager.TriggerEvent("Player_Card_Selection_Changed");
     }
 
-    void liveChange(){
+    void liveChange()
+    {
         m_lives = lives;
         EventManager.TriggerEvent("Player_Live_Has_Changed");
     }
 
-    void shieldChange(){
+    void shieldChange()
+    {
         m_shields = shields;
         EventManager.TriggerEvent("Player_Shield_Has_Changed");
     }
 
-    void fuelChange(){
+    void fuelChange()
+    {
         m_main_fuel = main_fuel;
         EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");
     }
 
-    void add_fuel_change(){
+    void add_fuel_change()
+    {
         m_add_fuel = add_fuel;
         EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed");
     }
 
-    Vector2 getPosition(){
+    Vector2 getPosition()
+    {
         Vector3 pos = space.transform.position;
         EventManager.TriggerEvent("Player_Position_Has_Changed");
         return new Vector2(pos.x, pos.y);
     }
 
-    public void addCheckpoint(int checkpoint){
+    public void addCheckpoint(int checkpoint)
+    {
         check.Add(checkpoint);
         last_Checkpoint = checkpoint;
         EventManager.TriggerEvent("Player_Reached_A_Checkpoint");
     }
 
-    public void addWeapon(string weapon){
-        if(weapon_1 == "")
+    public void addWeapon(string weapon)
+    {
+        if (weapon_1 == "")
         {
             weapon_1 = weapon;
-        }else if(weapon_2 == "")
+        }
+        else if (weapon_2 == "")
         {
             weapon_2 = weapon;
         }
     }
 
-    public void removeWeapon(int wpnr){
-        if(wpnr == 1)
+    public void removeWeapon(int wpnr)
+    {
+        if (wpnr == 1)
             weapon_1 = "";
-        if(wpnr == 2)
+        if (wpnr == 2)
             weapon_2 = "";
     }
 
-    public int getLastCheckpoint(){
+    public int getLastCheckpoint()
+    {
         return last_Checkpoint;
     }
 
-    public void looseLive(int damage){
-        if(shields>0){
+    public void looseLive(int damage)
+    {
+        if (shields > 0)
+        {
             shields = shields - damage;
-            if(shields < 0){
+            if (shields < 0)
+            {
                 lives = lives + shields;
                 shields = 0;
             }
         }
     }
 
-    public String getWeapon(int nr){
-        if(nr == 1){
-            return weapon_1;
-        } else if (nr == 2){
-            return weapon_2;
-        } else return "";
-         
+    public String getWeapon(int nr)
+    {
+        switch (nr)
+        {
+            case 1: return weapon_1;
+            case 2: return weapon_2;
+            default: return "";
+        }
     }
 }
