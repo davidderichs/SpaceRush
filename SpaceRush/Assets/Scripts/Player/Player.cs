@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
     {
         init_Start_Values();
         init_card_Stack();
-        weapon_1 = "";
+        weapon_1 = "Weapon_Gravity_Mine";
         weapon_2 = "";
     }
 

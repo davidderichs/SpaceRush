@@ -49,3 +49,4 @@
 {"direction":"backward","intensity":3,"useSprite":true,"spritePath":"Sprites/","color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"kind_Of_Movement":"boost","duration":2,"forceOrVelocity":300}
 {"direction":"backward","intensity":5,"useSprite":true,"spritePath":"Sprites/","color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"kind_Of_Movement":"boost","duration":2,"forceOrVelocity":500}
 {"direction":"Weapon_Laser", "intensity" :0, "useSprite" :true, "spritePath":"Sprites/", "color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"kind_Of_Movement":"laser", "duration":2, "forceOrVelocity":0}
+{"direction":"Weapon_Gravity_Mine", "intensity" :0, "useSprite" :true, "spritePath":"Sprites/", "color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"kind_Of_Movement":"gravityMine", "duration":2, "forceOrVelocity":0}

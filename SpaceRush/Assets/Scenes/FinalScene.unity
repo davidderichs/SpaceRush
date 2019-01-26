@@ -709,6 +709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 442931414}
+  weapon: {fileID: 4821777801826348, guid: 35c7e1a0233f645b9a185dfd25d10d45, type: 2}
 --- !u!60 &68487277
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7099,6 +7100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 21420403}
+  weapon: {fileID: 4821777801826348, guid: 35c7e1a0233f645b9a185dfd25d10d45, type: 2}
 --- !u!23 &1425206467
 MeshRenderer:
   m_ObjectHideFlags: 0
