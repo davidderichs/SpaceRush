@@ -31,3 +31,7 @@ Das Camer Script wurde überarbeitet und unterstützt nun auch die Funktion die 
 ![spaceRushEmblemV1](images/cameraFollowsSpacecrafts.gif)
 
 Die Kamera verfolgt beide Raumschiffe
+
+![spaceRushEmblemV1](images/spacecraftUsesGravMine.gif)
+
+Das obere Raumschiff setzt eine Gravitations-Mine, welche kurz darauf aktiv wird
