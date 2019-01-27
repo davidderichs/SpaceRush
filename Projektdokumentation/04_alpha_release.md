@@ -27,3 +27,9 @@ Das HUD wurde nun so umgeschrieben, dass es nun auch 2 Spieler unterstützt und 
 ## Kamera
 
 Das Camer Script wurde überarbeitet und unterstützt nun auch die Funktion die Spacecrafts zu verfolgen, sodass immer beide Spacecrafts noch zu sehen sind. Es konnte auch ein Bug beseitigt werden, wodurch die Kamera im "Verfolgungs-Modus" ruckelig war.
+
+
+
+## Probleme
+
+Nach dem Zwischenbericht sind wir auf ein Problem gestoßen. Das HUD verträgt keinen zweiten Spieler und keine Waffen. Nach einiger Zeit an versuchen das Problem zu lösen sind wir zu dem Entschluss gekommen das wir Teile  umschreiben müssen um unsere Ziele zu erfüllen. Da diese Umarbeitung große Teile des Codes betraf, kam es zu einer großen Zeitinvestition in diesen Bereich.
