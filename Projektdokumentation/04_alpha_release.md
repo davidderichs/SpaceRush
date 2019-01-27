@@ -45,3 +45,11 @@ Das obere Raumschiff setzt eine Gravitations-Mine, welche kurz darauf aktiv wird
 ## Probleme
 
 Nach dem Zwischenbericht sind wir auf ein Problem gestoßen. Das HUD verträgt keinen zweiten Spieler und keine Waffen. Nach einiger Zeit an versuchen das Problem zu lösen sind wir zu dem Entschluss gekommen das wir Teile  umschreiben müssen um unsere Ziele zu erfüllen. Da diese Umarbeitung große Teile des Codes betraf, kam es zu einer großen Zeitinvestition in diesen Bereich.
+
+
+
+## Layer-Fortschritt
+
+Der Programmierteil von Layer 1, 2 und 3 sind beinahe abgeschlossen. Die meisten Features eingefügt und es müssen z.B nur noch zusätzliche Waffen eingebaut werden. 
+
+Ein weiterer Punkt sind die fehlenden Assets (Sprites, etc.). Wir werden ein Teil der verbleibenden Zeit hier investieren, da dies Essenziell für unser Spiel ist.
