@@ -6,6 +6,8 @@ An unserem Playtesting haben insgesamt 5 Personen teilgenommen. 2 Personen wurde
 
 ## Teilnehmer
 
+Alle Teilnehmer des Playtestingskamen aus unserem engeren Bekanntenkreis. Es handelte sich größtenteils  um Freunde, aber auch einige Familienmitglieder. Die Tester waren alle zwischen 19 und 24 Jahren. Alle Tester haben gewisse Spielerfahrung, manche mehr, manche eher weniger.
+
 ## Fragen und Antworten
 
 ### Generelle Fragen
@@ -49,15 +51,15 @@ An unserem Playtesting haben insgesamt 5 Personen teilgenommen. 2 Personen wurde
 **Wann war das Spiel langweilig?**
 
 - Oft wurde eine schlechte Auswahl der zur Verfügung stehenden Karten als Langweilig bezeichnet. Auch der übermäßige Einsatz von Waffen war ein Problem für die Tester.
-  - *Als man nur Rückwärts karten bekommen hat*
-  - *Als das Spielfeld voller Minen war und meine Raumschiffe durch das Rumdrehen sich nicht mehr wirklich bewegen konnte.*
+  - *"Als man nur Rückwärts karten bekommen hat"*
+  - *"Als das Spielfeld voller Minen war und meine Raumschiffe durch das Rumdrehen sich nicht mehr wirklich bewegen konnte."*
 
 
 
 **Wann hat das Spiel am meisten Spaß gemacht?**
 
 - Die Spieler haben die Waffen als ein wesentlichen Teil des Spiels gesehen. Es ist also abzusehen das eine Vielzahl von Waffen von den Testern gewünscht wird.
-  - *Als die Gravity Minen dabei waren*
+  - *"Als die Gravity Minen dabei waren"*
 
 
 
@@ -66,22 +68,22 @@ An unserem Playtesting haben insgesamt 5 Personen teilgenommen. 2 Personen wurde
 **Kamst du mit dem Interface zurecht?**
 
 - Das Interface wurde gut angenommen. Die Tester haben das HUD nach erster Erklärung verstanden. Ein kleines Infofenster oder eine kurze Erklärung wäre für die Endversion zu empfehlen.
-  - *Die Tatsache, dass man nicht weiß, was die Balken rechts und links im HUD repräsentieren, verhinderte nicht die Planung der eigenen Flugmanöver. Die Auswahl der Karten erfolgt intuitiv.*
-  - *Erst nach Erläuterung, es fehlen Beschreibungen wie "Schild" und "Leben" im HUD*
+  - *"Die Tatsache, dass man nicht weiß, was die Balken rechts und links im HUD repräsentieren, verhinderte nicht die Planung der eigenen Flugmanöver. Die Auswahl der Karten erfolgt intuitiv."*
+  - *"Erst nach Erläuterung, es fehlen Beschreibungen wie "Schild" und "Leben" im HUD"*
 
 **War die Steuerung angemessen? Wenn nicht, was muss geändert werden?**
 
-- Das große Manko unseres Spiels. Die Tester waren sich einig das die jetzige Steuerung nicht für das Endprodukt reicht. Vorgeschlagen wurden eine "Simulation" des zu fliegenden Manövers oder eine andere Steuerungsart. Auch die Steuerung der Kamera wurde bemängelt.
-  - *Steuerung ist einfach , nur hat man keine wirkliche Vorstellung , wo das Raumschiff nun wirklich hinfliegt.*
-  - *Nein, sie war schrecklich.*
-  - *Die Bewegung der Kameraperspektive ist umständlich. Besser wäre es, die Kameraführung vollständig über die Maus steuern zu können. (Also sowohl Zoomfunktion als auch Bewegen des Sichtfelds.)*
+- Das große Manko unseres Spiels. Die Tester waren sich einig das die jetzige Steuerung nicht für das Endprodukt reicht. Vorgeschlagen wurden eine "Simulation" (Vorschau) des zu fliegenden Manövers oder eine andere Steuerungsart. Auch die Steuerung der Kamera wurde bemängelt.
+  - *"Steuerung ist einfach , nur hat man keine wirkliche Vorstellung , wo das Raumschiff nun wirklich hinfliegt".*
+  - *"Nein, sie war schrecklich."*
+  - *"Die Bewegung der Kameraperspektive ist umständlich. Besser wäre es, die Kameraführung vollständig über die Maus steuern zu können. (Also sowohl Zoomfunktion als auch Bewegen des Sichtfelds.)"*
 
 **Wie kamst du mit den Regeln zurecht?**
 
 - Die Regeln des Spiels waren nach einer Einführung leicht verständlich. Für das Endprodukt ist eine Hilfeseite oder ein Tutorial zu empfehlen.
-  - *Die Regeln des Spiels wurden zu keinem Punkt eingeführt. (Die Regeln an sich sind leicht verständlich, WENN sie einem denn erklärt werden.)*
-  - *Sehr gut , weil es kaum Einschränkungen gab.*
-  - *Ja, ich kam mit den Regeln zurecht*
+  - *"Die Regeln des Spiels wurden zu keinem Punkt eingeführt. (Die Regeln an sich sind leicht verständlich, WENN sie einem denn erklärt werden.)"*
+  - *"Sehr gut , weil es kaum Einschränkungen gab."*
+  - *"Ja, ich kam mit den Regeln zurecht"*
 
 ### Fazit
 
@@ -131,3 +133,7 @@ Die wichtigste Änderung ist die der Steuerung. Wie bereits in den Erkenntnissen
 Die anderen Waffen sind schon in Arbeit und sie werden in kürze hinzugefügt.
 
 Die kleine Hilfsseite, sowie die Kamerasteuerungsänderung wurden in die Planung mit aufgenommen.
+
+![bad HUD](images/badHud.png)
+
+Eine schlechte Zufalssauswahl der Bewegungskarten macht ein sinnvolles Manövrieren des raumschiffs unmöglich
