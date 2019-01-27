@@ -296,7 +296,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             }
             spacecraft.player.card_Selection.card_List.Clear();
 
-            // Wichtig fÃ¼r Erfassung vorhandener Waffenkarten
+            // Wichtig für Erfassung vorhandener Waffenkarten
             string weapon_1_name = spacecraft.player.getWeapon(1);
             string weapon_2_name = spacecraft.player.getWeapon(2);
 
