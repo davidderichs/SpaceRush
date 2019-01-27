@@ -216,6 +216,8 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     public void resetPlayer(Player player)
     {
         string last = "Checkpoint" + player.getLastCheckpoint();
+        player.space.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+        player.space.GetComponent<Rigidbody2D>().angularVelocity = 0;
         player.space.transform.position = GameObject.Find(last).GetComponent<Checkpoint>().transform.position;
     }
 
