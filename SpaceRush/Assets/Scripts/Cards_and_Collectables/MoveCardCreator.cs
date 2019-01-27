@@ -55,16 +55,16 @@ public class MoveCardCreator : MonoBehaviour
 		switch(weaponName){
 			case "Weapon_Laser": return getWeaponLaser();
 			case "Weapon_Gravity_Mine": return getWeaponGravityMine();
-			default: return getForwardFast();
-		}
+            default: return getForward();
+        }
 	}
 
-    private static MoveCard getForwardFast(){
+    public static MoveCard getForwardFast(){
         MoveCard card = new MoveCard("forward", 2, new Color(1, 1, 1, 1), true, "Sprites/", "boost", 2, 500);
         return card;
     }
 
-    private static MoveCard getBackwardFast(){
+    public static MoveCard getBackwardFast(){
         MoveCard card = new MoveCard("backward", 2, new Color(1, 1, 1, 1), true, "Sprites/", "boost", 2, 500);
         return card;
     }

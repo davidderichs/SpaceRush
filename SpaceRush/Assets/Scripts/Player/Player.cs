@@ -44,10 +44,12 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        init_Start_Values();
-        init_card_Stack();
+        // For testing purpose
         weapon_1 = "Weapon_Gravity_Mine";
         weapon_2 = "";
+
+        init_Start_Values();
+        init_card_Stack();
     }
 
 
@@ -69,7 +71,7 @@ public class Player : MonoBehaviour
     }
 
     void init_card_Stack()
-    {   
+    {
         this.card_Stack = new MoveCards(10);
         this.card_Selection = new MoveCards(0);
         this.card_Stack.card_List.Add(MoveCardCreator.getForward());
@@ -80,10 +82,14 @@ public class Player : MonoBehaviour
         this.card_Stack.card_List.Add(MoveCardCreator.getRotationRight60());
         this.card_Stack.card_List.Add(MoveCardCreator.getRotationLeft90());
         this.card_Stack.card_List.Add(MoveCardCreator.getRotationRight90());
-        if(weapon_1 != "")
+        if (weapon_1 != "")
             this.card_Stack.card_List.Add(MoveCardCreator.getWeapon(weapon_1));
-        if(weapon_2 != "")
+        else
+            this.card_Stack.card_List.Add(MoveCardCreator.getForwardFast());
+        if (weapon_2 != "")
             this.card_Stack.card_List.Add(MoveCardCreator.getWeapon(weapon_2));
+        else
+            this.card_Stack.card_List.Add(MoveCardCreator.getBackwardFast());
         m_number_of_cards = 0;
         //card_stack_changed();
     }
@@ -91,16 +97,16 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    /*     if (card_Selection.size() == 5 && ready == 0)
-        {
-            EventManager.TriggerEvent("Player_Card_Selection_Complete");
-            ready++;
-        }
-        else if(ready == 2)
-        {
-            EventManager.TriggerEvent("Player_Card_Selection_Incomplete");
-            ready = 0;
-        } */
+        /*     if (card_Selection.size() == 5 && ready == 0)
+            {
+                EventManager.TriggerEvent("Player_Card_Selection_Complete");
+                ready++;
+            }
+            else if(ready == 2)
+            {
+                EventManager.TriggerEvent("Player_Card_Selection_Incomplete");
+                ready = 0;
+            } */
         if (m_lives != lives) liveChange();
         if (m_main_fuel != main_fuel) fuelChange();
         if (m_add_fuel != add_fuel) add_fuel_change();
@@ -214,9 +220,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void readyCounter(int counter){
+    public void readyCounter(int counter)
+    {
         m_number_of_cards = m_number_of_cards + counter;
-        if(m_number_of_cards == 5){
+        if (m_number_of_cards == 5)
+        {
             EventManager.TriggerEvent("Player_Card_Selection_Complete");
             m_number_of_cards = 0;
         }
