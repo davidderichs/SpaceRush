@@ -49,6 +49,7 @@ public class HUD_Selected_Cards : MonoBehaviour
                         player.card_Selection.remove_MoveCard_With_Index(0);
                         player.readyCounter(-1);
                         EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
+                        EventManager.TriggerEvent("Player_Card_Selection_Changed");
                         // Debug.Log("HUD_Selected_Card Clicked with id: 0");
                     });
 
@@ -63,6 +64,7 @@ public class HUD_Selected_Cards : MonoBehaviour
                             player.card_Selection.remove_MoveCard_With_Index(1);
                             player.readyCounter(-1);
                             EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
                             // Debug.Log("HUD_Selected_Card Clicked with id: 1");
                         });
 
@@ -78,6 +80,7 @@ public class HUD_Selected_Cards : MonoBehaviour
                             player.card_Selection.remove_MoveCard_With_Index(2);
                             player.readyCounter(-1);
                             EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
                             // Debug.Log("HUD_Selected_Card Clicked with id: 2");
                         });
                     }
@@ -92,6 +95,7 @@ public class HUD_Selected_Cards : MonoBehaviour
                             player.card_Selection.remove_MoveCard_With_Index(3);
                             player.readyCounter(-1);
                             EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
                             // Debug.Log("HUD_Selected_Card Clicked with id: 3");
                         });
                     }
@@ -106,6 +110,7 @@ public class HUD_Selected_Cards : MonoBehaviour
                             player.card_Selection.remove_MoveCard_With_Index(4);
                             player.readyCounter(-1);
                             EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
                             // Debug.Log("HUD_Selected_Card Clicked with id: 4");
                         });
                     }
