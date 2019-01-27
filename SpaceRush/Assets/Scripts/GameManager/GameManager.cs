@@ -321,6 +321,10 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         acti_player = player;
     }
 
+    private void resetCards(){
+        //acti_player.card_Selection.card_List[1] == 
+    }
+
     private void StartStateMachine()
     {
         //Debug.Log(stateMachine.getState());

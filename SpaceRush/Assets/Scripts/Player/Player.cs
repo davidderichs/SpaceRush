@@ -104,23 +104,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*     if (card_Selection.size() == 5 && ready == 0)
-            {
-                EventManager.TriggerEvent("Player_Card_Selection_Complete");
-                ready++;
-            }
-            else if(ready == 2)
-            {
-                EventManager.TriggerEvent("Player_Card_Selection_Incomplete");
-                ready = 0;
-            } */
         if (m_lives != lives) liveChange();
         if (m_main_fuel != main_fuel) fuelChange();
         if (m_add_fuel != add_fuel) add_fuel_change();
         if (m_shields != shields) shieldChange();
-        //if (m_number_of_cards != card_Stack.size()) card_stack_changed();
-        //if (m_number_of_selected_cards != card_Selection.size()) card_selection_changed();
-    }
+        }
 
     void card_stack_changed()
     {
