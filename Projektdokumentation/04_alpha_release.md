@@ -1,4 +1,4 @@
-![spaceRushEmblemV1](/Users/jakob/Beuth/programming/SpaceRush/Projektdokumentation/images/spaceRushLogo.jpg)
+![spaceRushEmblemV1](images/spaceRushLogo.jpg)
 
 # Alpha Release
 
@@ -27,6 +27,18 @@ Das HUD wurde nun so umgeschrieben, dass es nun auch 2 Spieler unterstützt und 
 ## Kamera
 
 Das Camer Script wurde überarbeitet und unterstützt nun auch die Funktion die Spacecrafts zu verfolgen, sodass immer beide Spacecrafts noch zu sehen sind. Es konnte auch ein Bug beseitigt werden, wodurch die Kamera im "Verfolgungs-Modus" ruckelig war.
+
+
+
+![spaceRushEmblemV1](images/cameraFollowsSpacecrafts.gif)
+
+Die Kamera verfolgt beide Raumschiffe
+
+![spaceRushEmblemV1](images/spacecraftUsesGravMine.gif)
+
+Das obere Raumschiff setzt eine Gravitations-Mine, welche kurz darauf aktiv wird
+
+
 
 
 
