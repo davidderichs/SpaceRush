@@ -43,7 +43,9 @@ public class HUD_Card_Stack : MonoBehaviour
                             player.card_Selection.add_MoveCard(
                                 player.card_Stack.get_MoveCard(0)
                             );
-                            player.card_Stack.remove_MoveCard_With_Index(0);
+                            player.readyCounter(1);
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                            //player.card_Stack.remove_MoveCard_With_Index(0);
                             // Debug.Log("HUD_Stack_Card Clicked with id: 0");
                         }
                         else
@@ -61,7 +63,9 @@ public class HUD_Card_Stack : MonoBehaviour
                             player.card_Selection.add_MoveCard(
                                 player.card_Stack.get_MoveCard(1)
                             );
-                            player.card_Stack.remove_MoveCard_With_Index(1);
+                            player.readyCounter(1);
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                            //player.card_Stack.remove_MoveCard_With_Index(1);
                             // Debug.Log("HUD_Stack_Card Clicked with id: 1");
                         }
                         else
@@ -79,7 +83,9 @@ public class HUD_Card_Stack : MonoBehaviour
                             player.card_Selection.add_MoveCard(
                                 player.card_Stack.get_MoveCard(2)
                             );
-                            player.card_Stack.remove_MoveCard_With_Index(2);
+                            player.readyCounter(1);
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                            //player.card_Stack.remove_MoveCard_With_Index(2);
                             // Debug.Log("HUD_Stack_Card Clicked with id: 2");
                         }
                         else
@@ -97,7 +103,9 @@ public class HUD_Card_Stack : MonoBehaviour
                             player.card_Selection.add_MoveCard(
                                 player.card_Stack.get_MoveCard(3)
                             );
-                            player.card_Stack.remove_MoveCard_With_Index(3);
+                            player.readyCounter(1);
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                            //player.card_Stack.remove_MoveCard_With_Index(3);
                             // Debug.Log("HUD_Stack_Card Clicked with id: 3");
                         }
                         else
@@ -115,7 +123,9 @@ public class HUD_Card_Stack : MonoBehaviour
                             player.card_Selection.add_MoveCard(
                                 player.card_Stack.get_MoveCard(4)
                             );
-                            player.card_Stack.remove_MoveCard_With_Index(4);
+                            player.readyCounter(1);
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                            //player.card_Stack.remove_MoveCard_With_Index(4);
                             // Debug.Log("HUD_Stack_Card Clicked with id: 4");
                         }
                         else
@@ -133,7 +143,9 @@ public class HUD_Card_Stack : MonoBehaviour
                             player.card_Selection.add_MoveCard(
                                 player.card_Stack.get_MoveCard(5)
                             );
-                            player.card_Stack.remove_MoveCard_With_Index(5);
+                            player.readyCounter(1);
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                            //player.card_Stack.remove_MoveCard_With_Index(5);
                             // Debug.Log("HUD_Stack_Card Clicked with id: 5");
                         }
                         else
@@ -151,7 +163,9 @@ public class HUD_Card_Stack : MonoBehaviour
                             player.card_Selection.add_MoveCard(
                                 player.card_Stack.get_MoveCard(6)
                             );
-                            player.card_Stack.remove_MoveCard_With_Index(6);
+                            player.readyCounter(1);
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                            //player.card_Stack.remove_MoveCard_With_Index(6);
                             // Debug.Log("HUD_Stack_Card Clicked with id: 6");
                         }
                         else
@@ -169,7 +183,9 @@ public class HUD_Card_Stack : MonoBehaviour
                             player.card_Selection.add_MoveCard(
                                 player.card_Stack.get_MoveCard(7)
                             );
-                            player.card_Stack.remove_MoveCard_With_Index(7);
+                            player.readyCounter(1);
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                            //player.card_Stack.remove_MoveCard_With_Index(7);
                             // Debug.Log("HUD_Stack_Card Clicked with id: 7");
                         }
                         else
@@ -187,7 +203,9 @@ public class HUD_Card_Stack : MonoBehaviour
                             player.card_Selection.add_MoveCard(
                                 player.card_Stack.get_MoveCard(8)
                             );
-                            player.card_Stack.remove_MoveCard_With_Index(8);
+                            player.readyCounter(1);
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                            //player.card_Stack.remove_MoveCard_With_Index(8);
                             // Debug.Log("HUD_Stack_Card Clicked with id: 8");
                         }
                         else
@@ -205,7 +223,9 @@ public class HUD_Card_Stack : MonoBehaviour
                             player.card_Selection.add_MoveCard(
                                 player.card_Stack.get_MoveCard(9)
                             );
-                            player.card_Stack.remove_MoveCard_With_Index(9);
+                            player.readyCounter(1);
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                            //player.card_Stack.remove_MoveCard_With_Index(9);
                             // Debug.Log("HUD_Stack_Card Clicked with id: 9");
                         }
                         else
@@ -223,7 +243,9 @@ public class HUD_Card_Stack : MonoBehaviour
                             player.card_Selection.add_MoveCard(
                                 player.card_Stack.get_MoveCard(10)
                             );
-                            player.card_Stack.remove_MoveCard_With_Index(10);
+                            player.readyCounter(1);
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                            //player.card_Stack.remove_MoveCard_With_Index(10);
                             // Debug.Log("HUD_Stack_Card Clicked with id: 10");
                         }
                         else
@@ -241,7 +263,9 @@ public class HUD_Card_Stack : MonoBehaviour
                             player.card_Selection.add_MoveCard(
                                 player.card_Stack.get_MoveCard(11)
                             );
-                            player.card_Stack.remove_MoveCard_With_Index(11);
+                            player.readyCounter(1);
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                            //player.card_Stack.remove_MoveCard_With_Index(11);
                             // Debug.Log("HUD_Stack_Card Clicked with id: 11");
                         }
                         else
@@ -259,7 +283,9 @@ public class HUD_Card_Stack : MonoBehaviour
                             player.card_Selection.add_MoveCard(
                                 player.card_Stack.get_MoveCard(12)
                             );
-                            player.card_Stack.remove_MoveCard_With_Index(12);
+                            player.readyCounter(1);
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                            //player.card_Stack.remove_MoveCard_With_Index(12);
                             // Debug.Log("HUD_Stack_Card Clicked with id: 12");
                         }
                         else
@@ -277,7 +303,9 @@ public class HUD_Card_Stack : MonoBehaviour
                             player.card_Selection.add_MoveCard(
                                 player.card_Stack.get_MoveCard(13)
                             );
-                            player.card_Stack.remove_MoveCard_With_Index(13);
+                            player.readyCounter(1);
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                            //player.card_Stack.remove_MoveCard_With_Index(13);
                             // Debug.Log("HUD_Stack_Card Clicked with id: 13");
                         }
                         else
@@ -295,7 +323,9 @@ public class HUD_Card_Stack : MonoBehaviour
                             player.card_Selection.add_MoveCard(
                                 player.card_Stack.get_MoveCard(14)
                             );
-                            player.card_Stack.remove_MoveCard_With_Index(14);
+                            player.readyCounter(1);
+                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                            //player.card_Stack.remove_MoveCard_With_Index(14);
                             // Debug.Log("HUD_Stack_Card Clicked with id: 14");
                         }
                         else
