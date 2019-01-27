@@ -208,8 +208,43 @@ public class Player : MonoBehaviour
                 shields = 0;
             }
         }
+        else lives = lives - damage;
+
     }
 
+    private void playerLost()
+    {
+        if (lives <= 0)
+        {
+            if (playerId == 1)
+            {
+                EventManager.TriggerEvent("Player_1_lost");
+            }
+             if (playerId == 2)
+            {
+                EventManager.TriggerEvent("Player_2_lost");
+            }
+        }
+    }
+
+    public void looseFuel(int fuel)
+    {
+        if (add_fuel > 0)
+        {
+            add_fuel = add_fuel - fuel;
+            if (add_fuel < 0)
+            {
+                main_fuel = main_fuel + add_fuel;
+                add_fuel = 0;
+            }
+        }
+        else main_fuel = main_fuel - fuel;
+    }
+
+    public void resetFuel()
+    {
+        main_fuel = 5;
+    }
     public String getWeapon(int nr)
     {
         switch (nr)

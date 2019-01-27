@@ -63,23 +63,35 @@ public class Spacecraft : MonoBehaviour, ISimulatedObject
             SpacecraftAction action = actions[0];
             if (action is SpacecraftBoost)
             {
-                SpacecraftBoost boost = (SpacecraftBoost)action;
-                if (boost.direction == SpacecraftAction.Direction.None) return;
-                controller.Boost(boost.direction, boost.boostForce, boost.duration);
-                actions.RemoveAt(0);
+                if (player.main_fuel > 0)
+                {                                              //For Fuel usage
+                    SpacecraftBoost boost = (SpacecraftBoost)action;
+                    if (boost.direction == SpacecraftAction.Direction.None) return;
+                    controller.Boost(boost.direction, boost.boostForce, boost.duration);
+                    player.looseFuel(action.intensity);
+                    actions.RemoveAt(0);
+                }
             }
             else if (action is SpacecraftRotation)
             {
-                SpacecraftRotation rotation = (SpacecraftRotation)action;
-                if (rotation.direction == SpacecraftAction.Direction.None) return;
-                controller.Rotate(rotation.direction, rotation.angularSpeed, rotation.duration);
-                actions.RemoveAt(0);
+                if (player.main_fuel > 0)
+                {
+                    SpacecraftRotation rotation = (SpacecraftRotation)action;
+                    if (rotation.direction == SpacecraftAction.Direction.None) return;
+                    controller.Rotate(rotation.direction, rotation.angularSpeed, rotation.duration);
+                    player.looseFuel(action.intensity);
+                    actions.RemoveAt(0);
+                }
             }
             if (action is SpacecraftWeaponAction)
             {
-                SpacecraftWeaponAction weaponAction = (SpacecraftWeaponAction)action;
-                Instantiate(weapon,this.transform.position, Quaternion.identity);
-                actions.RemoveAt(0);
+                if (player.main_fuel > 0)
+                {
+                    SpacecraftWeaponAction weaponAction = (SpacecraftWeaponAction)action;
+                    Instantiate(weapon, this.transform.position, Quaternion.identity);
+                    player.looseFuel(action.intensity);
+                    actions.RemoveAt(0);
+                }
             }
         }
     }

@@ -5,4 +5,5 @@ using UnityEngine;
 public abstract class SpacecraftAction : MonoBehaviour
 {
     public enum Direction { Left, Right, Forwards, Backwards, None }
+    public int intensity;
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,10 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     private UnityAction player_1_reset;
 
     private UnityAction player_2_reset;
+
+    private UnityAction player_1_loose;
+
+    private UnityAction player_2_loose;
 
     private CameraController camera;
 
@@ -67,6 +72,12 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
         player_2_reset = new UnityAction(propagate_Player_2_reset);
         EventManager.StartListening("Player_2_reset", player_2_reset);
+
+        player_1_loose = new UnityAction(propagate_player_1_loosing);
+        EventManager.StartListening("Player_1_lost", player_1_loose);
+
+        player_2_loose = new UnityAction(propagate_player_2_loosing);
+        EventManager.StartListening("Player_1_lost", player_2_loose);
 
         Spacecraft.AddCollisionListener(this);
 
@@ -120,15 +131,6 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     }
     void Update()
     {
-        if (player_1.check.Count == 4)
-        {
-            Debug.Log("Player 1 Win");
-        }
-        if (player_2.check.Count == 4)
-        {
-            Debug.Log("Player 2 Win");
-        }
-
 
         // ONLY TESTING when simulation stopped -> reenable physics with klick on space
         /*if (Input.GetKeyDown("space"))
@@ -200,6 +202,16 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     {
         resetPlayer(player_2);
     }
+
+    private void propagate_player_1_loosing()
+    {
+        Debug.Log("Player 1 Lost");
+    }
+    private void propagate_player_2_loosing()
+    {
+        Debug.Log("Player 2 Lost");
+    }
+
 
     public void resetPlayer(Player player)
     {
@@ -295,65 +307,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
                 //Debug.Log(move.duration);
             }
             spacecraft.player.card_Selection.card_List.Clear();
-
-
-
-            /*  // Wichtig für Erfassung vorhandener Waffenkarten
-             string weapon_1_name = spacecraft.player.getWeapon(1);
-             string weapon_2_name = spacecraft.player.getWeapon(2);
-
-             bool weapon_1_found = false;
-             bool weapon_2_found = false;
-
-             for (int i = 0; i < 5; i++)
-             {
-                 MoveCard card = spacecraft.player.card_Stack.card_List[i];
-                 Debug.Log(card.direction);
-                 if (card.direction == weapon_1_name)
-                 {
-                     weapon_1_found = true;
-                 }
-                 if (card.direction == weapon_2_name)
-                 {
-                     weapon_2_found = true;
-                 }
-             }
-
-             MoveCards newCards = new MoveCards();
-             int counter = 0;
-             if (weapon_1_name != "" || weapon_2_name != "")
-             {
-                 //Debug.Log("weapon 1 oder 2 gefunden");
-                 if (weapon_1_name != "")
-                 {
-                     //Debug.Log("weapon_1_name:" + weapon_1_name);
-                     if (!weapon_1_found)
-                     {
-                         //Debug.Log("Drin");
-                         newCards.add_MoveCard(MoveCards.get_Weaponcard(weapon_1_name));
-                         counter++;
-                     }
-                 }
-
-                 if (weapon_2_name != "")
-                 {
-                     if (!weapon_2_found)
-                     {
-                         newCards.add_MoveCard(MoveCards.get_Weaponcard(weapon_2_name));
-                         counter++;
-                     }
-                 }
-                 MoveCards random_cards = MoveCards.get_random_Movecards(5 - counter);
-                 for (int i = 0; i < 5 - counter; i++)
-                 {
-                     newCards.add_MoveCard(random_cards.card_List[i]);
-                 }
-
-             }
-             else
-                 newCards = MoveCards.get_random_Movecards(5);
-             for (int i = 0; i < newCards.size(); i++)
-                 spacecraft.player.card_Stack.card_List.Add(newCards.get_MoveCard(i)); */
+            spacecraft.player.resetFuel();
             this.hud.card_stack.hide();
         }
     }
