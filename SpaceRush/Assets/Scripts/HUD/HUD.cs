@@ -18,9 +18,11 @@ public class HUD : MonoBehaviour {
 
 	public bool hud_visible;
 
+	private Vector3[] hud_Children_Rect_Positions;
+
 
 	void Awake(){
-
+		
 	}
 	// Use this for initialization
 	void Start () {
@@ -38,11 +40,13 @@ public class HUD : MonoBehaviour {
 	}
 
 	public void hide(){
-		this.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
+		Debug.Log("Hinding HUD");
+		this.GetComponent<Canvas>().enabled = false;
 	}
 
 	public void show(){
-		this.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
+		Debug.Log("Showing HUD");
+		this.GetComponent<Canvas>().enabled = true;
 	}
 
 	public void setHUDColorToBlue(){

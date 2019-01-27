@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         Vector3 start = new Vector3(this.player_1.space.transform.position.x, this.player_1.space.transform.position.y, -400);
         this.camera.transform.position = start;
         StopSimulation();
+        hud.show();
     }
 
     void propagate_Player_Selection_complete()

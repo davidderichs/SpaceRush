@@ -322,8 +322,14 @@ public class HUD_Card_Stack : MonoBehaviour
             GameObject.Find(this.cardTextNamePrefix + i).GetComponent<Text>().text = "";
             GameObject.Find("HUD_Available_Move_" + (i)).GetComponent<Button>().onClick.RemoveAllListeners();
         }
-        GameObject.Find("HUD_Weapon_1").GetComponent<Button>().onClick.RemoveAllListeners();
-        GameObject.Find("HUD_Weapon_2").GetComponent<Button>().onClick.RemoveAllListeners();
+        if (GameObject.Find("HUD_Weapon_1") != null){
+            GameObject.Find("HUD_Weapon_1").GetComponent<Button>().onClick.RemoveAllListeners();    
+        }
+
+        if(GameObject.Find("HUD_Weapon_2") != null){
+            GameObject.Find("HUD_Weapon_2").GetComponent<Button>().onClick.RemoveAllListeners();
+        }      
+
     }
 
     public void set_MoveCards(MoveCards movecards)
