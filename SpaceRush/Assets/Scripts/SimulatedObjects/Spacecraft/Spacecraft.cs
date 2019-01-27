@@ -13,6 +13,9 @@ public class Spacecraft : MonoBehaviour, ISimulatedObject
     private float m_angularVelocity;
     private bool sleeping;
 
+    // Zu Testzwecken von Instantiate
+    public Transform weapon;
+
     private static List<ISpacecraftCollisionListener> listeners;
 
     public static void AddCollisionListener(ISpacecraftCollisionListener listener)
@@ -70,6 +73,12 @@ public class Spacecraft : MonoBehaviour, ISimulatedObject
                 SpacecraftRotation rotation = (SpacecraftRotation)action;
                 if (rotation.direction == SpacecraftAction.Direction.None) return;
                 controller.Rotate(rotation.direction, rotation.angularSpeed, rotation.duration);
+                actions.RemoveAt(0);
+            }
+            if (action is SpacecraftWeaponAction)
+            {
+                SpacecraftWeaponAction weaponAction = (SpacecraftWeaponAction)action;
+                Instantiate(weapon,this.transform.position, Quaternion.identity);
                 actions.RemoveAt(0);
             }
         }

@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Reseter : MonoBehaviour {
-	private GameManager game;
+public class Reseter : MonoBehaviour
+{
 
-	void start(){
-		game = GameObject.Find("Gamemanager").GetComponent<GameManager>();
-	}
-	
-	void OnTriggerEnter2D(Collider2D other){
-		if (other.transform.gameObject.name == "Spacecraft"){
-				game.resetPlayer(game.player_1);
-		}
-		if (other.transform.gameObject.name == "Spacecraft2"){
-				game.resetPlayer(game.player_2);
-		}
-	}
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.transform.gameObject.name == "Spacecraft")
+        {
+            EventManager.TriggerEvent("Player_1_reset");
+        }
+        if (other.transform.gameObject.name == "Spacecraft2")
+        {
+            EventManager.TriggerEvent("Player_2_reset");
+        }
+    }
 
 }
