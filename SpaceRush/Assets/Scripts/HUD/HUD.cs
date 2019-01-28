@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class HUD : MonoBehaviour {
 
 	public HUD_Indicator live;
+	public HUD_Indicator weapons;
+	public HUD_Indicator items;
 	public HUD_Indicator shield;
 	public HUD_Indicator main_fuel;
 	public HUD_Indicator add_fuel;
@@ -14,12 +16,19 @@ public class HUD : MonoBehaviour {
 
 	public Button HUD_Button_Ready;
 
+	public bool hud_visible;
+
+	private Vector3[] hud_Children_Rect_Positions;
+
 
 	void Awake(){
-
+		
 	}
 	// Use this for initialization
 	void Start () {
+		this.weapons = GameObject.Find("HUD_Weapons_Indicator").GetComponent<HUD_Weapons_Indicator>();
+		this.items = GameObject.Find("HUD_Items_Indicator").GetComponent<HUD_Items_Indicator>();
+
 		this.live = GameObject.Find("HUD_Live_Indicator").GetComponent<HUD_Live_Indicator>();
 		this.main_fuel = GameObject.Find("HUD_Main_Fuel_Indicator").GetComponent<HUD_Main_Fuel_Indicator>();
 		this.add_fuel = GameObject.Find("HUD_Additional_Fuel_Indicator").GetComponent<HUD_Additional_Fuel_Indicator>();
@@ -27,6 +36,33 @@ public class HUD : MonoBehaviour {
 		this.selected_cards = GameObject.Find("HUD_Selected_Cards").GetComponent<HUD_Selected_Cards>();
 		this.card_stack = GameObject.Find("HUD_Card_Stack").GetComponent<HUD_Card_Stack>();
 		this.HUD_Button_Ready = GameObject.Find("HUD_Button_Ready").GetComponent<Button>();
+		this.hud_visible = true;
+	}
+
+	public void hide(){
+		Debug.Log("Hinding HUD");
+		this.GetComponent<Canvas>().enabled = false;
+	}
+
+	public void show(){
+		Debug.Log("Showing HUD");
+		this.GetComponent<Canvas>().enabled = true;
+	}
+
+	public void setHUDColorToBlue(){
+		this.live.GetComponent<Image>().color = new Color32(0, 243, 255, 255);
+		this.shield.GetComponent<Image>().color = new Color32(0, 243, 255, 255);
+		this.selected_cards.GetComponent<Image>().color = new Color32(0, 243, 255, 255);
+		this.weapons.GetComponent<Image>().color = new Color32(0, 243, 255, 255);
+		this.items.GetComponent<Image>().color = new Color32(0, 243, 255, 255);
+	}
+
+	public void setHUDColorToYellow(){
+		this.live.GetComponent<Image>().color = new Color32(255, 248, 0, 255);
+		this.shield.GetComponent<Image>().color = new Color32(255, 248, 0, 255);
+		this.selected_cards.GetComponent<Image>().color = new Color32(255, 248, 0, 255);
+		this.weapons.GetComponent<Image>().color = new Color32(255, 248, 0, 255);
+		this.items.GetComponent<Image>().color = new Color32(255, 248, 0, 255);
 	}
 
 	public void activate_Ready_Button(){

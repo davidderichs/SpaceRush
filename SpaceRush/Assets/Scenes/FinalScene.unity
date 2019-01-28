@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.006280071, g: 0.016688026, b: 0.033383656, a: 1}
+  m_IndirectSpecularColor: {r: 0.005703555, g: 0.016651953, b: 0.032471087, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -709,7 +709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 442931414}
-  weapon: {fileID: 4821777801826348, guid: 35c7e1a0233f645b9a185dfd25d10d45, type: 2}
+  weapon: {fileID: 0}
 --- !u!60 &68487277
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -782,7 +782,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: f1b79bf95ffccef40b2502361136a0a1, type: 2}
+  - {fileID: 2100000, guid: f850737c1028b7445b150e4cac8baa08, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1448,7 +1448,6 @@ GameObject:
   m_Component:
   - component: {fileID: 265292853}
   - component: {fileID: 265292855}
-  - component: {fileID: 265292854}
   - component: {fileID: 265292856}
   m_Layer: 5
   m_Name: HUD_Weapon_1
@@ -1475,33 +1474,6 @@ RectTransform:
   m_AnchoredPosition: {x: -73.8, y: 0}
   m_SizeDelta: {x: 130, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &265292854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 265292852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5a6ff53e325275943add432428e918ff, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &265292855
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1544,7 +1516,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 265292854}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -2325,7 +2297,6 @@ GameObject:
   m_Component:
   - component: {fileID: 510468916}
   - component: {fileID: 510468918}
-  - component: {fileID: 510468917}
   m_Layer: 5
   m_Name: HUD_Item_1
   m_TagString: Untagged
@@ -2351,33 +2322,6 @@ RectTransform:
   m_AnchoredPosition: {x: -73.4, y: 0}
   m_SizeDelta: {x: 130, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &510468917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 510468915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: bfe00b144ec050445954c12eaf9e3662, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &510468918
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3349,7 +3293,6 @@ GameObject:
   m_Component:
   - component: {fileID: 865238993}
   - component: {fileID: 865238995}
-  - component: {fileID: 865238994}
   m_Layer: 5
   m_Name: HUD_Item_2
   m_TagString: Untagged
@@ -3375,33 +3318,6 @@ RectTransform:
   m_AnchoredPosition: {x: 73, y: 0}
   m_SizeDelta: {x: 130, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &865238994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 865238992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: bfe00b144ec050445954c12eaf9e3662, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &865238995
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4203,7 +4119,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 2005830000}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -4253,12 +4169,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   live: {fileID: 0}
+  weapons: {fileID: 0}
+  items: {fileID: 0}
   shield: {fileID: 0}
   main_fuel: {fileID: 0}
   add_fuel: {fileID: 0}
   selected_cards: {fileID: 0}
   card_stack: {fileID: 0}
   HUD_Button_Ready: {fileID: 0}
+  hud_visible: 0
 --- !u!1 &999741810
 GameObject:
   m_ObjectHideFlags: 0
@@ -4860,8 +4779,9 @@ GameObject:
   - component: {fileID: 1109127312}
   - component: {fileID: 1109127315}
   - component: {fileID: 1109127314}
+  - component: {fileID: 1109127313}
   m_Layer: 5
-  m_Name: HUD_Weapons
+  m_Name: HUD_Weapons_Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4887,6 +4807,23 @@ RectTransform:
   m_AnchoredPosition: {x: -657.8, y: 125}
   m_SizeDelta: {x: 300, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1109127313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1109127311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bacde17e14dcbd49b66506cb6615c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color_active: {r: 0, g: 0, b: 0, a: 0}
+  color_inactive: {r: 0, g: 0, b: 0, a: 0}
+  itemNameClass: 
+  maxValue: 0
+  useSprite: 0
+  spritePath: 
 --- !u!114 &1109127314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6036,7 +5973,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2b7c1bb5163cc9d45afe83d93091b4f9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6761,8 +6698,9 @@ GameObject:
   - component: {fileID: 1413267429}
   - component: {fileID: 1413267432}
   - component: {fileID: 1413267431}
+  - component: {fileID: 1413267430}
   m_Layer: 5
-  m_Name: HUD_Items
+  m_Name: HUD_Items_Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6788,6 +6726,23 @@ RectTransform:
   m_AnchoredPosition: {x: 655.7, y: 125}
   m_SizeDelta: {x: 300, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1413267430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1413267428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e9bfae78e43a64a8a8b1c159073d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color_active: {r: 0, g: 0, b: 0, a: 0}
+  color_inactive: {r: 0, g: 0, b: 0, a: 0}
+  itemNameClass: 
+  maxValue: 0
+  useSprite: 0
+  spritePath: 
 --- !u!114 &1413267431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7086,7 +7041,7 @@ GameObject:
   m_TagString: Spacecraft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!114 &1425206466
 MonoBehaviour:
@@ -7100,7 +7055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 21420403}
-  weapon: {fileID: 4821777801826348, guid: 35c7e1a0233f645b9a185dfd25d10d45, type: 2}
+  weapon: {fileID: 0}
 --- !u!23 &1425206467
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7117,7 +7072,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: f1b79bf95ffccef40b2502361136a0a1, type: 2}
+  - {fileID: 2100000, guid: 97d602446a9a86045adf3c300cc0d9e5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7550,7 +7505,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1482798052}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -180, y: 14, z: 0}
+  m_LocalPosition: {x: -230.49, y: 14, z: 0}
   m_LocalScale: {x: 800, y: 600, z: 200}
   m_Children:
   - {fileID: 1425206471}
@@ -8045,7 +8000,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1630060875}
   - component: {fileID: 1630060877}
-  - component: {fileID: 1630060876}
   - component: {fileID: 1630060878}
   m_Layer: 5
   m_Name: HUD_Weapon_2
@@ -8072,33 +8026,6 @@ RectTransform:
   m_AnchoredPosition: {x: 72.4, y: 0}
   m_SizeDelta: {x: 130, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1630060876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1630060874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 412dabcb9444e8047ae2e77ab982ef2a, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1630060877
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8141,7 +8068,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1630060876}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []

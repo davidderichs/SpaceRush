@@ -11,7 +11,7 @@ public class Fuel : Collectible {
 			if(game.player_1.add_fuel > 5){
 				game.player_1.add_fuel = 5;
 			} 
-			Debug.Log("collected");
+			// Debug.Log("collected");
 		}
 		collected();
 	}

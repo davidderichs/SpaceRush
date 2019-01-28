@@ -8,7 +8,7 @@ public class Shields : Collectible {
 		findGameManager();
 		if (other.transform.gameObject.name == "Spacecraft"){
 			game.player_1.shields = game.player_1.shields + 2;
-			Debug.Log("collected");
+			// Debug.Log("collected");
 		}
 		collected();
 	}
