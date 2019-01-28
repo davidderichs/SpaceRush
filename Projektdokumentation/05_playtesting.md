@@ -2,7 +2,7 @@
 
 # Playtesting
 
-An unserem Playtesting haben insgesamt 5 Personen teilgenommen. 2 Personen wurden direkt eingeladen und haben auf unseren Rechnern gespielt. Die restlichen Tester haben das Spiel mit Hilfe von Parsec, einem Programm für Gamestreaming mit Eingabe-Unterstützung übers Netzt auf unseren Computern gespielt.
+An unserem Playtesting haben insgesamt 9 Personen teilgenommen. 7 Personen wurden direkt eingeladen und haben auf unseren Rechnern gespielt. Die restlichen Tester haben das Spiel mit Hilfe von Parsec, einem Programm für Gamestreaming mit Eingabe-Unterstützung übers Netzt auf unseren Computern gespielt.
 
 ## Teilnehmer
 
@@ -130,10 +130,10 @@ Auch interessant war das die Spieler gerne eine kleine Einführung in das Spiel 
 
 Die wichtigste Änderung ist die der Steuerung. Wie bereits in den Erkenntnissen genannt haben wir schon Ideen. Die jetzt schon umgesetzte ist die, das die Spieler alle Karten zu Verfügung haben und sie diese immer Nutzen können. 
 
-Die anderen Waffen sind schon in Arbeit und sie werden in kürze hinzugefügt.
+Die anderen Waffen (Laser, Rakete) sind schon in Arbeit und sie werden in kürze hinzugefügt.
 
-Die kleine Hilfsseite, sowie die Kamerasteuerungsänderung wurden in die Planung mit aufgenommen.
+Die kleine Hilfsseite, sowie die Kamerasteuerungsänderung nur über die Maus wurden in die Planung mit aufgenommen.
 
 ![bad HUD](images/badHud.png)
 
-Eine schlechte Zufalssauswahl der Bewegungskarten macht ein sinnvolles Manövrieren des raumschiffs unmöglich
+Eine schlechte Zufalssauswahl der Bewegungskarten macht ein sinnvolles Manövrieren des Raumschiffs unmöglich
