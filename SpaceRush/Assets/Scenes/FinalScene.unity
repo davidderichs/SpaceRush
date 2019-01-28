@@ -261,9 +261,13 @@ MonoBehaviour:
   playerId: 1
   lives: 0
   shields: 0
+  m_number_of_cards: 0
   main_fuel: 0
   add_fuel: 0
   check: 
+  playerColor:
+    serializedVersion: 2
+    rgba: 0
   space: {fileID: 1425206465}
   hud: {fileID: 0}
 --- !u!4 &21420404
@@ -782,7 +786,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: f850737c1028b7445b150e4cac8baa08, type: 2}
+  - {fileID: 2100000, guid: 81eab16f77ff75c4aa70802cc0e3ab23, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2188,9 +2192,13 @@ MonoBehaviour:
   playerId: 2
   lives: 0
   shields: 0
+  m_number_of_cards: 0
   main_fuel: 0
   add_fuel: 0
   check: 
+  playerColor:
+    serializedVersion: 2
+    rgba: 0
   space: {fileID: 68487273}
   hud: {fileID: 0}
 --- !u!4 &442931415
@@ -5973,7 +5981,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2b7c1bb5163cc9d45afe83d93091b4f9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 0.105
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -7072,7 +7080,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 97d602446a9a86045adf3c300cc0d9e5, type: 2}
+  - {fileID: 2100000, guid: 81eab16f77ff75c4aa70802cc0e3ab23, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

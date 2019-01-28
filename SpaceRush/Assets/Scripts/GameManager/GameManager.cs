@@ -376,11 +376,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     void setActivePlayer(Player player)
     {
         acti_player = player;
-        if (acti_player.playerId == 1){            
-            this.hud.setHUDColorToBlue();
-        } else {
-            this.hud.setHUDColorToYellow();
-        }
+        hud.setHUDColor(player.playerColor);
     }
 
     private void resetCards(Player currentPlayer){

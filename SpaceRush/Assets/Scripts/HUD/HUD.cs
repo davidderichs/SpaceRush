@@ -49,20 +49,12 @@ public class HUD : MonoBehaviour {
 		this.GetComponent<Canvas>().enabled = true;
 	}
 
-	public void setHUDColorToBlue(){
-		this.live.GetComponent<Image>().color = new Color32(0, 243, 255, 255);
-		this.shield.GetComponent<Image>().color = new Color32(0, 243, 255, 255);
-		this.selected_cards.GetComponent<Image>().color = new Color32(0, 243, 255, 255);
-		this.weapons.GetComponent<Image>().color = new Color32(0, 243, 255, 255);
-		this.items.GetComponent<Image>().color = new Color32(0, 243, 255, 255);
-	}
-
-	public void setHUDColorToYellow(){
-		this.live.GetComponent<Image>().color = new Color32(255, 248, 0, 255);
-		this.shield.GetComponent<Image>().color = new Color32(255, 248, 0, 255);
-		this.selected_cards.GetComponent<Image>().color = new Color32(255, 248, 0, 255);
-		this.weapons.GetComponent<Image>().color = new Color32(255, 248, 0, 255);
-		this.items.GetComponent<Image>().color = new Color32(255, 248, 0, 255);
+	public void setHUDColor(Color32 newColor){
+		this.live.GetComponent<Image>().color = newColor;
+		this.shield.GetComponent<Image>().color = newColor;
+		this.selected_cards.GetComponent<Image>().color =newColor;
+		this.weapons.GetComponent<Image>().color = newColor;
+		this.items.GetComponent<Image>().color = newColor;
 	}
 
 	public void activate_Ready_Button(){

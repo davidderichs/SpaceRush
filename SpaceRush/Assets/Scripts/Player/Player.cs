@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     private int m_add_fuel;
     public List<int> check;
 
-    public Color playerColor;
+    public Color32 playerColor;
 
     public GameObject space;
 
@@ -71,10 +71,15 @@ public class Player : MonoBehaviour
 
         check = new List<int>();
 
-        if(playerId == 1)
-            playerColor = Color.blue;
-        if(playerId == 2)
-            playerColor = Color.yellow;
+        if(playerId == 1){
+            // Blue
+            playerColor = new Color32(0, 243, 255, 255);
+        }
+
+        if(playerId == 2){
+            //Yellow
+            playerColor = new Color32(255, 248, 0, 255);
+        }
     }
 
     void init_card_Stack()
