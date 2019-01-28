@@ -8,9 +8,10 @@ public class SpacecraftRotation : SpacecraftAction
     public float duration;
     public Direction direction;
 
-    public SpacecraftRotation(Direction direction, float angularSpeed, float duration)
+    public SpacecraftRotation(Direction direction, int intensity, float angularSpeed, float duration)
     {
         this.duration = duration;
+        this.intensity = intensity;
         this.direction = direction;
         this.angularSpeed = angularSpeed;
     }

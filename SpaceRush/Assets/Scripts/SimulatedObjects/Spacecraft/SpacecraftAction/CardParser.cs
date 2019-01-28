@@ -20,7 +20,8 @@ public class CardParser
             }
             float force = card.forceOrVelocity;
             float duration = card.duration;
-            return new SpacecraftBoost(direction, force, duration);
+            int intensity = card.intensity;
+            return new SpacecraftBoost(direction, intensity, force, duration);
         }
         else if (card.kind_Of_Movement.Equals("rotate"))
         {
@@ -36,19 +37,20 @@ public class CardParser
             }
             float velocity = card.forceOrVelocity;
             float duration = card.duration;
-            return new SpacecraftRotation(direction, velocity, duration);
+            int intensity = 1;
+            return new SpacecraftRotation(direction, intensity, velocity, duration);
         }
         else if (card.kind_Of_Movement.Equals("gravityMine"))
         {
-            return new SpacecraftWeaponAction(SpacecraftWeaponAction.WeaponType.GravityMine);
+            return new SpacecraftWeaponAction(SpacecraftWeaponAction.WeaponType.GravityMine, card.intensity);
         }
         else if (card.kind_Of_Movement.Equals("laser"))
         {
-            return new SpacecraftWeaponAction(SpacecraftWeaponAction.WeaponType.Laser);
+            return new SpacecraftWeaponAction(SpacecraftWeaponAction.WeaponType.Laser, card.intensity);
         }
         else if (card.kind_Of_Movement.Equals("rocket"))
         {
-            return new SpacecraftWeaponAction(SpacecraftWeaponAction.WeaponType.Rocket);
+            return new SpacecraftWeaponAction(SpacecraftWeaponAction.WeaponType.Rocket, card.intensity);
         }
         return null;
     }

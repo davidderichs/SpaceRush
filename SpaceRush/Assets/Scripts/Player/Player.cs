@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public int shields;
     private int m_shields;
 
-    private int m_number_of_cards;
+    public int m_number_of_cards;
     private int m_number_of_selected_cards;
 
     private int last_Checkpoint;
@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     private int m_add_fuel;
     public List<int> check;
 
+    public Color32 playerColor;
+
     public GameObject space;
 
     public HUD hud;
@@ -32,6 +34,7 @@ public class Player : MonoBehaviour
     private string weapon_1;
 
     private string weapon_2;
+    private int ready;
     // Only for Debug/Testing
     private Movements movements;
 
@@ -43,10 +46,12 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        init_Start_Values();
-        init_card_Stack();
+        // For testing purpose
         weapon_1 = "Weapon_Gravity_Mine";
         weapon_2 = "";
+
+        init_Start_Values();
+        init_card_Stack();
     }
 
 
@@ -65,13 +70,40 @@ public class Player : MonoBehaviour
         m_add_fuel = 0;
 
         check = new List<int>();
+
+        if(playerId == 1){
+            // Blue
+            playerColor = new Color32(0, 243, 255, 255);
+        }
+
+        if(playerId == 2){
+            //Yellow
+            playerColor = new Color32(255, 248, 0, 255);
+        }
     }
 
     void init_card_Stack()
     {
+        this.card_Stack = new MoveCards(10);
         this.card_Selection = new MoveCards(0);
-        this.card_Stack = MoveCards.get_random_Movecards(10);
+        this.card_Stack.card_List.Add(MoveCardCreator.getForward());
+        this.card_Stack.card_List.Add(MoveCardCreator.getBackward());
+        this.card_Stack.card_List.Add(MoveCardCreator.getRotationLeft30());
+        this.card_Stack.card_List.Add(MoveCardCreator.getRotationRight30());
+        this.card_Stack.card_List.Add(MoveCardCreator.getRotationLeft60());
+        this.card_Stack.card_List.Add(MoveCardCreator.getRotationRight60());
+        this.card_Stack.card_List.Add(MoveCardCreator.getRotationLeft90());
+        this.card_Stack.card_List.Add(MoveCardCreator.getRotationRight90());
+        if (weapon_1 != "")
+            this.card_Stack.card_List.Add(MoveCardCreator.getWeapon(weapon_1));
+        else
+            this.card_Stack.card_List.Add(MoveCardCreator.getForwardFast());
+        if (weapon_2 != "")
+            this.card_Stack.card_List.Add(MoveCardCreator.getWeapon(weapon_2));
+        else
+            this.card_Stack.card_List.Add(MoveCardCreator.getBackwardFast());
         m_number_of_cards = 0;
+        //card_stack_changed();
     }
 
     // Update is called once per frame
@@ -81,9 +113,7 @@ public class Player : MonoBehaviour
         if (m_main_fuel != main_fuel) fuelChange();
         if (m_add_fuel != add_fuel) add_fuel_change();
         if (m_shields != shields) shieldChange();
-        if (m_number_of_cards != card_Stack.size()) card_stack_changed();
-        if (m_number_of_selected_cards != card_Selection.size()) card_selection_changed();
-    }
+        }
 
     void card_stack_changed()
     {
@@ -178,8 +208,43 @@ public class Player : MonoBehaviour
                 shields = 0;
             }
         }
+        else lives = lives - damage;
+
     }
 
+    private void playerLost()
+    {
+        if (lives <= 0)
+        {
+            if (playerId == 1)
+            {
+                EventManager.TriggerEvent("Player_1_lost");
+            }
+             if (playerId == 2)
+            {
+                EventManager.TriggerEvent("Player_2_lost");
+            }
+        }
+    }
+
+    public void looseFuel(int fuel)
+    {
+        if (add_fuel > 0)
+        {
+            add_fuel = add_fuel - fuel;
+            if (add_fuel < 0)
+            {
+                main_fuel = main_fuel + add_fuel;
+                add_fuel = 0;
+            }
+        }
+        else main_fuel = main_fuel - fuel;
+    }
+
+    public void resetFuel()
+    {
+        main_fuel = 5;
+    }
     public String getWeapon(int nr)
     {
         switch (nr)
@@ -187,6 +252,16 @@ public class Player : MonoBehaviour
             case 1: return weapon_1;
             case 2: return weapon_2;
             default: return "";
+        }
+    }
+
+    public void readyCounter(int counter)
+    {
+        m_number_of_cards = m_number_of_cards + counter;
+        if (m_number_of_cards == 5)
+        {
+            EventManager.TriggerEvent("Player_Card_Selection_Complete");
+            m_number_of_cards = 0;
         }
     }
 }

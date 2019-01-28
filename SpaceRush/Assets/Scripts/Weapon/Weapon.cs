@@ -17,4 +17,8 @@ public abstract class Weapon : MonoBehaviour
     {
         this.owner = owner;
     }
+
+    protected void Destruct(){
+        Destroy(gameObject);
+    }
 }
