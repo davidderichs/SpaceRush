@@ -128,12 +128,12 @@ public class Spacecraft : MonoBehaviour, ISimulatedObject
         sleeping = true;
     }
 
-    private void removeWeapon(SpacecraftWeaponAction.WeaponType type, Player currentPlayer)
+    public void removeWeapon(SpacecraftWeaponAction.WeaponType type, Player currentPlayer)
     {
         switch (type)
         {
             case SpacecraftWeaponAction.WeaponType.GravityMine:
-
+                Debug.Log(player.getWeapon(1));
                 if (player.getWeapon(1) == "Weapon_Gravity_Mine")
                     player.removeWeapon(1);
                 else

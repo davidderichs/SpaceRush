@@ -122,7 +122,6 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     void propagate_Player_ready()
     {
         propagate_Player_Selection_incomplete();
-        //this.hud.card_stack.hide();
         propagate_Player_change();
         StartStateMachine();
     }
@@ -133,7 +132,6 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     }
     void Update()
     {
-
         // ONLY TESTING when simulation stopped -> reenable physics with klick on space
         /*if (Input.GetKeyDown("space"))
         {
@@ -175,7 +173,6 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             acti_player = player_2;
             this.hud.card_stack.changePlayer(2);
             this.hud.selected_cards.changePlayer(2);
-            // Debug.Log("New Player: Player 2");
         }
         else
         {
@@ -183,7 +180,6 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             acti_player = player_1;
             this.hud.card_stack.changePlayer(1);
             this.hud.selected_cards.changePlayer(1);
-            // Debug.Log("New Player: Player 1");
 
         }
         camera.AnimateTo(acti_player.space.transform.position);
@@ -253,7 +249,11 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         {
             //Debug.Log("DONE.");
             StopSimulation();
+            foreach(Spacecraft spacecraft in spacecrafts){
+                resetCards(spacecraft.player);
+            }
             propagate_Player_stack_change();
+            Debug.Log(acti_player.getWeapon(1));
         }
         else
         {
@@ -308,7 +308,6 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             {
                 SpacecraftAction action = CardParser.ParseCard(cards.get_MoveCard(i));
                 spacecraft.AddAction(action);
-                //Debug.Log(move.duration);
             }
             spacecraft.player.card_Selection.card_List.Clear();
             spacecraft.player.resetFuel();
@@ -321,8 +320,24 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         acti_player = player;
     }
 
-    private void resetCards(){
-        //acti_player.card_Selection.card_List[1] == 
+    private void resetCards(Player currentPlayer){
+        currentPlayer.card_Stack.card_List.Clear();
+        currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getForward());
+        currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getBackward());
+        currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getRotationLeft30());
+        currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getRotationRight30());
+        currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getRotationLeft60());
+        currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getRotationRight60());
+        currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getRotationLeft90());
+        currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getRotationRight90());
+        if (currentPlayer.getWeapon(1) != "")
+            currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getWeapon(currentPlayer.getWeapon(1)));
+        else
+            currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getForwardFast());
+        if (currentPlayer.getWeapon(2) != "")
+            currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getWeapon(currentPlayer.getWeapon(2)));
+        else
+            currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getBackwardFast());
     }
 
     private void StartStateMachine()
@@ -339,6 +354,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             if (stateMachine.getState() != 4)
             {
                 stateMachine.nextState();
+                propagate_Player_stack_change();
                 if (stateMachine.getState() == 3)
                 {
                     StartStateMachine();
@@ -346,6 +362,5 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             }
         }
     }
-
 
 }
