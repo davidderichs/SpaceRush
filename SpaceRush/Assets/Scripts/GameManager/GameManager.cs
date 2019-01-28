@@ -251,6 +251,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             StopSimulation();
             foreach(Spacecraft spacecraft in spacecrafts){
                 resetCards(spacecraft.player);
+                spacecraft.player.resetFuel();
             }
             propagate_Player_stack_change();
             Debug.Log(acti_player.getWeapon(1));
@@ -310,7 +311,6 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
                 spacecraft.AddAction(action);
             }
             spacecraft.player.card_Selection.card_List.Clear();
-            spacecraft.player.resetFuel();
             this.hud.card_stack.hide();
         }
     }
