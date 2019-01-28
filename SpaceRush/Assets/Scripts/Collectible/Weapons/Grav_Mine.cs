@@ -8,11 +8,11 @@ public class Grav_Mine : Collectible {
 		findGameManager();
 		if (other.transform.gameObject.name == "Spacecraft"){
 			game.player_1.addWeapon("GravityMine");
-			Debug.Log("collected");
+			// Debug.Log("collected");
 		}
 		if (other.transform.gameObject.name == "Spacecraft2"){
 			game.player_2.addWeapon("GravityMine");
-			Debug.Log("collected");
+			// Debug.Log("collected");
 		}
 		collected();
 	}

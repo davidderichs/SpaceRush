@@ -19,9 +19,32 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.transform.gameObject.name == "Spacecraft")
         {
-            if(point.color != Color.green){
+            if (point.color == Color.red)
+            {
+                point.color = game.player_1.playerColor;
+                game.checkpointTriggered(id, game.player_1);
+            }
+            else
+            {
                 point.color = Color.green;
                 game.checkpointTriggered(id, game.player_1);
+
+            }
+
+        }
+
+        if (other.transform.gameObject.name == "Spacecraft2")
+        {
+           if (point.color == Color.red)
+            {
+                point.color = game.player_1.playerColor;
+                game.checkpointTriggered(id, game.player_2);
+            }
+            else
+            {
+                point.color = Color.green;
+                game.checkpointTriggered(id, game.player_2);
+
             }
         }
     }

@@ -55,7 +55,7 @@ public class WeaponGravityMine : Weapon
                 rb.AddForce(new Vector2(direction.x, direction.y) * -force);
                 rb.AddTorque(torqueForce);
                 light.range = 500;
-                light.color = Color.red;
+                Destruct();
             }
         }
     }
