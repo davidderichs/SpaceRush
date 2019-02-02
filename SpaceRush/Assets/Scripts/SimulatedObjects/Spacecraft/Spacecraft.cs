@@ -63,33 +63,33 @@ public class Spacecraft : MonoBehaviour, ISimulatedObject
             SpacecraftAction action = actions[0];
             if (action is SpacecraftBoost)
             {
-                if (player.main_fuel > 0)
+                if (player.mainFuel > 0)
                 {                                              //For Fuel usage
                     SpacecraftBoost boost = (SpacecraftBoost)action;
                     if (boost.direction == SpacecraftAction.Direction.None) return;
                     controller.Boost(boost.direction, boost.boostForce, boost.duration);
-                    player.looseFuel(action.intensity);
+                    player.looseFuel(action.fuelCost);
                     actions.RemoveAt(0);
                 }
             }
             else if (action is SpacecraftRotation)
             {
-                if (player.main_fuel > 0)
+                if (player.mainFuel > 0)
                 {
                     SpacecraftRotation rotation = (SpacecraftRotation)action;
                     if (rotation.direction == SpacecraftAction.Direction.None) return;
                     controller.Rotate(rotation.direction, rotation.angularSpeed, rotation.duration);
-                    player.looseFuel(action.intensity);
+                    player.looseFuel(action.fuelCost);
                     actions.RemoveAt(0);
                 }
             }
             if (action is SpacecraftWeaponAction)
             {
-                if (player.main_fuel > 0)
+                if (player.mainFuel > 0)
                 {
                     SpacecraftWeaponAction weaponAction = (SpacecraftWeaponAction)action;
                     Instantiate(weapon, this.transform.position, Quaternion.identity);
-                    player.looseFuel(action.intensity);
+                    player.looseFuel(action.fuelCost);
                     player.removeWeapon(1);
                     removeWeapon(weaponAction.type,player);
                     actions.RemoveAt(0);

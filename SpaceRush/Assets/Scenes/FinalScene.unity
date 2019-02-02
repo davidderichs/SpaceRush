@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.029320378, g: 0.043756835, b: 0.06000387, a: 1}
+  m_IndirectSpecularColor: {r: 0.030028384, g: 0.0437307, b: 0.06035868, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 15257171}
   - component: {fileID: 15257172}
   m_Layer: 5
-  m_Name: HUD_Selected_Move_0
+  m_Name: HUDSelectedAction0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -261,15 +261,13 @@ MonoBehaviour:
   playerId: 1
   lives: 0
   shields: 0
-  m_number_of_cards: 0
-  main_fuel: 0
-  add_fuel: 0
-  check: 
+  mainFuel: 0
+  addFuel: 0
   playerColor:
     serializedVersion: 2
     rgba: 0
   space: {fileID: 1425206465}
-  hud: {fileID: 0}
+  check: 
 --- !u!4 &21420404
 Transform:
   m_ObjectHideFlags: 0
@@ -367,7 +365,7 @@ GameObject:
   - component: {fileID: 31435066}
   - component: {fileID: 31435067}
   m_Layer: 5
-  m_Name: HUD_Available_Move_Text_6
+  m_Name: HUDAvailableActionText4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -624,7 +622,7 @@ GameObject:
   - component: {fileID: 58162935}
   - component: {fileID: 58162937}
   m_Layer: 5
-  m_Name: HUD_Move_CardImage_1
+  m_Name: SelectedActionCardImage1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -838,7 +836,7 @@ GameObject:
   - component: {fileID: 84657197}
   - component: {fileID: 84657198}
   m_Layer: 5
-  m_Name: HUD_Available_Move_4
+  m_Name: HUDAvailableAction2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -857,11 +855,11 @@ RectTransform:
   - {fileID: 2063510542}
   - {fileID: 775968516}
   m_Father: {fileID: 1643746962}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: -3}
+  m_AnchoredPosition: {x: 4, y: 0}
   m_SizeDelta: {x: 150, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &84657198
@@ -1126,83 +1124,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 205722625}
   m_CullTransparentMesh: 0
---- !u!1 &210795424
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 210795425}
-  - component: {fileID: 210795426}
-  m_Layer: 5
-  m_Name: HUD_Available_Move_1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &210795425
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 210795424}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children:
-  - {fileID: 293479117}
-  - {fileID: 531214036}
-  m_Father: {fileID: 1643746962}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -573, y: -1}
-  m_SizeDelta: {x: 150, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &210795426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 210795424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &224044987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,47 +1259,6 @@ Transform:
   m_Father: {fileID: 1964902207}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 28.856}
---- !u!1 &231494503
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 231494504}
-  - component: {fileID: 231494505}
-  m_Layer: 5
-  m_Name: HUD_Available_Move_Text_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &231494504
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 231494503}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1061788254}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.6, y: -80.9}
-  m_SizeDelta: {x: 90, y: 55}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &231494505
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 231494503}
-  m_CullTransparentMesh: 0
 --- !u!1 &254777845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1654,47 +1534,6 @@ MonoBehaviour:
   maxValue: 0
   useSprite: 0
   spritePath: 
---- !u!1 &293479116
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 293479117}
-  - component: {fileID: 293479118}
-  m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &293479117
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 293479116}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children: []
-  m_Father: {fileID: 210795425}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.26000977, y: 29.299994}
-  m_SizeDelta: {x: 90, y: 140}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &293479118
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 293479116}
-  m_CullTransparentMesh: 0
 --- !u!1 &304362960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,7 +1626,7 @@ GameObject:
   - component: {fileID: 345614888}
   - component: {fileID: 345614889}
   m_Layer: 5
-  m_Name: HUD_Available_Move_3
+  m_Name: HUDAvailableAction1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1806,11 +1645,11 @@ RectTransform:
   - {fileID: 461960096}
   - {fileID: 928793145}
   m_Father: {fileID: 1643746962}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -259, y: -3}
+  m_AnchoredPosition: {x: -155, y: 0}
   m_SizeDelta: {x: 150, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &345614889
@@ -1864,7 +1703,7 @@ GameObject:
   - component: {fileID: 359326586}
   - component: {fileID: 359326588}
   m_Layer: 5
-  m_Name: HUD_Move_CardImage_2
+  m_Name: SelectedActionCardImage2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2223,15 +2062,13 @@ MonoBehaviour:
   playerId: 2
   lives: 0
   shields: 0
-  m_number_of_cards: 0
-  main_fuel: 0
-  add_fuel: 0
-  check: 
+  mainFuel: 0
+  addFuel: 0
   playerColor:
     serializedVersion: 2
     rgba: 0
   space: {fileID: 68487273}
-  hud: {fileID: 0}
+  check: 
 --- !u!4 &442931415
 Transform:
   m_ObjectHideFlags: 0
@@ -2255,7 +2092,7 @@ GameObject:
   - component: {fileID: 443605116}
   - component: {fileID: 443605117}
   m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_2
+  m_Name: HUDAvailableActionImage0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2296,7 +2133,7 @@ GameObject:
   - component: {fileID: 461960096}
   - component: {fileID: 461960097}
   m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_3
+  m_Name: HUDAvailableActionImage1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2368,47 +2205,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 510468915}
   m_CullTransparentMesh: 0
---- !u!1 &531214035
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 531214036}
-  - component: {fileID: 531214037}
-  m_Layer: 5
-  m_Name: HUD_Available_Move_Text_1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &531214036
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 531214035}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children: []
-  m_Father: {fileID: 210795425}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.6, y: -80.9}
-  m_SizeDelta: {x: 90, y: 55}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &531214037
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 531214035}
-  m_CullTransparentMesh: 0
 --- !u!1 &564240921
 GameObject:
   m_ObjectHideFlags: 0
@@ -2444,83 +2240,6 @@ RectTransform:
   m_AnchoredPosition: {x: 960, y: 540}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &618102716
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 618102717}
-  - component: {fileID: 618102718}
-  m_Layer: 5
-  m_Name: HUD_Available_Move_7
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &618102717
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 618102716}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children:
-  - {fileID: 1780794280}
-  - {fileID: 1499953876}
-  m_Father: {fileID: 1643746962}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 379, y: -3}
-  m_SizeDelta: {x: 150, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &618102718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 618102716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &637404027
 GameObject:
   m_ObjectHideFlags: 0
@@ -2888,7 +2607,7 @@ GameObject:
   - component: {fileID: 775968516}
   - component: {fileID: 775968517}
   m_Layer: 5
-  m_Name: HUD_Available_Move_Text_4
+  m_Name: HUDAvailableActionText2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2929,7 +2648,7 @@ GameObject:
   - component: {fileID: 801862053}
   - component: {fileID: 801862055}
   m_Layer: 5
-  m_Name: HUD_Move_CardImage_3
+  m_Name: SelectedActionCardImage3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2970,7 +2689,7 @@ GameObject:
   - component: {fileID: 804860943}
   - component: {fileID: 804860944}
   m_Layer: 5
-  m_Name: HUD_Available_Move_6
+  m_Name: HUDAvailableAction4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2989,11 +2708,11 @@ RectTransform:
   - {fileID: 1661790772}
   - {fileID: 31435066}
   m_Father: {fileID: 1643746962}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 220, y: -3}
+  m_AnchoredPosition: {x: 324, y: 0}
   m_SizeDelta: {x: 150, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &804860944
@@ -3047,7 +2766,7 @@ GameObject:
   - component: {fileID: 818709715}
   - component: {fileID: 818709716}
   m_Layer: 5
-  m_Name: HUD_Available_Move_Text_5
+  m_Name: HUDAvailableActionText3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3566,124 +3285,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 894821146}
   m_CullTransparentMesh: 0
---- !u!1 &911372272
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 911372273}
-  - component: {fileID: 911372274}
-  m_Layer: 5
-  m_Name: HUD_Available_Move_8
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &911372273
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 911372272}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children:
-  - {fileID: 916390980}
-  - {fileID: 929075739}
-  m_Father: {fileID: 1643746962}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 540, y: -3}
-  m_SizeDelta: {x: 150, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &911372274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 911372272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!1 &916390979
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 916390980}
-  - component: {fileID: 916390981}
-  m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_8
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &916390980
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 916390979}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children: []
-  m_Father: {fileID: 911372273}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.26000977, y: 29.299994}
-  m_SizeDelta: {x: 90, y: 140}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &916390981
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 916390979}
-  m_CullTransparentMesh: 0
 --- !u!1 &921272438
 GameObject:
   m_ObjectHideFlags: 0
@@ -3808,7 +3409,7 @@ GameObject:
   - component: {fileID: 928793145}
   - component: {fileID: 928793146}
   m_Layer: 5
-  m_Name: HUD_Available_Move_Text_3
+  m_Name: HUDAvailableActionText1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3838,47 +3439,6 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 928793144}
-  m_CullTransparentMesh: 0
---- !u!1 &929075738
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 929075739}
-  - component: {fileID: 929075740}
-  m_Layer: 5
-  m_Name: HUD_Available_Move_Text_8
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &929075739
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 929075738}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children: []
-  m_Father: {fileID: 911372273}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.6, y: -80.9}
-  m_SizeDelta: {x: 90, y: 55}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &929075740
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 929075738}
   m_CullTransparentMesh: 0
 --- !u!1 &955311351
 GameObject:
@@ -4291,8 +3851,8 @@ MonoBehaviour:
   shield: {fileID: 0}
   main_fuel: {fileID: 0}
   add_fuel: {fileID: 0}
-  selected_cards: {fileID: 0}
-  card_stack: {fileID: 0}
+  selectedAction: {fileID: 0}
+  actionStack: {fileID: 0}
   HUD_Button_Ready: {fileID: 0}
   hud_visible: 0
 --- !u!1 &999741810
@@ -4337,7 +3897,7 @@ GameObject:
   - component: {fileID: 1017869796}
   - component: {fileID: 1017869798}
   m_Layer: 5
-  m_Name: HUD_Move_Text_1
+  m_Name: SelectedActionCardText1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4409,83 +3969,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1059727260}
   m_CullTransparentMesh: 0
---- !u!1 &1061788253
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1061788254}
-  - component: {fileID: 1061788255}
-  m_Layer: 5
-  m_Name: HUD_Available_Move_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1061788254
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1061788253}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children:
-  - {fileID: 1598139196}
-  - {fileID: 231494504}
-  m_Father: {fileID: 1643746962}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -728, y: 0}
-  m_SizeDelta: {x: 150, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1061788255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1061788253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1065099000
 GameObject:
   m_ObjectHideFlags: 0
@@ -4676,47 +4159,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1086858955
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1086858956}
-  - component: {fileID: 1086858957}
-  m_Layer: 5
-  m_Name: HUD_Available_Move_Text_9
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1086858956
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1086858955}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1964202289}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.6, y: -80.9}
-  m_SizeDelta: {x: 90, y: 55}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1086858957
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1086858955}
-  m_CullTransparentMesh: 0
 --- !u!1 &1094989002
 GameObject:
   m_ObjectHideFlags: 0
@@ -4727,7 +4169,7 @@ GameObject:
   - component: {fileID: 1094989003}
   - component: {fileID: 1094989004}
   m_Layer: 5
-  m_Name: HUD_Selected_Move_1
+  m_Name: HUDSelectedAction1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5285,7 +4727,7 @@ GameObject:
   - component: {fileID: 1141009282}
   - component: {fileID: 1141009284}
   m_Layer: 5
-  m_Name: HUD_Move_Text_4
+  m_Name: SelectedActionCardText4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5487,7 +4929,7 @@ GameObject:
   - component: {fileID: 1178139810}
   - component: {fileID: 1178139811}
   m_Layer: 5
-  m_Name: HUD_Available_Move_2
+  m_Name: HUDAvailableAction0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5506,11 +4948,11 @@ RectTransform:
   - {fileID: 443605116}
   - {fileID: 1340618301}
   m_Father: {fileID: 1643746962}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -417, y: -3}
+  m_AnchoredPosition: {x: -313, y: 0}
   m_SizeDelta: {x: 150, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1178139811
@@ -5914,7 +5356,7 @@ GameObject:
   - component: {fileID: 1224692567}
   - component: {fileID: 1224692568}
   m_Layer: 5
-  m_Name: HUD_Available_Move_5
+  m_Name: HUDAvailableAction3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5933,11 +5375,11 @@ RectTransform:
   - {fileID: 1277588884}
   - {fileID: 818709715}
   m_Father: {fileID: 1643746962}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 59, y: -3}
+  m_AnchoredPosition: {x: 163, y: 0}
   m_SizeDelta: {x: 150, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1224692568
@@ -5991,7 +5433,7 @@ GameObject:
   - component: {fileID: 1245970235}
   - component: {fileID: 1245970237}
   m_Layer: 5
-  m_Name: HUD_Move_CardImage_4
+  m_Name: SelectedActionCardImage4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6184,7 +5626,7 @@ GameObject:
   - component: {fileID: 1277588884}
   - component: {fileID: 1277588885}
   m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_5
+  m_Name: HUDAvailableActionImage3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6392,7 +5834,7 @@ GameObject:
   - component: {fileID: 1333199530}
   - component: {fileID: 1333199532}
   m_Layer: 5
-  m_Name: HUD_Selected_Cards
+  m_Name: HUDSelectedAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6463,7 +5905,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1333199528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f65a1ce921341e47ab87927afc1371f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f86710b84771b04796d0f35625f8d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerNr: 1
@@ -6518,7 +5960,7 @@ GameObject:
   - component: {fileID: 1340618301}
   - component: {fileID: 1340618302}
   m_Layer: 5
-  m_Name: HUD_Available_Move_Text_2
+  m_Name: HUDAvailableActionText0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11944,7 +11386,7 @@ GameObject:
   - component: {fileID: 1429870692}
   - component: {fileID: 1429870693}
   m_Layer: 5
-  m_Name: HUD_Selected_Move_4
+  m_Name: HUDSelectedAction4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12295,88 +11737,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1489763158}
   m_CullTransparentMesh: 0
---- !u!1 &1498099920
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1498099921}
-  - component: {fileID: 1498099922}
-  m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_9
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1498099921
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1498099920}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1964202289}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.26000977, y: 29.299994}
-  m_SizeDelta: {x: 90, y: 140}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1498099922
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1498099920}
-  m_CullTransparentMesh: 0
---- !u!1 &1499953875
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1499953876}
-  - component: {fileID: 1499953877}
-  m_Layer: 5
-  m_Name: HUD_Available_Move_Text_7
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1499953876
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1499953875}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children: []
-  m_Father: {fileID: 618102717}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.6, y: -80.9}
-  m_SizeDelta: {x: 90, y: 55}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1499953877
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1499953875}
-  m_CullTransparentMesh: 0
 --- !u!1 &1586389741
 GameObject:
   m_ObjectHideFlags: 0
@@ -12501,47 +11861,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1598139195
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1598139196}
-  - component: {fileID: 1598139197}
-  m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1598139196
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1598139195}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1061788254}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.26000977, y: 29.299994}
-  m_SizeDelta: {x: 90, y: 140}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1598139197
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1598139195}
-  m_CullTransparentMesh: 0
 --- !u!1 &1602331235
 GameObject:
   m_ObjectHideFlags: 0
@@ -12825,7 +12144,7 @@ GameObject:
   - component: {fileID: 1641608738}
   - component: {fileID: 1641608739}
   m_Layer: 5
-  m_Name: HUD_Selected_Move_2
+  m_Name: HUDSelectedAction2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12901,9 +12220,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1643746962}
   - component: {fileID: 1643746964}
-  - component: {fileID: 1643746965}
+  - component: {fileID: 1643746963}
   m_Layer: 5
-  m_Name: HUD_Card_Stack
+  m_Name: HUDCardStack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12919,16 +12238,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
-  - {fileID: 1061788254}
-  - {fileID: 210795425}
   - {fileID: 1178139810}
   - {fileID: 345614888}
   - {fileID: 84657197}
   - {fileID: 1224692567}
   - {fileID: 804860943}
-  - {fileID: 618102717}
-  - {fileID: 911372273}
-  - {fileID: 1964202289}
   m_Father: {fileID: 994303717}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12937,14 +12251,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 381}
   m_SizeDelta: {x: 1920, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1643746964
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1643746961}
-  m_CullTransparentMesh: 0
---- !u!114 &1643746965
+--- !u!114 &1643746963
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12952,10 +12259,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1643746961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5539ce1ce5ae786488e0cb1b300fd2f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 92543cf5d1f7c854bba0394cb1182015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerNr: 1
+--- !u!222 &1643746964
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1643746961}
+  m_CullTransparentMesh: 0
 --- !u!1 &1661790771
 GameObject:
   m_ObjectHideFlags: 0
@@ -12966,7 +12280,7 @@ GameObject:
   - component: {fileID: 1661790772}
   - component: {fileID: 1661790773}
   m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_6
+  m_Name: HUDAvailableActionImage4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13337,7 +12651,7 @@ GameObject:
   - component: {fileID: 1728822078}
   - component: {fileID: 1728822080}
   m_Layer: 5
-  m_Name: HUD_Move_Text_0
+  m_Name: SelectedActionCardText0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13539,7 +12853,7 @@ GameObject:
   - component: {fileID: 1767089620}
   - component: {fileID: 1767089622}
   m_Layer: 5
-  m_Name: HUD_Move_CardImage_0
+  m_Name: SelectedActionCardImage0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13569,47 +12883,6 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1767089619}
-  m_CullTransparentMesh: 0
---- !u!1 &1780794279
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1780794280}
-  - component: {fileID: 1780794281}
-  m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_7
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1780794280
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1780794279}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children: []
-  m_Father: {fileID: 618102717}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.26000977, y: 29.299994}
-  m_SizeDelta: {x: 90, y: 140}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1780794281
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1780794279}
   m_CullTransparentMesh: 0
 --- !u!1 &1827646775
 GameObject:
@@ -14117,83 +13390,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1913064497}
   m_CullTransparentMesh: 0
---- !u!1 &1964202288
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1964202289}
-  - component: {fileID: 1964202290}
-  m_Layer: 5
-  m_Name: HUD_Available_Move_9
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1964202289
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1964202288}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children:
-  - {fileID: 1498099921}
-  - {fileID: 1086858956}
-  m_Father: {fileID: 1643746962}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 701, y: -3}
-  m_SizeDelta: {x: 150, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1964202290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1964202288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1964902206
 GameObject:
   m_ObjectHideFlags: 0
@@ -14370,7 +13566,7 @@ GameObject:
   - component: {fileID: 2026001247}
   - component: {fileID: 2026001249}
   m_Layer: 5
-  m_Name: HUD_Move_Text_3
+  m_Name: SelectedActionCardText3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14411,7 +13607,7 @@ GameObject:
   - component: {fileID: 2057630025}
   - component: {fileID: 2057630026}
   m_Layer: 5
-  m_Name: HUD_Selected_Move_3
+  m_Name: HUDSelectedAction3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14488,7 +13684,7 @@ GameObject:
   - component: {fileID: 2063510542}
   - component: {fileID: 2063510543}
   m_Layer: 5
-  m_Name: HUD_Available_Move_CardImage_4
+  m_Name: HUDAvailableActionImage2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14940,7 +14136,7 @@ GameObject:
   - component: {fileID: 2144864128}
   - component: {fileID: 2144864130}
   m_Layer: 5
-  m_Name: HUD_Move_Text_2
+  m_Name: SelectedActionCardText2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

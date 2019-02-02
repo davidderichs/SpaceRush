@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveCardCreator : MonoBehaviour
-{
+{/*
 
     public static MoveCard getForward()
     {
@@ -79,5 +79,5 @@ public class MoveCardCreator : MonoBehaviour
     {
         MoveCard card = new MoveCard("Weapon_Gravity_Mine", 3, new Color(1, 1, 1, 1), true, "Sprites/", "gravityMine", 2, 30);
         return card;
-    }
+    } */
 }

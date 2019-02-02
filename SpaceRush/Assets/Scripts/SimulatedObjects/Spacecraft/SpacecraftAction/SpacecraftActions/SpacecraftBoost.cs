@@ -8,10 +8,10 @@ public class SpacecraftBoost : SpacecraftAction
     public float duration;
     public Direction direction;
 
-    public SpacecraftBoost(Direction direction, int intensity, float force, float duration)
+    public SpacecraftBoost(Direction direction, float fuelCost, float force, float duration)
     {
         this.duration = duration;
-        this.intensity = intensity;
+        this.fuelCost = fuelCost;
         this.direction = direction;
         boostForce = force;
 

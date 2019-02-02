@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using System.IO;
 
 public static class JSONParser
-{
+{/**
 
     public static MoveCards read_Default_Stack_from_JSON()
     {
@@ -34,5 +34,5 @@ public static class JSONParser
         }
 
         return cardList;
-    }
+    } */
 }

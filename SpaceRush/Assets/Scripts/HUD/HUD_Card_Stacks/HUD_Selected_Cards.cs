@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HUD_Selected_Cards : MonoBehaviour
-{
+{/*
 
     string cardImageNamePrefix = "HUD_Move_CardImage_";
     string cardTextNamePrefix = "HUD_Move_Text_";
@@ -45,7 +45,7 @@ public class HUD_Selected_Cards : MonoBehaviour
                     {
                         /* player.card_Stack.add_MoveCard(
                             player.card_Selection.get_MoveCard(0)
-                        );*/
+                        );
                         player.card_Selection.remove_MoveCard_With_Index(0);
                         player.readyCounter(-1);
                         EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
@@ -60,7 +60,7 @@ public class HUD_Selected_Cards : MonoBehaviour
                         {
                             /*player.card_Stack.add_MoveCard(
                                 player.card_Selection.get_MoveCard(1)
-                            );*/
+                            );
                             player.card_Selection.remove_MoveCard_With_Index(1);
                             player.readyCounter(-1);
                             EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
@@ -76,7 +76,7 @@ public class HUD_Selected_Cards : MonoBehaviour
                         {
                             /*player.card_Stack.add_MoveCard(
                                 player.card_Selection.get_MoveCard(2)
-                            );*/
+                            );
                             player.card_Selection.remove_MoveCard_With_Index(2);
                             player.readyCounter(-1);
                             EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
@@ -91,7 +91,7 @@ public class HUD_Selected_Cards : MonoBehaviour
                         {
                             /*player.card_Stack.add_MoveCard(
                                 player.card_Selection.get_MoveCard(3)
-                            );*/
+                            );
                             player.card_Selection.remove_MoveCard_With_Index(3);
                             player.readyCounter(-1);
                             EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
@@ -106,7 +106,7 @@ public class HUD_Selected_Cards : MonoBehaviour
                         {
                             /* player.card_Stack.add_MoveCard(
                                 player.card_Selection.get_MoveCard(4)
-                            );*/
+                            );
                             player.card_Selection.remove_MoveCard_With_Index(4);
                             player.readyCounter(-1);
                             EventManager.TriggerEvent("HUD_Card_Stack_Item_Unselected");
@@ -189,5 +189,5 @@ public class HUD_Selected_Cards : MonoBehaviour
     {
         string playername = "Player" + playerNr;
         player = GameObject.Find(playername).GetComponent<Player>();
-    }
+    } */
 }

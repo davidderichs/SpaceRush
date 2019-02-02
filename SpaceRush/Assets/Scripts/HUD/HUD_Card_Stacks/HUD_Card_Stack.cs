@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HUD_Card_Stack : MonoBehaviour
-{
+{/*
 
     string cardImageNamePrefix = "HUD_Available_Move_CardImage_";
     string cardTextNamePrefix = "HUD_Available_Move_Text_";
@@ -32,318 +32,19 @@ public class HUD_Card_Stack : MonoBehaviour
         {
             // Debug.Log("Setting up Listeners in HUD_Card_Stack");
             Button HUD_clickable_Card = GameObject.Find("HUD_Available_Move_" + (i)).GetComponent<Button>();
-            switch (i)
+            HUD_clickable_Card.onClick.AddListener(delegate
             {
-                case 0:
-                    HUD_clickable_Card.onClick.AddListener(delegate
-                    {
-                        if (player.card_Selection.size() < 5)
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
-                            player.card_Selection.add_MoveCard(
-                                player.card_Stack.get_MoveCard(0)
-                            );
-                            player.readyCounter(1);
-                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
-                            //player.card_Stack.remove_MoveCard_With_Index(0);
-                            // Debug.Log("HUD_Stack_Card Clicked with id: 0");
-                        }
-                        else
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
-                        }
-                    });
-                    break;
-                case 1:
-                    HUD_clickable_Card.onClick.AddListener(delegate
-                    {
-                        if (player.card_Selection.size() < 5)
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
-                            player.card_Selection.add_MoveCard(
-                                player.card_Stack.get_MoveCard(1)
-                            );
-                            player.readyCounter(1);
-                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
-                            //player.card_Stack.remove_MoveCard_With_Index(1);
-                            // Debug.Log("HUD_Stack_Card Clicked with id: 1");
-                        }
-                        else
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
-                        }
-                    });
-                    break;
-                case 2:
-                    HUD_clickable_Card.onClick.AddListener(delegate
-                    {
-                        if (player.card_Selection.size() < 5)
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
-                            player.card_Selection.add_MoveCard(
-                                player.card_Stack.get_MoveCard(2)
-                            );
-                            player.readyCounter(1);
-                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
-                            //player.card_Stack.remove_MoveCard_With_Index(2);
-                            // Debug.Log("HUD_Stack_Card Clicked with id: 2");
-                        }
-                        else
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
-                        }
-                    });
-                    break;
-                case 3:
-                    HUD_clickable_Card.onClick.AddListener(delegate
-                    {
-                        if (player.card_Selection.size() < 5)
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
-                            player.card_Selection.add_MoveCard(
-                                player.card_Stack.get_MoveCard(3)
-                            );
-                            player.readyCounter(1);
-                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
-                            //player.card_Stack.remove_MoveCard_With_Index(3);
-                            // Debug.Log("HUD_Stack_Card Clicked with id: 3");
-                        }
-                        else
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
-                        }
-                    });
-                    break;
-                case 4:
-                    HUD_clickable_Card.onClick.AddListener(delegate
-                    {
-                        if (player.card_Selection.size() < 5)
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
-                            player.card_Selection.add_MoveCard(
-                                player.card_Stack.get_MoveCard(4)
-                            );
-                            player.readyCounter(1);
-                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
-                            //player.card_Stack.remove_MoveCard_With_Index(4);
-                            // Debug.Log("HUD_Stack_Card Clicked with id: 4");
-                        }
-                        else
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
-                        }
-                    });
-                    break;
-                case 5:
-                    HUD_clickable_Card.onClick.AddListener(delegate
-                    {
-                        if (player.card_Selection.size() < 5)
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
-                            player.card_Selection.add_MoveCard(
-                                player.card_Stack.get_MoveCard(5)
-                            );
-                            player.readyCounter(1);
-                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
-                            //player.card_Stack.remove_MoveCard_With_Index(5);
-                            // Debug.Log("HUD_Stack_Card Clicked with id: 5");
-                        }
-                        else
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
-                        }
-                    });
-                    break;
-                case 6:
-                    HUD_clickable_Card.onClick.AddListener(delegate
-                    {
-                        if (player.card_Selection.size() < 5)
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
-                            player.card_Selection.add_MoveCard(
-                                player.card_Stack.get_MoveCard(6)
-                            );
-                            player.readyCounter(1);
-                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
-                            //player.card_Stack.remove_MoveCard_With_Index(6);
-                            // Debug.Log("HUD_Stack_Card Clicked with id: 6");
-                        }
-                        else
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
-                        }
-                    });
-                    break;
-                case 7:
-                    HUD_clickable_Card.onClick.AddListener(delegate
-                    {
-                        if (player.card_Selection.size() < 5)
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
-                            player.card_Selection.add_MoveCard(
-                                player.card_Stack.get_MoveCard(7)
-                            );
-                            player.readyCounter(1);
-                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
-                            //player.card_Stack.remove_MoveCard_With_Index(7);
-                            // Debug.Log("HUD_Stack_Card Clicked with id: 7");
-                        }
-                        else
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
-                        }
-                    });
-                    break;
-                case 8:
-                    HUD_clickable_Card.onClick.AddListener(delegate
-                    {
-                        if (player.card_Selection.size() < 5)
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
-                            player.card_Selection.add_MoveCard(
-                                player.card_Stack.get_MoveCard(8)
-                            );
-                            player.readyCounter(1);
-                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
-                            //player.card_Stack.remove_MoveCard_With_Index(8);
-                            // Debug.Log("HUD_Stack_Card Clicked with id: 8");
-                        }
-                        else
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
-                        }
-                    });
-                    break;
-                case 9:
-                    HUD_clickable_Card.onClick.AddListener(delegate
-                    {
-                        if (player.card_Selection.size() < 5)
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
-                            player.card_Selection.add_MoveCard(
-                                player.card_Stack.get_MoveCard(9)
-                            );
-                            player.readyCounter(1);
-                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
-                            //player.card_Stack.remove_MoveCard_With_Index(9);
-                            // Debug.Log("HUD_Stack_Card Clicked with id: 9");
-                        }
-                        else
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
-                        }
-                    });
-                    break;
-                case 10:
-                    HUD_clickable_Card.onClick.AddListener(delegate
-                    {
-                        if (player.card_Selection.size() < 5)
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
-                            player.card_Selection.add_MoveCard(
-                                player.card_Stack.get_MoveCard(10)
-                            );
-                            player.readyCounter(1);
-                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
-                            //player.card_Stack.remove_MoveCard_With_Index(10);
-                            // Debug.Log("HUD_Stack_Card Clicked with id: 10");
-                        }
-                        else
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
-                        }
-                    });
-                    break;
-                case 11:
-                    HUD_clickable_Card.onClick.AddListener(delegate
-                    {
-                        if (player.card_Selection.size() < 5)
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
-                            player.card_Selection.add_MoveCard(
-                                player.card_Stack.get_MoveCard(11)
-                            );
-                            player.readyCounter(1);
-                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
-                            //player.card_Stack.remove_MoveCard_With_Index(11);
-                            // Debug.Log("HUD_Stack_Card Clicked with id: 11");
-                        }
-                        else
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
-                        }
-                    });
-                    break;
-                case 12:
-                    HUD_clickable_Card.onClick.AddListener(delegate
-                    {
-                        if (player.card_Selection.size() < 5)
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
-                            player.card_Selection.add_MoveCard(
-                                player.card_Stack.get_MoveCard(12)
-                            );
-                            player.readyCounter(1);
-                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
-                            //player.card_Stack.remove_MoveCard_With_Index(12);
-                            // Debug.Log("HUD_Stack_Card Clicked with id: 12");
-                        }
-                        else
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
-                        }
-                    });
-                    break;
-                case 13:
-                    HUD_clickable_Card.onClick.AddListener(delegate
-                    {
-                        if (player.card_Selection.size() < 5)
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
-                            player.card_Selection.add_MoveCard(
-                                player.card_Stack.get_MoveCard(13)
-                            );
-                            player.readyCounter(1);
-                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
-                            //player.card_Stack.remove_MoveCard_With_Index(13);
-                            // Debug.Log("HUD_Stack_Card Clicked with id: 13");
-                        }
-                        else
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
-                        }
-                    });
-                    break;
-                case 14:
-                    HUD_clickable_Card.onClick.AddListener(delegate
-                    {
-                        if (player.card_Selection.size() < 5)
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
-                            player.card_Selection.add_MoveCard(
-                                player.card_Stack.get_MoveCard(14)
-                            );
-                            player.readyCounter(1);
-                            EventManager.TriggerEvent("Player_Card_Selection_Changed");
-                            //player.card_Stack.remove_MoveCard_With_Index(14);
-                            // Debug.Log("HUD_Stack_Card Clicked with id: 14");
-                        }
-                        else
-                        {
-                            EventManager.TriggerEvent("HUD_Card_Selection_Impossible");
-                        }
-                    });
-                    break;
-            }
+                EventManager.TriggerEvent("HUD_Card_Stack_Item_Selected");
+                player.card_Selection.add_MoveCard(
+                    player.card_Stack.get_MoveCard(i)
+                );
+                player.readyCounter(1);
+                EventManager.TriggerEvent("Player_Card_Selection_Changed");
+            });
         }
 
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
     public void reset_moveCards()
     {
         for (int i = 0; i < m_card_stack_size; i++)
@@ -352,13 +53,15 @@ public class HUD_Card_Stack : MonoBehaviour
             GameObject.Find(this.cardTextNamePrefix + i).GetComponent<Text>().text = "";
             GameObject.Find("HUD_Available_Move_" + (i)).GetComponent<Button>().onClick.RemoveAllListeners();
         }
-        if (GameObject.Find("HUD_Weapon_1") != null){
-            GameObject.Find("HUD_Weapon_1").GetComponent<Button>().onClick.RemoveAllListeners();    
+        if (GameObject.Find("HUD_Weapon_1") != null)
+        {
+            GameObject.Find("HUD_Weapon_1").GetComponent<Button>().onClick.RemoveAllListeners();
         }
 
-        if(GameObject.Find("HUD_Weapon_2") != null){
+        if (GameObject.Find("HUD_Weapon_2") != null)
+        {
             GameObject.Find("HUD_Weapon_2").GetComponent<Button>().onClick.RemoveAllListeners();
-        }      
+        }
 
     }
 
@@ -390,16 +93,16 @@ public class HUD_Card_Stack : MonoBehaviour
             }
             setImageColor(image, currentCard.color);
 
-            GameObject moveText = GameObject.Find(this.cardTextNamePrefix + i);
+            GameObject actionText = GameObject.Find(this.cardTextNamePrefix + i);
 
             Text textComponent;
-            if (moveText.GetComponent<Text>() == null)
+            if (actionText.GetComponent<Text>() == null)
             {
-                moveText.AddComponent<Text>();
+                actionText.AddComponent<Text>();
             }
-            textComponent = moveText.GetComponent<Text>();
+            textComponent = actionText.GetComponent<Text>();
 
-            textComponent.text = currentCard.intensity.ToString();
+            textComponent.text = currentCard.name;
             textComponent.alignment = TextAnchor.MiddleCenter;
             textComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
             textComponent.fontSize = 40;
@@ -434,5 +137,5 @@ public class HUD_Card_Stack : MonoBehaviour
     {
         string playername = "Player" + playerNr;
         player = GameObject.Find(playername).GetComponent<Player>();
-    }
+    } */
 }

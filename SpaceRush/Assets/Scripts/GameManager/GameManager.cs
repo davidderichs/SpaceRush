@@ -64,6 +64,9 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         player_selection_complete_listener = new UnityAction(propagate_Player_Selection_complete);
         EventManager.StartListening("Player_Card_Selection_Complete", player_selection_complete_listener);
 
+        player_selection_incomplete_listener = new UnityAction(propagate_Player_Selection_incomplete);
+        EventManager.StartListening("Player_Card_Selection_Incomplete", player_selection_incomplete_listener);
+
         player_ready_listener = new UnityAction(propagate_Player_ready);
         EventManager.StartListening("HUD_Player_is_ready", player_ready_listener);
 
@@ -106,9 +109,19 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         player_2.space.gameObject.GetComponent<MeshRenderer>().material.color = player_2.playerColor;
         Vector3 start = new Vector3(this.player_1.space.transform.position.x, this.player_1.space.transform.position.y, -400);
         this.camera.transform.position = start;
-        propagate_Player_stack_change();
+        settingHUDIndicators();
         StopSimulation();
         hud.show();
+    }
+
+    void settingHUDIndicators()
+    {
+        propagate_Player_Selection_change();
+        propagate_Player_add_fuel_change();
+        propagate_Player_live_change();
+        propagate_Player_main_fuel_change();
+        propagate_Player_shield_change();
+        propagate_Player_stack_change();
     }
 
     void propagate_Player_Selection_complete()
@@ -131,25 +144,17 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     {
         player_1.addCheckpoint(id);
     }
-    void Update()
-    {
-        // ONLY TESTING when simulation stopped -> reenable physics with klick on space
-        /*if (Input.GetKeyDown("space"))
-        {
-            StartSimulation();
-        } */
-    }
     void propagate_Player_live_change()
     {
         this.hud.live.set_ActiveItemsColor(this.acti_player.lives);
     }
     void propagate_Player_main_fuel_change()
     {
-        this.hud.main_fuel.set_ActiveItemsColor(this.acti_player.main_fuel);
+        this.hud.main_fuel.set_ActiveItemsColor((int)this.acti_player.mainFuel);
     }
     void propagate_Player_add_fuel_change()
     {
-        this.hud.add_fuel.set_ActiveItemsColor(this.acti_player.add_fuel);
+        this.hud.add_fuel.set_ActiveItemsColor((int)this.acti_player.addFuel);
     }
     void propagate_Player_shield_change()
     {
@@ -157,28 +162,28 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     }
     void propagate_Player_stack_change()
     {
-        this.hud.card_stack.set_MoveCards(this.acti_player.card_Stack);
-        this.hud.selected_cards.set_MoveCards(this.acti_player.card_Selection);
+        this.hud.actionStack.SetActionCards(this.acti_player.actionStack);
+        this.hud.selectedAction.SetActionCards(this.acti_player.actionSelection);
     }
     void propagate_Player_Selection_change()
     {
-        this.hud.card_stack.set_MoveCards(this.acti_player.card_Stack);
-        this.hud.selected_cards.set_MoveCards(this.acti_player.card_Selection);
+        this.hud.actionStack.SetActionCards(this.acti_player.actionStack);
+        this.hud.selectedAction.SetActionCards(this.acti_player.actionSelection);
     }
 
     void propagate_Player_change()
     {
         if (acti_player == player_1)
         {
-            setActivePlayer(player_2);
-            this.hud.card_stack.changePlayer(2);
-            this.hud.selected_cards.changePlayer(2);
+            setActivePlayer(player_2);  //change Player fehlt
+            this.hud.actionStack.changePlayer(2);
+            this.hud.selectedAction.changePlayer(2);
         }
         else
         {
             setActivePlayer(player_1);
-            this.hud.card_stack.changePlayer(1);
-            this.hud.selected_cards.changePlayer(1);
+            this.hud.actionStack.changePlayer(1);
+            this.hud.selectedAction.changePlayer(1);
 
         }
         camera.AnimateTo(acti_player.space.transform.position);
@@ -213,7 +218,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     public void resetPlayer(Player player)
     {
         string last = "Checkpoint" + player.getLastCheckpoint();
-        player.space.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+        player.space.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         player.space.GetComponent<Rigidbody2D>().angularVelocity = 0;
         player.space.transform.position = GameObject.Find(last).GetComponent<Checkpoint>().transform.position;
     }
@@ -248,8 +253,8 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         {
             //Debug.Log("DONE.");
             StopSimulation();
-            foreach(Spacecraft spacecraft in spacecrafts){
-                resetCards(spacecraft.player);
+            foreach (Spacecraft spacecraft in spacecrafts)
+            {
                 spacecraft.player.resetFuel();
             }
             propagate_Player_stack_change();
@@ -261,7 +266,6 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             foreach (Spacecraft spacecraft in spacecrafts)
             {
                 spacecraft.StartNextAction();
-                this.hud.card_stack.hide();
             }
         }
     }
@@ -279,7 +283,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     }
 
     private void StopSimulation()
-    {        
+    {
         Debug.Log("Stopping Simulation");
         foreach (Spacecraft spacecraft in spacecrafts)
         {
@@ -305,71 +309,12 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     {
         foreach (Spacecraft spacecraft in spacecrafts)
         {
-            MoveCards cards = spacecraft.player.card_Selection;
-            for (int i = 0; i < cards.card_List.Count; i++)
+            ActionStack cards = spacecraft.player.actionSelection;
+            for (int i = 0; i < cards.actionList.Count; i++)
             {
-                SpacecraftAction action = CardParser.ParseCard(cards.get_MoveCard(i));
+                SpacecraftAction action = CardParser.ParseCard(cards.getActionCard(i));
                 spacecraft.AddAction(action);
             }
-            spacecraft.player.card_Selection.card_List.Clear();
-
-            // Wichtig f�r Erfassung vorhandener Waffenkarten
-            string weapon_1_name = spacecraft.player.getWeapon(1);
-            string weapon_2_name = spacecraft.player.getWeapon(2);
-
-            bool weapon_1_found = false;
-            bool weapon_2_found = false;
-
-            for (int i = 0; i < 5; i++)
-            {
-                MoveCard card = spacecraft.player.card_Stack.card_List[i];
-                Debug.Log(card.direction);
-                if (card.direction == weapon_1_name)
-                {
-                    weapon_1_found = true;
-                }
-                if (card.direction == weapon_2_name)
-                {
-                    weapon_2_found = true;
-                }
-            }
-
-            MoveCards newCards = new MoveCards();
-            int counter = 0;
-            if (weapon_1_name != "" || weapon_2_name != "")
-            {
-                //Debug.Log("weapon 1 oder 2 gefunden");
-                if (weapon_1_name != "")
-                {
-                    //Debug.Log("weapon_1_name:" + weapon_1_name);
-                    if (!weapon_1_found)
-                    {
-                        //Debug.Log("Drin");
-                        newCards.add_MoveCard(MoveCards.get_Weaponcard(weapon_1_name));
-                        counter++;
-                    }
-                }
-
-                if (weapon_2_name != "")
-                {
-                    if (!weapon_2_found)
-                    {
-                        newCards.add_MoveCard(MoveCards.get_Weaponcard(weapon_2_name));
-                        counter++;
-                    }
-                }
-                MoveCards random_cards = MoveCards.get_random_Movecards(5 - counter);
-                for (int i = 0; i < 5 - counter; i++)
-                {
-                    newCards.add_MoveCard(random_cards.card_List[i]);
-                }
-
-            }
-            else
-                newCards = MoveCards.get_random_Movecards(5);
-            for (int i = 0; i < newCards.size(); i++)
-                spacecraft.player.card_Stack.card_List.Add(newCards.get_MoveCard(i));
-            this.hud.card_stack.hide();
         }
     }
 
@@ -379,29 +324,9 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         hud.setHUDColor(player.playerColor);
     }
 
-    private void resetCards(Player currentPlayer){
-        currentPlayer.card_Stack.card_List.Clear();
-        currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getForward());
-        currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getBackward());
-        currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getRotationLeft30());
-        currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getRotationRight30());
-        currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getRotationLeft60());
-        currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getRotationRight60());
-        currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getRotationLeft90());
-        currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getRotationRight90());
-        if (currentPlayer.getWeapon(1) != "")
-            currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getWeapon(currentPlayer.getWeapon(1)));
-        else
-            currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getForwardFast());
-        if (currentPlayer.getWeapon(2) != "")
-            currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getWeapon(currentPlayer.getWeapon(2)));
-        else
-            currentPlayer.card_Stack.card_List.Add(MoveCardCreator.getBackwardFast());
-    }
-
     private void StartStateMachine()
     {
-        //Debug.Log(stateMachine.getState());
+        Debug.Log(stateMachine.getState());
         if (stateMachine.getState() == 3)
         {
             Gameloop();

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CardParser
 {
-    public static SpacecraftAction ParseCard(MoveCard card)
+    public static SpacecraftAction ParseCard(ActionCard card)
     {
-        if (card.kind_Of_Movement.Equals("boost"))
+        if (card.type.Equals("boost"))
         {
             SpacecraftAction.Direction direction = SpacecraftAction.Direction.None;
-            switch (card.direction)
+            switch (card.type)
             {
                 case "forward":
                     direction = SpacecraftAction.Direction.Forwards;
@@ -20,13 +20,13 @@ public class CardParser
             }
             float force = card.forceOrVelocity;
             float duration = card.duration;
-            int intensity = card.intensity;
-            return new SpacecraftBoost(direction, intensity, force, duration);
+            float fuelCost = card.fuelCost;
+            return new SpacecraftBoost(direction, fuelCost, force, duration);
         }
-        else if (card.kind_Of_Movement.Equals("rotate"))
+        else if (card.type.Equals("rotate"))
         {
             SpacecraftAction.Direction direction = SpacecraftAction.Direction.None;
-            switch (card.direction)
+            switch (card.type)
             {
                 case "Rotate_Left":
                     direction = SpacecraftAction.Direction.Left;
@@ -37,20 +37,20 @@ public class CardParser
             }
             float velocity = card.forceOrVelocity;
             float duration = card.duration;
-            int intensity = 1;
-            return new SpacecraftRotation(direction, intensity, velocity, duration);
+            float fuelCost = 1;
+            return new SpacecraftRotation(direction, fuelCost, velocity, duration);
         }
-        else if (card.kind_Of_Movement.Equals("gravityMine"))
+        else if (card.type.Equals("gravityMine"))
         {
-            return new SpacecraftWeaponAction(SpacecraftWeaponAction.WeaponType.GravityMine, card.intensity);
+            return new SpacecraftWeaponAction(SpacecraftWeaponAction.WeaponType.GravityMine, card.fuelCost);
         }
-        else if (card.kind_Of_Movement.Equals("laser"))
+        else if (card.type.Equals("laser"))
         {
-            return new SpacecraftWeaponAction(SpacecraftWeaponAction.WeaponType.Laser, card.intensity);
+            return new SpacecraftWeaponAction(SpacecraftWeaponAction.WeaponType.Laser, card.fuelCost);
         }
-        else if (card.kind_Of_Movement.Equals("rocket"))
+        else if (card.type.Equals("rocket"))
         {
-            return new SpacecraftWeaponAction(SpacecraftWeaponAction.WeaponType.Rocket, card.intensity);
+            return new SpacecraftWeaponAction(SpacecraftWeaponAction.WeaponType.Rocket, card.fuelCost);
         }
         return null;
     }

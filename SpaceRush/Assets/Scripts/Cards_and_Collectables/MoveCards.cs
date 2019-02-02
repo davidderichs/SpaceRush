@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using System.IO;
 
 public class MoveCards
-{
+{/* 
 
     public List<MoveCard> card_List;
 
@@ -91,6 +91,6 @@ public class MoveCards
     public void fill_Player_Stack()
     {
 
-    }
+    }*/
 
 }

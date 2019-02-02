@@ -8,193 +8,86 @@ public class Player : MonoBehaviour
     //Attributes for Players
     public int playerId;
     public int lives;
-    private int m_lives;
     public int shields;
-    private int m_shields;
-
-    public int m_number_of_cards;
-    private int m_number_of_selected_cards;
-
-    private int last_Checkpoint;
-
-    public MoveCards card_Stack;
-    public MoveCards card_Selection;
-    public int main_fuel;
-    private int m_main_fuel;
-    public int add_fuel;
-    private int m_add_fuel;
+    public float mainFuel;
+    public float addFuel;
+    private int lastCheckpoint;
+    public Color32 playerColor;
+    public GameObject space;
+    private string weapon1;
+    private string weapon2;
+    public ActionStack actionStack;
+    public ActionStack actionSelection;
+    private int cardCounter;
     public List<int> check;
 
-    public Color32 playerColor;
-
-    public GameObject space;
-
-    public HUD hud;
-
-    private string weapon_1;
-
-    private string weapon_2;
-    private int ready;
-    // Only for Debug/Testing
-    private Movements movements;
-
-
-    void Awake()
-    {
-
-    }
-    // Use this for initialization
     void Start()
     {
         // For testing purpose
-        weapon_1 = "Weapon_Gravity_Mine";
-        weapon_2 = "";
+        weapon1 = "Weapon_Gravity_Mine";
+        weapon2 = "";
 
         init_Start_Values();
         init_card_Stack();
     }
 
-
     void init_Start_Values()
     {
         lives = 10;
-        m_lives = 0;
 
         shields = 5;
-        m_shields = 0;
 
-        main_fuel = 5;
-        m_main_fuel = 0;
+        mainFuel = 5;
 
-        add_fuel = 3;
-        m_add_fuel = 0;
+        addFuel = 3;
 
         check = new List<int>();
 
-        if(playerId == 1){
+        cardCounter = 0;
+
+        if (playerId == 1)
+        {
             // Blue
             playerColor = new Color32(0, 243, 255, 255);
         }
 
-        if(playerId == 2){
+        if (playerId == 2)
+        {
             //Yellow
             playerColor = new Color32(255, 248, 0, 255);
         }
     }
 
-    void init_card_Stack()
-    {
-        this.card_Stack = new MoveCards(10);
-        this.card_Selection = new MoveCards(0);
-        this.card_Stack.card_List.Add(MoveCardCreator.getForward());
-        this.card_Stack.card_List.Add(MoveCardCreator.getBackward());
-        this.card_Stack.card_List.Add(MoveCardCreator.getRotationLeft30());
-        this.card_Stack.card_List.Add(MoveCardCreator.getRotationRight30());
-        this.card_Stack.card_List.Add(MoveCardCreator.getRotationLeft60());
-        this.card_Stack.card_List.Add(MoveCardCreator.getRotationRight60());
-        this.card_Stack.card_List.Add(MoveCardCreator.getRotationLeft90());
-        this.card_Stack.card_List.Add(MoveCardCreator.getRotationRight90());
-        if (weapon_1 != "")
-            this.card_Stack.card_List.Add(MoveCardCreator.getWeapon(weapon_1));
-        else
-            this.card_Stack.card_List.Add(MoveCardCreator.getForwardFast());
-        if (weapon_2 != "")
-            this.card_Stack.card_List.Add(MoveCardCreator.getWeapon(weapon_2));
-        else
-            this.card_Stack.card_List.Add(MoveCardCreator.getBackwardFast());
-        m_number_of_cards = 0;
-        //card_stack_changed();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (m_lives != lives) liveChange();
-        if (m_main_fuel != main_fuel) fuelChange();
-        if (m_add_fuel != add_fuel) add_fuel_change();
-        if (m_shields != shields) shieldChange();
-        }
-
-    void card_stack_changed()
-    {
-        m_number_of_cards = card_Stack.size();
-        EventManager.TriggerEvent("Player_Card_Stack_Changed");
-    }
-    void card_selection_changed()
-    {
-        m_number_of_selected_cards = card_Selection.size();
-        if (card_Selection.size() == 5)
-        {
-            EventManager.TriggerEvent("Player_Card_Selection_Complete");
-        }
-        else
-        {
-            EventManager.TriggerEvent("Player_Card_Selection_Incomplete");
-        }
-        EventManager.TriggerEvent("Player_Card_Selection_Changed");
-    }
-
-    void liveChange()
-    {
-        m_lives = lives;
-        EventManager.TriggerEvent("Player_Live_Has_Changed");
-    }
-
-    void shieldChange()
-    {
-        m_shields = shields;
-        EventManager.TriggerEvent("Player_Shield_Has_Changed");
-    }
-
-    void fuelChange()
-    {
-        m_main_fuel = main_fuel;
-        EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");
-    }
-
-    void add_fuel_change()
-    {
-        m_add_fuel = add_fuel;
-        EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed");
-    }
-
-    Vector2 getPosition()
-    {
-        Vector3 pos = space.transform.position;
-        EventManager.TriggerEvent("Player_Position_Has_Changed");
-        return new Vector2(pos.x, pos.y);
-    }
-
     public void addCheckpoint(int checkpoint)
     {
         check.Add(checkpoint);
-        last_Checkpoint = checkpoint;
+        lastCheckpoint = checkpoint;
         EventManager.TriggerEvent("Player_Reached_A_Checkpoint");
     }
 
     public void addWeapon(string weapon)
     {
-        if (weapon_1 == "")
+        if (weapon1 == "")
         {
-            weapon_1 = weapon;
+            weapon1 = weapon;
         }
-        else if (weapon_2 == "")
+        else if (weapon2 == "")
         {
-            weapon_2 = weapon;
+            weapon2 = weapon;
         }
     }
 
     public void removeWeapon(int wpnr)
     {
         if (wpnr == 1)
-            weapon_1 = "";
+            weapon1 = "";
         if (wpnr == 2)
-            weapon_2 = "";
+            weapon2 = "";
     }
 
     public int getLastCheckpoint()
     {
-        return last_Checkpoint;
+        return lastCheckpoint;
     }
 
     public void looseLive(int damage)
@@ -220,48 +113,56 @@ public class Player : MonoBehaviour
             {
                 EventManager.TriggerEvent("Player_1_lost");
             }
-             if (playerId == 2)
+            if (playerId == 2)
             {
                 EventManager.TriggerEvent("Player_2_lost");
             }
         }
     }
 
-    public void looseFuel(int fuel)
+    public void looseFuel(float fuel)
     {
-        if (add_fuel > 0)
+        if (addFuel > 0)
         {
-            add_fuel = add_fuel - fuel;
-            if (add_fuel < 0)
+            addFuel = addFuel - fuel;
+            if (addFuel < 0)
             {
-                main_fuel = main_fuel + add_fuel;
-                add_fuel = 0;
+                mainFuel = mainFuel + addFuel;
+                addFuel = 0;
             }
         }
-        else main_fuel = main_fuel - fuel;
+        else mainFuel = mainFuel - fuel;
     }
 
     public void resetFuel()
     {
-        main_fuel = 5;
+        mainFuel = 5;
     }
     public String getWeapon(int nr)
     {
         switch (nr)
         {
-            case 1: return weapon_1;
-            case 2: return weapon_2;
+            case 1: return weapon1;
+            case 2: return weapon2;
             default: return "";
         }
     }
-
-    public void readyCounter(int counter)
+    void init_card_Stack()
     {
-        m_number_of_cards = m_number_of_cards + counter;
-        if (m_number_of_cards == 5)
-        {
+        this.actionStack = new ActionStack(5);
+        this.actionSelection = new ActionStack(0);
+        this.actionStack.actionList.Add(ActionCardStorage.getForward());
+        this.actionStack.actionList.Add(ActionCardStorage.getBackward());
+        this.actionStack.actionList.Add(ActionCardStorage.getRotationRight());
+        this.actionStack.actionList.Add(ActionCardStorage.getRotationLeft());
+        this.actionStack.actionList.Add(ActionCardStorage.getEmpty());
+    }
+    public void CardCounterChange(int change)
+    {
+        cardCounter = cardCounter + change;
+        if (cardCounter == 5)
             EventManager.TriggerEvent("Player_Card_Selection_Complete");
-            m_number_of_cards = 0;
-        }
+        else
+            EventManager.TriggerEvent("Player_Card_Selection_Incomplete");
     }
 }
