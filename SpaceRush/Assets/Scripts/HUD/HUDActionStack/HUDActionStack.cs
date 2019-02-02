@@ -86,15 +86,17 @@ public class HUDActionStack : MonoBehaviour
     {
         for (int i = 0; i < player.actionStack.getSize(); i++)
         {
-            {
-                int copy = i;
-                GameObject.Find("HUDButtonPlus").GetComponent<Button>().onClick.RemoveAllListeners();
-                GameObject.Find("HUDButtonMinus").GetComponent<Button>().onClick.RemoveAllListeners();
-                GameObject.Find("HUDAvailableActionImage" + copy).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/empty");
-                GameObject.Find("HUDAvailableActionText" + copy).GetComponent<Text>().text = "";
-                GameObject.Find("HUDAvailableAction" + copy).GetComponent<Button>().onClick.RemoveAllListeners();
-            }
+            int copy = i;
+            GameObject.Find("HUDButtonPlus").GetComponent<Button>().onClick.RemoveAllListeners();
+            GameObject.Find("HUDButtonMinus").GetComponent<Button>().onClick.RemoveAllListeners();
+            GameObject.Find("HUDAvailableActionImage" + copy).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/empty");
+            GameObject.Find("HUDAvailableActionText" + copy).GetComponent<Text>().text = "";
+            GameObject.Find("HUDAvailableAction" + copy).GetComponent<Button>().onClick.RemoveAllListeners();
         }
+        GameObject.Find("HUD_Weapon_1").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/empty");
+        GameObject.Find("HUD_Weapon_2").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/empty");
+        GameObject.Find("HUD_Weapon_1").GetComponent<Button>().onClick.RemoveAllListeners();
+        GameObject.Find("HUD_Weapon_2").GetComponent<Button>().onClick.RemoveAllListeners();
     }
 
 
@@ -133,12 +135,13 @@ public class HUDActionStack : MonoBehaviour
             if (currentAction.type.Equals("forward") || currentAction.type.Equals("backward"))
                 fuelComponent.text = actionStack.getActionCard(i).forceOrVelocity.ToString();
             else if (currentAction.type.Equals("rotateRight") || currentAction.type.Equals("rotateLeft"))
-                fuelComponent.text = (actionStack.getActionCard(i).forceOrVelocity*2).ToString() + "°";
+                fuelComponent.text = (actionStack.getActionCard(i).forceOrVelocity * 2).ToString() + "°";
             fuelComponent.alignment = TextAnchor.MiddleCenter;
             fuelComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
             fuelComponent.fontSize = 40;
         }
         setListeners();
+        AddWeaponListener();
     }
 
     private void setInit()
@@ -159,5 +162,39 @@ public class HUDActionStack : MonoBehaviour
     {
         string playername = "Player" + playerNr;
         player = GameObject.Find(playername).GetComponent<Player>();
+    }
+
+    private void AddWeaponListener()
+    {
+        Image weapon1 = GameObject.Find("HUD_Weapon_1").GetComponent<Image>();
+        Image weapon2 = GameObject.Find("HUD_Weapon_2").GetComponent<Image>();
+        for (int i = 0; i < 2; i++)
+        {
+            if (player.getWeapon(i) != "")
+                switch (player.getWeapon(i))
+                {
+                    case "gravityMine":
+                        if (i == 1)
+                        {
+                            weapon1.sprite = Resources.Load<Sprite>("Sprites/WeaponGravityMine");
+                            GameObject.Find("HUD_Weapon_1").GetComponent<Button>().onClick.AddListener(delegate
+                            {
+                                if (player.actionSelection.getSize() < 5)
+                                {
+                                    Debug.Log("Weapon1 Klicked");
+                                    player.actionSelection.addActionCard(ActionCardStorage.getGravityMine());
+                                    EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                                }
+                            });
+                        }
+                        else
+                        {
+                            weapon2.sprite = Resources.Load<Sprite>("Sprites/WeaponGravityMine");
+                        }
+                        break;
+                }
+
+        }
+
     }
 }

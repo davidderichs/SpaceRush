@@ -184,7 +184,6 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             setActivePlayer(player_1);
             this.hud.actionStack.changePlayer(1);
             this.hud.selectedAction.changePlayer(1);
-
         }
         camera.AnimateTo(acti_player.space.transform.position);
         propagate_Player_live_change();

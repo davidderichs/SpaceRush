@@ -19,4 +19,8 @@ public class ActionCardStorage{
     public static MoveActionCard getEmpty(){
         return new MoveActionCard("None","none",0,"none",new Color(1,1,1,1),2,0);
     }
+
+    public static WeaponActionCard getGravityMine(){
+        return new WeaponActionCard("Gravitymine","gravityMine",3,"WeaponGravityMine",new Color(1,1,1,1),2,0);
+    }
 }

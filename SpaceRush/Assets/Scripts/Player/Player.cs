@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         // For testing purpose
-        weapon1 = "Weapon_Gravity_Mine";
+        weapon1 = "gravityMine";
         weapon2 = "";
 
         init_Start_Values();
