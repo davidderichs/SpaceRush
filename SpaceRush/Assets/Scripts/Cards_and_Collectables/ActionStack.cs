@@ -4,37 +4,54 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class ActionStack{
+public class ActionStack
+{
     public List<ActionCard> actionList;
 
-    public ActionStack(){
+    public ActionStack()
+    {
         this.actionList = new List<ActionCard>();
     }
 
-    public ActionStack(int capacity){
+    public ActionStack(int capacity)
+    {
         this.actionList = new List<ActionCard>();
     }
 
-    public void addActionCard(ActionCard action){
-        actionList.Add(action);
+    public void addActionCard(ActionCard action)
+    {
+        if (action is MoveActionCard)
+        {
+            ActionCard addedCard = MoveActionCard.NewMove((MoveActionCard)action);
+            actionList.Add(addedCard);
+        }else
+        {
+            ActionCard addedCard = WeaponActionCard.NewMove((WeaponActionCard)action);
+            actionList.Add(addedCard);
+        }
     }
 
-    public void removeActionCard(ActionCard action){
+    public void removeActionCard(ActionCard action)
+    {
         actionList.Remove(action);
     }
 
-    public void removeActionCardwithIndex(int index){
+    public void removeActionCardwithIndex(int index)
+    {
         actionList.RemoveAt(index);
     }
 
-    public ActionCard getActionCard(int index){
-        if(index < actionList.Count){
+    public ActionCard getActionCard(int index)
+    {
+        if (index < actionList.Count)
+        {
             return actionList[index];
         }
         else return ActionCardStorage.getEmpty();
     }
 
-    public int getSize(){
+    public int getSize()
+    {
         return actionList.Count;
     }
 }

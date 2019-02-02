@@ -22,7 +22,7 @@ public class HUDActionStack : MonoBehaviour
             Button HUD_clickable_Card = GameObject.Find("HUDAvailableAction" + (copy)).GetComponent<Button>();
             HUD_clickable_Card.onClick.AddListener(delegate
             {
-                if (player.actionSelection.getSize()<5)
+                if (player.actionSelection.getSize() < 5)
                 {
                     player.actionSelection.addActionCard(
                         player.actionStack.getActionCard(copy)
@@ -36,6 +36,50 @@ public class HUDActionStack : MonoBehaviour
                 }
             });
         }
+        Button HUDPlus = GameObject.Find("HUDButtonPlus").GetComponent<Button>();
+        HUDPlus.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/plusButton");
+        Button HUDMinus = GameObject.Find("HUDButtonMinus").GetComponent<Button>();
+        HUDMinus.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/minusButton");
+        HUDPlus.onClick.AddListener(delegate
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                ActionCard currentAction = player.actionStack.getActionCard(i);
+                if (currentAction.type.Equals("forward") && currentAction.fuelCost < 6 || currentAction.type.Equals("backward") && currentAction.fuelCost < 6)
+                {
+                    currentAction.forceOrVelocity = currentAction.forceOrVelocity * 2;
+                    currentAction.fuelCost = currentAction.fuelCost + 1;
+                    EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                    Debug.Log("test");
+                }
+
+                else if (currentAction.type.Equals("rotateRight") && currentAction.forceOrVelocity < 45 || currentAction.type.Equals("rotateLeft") && currentAction.forceOrVelocity < 45)
+                {
+                    currentAction.forceOrVelocity = currentAction.forceOrVelocity + 5;
+                    EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                }
+            }
+        });
+        HUDMinus.onClick.AddListener(delegate
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                ActionCard currentAction = player.actionStack.getActionCard(i);
+                if (currentAction.type.Equals("forward") && currentAction.fuelCost > 1 || currentAction.type.Equals("backward") && currentAction.fuelCost > 1)
+                {
+                    currentAction.forceOrVelocity = currentAction.forceOrVelocity / 2;
+                    currentAction.fuelCost = currentAction.fuelCost - 1;
+                    EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                    Debug.Log("test");
+                }
+
+                else if (currentAction.type.Equals("rotateRight") && currentAction.forceOrVelocity > 5 || currentAction.type.Equals("rotateLeft") && currentAction.forceOrVelocity > 5)
+                {
+                    currentAction.forceOrVelocity = currentAction.forceOrVelocity - 5;
+                    EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                }
+            }
+        });
     }
 
     void removeListeners()
@@ -44,7 +88,8 @@ public class HUDActionStack : MonoBehaviour
         {
             {
                 int copy = i;
-                Debug.Log("Listeners Removed:ActionStack");
+                GameObject.Find("HUDButtonPlus").GetComponent<Button>().onClick.RemoveAllListeners();
+                GameObject.Find("HUDButtonMinus").GetComponent<Button>().onClick.RemoveAllListeners();
                 GameObject.Find("HUDAvailableActionImage" + copy).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/empty");
                 GameObject.Find("HUDAvailableActionText" + copy).GetComponent<Text>().text = "";
                 GameObject.Find("HUDAvailableAction" + copy).GetComponent<Button>().onClick.RemoveAllListeners();
@@ -82,6 +127,16 @@ public class HUDActionStack : MonoBehaviour
             textComponent.alignment = TextAnchor.MiddleCenter;
             textComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
             textComponent.fontSize = 40;
+
+            //Text for the Powerinfos
+            Text fuelComponent = GameObject.Find("HUDAvailableActionFuel" + i).GetComponent<Text>();
+            if (currentAction.type.Equals("forward") || currentAction.type.Equals("backward"))
+                fuelComponent.text = actionStack.getActionCard(i).forceOrVelocity.ToString();
+            else if (currentAction.type.Equals("rotateRight") || currentAction.type.Equals("rotateLeft"))
+                fuelComponent.text = (actionStack.getActionCard(i).forceOrVelocity*2).ToString() + "°";
+            fuelComponent.alignment = TextAnchor.MiddleCenter;
+            fuelComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+            fuelComponent.fontSize = 40;
         }
         setListeners();
     }

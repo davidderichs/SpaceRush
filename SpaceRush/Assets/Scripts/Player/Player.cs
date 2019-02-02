@@ -165,4 +165,7 @@ public class Player : MonoBehaviour
         else
             EventManager.TriggerEvent("Player_Card_Selection_Incomplete");
     }
+    public void ResetCounter(){
+        cardCounter = 0;
+    }
 }

@@ -13,4 +13,15 @@ public class MoveActionCard : ActionCard {
 		this.duration = duration;
 		this.forceOrVelocity = forceOrVelocity;
 	}
+
+	public static MoveActionCard NewMove(MoveActionCard action){
+		string description = action.description;
+		string type = action.type;
+		float fuelCost = action.fuelCost;
+		string spriteName = action.spriteName;
+		Color color = action.color;
+		float duration = action.duration;
+		float forceOrVelocity = action.forceOrVelocity;
+		return new MoveActionCard(description,type,fuelCost,spriteName,color,duration,forceOrVelocity);
+	}
 }

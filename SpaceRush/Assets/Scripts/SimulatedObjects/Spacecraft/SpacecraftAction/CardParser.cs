@@ -6,7 +6,8 @@ public class CardParser
 {
     public static SpacecraftAction ParseCard(ActionCard card)
     {
-        if (card.type.Equals("boost"))
+        Debug.Log(card.type);
+        if (card.type.Equals("forward") || card.type.Equals("backwards"))
         {
             SpacecraftAction.Direction direction = SpacecraftAction.Direction.None;
             switch (card.type)
@@ -23,15 +24,15 @@ public class CardParser
             float fuelCost = card.fuelCost;
             return new SpacecraftBoost(direction, fuelCost, force, duration);
         }
-        else if (card.type.Equals("rotate"))
+        else if (card.type.Contains("rotate"))
         {
             SpacecraftAction.Direction direction = SpacecraftAction.Direction.None;
             switch (card.type)
             {
-                case "Rotate_Left":
+                case "rotateLeft":
                     direction = SpacecraftAction.Direction.Left;
                     break;
-                case "Rotate_Right":
+                case "rotateRight":
                     direction = SpacecraftAction.Direction.Right;
                     break;
             }

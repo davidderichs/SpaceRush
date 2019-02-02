@@ -60,6 +60,7 @@ public class HUDActionSelection : MonoBehaviour
         for (int i = 0; i < actionStack.getSize(); i++)
         {
             ActionCard currentAction = actionStack.getActionCard(i);
+            //Debug.Log("CardDesc: " + currentAction.description + ", Force: " + currentAction.forceOrVelocity);
             //Set Image
             GameObject actionImage = GameObject.Find("SelectedActionCardImage" + i);
             Image image;

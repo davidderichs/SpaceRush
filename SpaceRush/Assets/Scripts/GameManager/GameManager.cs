@@ -256,9 +256,10 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             foreach (Spacecraft spacecraft in spacecrafts)
             {
                 spacecraft.player.resetFuel();
+                spacecraft.player.actionSelection.actionList.Clear();
+                spacecraft.player.ResetCounter();
             }
             propagate_Player_stack_change();
-            Debug.Log(acti_player.getWeapon(1));
         }
         else
         {

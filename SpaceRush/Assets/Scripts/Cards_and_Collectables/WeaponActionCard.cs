@@ -13,4 +13,14 @@ public class WeaponActionCard : ActionCard {
 		this.duration = duration;
 		this.forceOrVelocity = forceOrVelocity;
 	}
+	public static WeaponActionCard NewMove(WeaponActionCard action){
+		string description = action.description;
+		string type = action.type;
+		float fuelCost = action.fuelCost;
+		string spriteName = action.spriteName;
+		Color color = action.color;
+		float duration = action.duration;
+		float forceOrVelocity = action.forceOrVelocity;
+		return new WeaponActionCard(description,type,fuelCost,spriteName,color,duration,forceOrVelocity);
+	}
 }
