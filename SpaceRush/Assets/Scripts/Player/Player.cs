@@ -134,6 +134,17 @@ public class Player : MonoBehaviour
         else mainFuel = mainFuel - fuel;
     }
 
+    public void AddFuel(float fuel)
+    {
+        mainFuel = mainFuel + fuel;
+        if (mainFuel > 5)
+        {
+            float overflow = mainFuel - 5;
+            addFuel = addFuel + overflow;
+            mainFuel = 5;
+        }
+    }
+
     public void resetFuel()
     {
         mainFuel = 5;
@@ -165,7 +176,8 @@ public class Player : MonoBehaviour
         else
             EventManager.TriggerEvent("Player_Card_Selection_Incomplete");
     }
-    public void ResetCounter(){
+    public void ResetCounter()
+    {
         cardCounter = 0;
     }
 }

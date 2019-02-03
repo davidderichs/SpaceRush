@@ -21,9 +21,26 @@ public class HUDActionSelection : MonoBehaviour
             Button HUD_clickable_Card = GameObject.Find("HUDSelectedAction" + (copy)).GetComponent<Button>();
             HUD_clickable_Card.onClick.AddListener(delegate
             {
+                if (player.actionSelection.getActionCard(copy) is WeaponActionCard){
+                    switch(player.actionSelection.getActionCard(copy).type){
+                        case "gravityMine":
+                        player.addWeapon("gravityMine");
+                        break;
+                        case "laser":
+                        player.addWeapon("laser");
+                        break;
+                        case "rocket":
+                        player.addWeapon("rocket");
+                        break;
+                    }
+                }
+
+                player.AddFuel(player.actionSelection.getActionCard(copy).fuelCost);
                 player.actionSelection.removeActionCardwithIndex(copy);
                 player.CardCounterChange(-1);
                 EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");
+                EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed");
             });
         }
     }

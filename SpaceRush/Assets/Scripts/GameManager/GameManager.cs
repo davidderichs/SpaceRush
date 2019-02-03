@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
     private UnityAction player_2_loose;
 
+    private UnityAction player_Weapon_Listener;
+
     private CameraController camera;
 
     private UnityAction player_selection_complete_listener;
@@ -43,6 +45,9 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
     void Awake()
     {
+        player_Weapon_Listener = new UnityAction(propagate_Player_Weapons);
+        EventManager.StartListening("Player_Weapon_Reset", player_Weapon_Listener);
+
         player_live_listener = new UnityAction(propagate_Player_live_change);
         EventManager.StartListening("Player_Live_Has_Changed", player_live_listener);
 
@@ -171,6 +176,9 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         this.hud.selectedAction.SetActionCards(this.acti_player.actionSelection);
     }
 
+    void propagate_Player_Weapons(){
+        
+    }
     void propagate_Player_change()
     {
         if (acti_player == player_1)

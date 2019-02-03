@@ -22,13 +22,18 @@ public class HUDActionStack : MonoBehaviour
             Button HUD_clickable_Card = GameObject.Find("HUDAvailableAction" + (copy)).GetComponent<Button>();
             HUD_clickable_Card.onClick.AddListener(delegate
             {
-                if (player.actionSelection.getSize() < 5)
+                if (player.actionSelection.getSize() < 5 && (player.mainFuel + player.addFuel) >= player.actionStack.getActionCard(copy).fuelCost)
                 {
                     player.actionSelection.addActionCard(
                         player.actionStack.getActionCard(copy)
                     );
+                    player.looseFuel(player.actionStack.getActionCard(copy).fuelCost);
                     player.CardCounterChange(1);
+                    if (player.actionStack.getActionCard(copy) is WeaponActionCard)
+                        removeWeapon(player.actionStack.getActionCard(copy).type, player);
                     EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                    EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");
+                    EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed");
                 }
                 else
                 {
@@ -52,7 +57,6 @@ public class HUDActionStack : MonoBehaviour
                     EventManager.TriggerEvent("Player_Card_Selection_Changed");
                     Debug.Log("test");
                 }
-
                 else if (currentAction.type.Equals("rotateRight") && currentAction.forceOrVelocity < 45 || currentAction.type.Equals("rotateLeft") && currentAction.forceOrVelocity < 45)
                 {
                     currentAction.forceOrVelocity = currentAction.forceOrVelocity + 5;
@@ -70,7 +74,6 @@ public class HUDActionStack : MonoBehaviour
                     currentAction.forceOrVelocity = currentAction.forceOrVelocity / 2;
                     currentAction.fuelCost = currentAction.fuelCost - 1;
                     EventManager.TriggerEvent("Player_Card_Selection_Changed");
-                    Debug.Log("test");
                 }
 
                 else if (currentAction.type.Equals("rotateRight") && currentAction.forceOrVelocity > 5 || currentAction.type.Equals("rotateLeft") && currentAction.forceOrVelocity > 5)
@@ -141,7 +144,32 @@ public class HUDActionStack : MonoBehaviour
             fuelComponent.fontSize = 40;
         }
         setListeners();
+        setWeapons();
         AddWeaponListener();
+    }
+
+    public void setWeapons()
+    {
+        Image weapon1 = GameObject.Find("HUD_Weapon_1").GetComponent<Image>();
+        Image weapon2 = GameObject.Find("HUD_Weapon_2").GetComponent<Image>();
+        for (int i = 0; i < 2; i++)
+        {
+            if (player.getWeapon(i) != "")
+                switch (player.getWeapon(i))
+                {
+                    case "gravityMine":
+                        if (i == 1)
+                        {
+                            weapon1.sprite = Resources.Load<Sprite>("Sprites/WeaponGravityMine");
+                            break;
+                        }
+                        else
+                        { 
+                            weapon2.sprite = Resources.Load<Sprite>("Sprites/WeaponGravityMine");
+                            break;
+                        }
+                }
+        }
     }
 
     private void setInit()
@@ -166,35 +194,74 @@ public class HUDActionStack : MonoBehaviour
 
     private void AddWeaponListener()
     {
-        Image weapon1 = GameObject.Find("HUD_Weapon_1").GetComponent<Image>();
-        Image weapon2 = GameObject.Find("HUD_Weapon_2").GetComponent<Image>();
         for (int i = 0; i < 2; i++)
         {
-            if (player.getWeapon(i) != "")
+            if (player.getWeapon(i) != "" && player.mainFuel >= 3)
                 switch (player.getWeapon(i))
                 {
                     case "gravityMine":
                         if (i == 1)
                         {
-                            weapon1.sprite = Resources.Load<Sprite>("Sprites/WeaponGravityMine");
                             GameObject.Find("HUD_Weapon_1").GetComponent<Button>().onClick.AddListener(delegate
                             {
                                 if (player.actionSelection.getSize() < 5)
                                 {
-                                    Debug.Log("Weapon1 Klicked");
                                     player.actionSelection.addActionCard(ActionCardStorage.getGravityMine());
+                                    player.looseFuel(3);
+                                    player.CardCounterChange(1);
+                                    removeWeapon(player.getWeapon(1),player);
                                     EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                                    EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");
+                                    EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed");
                                 }
                             });
                         }
                         else
-                        {
-                            weapon2.sprite = Resources.Load<Sprite>("Sprites/WeaponGravityMine");
+                        {    
+                            GameObject.Find("HUD_Weapon_2").GetComponent<Button>().onClick.AddListener(delegate
+                            {
+                                if (player.actionSelection.getSize() < 5)
+                                {
+                                    player.actionSelection.addActionCard(ActionCardStorage.getGravityMine());
+                                    player.CardCounterChange(1);
+                                    player.looseFuel(3);
+                                    removeWeapon(player.getWeapon(2),player);
+                                    EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                                    EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");
+                                    EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed");
+                                }
+                            });
                         }
                         break;
                 }
 
         }
 
+    }
+    public void removeWeapon(string type, Player currentPlayer)
+    {
+        switch (type)
+        {
+            case "gravityMine":
+                //Debug.Log(player.getWeapon(1));
+                if (player.getWeapon(1) == "gravityMine")
+                    player.removeWeapon(1);
+                else
+                    player.removeWeapon(2);
+                break;
+            case "laser":
+                if (player.getWeapon(1) == "laser")
+                    player.removeWeapon(1);
+                else
+                    player.removeWeapon(2);
+                break;
+            case "rocket":
+                if (player.getWeapon(1) == "rocket")
+                    player.removeWeapon(1);
+                else
+                    player.removeWeapon(2);
+                break;
+        }
+        EventManager.TriggerEvent("Player_Card_Stack_Changed");
     }
 }
