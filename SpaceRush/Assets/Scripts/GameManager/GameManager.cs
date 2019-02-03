@@ -177,8 +177,9 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     }
 
     void propagate_Player_Weapons(){
-        
+
     }
+    
     void propagate_Player_change()
     {
         if (acti_player == player_1)
