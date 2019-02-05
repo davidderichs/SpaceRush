@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         tickTimer.SetProperties(this, 2, 5);
 
         spacecrafts = new List<Spacecraft>();
-        spacecrafts.Add(GameObject.Find("Spacecraft").GetComponent<Spacecraft>());
+        spacecrafts.Add(GameObject.Find("Spacecraft1").GetComponent<Spacecraft>());
         spacecrafts.Add(GameObject.Find("Spacecraft2").GetComponent<Spacecraft>());
 
         camera = GameObject.Find("Main Camera").GetComponent<CameraController>();
