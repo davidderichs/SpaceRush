@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class Button_Quit : MonoBehaviour {
 
 	Button quit_Button;

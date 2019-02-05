@@ -48,13 +48,13 @@ public class Player : MonoBehaviour
         if (playerId == 1)
         {
             // Blue
-            playerColor = new Color32(0, 243, 255, 255);
+            playerColor = Player_Stats.Player_1_color;
         }
 
         if (playerId == 2)
         {
             //Yellow
-            playerColor = new Color32(255, 248, 0, 255);
+            playerColor = Player_Stats.Player_2_color;
         }
     }
 

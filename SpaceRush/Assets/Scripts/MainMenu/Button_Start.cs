@@ -14,8 +14,6 @@ public class Button_Start : MonoBehaviour {
 		loading_image = GameObject.FindWithTag("Loading_Circle");
 		loading_image.SetActive(false);
 
-
-
 		m_YourFirstButton = this.GetComponent<Button>();
         //Calls the TaskOnClick/TaskWithParameters/ButtonClicked method when you click the Button
         m_YourFirstButton.onClick.AddListener(TaskOnClick);
