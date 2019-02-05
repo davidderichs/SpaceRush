@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickable
 {
 
     private StateMachine stateMachine;
+
+    private bool gamePaused;
     public int start_checkpoint;
     public Player player_1;
 
@@ -16,6 +19,13 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     private Player acti_player;
     private TickTimer tickTimer;
     private List<Spacecraft> spacecrafts;
+
+    public GameObject Pause_Menu;
+    private UnityAction pause_Menu_continue_listener;
+    private UnityAction pause_Menu_restart_listener;
+    private UnityAction pause_Menu_exit_to_Main_listener;
+    private UnityAction pause_Menu_exit_to_Windows_listener;
+
     private UnityAction player_live_listener;
     private UnityAction player_main_fuel_listener;
     private UnityAction player_add_fuel_listener;
@@ -97,6 +107,56 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         spacecrafts.Add(GameObject.Find("Spacecraft2").GetComponent<Spacecraft>());
 
         camera = GameObject.Find("Main Camera").GetComponent<CameraController>();
+
+        Pause_Menu = GameObject.Find("Pause_Menu");
+        resume();
+
+        pause_Menu_continue_listener = new UnityAction(resume);
+        EventManager.StartListening("Pause_Menu_Button_Continue_Clicked", pause_Menu_continue_listener);
+
+        pause_Menu_restart_listener = new UnityAction(restartScene);
+        EventManager.StartListening("Pause_Menu_Button_Restart_Clicked", pause_Menu_restart_listener);
+
+        pause_Menu_exit_to_Main_listener = new UnityAction(exit_to_MainMenu);
+        EventManager.StartListening("Pause_Menu_Button_Exit_to_Main_Clicked", pause_Menu_exit_to_Main_listener);
+
+        pause_Menu_exit_to_Windows_listener = new UnityAction(close_Application);
+        EventManager.StartListening("Pause_Menu_Button_Exit_to_Windows_Clicked", pause_Menu_exit_to_Windows_listener);
+    }
+
+    void pause(){
+        Debug.Log("pausing game");
+        Pause_Menu.gameObject.SetActive(true);
+        gamePaused = true;
+    }
+
+    void resume(){
+        Debug.Log("resuming game");
+        Pause_Menu.gameObject.SetActive(false);
+        gamePaused = false;
+    }
+
+    void restartScene(){
+        SceneManager.LoadScene("FinalScene");
+    }
+
+    void exit_to_MainMenu(){
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    void close_Application(){
+        Application.Quit(); 
+    }
+
+    void Update(){
+        if(Input.GetKeyDown("escape")){
+            if(gamePaused){  
+                resume();
+             }
+             else{
+                pause();
+             }
+        }
     }
 
     void Start()
