@@ -6,7 +6,7 @@ public class CardParser
 {
     public static SpacecraftAction ParseCard(ActionCard card)
     {
-        Debug.Log(card.type);
+        //Debug.Log(card.type);
         if (card.type.Equals("forward") || card.type.Equals("backward"))
         {
             SpacecraftAction.Direction direction = SpacecraftAction.Direction.None;
