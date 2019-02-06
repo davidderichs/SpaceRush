@@ -56,22 +56,24 @@ public class CameraNavigationState : CameraState
             position.z *= zoomFactor;
         }
         
-        Vector3 mousePos = realCamera.ScreenToViewportPoint(Input.mousePosition);
-        if(mousePos.x > 0 && mousePos.x < padding) {
-            float fac = (mousePos.x - padding) / padding;
-            position.x += fac * moveStep;
-        }
-        if(mousePos.x > 1 - padding && mousePos.x < 1) {
-            float fac = (mousePos.x - (1 - padding)) / padding;
-            position.x += fac * moveStep;
-        }
-        if(mousePos.y > 0 && mousePos.y < padding) {
-            float fac = (mousePos.y - padding) / padding;
-            position.y += fac * moveStep;
-        }
-        if(mousePos.y > 1 - padding && mousePos.y < 1) {
-            float fac = (mousePos.y - (1 - padding)) / padding;
-            position.y += fac * moveStep;
+        if(Input.GetMouseButton(2) || Input.GetMouseButton(1) || Input.GetKey("space")) {
+            Vector3 mousePos = realCamera.ScreenToViewportPoint(Input.mousePosition);
+            if(mousePos.x > 0 && mousePos.x < padding) {
+                float fac = (mousePos.x - padding) / padding;
+                position.x += fac * moveStep;
+            }
+            if(mousePos.x > 1 - padding && mousePos.x < 1) {
+                float fac = (mousePos.x - (1 - padding)) / padding;
+                position.x += fac * moveStep;
+            }
+            if(mousePos.y > 0 && mousePos.y < padding) {
+                float fac = (mousePos.y - padding) / padding;
+                position.y += fac * moveStep;
+            }
+            if(mousePos.y > 1 - padding && mousePos.y < 1) {
+                float fac = (mousePos.y - (1 - padding)) / padding;
+                position.y += fac * moveStep;
+            }
         }
         
         
