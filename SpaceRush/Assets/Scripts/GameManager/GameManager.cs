@@ -124,38 +124,47 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         EventManager.StartListening("Pause_Menu_Button_Exit_to_Windows_Clicked", pause_Menu_exit_to_Windows_listener);
     }
 
-    void pause(){
+    void pause()
+    {
         Debug.Log("pausing game");
         Pause_Menu.gameObject.SetActive(true);
         gamePaused = true;
     }
 
-    void resume(){
+    void resume()
+    {
         Debug.Log("resuming game");
         Pause_Menu.gameObject.SetActive(false);
         gamePaused = false;
     }
 
-    void restartScene(){
+    void restartScene()
+    {
         SceneManager.LoadScene("FinalScene");
     }
 
-    void exit_to_MainMenu(){
+    void exit_to_MainMenu()
+    {
         SceneManager.LoadScene("MainMenu");
     }
 
-    void close_Application(){
-        Application.Quit(); 
+    void close_Application()
+    {
+        Application.Quit();
     }
 
-    void Update(){
-        if(Input.GetKeyDown("escape")){
-            if(gamePaused){  
+    void Update()
+    {
+        if (Input.GetKeyDown("escape"))
+        {
+            if (gamePaused)
+            {
                 resume();
-             }
-             else{
+            }
+            else
+            {
                 pause();
-             }
+            }
         }
     }
 
@@ -171,7 +180,9 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         setActivePlayer(player_1);
         SelectStart();
         // player_1.space.gameObject.GetComponent<MeshRenderer>().material.color = player_1.playerColor;
+        player_1.space.gameObject.GetComponentsInChildren<Light>()[0].color = player_1.playerColor;
         // player_2.space.gameObject.GetComponent<MeshRenderer>().material.color = player_2.playerColor;
+        player_2.space.gameObject.GetComponentsInChildren<Light>()[0].color = player_2.playerColor;
         Vector3 start = new Vector3(this.player_1.space.transform.position.x, this.player_1.space.transform.position.y, -400);
         this.camera.transform.position = start;
         settingHUDIndicators();
@@ -236,10 +247,11 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         this.hud.selectedAction.SetActionCards(this.acti_player.actionSelection);
     }
 
-    void propagate_Player_Weapons(){
+    void propagate_Player_Weapons()
+    {
 
     }
-    
+
     void propagate_Player_change()
     {
         if (acti_player == player_1)
