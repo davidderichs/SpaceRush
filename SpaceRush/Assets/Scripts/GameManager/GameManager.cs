@@ -170,8 +170,8 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         player_2 = GameObject.Find("Player2").GetComponent<Player>();
         setActivePlayer(player_1);
         SelectStart();
-        player_1.space.gameObject.GetComponent<MeshRenderer>().material.color = player_1.playerColor;
-        player_2.space.gameObject.GetComponent<MeshRenderer>().material.color = player_2.playerColor;
+        // player_1.space.gameObject.GetComponent<MeshRenderer>().material.color = player_1.playerColor;
+        // player_2.space.gameObject.GetComponent<MeshRenderer>().material.color = player_2.playerColor;
         Vector3 start = new Vector3(this.player_1.space.transform.position.x, this.player_1.space.transform.position.y, -400);
         this.camera.transform.position = start;
         settingHUDIndicators();

@@ -6,12 +6,14 @@ public class CameraNavigationState : CameraState
 {
     private float zoomFactor;
     private float moveStep;
+    private int padding;
     public CameraNavigationState(CameraController camera) : base(camera) { }
 
     public override void OnStateEnter()
     {
         zoomFactor = 2;
         moveStep = 50;
+        padding = 100;
     }
 
     public override void OnStateExit() { }
@@ -51,6 +53,9 @@ public class CameraNavigationState : CameraState
         {
             position.z *= zoomFactor;
         }
+        
+        Vector3 mousePosition = Input.mousePosition;
+        
 
         camera.AnimateTo(position);
     }
