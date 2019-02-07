@@ -12,6 +12,7 @@ public class SpacecraftController : MonoBehaviour
     private float rotationTimer;
     private SpacecraftAction.Direction boostDirection;
     private SpacecraftAction.Direction rotationDirection;
+    private ThrustersController thrustersController;
 
     void OnEnable()
     {
@@ -20,6 +21,11 @@ public class SpacecraftController : MonoBehaviour
         boostDirection = SpacecraftAction.Direction.None;
         rotationDirection = SpacecraftAction.Direction.None;
         rotationTimer = 0;
+    }
+
+    void Start()
+    {
+        thrustersController = GetComponent<ThrustersController>();
     }
 
     void Update()
@@ -64,6 +70,7 @@ public class SpacecraftController : MonoBehaviour
                 boostTimer = 0;
                 boostDirection = SpacecraftAction.Direction.None;
                 EventManager.TriggerEvent("spacecraft_boost_stop");
+                thrustersController.StopBoost();
             }
             if (boostDirection == SpacecraftAction.Direction.Forwards)
             {
@@ -80,6 +87,11 @@ public class SpacecraftController : MonoBehaviour
     {
         if (direction == SpacecraftAction.Direction.Forwards || direction == SpacecraftAction.Direction.Backwards)
         {
+            if (thrustersController == null)
+            {
+                Debug.Log("Something is wrong!");
+            }
+            thrustersController.Boost(direction);
             boostDirection = direction;
             boostForce = force;
             boostTimer = duration;
