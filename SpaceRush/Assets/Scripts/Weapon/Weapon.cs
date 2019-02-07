@@ -5,12 +5,7 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     protected Player owner;
-    protected bool active;
-
-    public void OnEnable()
-    {
-        active = false;
-    }
+    protected WeaponState currentState;
 
     public virtual void Fire() { }
     public void SetOwner(Player owner)
@@ -18,7 +13,29 @@ public abstract class Weapon : MonoBehaviour
         this.owner = owner;
     }
 
-    protected void Destruct(){
+    public void SetState(WeaponState state)
+    {
+        if (currentState != null)
+        {
+            currentState.OnStateExit();
+        }
+        currentState = state;
+        if (currentState != null)
+        {
+            currentState.OnStateEnter();
+        }
+    }
+
+    protected void Update()
+    {
+        if (currentState != null)
+        {
+            currentState.Tick();
+        }
+    }
+
+    protected void Destruct()
+    {
         Destroy(gameObject);
     }
 }

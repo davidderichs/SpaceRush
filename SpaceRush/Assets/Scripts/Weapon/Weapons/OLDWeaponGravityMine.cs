@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponGravityMine : Weapon
+public class OLDWeaponGravityMine : Weapon
 {
     private CircleCollider2D collider2D;
     private Light light;
@@ -60,3 +60,4 @@ public class WeaponGravityMine : Weapon
         }
     }
 }
+*/
