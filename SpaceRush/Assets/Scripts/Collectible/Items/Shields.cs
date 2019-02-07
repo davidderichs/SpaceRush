@@ -6,8 +6,12 @@ public class Shields : Collectible {
 
 	void OnTriggerEnter2D(Collider2D other){
 		findGameManager();
-		if (other.transform.gameObject.name == "Spacecraft"){
-			game.player_1.shields = game.player_1.shields + 2;
+		if (other.transform.gameObject.name == "Spacecraft1"){
+				game.player_1.AddItem("shield");
+			// Debug.Log("collected");
+		}
+		if (other.transform.gameObject.name == "Spacecraft2"){
+				game.player_2.AddItem("shield");
 			// Debug.Log("collected");
 		}
 		collected();

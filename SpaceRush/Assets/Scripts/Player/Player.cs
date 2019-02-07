@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     public GameObject space;
     private string weapon1;
     private string weapon2;
+    private string item1;
+    private string item2;
     public ActionStack actionStack;
     public ActionStack actionSelection;
     private int cardCounter;
@@ -26,6 +28,8 @@ public class Player : MonoBehaviour
         // For testing purpose
         weapon1 = "gravityMine";
         weapon2 = "";
+        item1 = "fuel";
+        item2 = "";
 
         init_Start_Values();
         init_card_Stack();
@@ -75,12 +79,32 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void AddItem(string item)
+    {
+        if (item1 == "")
+        {
+            item1 = item;
+        }
+        else if (item2 == "")
+        {
+            item2 = item;
+        }
+    }
+
     public void removeWeapon(int wpnr)
     {
         if (wpnr == 1)
             weapon1 = "";
         if (wpnr == 2)
             weapon2 = "";
+    }
+
+    public void removeItem(int itemnr)
+    {
+        if (itemnr == 1)
+            item1 = "";
+        if (itemnr == 2)
+            item2 = "";
     }
 
     public int getLastCheckpoint()
@@ -134,13 +158,21 @@ public class Player : MonoBehaviour
 
     public void AddFuel(float fuel)
     {
-        mainFuel = mainFuel + fuel;
-        if (mainFuel > 5)
-        {
-            float overflow = mainFuel - 5;
-            addFuel = addFuel + overflow;
-            mainFuel = 5;
-        }
+        addFuel = addFuel + fuel;
+    }
+
+    public void AddShield(int shield)
+    {
+        shields = shields + shield;
+        if (shields > 5)
+            shields = 5;
+    }
+
+    public void AddLive(int live)
+    {
+        lives = lives + live;
+        if (lives > 10)
+            lives = 10;
     }
 
     public void resetFuel()
@@ -156,6 +188,15 @@ public class Player : MonoBehaviour
             default: return "";
         }
     }
+
+    public String GetItem(int nr)
+    {
+        if (nr == 1)
+            return item1;
+        else
+            return item2;
+    }
+
     void init_card_Stack()
     {
         this.actionStack = new ActionStack(5);

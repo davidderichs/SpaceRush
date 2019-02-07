@@ -6,10 +6,12 @@ public class Repair : Collectible {
 
 	void OnTriggerEnter2D(Collider2D other){
 		findGameManager();
-		if (other.transform.gameObject.name == "Spacecraft"){
-			game.player_1.lives = game.player_1.lives + 2;
-			if(game.player_1.lives >  10)
-				game.player_1.lives = 10;
+		if (other.transform.gameObject.name == "Spacecraft1"){
+				game.player_1.AddItem("repair");
+			// Debug.Log("collected");
+		}
+		if (other.transform.gameObject.name == "Spacecraft2"){
+				game.player_2.AddItem("repair");
 			// Debug.Log("collected");
 		}
 		collected();
