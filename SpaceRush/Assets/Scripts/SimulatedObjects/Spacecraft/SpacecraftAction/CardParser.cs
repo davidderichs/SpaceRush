@@ -53,6 +53,10 @@ public class CardParser
         {
             return new SpacecraftWeaponAction(SpacecraftWeaponAction.WeaponType.Rocket, card.fuelCost);
         }
+        else if (card.type.Equals("none"))
+        {
+            return new SpacecraftRotation(SpacecraftRotation.Direction.Forwards,0,0,2);
+        }
         return null;
     }
 }
