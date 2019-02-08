@@ -6,7 +6,7 @@ public abstract class SimulatedObject : MonoBehaviour
 {
     void Awake()
     {
-        GameManager.GetInstance().AddSimulatedObject(this);
+        GameObject.Find("GameManager").GetComponent<GameManager>().AddSimulatedObject(this);
     }
     public abstract void Play();
     public abstract void Pause();
