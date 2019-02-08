@@ -80,13 +80,13 @@ public class Spacecraft : MonoBehaviour, ISimulatedObject
                 switch (weaponAction.type)
                 {
                     case SpacecraftWeaponAction.WeaponType.GravityMine:
-                        weapon = Resources.Load<Transform>("Prefabs/gravityMine");
+                        weapon = Resources.Load<Transform>("Prefabs/weapons/gravityMine");
                         break;
                     case SpacecraftWeaponAction.WeaponType.Laser:
-                        weapon = Resources.Load<Transform>("Prefabs/laser");
+                        weapon = Resources.Load<Transform>("Prefabs/weapons/laser");
                         break;
                     case SpacecraftWeaponAction.WeaponType.Rocket:
-                        weapon = Resources.Load<Transform>("Prefabs/rocket");
+                        weapon = Resources.Load<Transform>("Prefabs/weapons/rocket");
                         break;
                     default:
                         weapon = null;

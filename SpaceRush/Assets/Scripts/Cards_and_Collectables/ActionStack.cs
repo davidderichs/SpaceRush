@@ -47,7 +47,7 @@ public class ActionStack
         {
             return actionList[index];
         }
-        else return ActionCardStorage.getEmpty();
+        else return ActionCardStorage.GetEmpty();
     }
 
     public int getSize()
