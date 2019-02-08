@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
     private UnityAction player_Weapon_Listener;
 
+    private UnityAction player_indicator;
+
     private CameraController camera;
 
     private UnityAction player_selection_complete_listener;
@@ -96,6 +98,9 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
         player_2_loose = new UnityAction(propagate_player_2_loosing);
         EventManager.StartListening("Player_1_lost", player_2_loose);
+
+        player_indicator = new UnityAction(propagate_Indicator_change);
+        EventManager.StartListening("Player_Indicator_Change", player_indicator);
 
         Spacecraft.AddCollisionListener(this);
 
@@ -294,6 +299,14 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         Debug.Log("Player 2 Lost");
     }
 
+    private void propagate_Indicator_change()
+    {
+        propagate_Player_stack_change();
+        propagate_Player_add_fuel_change();
+        propagate_Player_live_change();
+        propagate_Player_main_fuel_change();
+        propagate_Player_shield_change();
+    }
 
     public void resetPlayer(Player player)
     {
@@ -407,7 +420,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
     private void StartStateMachine()
     {
-        Debug.Log(stateMachine.getState());
+        //Debug.Log(stateMachine.getState());
         if (stateMachine.getState() == 3)
         {
             Gameloop();
