@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         // For testing purpose
-        weapon1 = "gravityMine";
+        weapon1 = "rocket";
         weapon2 = "";
         item1 = "fuel";
         item2 = "";
@@ -201,11 +201,11 @@ public class Player : MonoBehaviour
     {
         this.actionStack = new ActionStack(5);
         this.actionSelection = new ActionStack(0);
-        this.actionStack.actionList.Add(ActionCardStorage.getForward());
-        this.actionStack.actionList.Add(ActionCardStorage.getBackward());
-        this.actionStack.actionList.Add(ActionCardStorage.getRotationRight());
-        this.actionStack.actionList.Add(ActionCardStorage.getRotationLeft());
-        this.actionStack.actionList.Add(ActionCardStorage.getEmpty());
+        this.actionStack.actionList.Add(ActionCardStorage.GetForward());
+        this.actionStack.actionList.Add(ActionCardStorage.GetBackward());
+        this.actionStack.actionList.Add(ActionCardStorage.GetRotationRight());
+        this.actionStack.actionList.Add(ActionCardStorage.GetRotationLeft());
+        this.actionStack.actionList.Add(ActionCardStorage.GetEmpty());
     }
     public void CardCounterChange(int change)
     {
