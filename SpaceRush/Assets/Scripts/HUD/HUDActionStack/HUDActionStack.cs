@@ -134,11 +134,17 @@ public class HUDActionStack : MonoBehaviour
             textComponent.fontSize = 40;
 
             //Text for the Powerinfos
-            Text fuelComponent = GameObject.Find("HUDAvailableActionFuel" + i).GetComponent<Text>();
+            Text powerComponent = GameObject.Find("HUDAvailableActionPower" + i).GetComponent<Text>();
             if (currentAction.type.Equals("forward") || currentAction.type.Equals("backward"))
-                fuelComponent.text = actionStack.getActionCard(i).forceOrVelocity.ToString();
+                powerComponent.text = actionStack.getActionCard(i).forceOrVelocity.ToString();
             else if (currentAction.type.Equals("rotateRight") || currentAction.type.Equals("rotateLeft"))
-                fuelComponent.text = (actionStack.getActionCard(i).forceOrVelocity * 2).ToString() + "°";
+                powerComponent.text = (actionStack.getActionCard(i).forceOrVelocity * 2).ToString() + "°";
+            powerComponent.alignment = TextAnchor.MiddleCenter;
+            powerComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+            powerComponent.fontSize = 40;
+            //Text for the Fuelinfos
+            Text fuelComponent = GameObject.Find("HUDAvailableActionFuel" + i).GetComponent<Text>();
+            fuelComponent.text = currentAction.fuelCost + "";
             fuelComponent.alignment = TextAnchor.MiddleCenter;
             fuelComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
             fuelComponent.fontSize = 40;
@@ -167,6 +173,28 @@ public class HUDActionStack : MonoBehaviour
                         else
                         { 
                             weapon2.sprite = Resources.Load<Sprite>("Sprites/WeaponGravityMine");
+                            break;
+                        }
+                    case "rocket":
+                        if(i == 1)
+                        {
+                            weapon1.sprite = Resources.Load<Sprite>("Sprites/WeaponRocket");
+                            break;
+                        }
+                        else
+                        { 
+                            weapon2.sprite = Resources.Load<Sprite>("Sprites/WeaponRocket");
+                            break;
+                        }
+                        case "laser":
+                        if(i == 1)
+                        {
+                            weapon1.sprite = Resources.Load<Sprite>("Sprites/WeaponLaser");
+                            break;
+                        }
+                        else
+                        { 
+                            weapon2.sprite = Resources.Load<Sprite>("Sprites/WeaponLaser");
                             break;
                         }
                 }
@@ -207,7 +235,7 @@ public class HUDActionStack : MonoBehaviour
                             {
                                 if (player.actionSelection.getSize() < 5)
                                 {
-                                    player.actionSelection.addActionCard(ActionCardStorage.getGravityMine());
+                                    player.actionSelection.addActionCard(ActionCardStorage.GetGravityMine());
                                     player.looseFuel(3);
                                     player.CardCounterChange(1);
                                     removeWeapon(player.getWeapon(1),player);
@@ -223,7 +251,75 @@ public class HUDActionStack : MonoBehaviour
                             {
                                 if (player.actionSelection.getSize() < 5)
                                 {
-                                    player.actionSelection.addActionCard(ActionCardStorage.getGravityMine());
+                                    player.actionSelection.addActionCard(ActionCardStorage.GetGravityMine());
+                                    player.CardCounterChange(1);
+                                    player.looseFuel(3);
+                                    removeWeapon(player.getWeapon(2),player);
+                                    EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                                    EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");
+                                    EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed");
+                                }
+                            });
+                        }
+                        break;
+                    case "rocket":
+                    if (i == 1)
+                        {
+                            GameObject.Find("HUD_Weapon_1").GetComponent<Button>().onClick.AddListener(delegate
+                            {
+                                if (player.actionSelection.getSize() < 5)
+                                {
+                                    player.actionSelection.addActionCard(ActionCardStorage.GetRocket());
+                                    player.looseFuel(3);
+                                    player.CardCounterChange(1);
+                                    removeWeapon(player.getWeapon(1),player);
+                                    EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                                    EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");
+                                    EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed");
+                                }
+                            });
+                        }
+                        else
+                        {    
+                            GameObject.Find("HUD_Weapon_2").GetComponent<Button>().onClick.AddListener(delegate
+                            {
+                                if (player.actionSelection.getSize() < 5)
+                                {
+                                    player.actionSelection.addActionCard(ActionCardStorage.GetRocket());
+                                    player.CardCounterChange(1);
+                                    player.looseFuel(3);
+                                    removeWeapon(player.getWeapon(2),player);
+                                    EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                                    EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");
+                                    EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed");
+                                }
+                            });
+                        }
+                        break;
+                    case "laser":
+                    if (i == 1)
+                        {
+                            GameObject.Find("HUD_Weapon_1").GetComponent<Button>().onClick.AddListener(delegate
+                            {
+                                if (player.actionSelection.getSize() < 5)
+                                {
+                                    player.actionSelection.addActionCard(ActionCardStorage.GetLaser());
+                                    player.looseFuel(3);
+                                    player.CardCounterChange(1);
+                                    removeWeapon(player.getWeapon(1),player);
+                                    EventManager.TriggerEvent("Player_Card_Selection_Changed");
+                                    EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");
+                                    EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed");
+                                }
+                            });
+                        }
+                        else
+                        {    
+                            GameObject.Find("HUD_Weapon_2").GetComponent<Button>().onClick.AddListener(delegate
+                            {
+                                if (player.actionSelection.getSize() < 5)
+                                {
+                                    player.actionSelection.addActionCard(ActionCardStorage.GetLaser());
                                     player.CardCounterChange(1);
                                     player.looseFuel(3);
                                     removeWeapon(player.getWeapon(2),player);
