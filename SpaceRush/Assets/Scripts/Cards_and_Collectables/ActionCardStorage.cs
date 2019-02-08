@@ -11,10 +11,10 @@ public class ActionCardStorage{
         return new MoveActionCard("Backward", "backward",1,"backward",new Color(1,1,1,1),2,100);
     }
     public static MoveActionCard GetRotationLeft(){
-        return new MoveActionCard("Right", "rotateRight",1,"Rotate_Left",new Color(1,1,1,1),2,5);
+        return new MoveActionCard("Left", "rotateRight",1,"Rotate_Left",new Color(1,1,1,1),2,5);
     }
     public static MoveActionCard GetRotationRight(){
-        return new MoveActionCard("Left", "rotateLeft",1,"Rotate_Right",new Color(1,1,1,1),2,5);
+        return new MoveActionCard("Right", "rotateLeft",1,"Rotate_Right",new Color(1,1,1,1),2,5);
     }
     public static MoveActionCard GetEmpty(){
         return new MoveActionCard("None","none",0,"none",new Color(1,1,1,1),2,0);

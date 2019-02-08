@@ -53,7 +53,6 @@ public class HUDActionSelection : MonoBehaviour
         {
             int copy = i;
             GameObject.Find("SelectedActionCardImage" + copy).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/empty");
-            GameObject.Find("SelectedActionCardText" + copy).GetComponent<Text>().text = "";
             GameObject.Find("HUDSelectedAction" + copy).GetComponent<Button>().onClick.RemoveAllListeners();
             GameObject.Find("SelectedActionCardPower" + copy).GetComponent<Text>().text = "";
             GameObject.Find("SelectedActionCardFuel" + copy).GetComponent<Text>().text = "";
@@ -69,8 +68,6 @@ public class HUDActionSelection : MonoBehaviour
             actionImage.AddComponent<Image>();
             Image image = actionImage.GetComponent<Image>();
             image.sprite = Resources.Load<Sprite>("Sprites/empty");
-            GameObject actionText = GameObject.Find("SelectedActionCardText" + copy);
-            actionText.AddComponent<Text>();
         }
     }
     public void SetActionCards(ActionStack actionStack)
@@ -89,20 +86,6 @@ public class HUDActionSelection : MonoBehaviour
             }
             image = actionImage.GetComponent<Image>();
             image.sprite = Resources.Load<Sprite>("Sprites/" + currentAction.spriteName);
-            //Set Text
-            GameObject actionText = GameObject.Find("SelectedActionCardText" + i);
-
-            Text textComponent;
-            if (actionText.GetComponent<Text>() == null)
-            {
-                actionText.AddComponent<Text>();
-            }
-            textComponent = actionText.GetComponent<Text>();
-
-            textComponent.text = currentAction.description;
-            textComponent.alignment = TextAnchor.MiddleCenter;
-            textComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
-            textComponent.fontSize = 40;
 
             //Text for the Powerinfos
             Text powerComponent = GameObject.Find("SelectedActionCardPower" + i).GetComponent<Text>();
