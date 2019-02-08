@@ -22,7 +22,7 @@ public class GravityInitializationState : WeaponState
     public override void OnStateEnter()
     {
         timer = 0f;
-        duration = 5f;
+        duration = 10f;
         startModule = weapon.transform.Find("startModule").gameObject;
     }
 

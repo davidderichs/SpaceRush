@@ -80,13 +80,13 @@ public class Spacecraft : MonoBehaviour, ISimulatedObject
                 switch (weaponAction.type)
                 {
                     case SpacecraftWeaponAction.WeaponType.GravityMine:
-                        weapon = Resources.Load<Transform>("Prefabs/gravityMine");
+                        controller.FireGravityMine();
                         break;
                     case SpacecraftWeaponAction.WeaponType.Laser:
-                        weapon = Resources.Load<Transform>("Prefabs/laser");
+                        controller.FireLaser();
                         break;
                     case SpacecraftWeaponAction.WeaponType.Rocket:
-                        weapon = Resources.Load<Transform>("Prefabs/rocket");
+                        controller.FireMissile();
                         break;
                     default:
                         weapon = null;
@@ -95,7 +95,6 @@ public class Spacecraft : MonoBehaviour, ISimulatedObject
                 }
                 if (weapon != null)
                 {
-                    Instantiate(weapon, this.transform.position, Quaternion.identity);
                     actions.RemoveAt(0);
                 }
             }

@@ -87,10 +87,6 @@ public class SpacecraftController : MonoBehaviour
     {
         if (direction == SpacecraftAction.Direction.Forwards || direction == SpacecraftAction.Direction.Backwards)
         {
-            if (thrustersController == null)
-            {
-                Debug.Log("Something is wrong!");
-            }
             thrustersController.Boost(direction);
             boostDirection = direction;
             boostForce = force;
@@ -98,6 +94,7 @@ public class SpacecraftController : MonoBehaviour
 
             EventManager.TriggerEvent("spacecraft_boost_start");
         }
+        FireGravityMine();
     }
 
     public void Rotate(SpacecraftAction.Direction direction, float speed, float duration)
@@ -108,5 +105,20 @@ public class SpacecraftController : MonoBehaviour
             angularSpeed = speed;
             rotationTimer = duration;
         }
+    }
+
+    public void FireGravityMine()
+    {
+        Instantiate(Resources.Load("Prefabs/weapons/weaponGravityMine"), transform.position, new Quaternion());
+    }
+
+    public void FireMissile()
+    {
+
+    }
+
+    public void FireLaser()
+    {
+
     }
 }

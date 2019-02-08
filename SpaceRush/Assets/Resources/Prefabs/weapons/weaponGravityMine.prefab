@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114439320553607024}
   - component: {fileID: 58984911582300972}
   m_Layer: 0
-  m_Name: GravMine
+  m_Name: weaponGravityMine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,7 +97,7 @@ Transform:
   m_GameObject: {fileID: 1896113779466384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 4032555965153666}
   - {fileID: 4253278779930498}
