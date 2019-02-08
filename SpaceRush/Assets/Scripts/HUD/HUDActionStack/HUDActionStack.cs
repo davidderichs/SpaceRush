@@ -93,7 +93,6 @@ public class HUDActionStack : MonoBehaviour
             GameObject.Find("HUDButtonPlus").GetComponent<Button>().onClick.RemoveAllListeners();
             GameObject.Find("HUDButtonMinus").GetComponent<Button>().onClick.RemoveAllListeners();
             GameObject.Find("HUDAvailableActionImage" + copy).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/empty");
-            GameObject.Find("HUDAvailableActionText" + copy).GetComponent<Text>().text = "";
             GameObject.Find("HUDAvailableAction" + copy).GetComponent<Button>().onClick.RemoveAllListeners();
         }
         GameObject.Find("HUD_Weapon_1").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/empty");
@@ -118,21 +117,7 @@ public class HUDActionStack : MonoBehaviour
             }
             image = actionImage.GetComponent<Image>();
             image.sprite = Resources.Load<Sprite>("Sprites/" + currentAction.spriteName);
-            //Set Text
-            GameObject actionText = GameObject.Find("HUDAvailableActionText" + i);
-
-            Text textComponent;
-            if (actionText.GetComponent<Text>() == null)
-            {
-                actionText.AddComponent<Text>();
-            }
-            textComponent = actionText.GetComponent<Text>();
-
-            textComponent.text = currentAction.description;
-            textComponent.alignment = TextAnchor.MiddleCenter;
-            textComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
-            textComponent.fontSize = 40;
-
+            
             //Text for the Powerinfos
             Text powerComponent = GameObject.Find("HUDAvailableActionPower" + i).GetComponent<Text>();
             if (currentAction.type.Equals("forward") || currentAction.type.Equals("backward"))
@@ -210,8 +195,6 @@ public class HUDActionStack : MonoBehaviour
             actionImage.AddComponent<Image>();
             Image image = actionImage.GetComponent<Image>();
             image.sprite = Resources.Load<Sprite>("Sprites/empty");
-            GameObject actionText = GameObject.Find("HUDAvailableActionText" + copy);
-            actionText.AddComponent<Text>();
         }
     }
 
