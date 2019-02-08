@@ -55,6 +55,8 @@ public class HUDActionSelection : MonoBehaviour
             GameObject.Find("SelectedActionCardImage" + copy).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/empty");
             GameObject.Find("SelectedActionCardText" + copy).GetComponent<Text>().text = "";
             GameObject.Find("HUDSelectedAction" + copy).GetComponent<Button>().onClick.RemoveAllListeners();
+            GameObject.Find("SelectedActionCardPower" + copy).GetComponent<Text>().text = "";
+            GameObject.Find("SelectedActionCardFuel" + copy).GetComponent<Text>().text = "";
         }
     }
 
@@ -101,6 +103,22 @@ public class HUDActionSelection : MonoBehaviour
             textComponent.alignment = TextAnchor.MiddleCenter;
             textComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
             textComponent.fontSize = 40;
+
+            //Text for the Powerinfos
+            Text powerComponent = GameObject.Find("SelectedActionCardPower" + i).GetComponent<Text>();
+            if (currentAction.type.Equals("forward") || currentAction.type.Equals("backward"))
+                powerComponent.text = actionStack.getActionCard(i).forceOrVelocity.ToString();
+            else if (currentAction.type.Equals("rotateRight") || currentAction.type.Equals("rotateLeft"))
+                powerComponent.text = (actionStack.getActionCard(i).forceOrVelocity * 2).ToString() + "°";
+            powerComponent.alignment = TextAnchor.MiddleCenter;
+            powerComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+            powerComponent.fontSize = 40;
+            //Text for the Fuelinfos
+            Text fuelComponent = GameObject.Find("SelectedActionCardFuel" + i).GetComponent<Text>();
+            fuelComponent.text = currentAction.fuelCost + "";
+            fuelComponent.alignment = TextAnchor.MiddleCenter;
+            fuelComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+            fuelComponent.fontSize = 40;
         }
         setListeners();
     }
