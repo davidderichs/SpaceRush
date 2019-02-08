@@ -134,11 +134,17 @@ public class HUDActionStack : MonoBehaviour
             textComponent.fontSize = 40;
 
             //Text for the Powerinfos
-            Text fuelComponent = GameObject.Find("HUDAvailableActionFuel" + i).GetComponent<Text>();
+            Text powerComponent = GameObject.Find("HUDAvailableActionPower" + i).GetComponent<Text>();
             if (currentAction.type.Equals("forward") || currentAction.type.Equals("backward"))
-                fuelComponent.text = actionStack.getActionCard(i).forceOrVelocity.ToString();
+                powerComponent.text = actionStack.getActionCard(i).forceOrVelocity.ToString();
             else if (currentAction.type.Equals("rotateRight") || currentAction.type.Equals("rotateLeft"))
-                fuelComponent.text = (actionStack.getActionCard(i).forceOrVelocity * 2).ToString() + "°";
+                powerComponent.text = (actionStack.getActionCard(i).forceOrVelocity * 2).ToString() + "°";
+            powerComponent.alignment = TextAnchor.MiddleCenter;
+            powerComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+            powerComponent.fontSize = 40;
+            //Text for the Fuelinfos
+            Text fuelComponent = GameObject.Find("HUDAvailableActionFuel" + i).GetComponent<Text>();
+            fuelComponent.text = currentAction.fuelCost + "";
             fuelComponent.alignment = TextAnchor.MiddleCenter;
             fuelComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
             fuelComponent.fontSize = 40;
