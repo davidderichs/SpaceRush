@@ -40,7 +40,8 @@ public class Button_Help : MonoBehaviour {
 				this.un_highlight_Tutorial_Buttons();
 				this.highlight_Tutorial_Button(tutorial_Button_MainRules);
 				this.change_tutorial_headline("Main Rules");
-				this.change_tutorial_text("These are the main Rules: blablabla...");
+				this.change_tutorial_text("Reach all Checkpoints faster than your opponent. Use Boost and Rotation to move around"+
+				"Use Weapons to interfere with your opponent. Fill up your boost by coolecting fuel items.");
 				
 			} else {
 				this.mainMenu_Panel.SetActive(true);
@@ -75,7 +76,8 @@ public class Button_Help : MonoBehaviour {
 			this.un_highlight_Tutorial_Buttons();
 			this.highlight_Tutorial_Button(tutorial_Button_MainRules);
 			this.change_tutorial_headline("Main Rules");
-			this.change_tutorial_text("These are the main Rules: blablabla...");
+			this.change_tutorial_text("Reach all Checkpoints faster than your opponent. Use Boost and Rotation to move around"+
+			"Use Weapons to interfere with your opponent. Fill up your boost by coolecting fuel items.");
 		});
 
 		tutorial_Button_Checkpoints = GameObject.Find("Tutorial_Button_Checkpoints").GetComponent<Button>();
