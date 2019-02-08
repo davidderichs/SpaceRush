@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickable
 {
 
+    private static GameManager instance;
     private StateMachine stateMachine;
 
     private bool gamePaused;
@@ -51,12 +52,16 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     private UnityAction player_selection_complete_listener;
     private UnityAction player_selection_incomplete_listener;
 
-    // Use this for initialization
-
     private HUD hud;
+
+
+    // collection for simulated Objects
+    private List<SimulatedObject> simulatedObjects;
 
     void Awake()
     {
+        instance = this;
+
         player_Weapon_Listener = new UnityAction(propagate_Player_Weapons);
         EventManager.StartListening("Player_Weapon_Reset", player_Weapon_Listener);
 
@@ -127,6 +132,19 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
         pause_Menu_exit_to_Windows_listener = new UnityAction(close_Application);
         EventManager.StartListening("Pause_Menu_Button_Exit_to_Windows_Clicked", pause_Menu_exit_to_Windows_listener);
+
+        // initializing the list for all simulated objects
+        simulatedObjects = new List<SimulatedObject>();
+
+        foreach (SimulatedObject simulatedObject in spacecrafts)
+        {
+            AddSimulatedObject(simulatedObject);
+        }
+    }
+
+    public static GameManager GetInstance()
+    {
+        return instance;
     }
 
     void pause()
@@ -368,9 +386,9 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     {
         Debug.Log("Starting Simulation");
         this.hud.hide();
-        foreach (Spacecraft spacecraft in spacecrafts)
+        foreach (SimulatedObject simulatedObject in simulatedObjects)
         {
-            spacecraft.StartPhysics();
+            simulatedObject.Play();
         }
         camera.FollowObjects(new List<GameObject>() { spacecrafts[0].gameObject, spacecrafts[1].gameObject });
         tickTimer.StartTimer();
@@ -379,9 +397,9 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     private void StopSimulation()
     {
         Debug.Log("Stopping Simulation");
-        foreach (Spacecraft spacecraft in spacecrafts)
+        foreach (SimulatedObject simulatedObject in simulatedObjects)
         {
-            spacecraft.StopPhysics();
+            simulatedObject.Pause();
         }
         camera.FreeNavigation();
         this.hud.show();
@@ -439,6 +457,17 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
                 }
             }
         }
+    }
+
+    public void AddSimulatedObject(SimulatedObject simulatedObject)
+    {
+        simulatedObjects.Add(simulatedObject);
+    }
+
+    public void RemoveSimulatedObject(SimulatedObject simulatedObject)
+    {
+        simulatedObjects.Remove(simulatedObject);
+        Destroy(simulatedObject.gameObject);
     }
 
 }

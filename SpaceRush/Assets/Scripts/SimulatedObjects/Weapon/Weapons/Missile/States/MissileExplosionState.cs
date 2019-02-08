@@ -45,6 +45,16 @@ public class MissileExplosionState : WeaponState
 
     public override void OnStateExit()
     {
-        UnityEngine.Object.Destroy(weapon.gameObject);
+        GameManager.GetInstance().RemoveSimulatedObject(weapon);
+    }
+
+    public override void Stop()
+    {
+
+    }
+
+    public override void Resume()
+    {
+
     }
 }

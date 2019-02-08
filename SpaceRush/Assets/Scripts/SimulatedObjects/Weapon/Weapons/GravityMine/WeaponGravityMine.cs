@@ -22,4 +22,14 @@ public class WeaponGravityMine : Weapon
             SetState(new GravityExplosionState(this));
         }
     }
+
+    public override void Play()
+    {
+        base.Play();
+    }
+
+    public override void Pause()
+    {
+        base.Pause();
+    }
 }

@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GravityExplosionState : WeaponState
+public class GravityGrowingScript : WeaponState
 {
-
     private float timer;
+    private GameObject forceField;
     private float growStep;
     private float finalSize;
-    private GameObject forceField;
-    private Material material;
-    public GravityExplosionState(Weapon weapon) : base(weapon)
+
+    public GravityGrowingScript(Weapon weapon) : base(weapon)
     {
-        growStep = 1f;
-        finalSize = 10;
+        growStep = 0.1f;
+        finalSize = 2;
     }
 
     public override void Tick()
@@ -25,22 +24,32 @@ public class GravityExplosionState : WeaponState
         size.z += growStep;
         if (size.x >= finalSize)
         {
-            weapon.SetState(null);
+            size = new Vector3(finalSize, finalSize, finalSize);
+            forceField.transform.localScale = size;
+            weapon.SetState(new GravityActiveState(weapon));
         }
         forceField.transform.localScale = size;
-        material.SetVector("Vector2_57E9AAA8", material.GetVector("Vector2_57E9AAA8") * 1.5f);
     }
 
     public override void OnStateEnter()
     {
         forceField = weapon.transform.Find("forceField").gameObject;
-        material = forceField.GetComponent<Renderer>().material;
-        material.SetColor("Color_E96EC4F", UnityEngine.Color.red);
+        forceField.SetActive(true);
         timer = 0;
     }
 
     public override void OnStateExit()
     {
-        UnityEngine.Object.Destroy(weapon.gameObject);
+
+    }
+
+    public override void Stop()
+    {
+
+    }
+
+    public override void Resume()
+    {
+
     }
 }

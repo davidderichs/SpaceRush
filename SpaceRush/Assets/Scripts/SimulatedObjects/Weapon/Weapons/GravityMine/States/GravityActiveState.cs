@@ -22,4 +22,14 @@ public class GravityActiveState : WeaponState
     {
 
     }
+
+    public override void Stop()
+    {
+
+    }
+
+    public override void Resume()
+    {
+
+    }
 }

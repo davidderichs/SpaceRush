@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour
+public abstract class Weapon : SimulatedObject
 {
     protected Player owner;
     protected WeaponState currentState;
+    protected bool paused;
 
-    public virtual void Fire() { }
+    public void Awake()
+    {
+        paused = false;
+    }
+
     public void SetOwner(Player owner)
     {
         this.owner = owner;
@@ -28,14 +33,27 @@ public abstract class Weapon : MonoBehaviour
 
     protected void Update()
     {
-        if (currentState != null)
+        if (currentState != null && !paused)
         {
             currentState.Tick();
         }
     }
 
-    protected void Destruct()
+    public override void Play()
     {
-        Destroy(gameObject);
+        paused = false;
+        if (currentState != null)
+        {
+            currentState.Resume();
+        }
+    }
+
+    public override void Pause()
+    {
+        paused = true;
+        if (currentState != null)
+        {
+            currentState.Stop();
+        }
     }
 }

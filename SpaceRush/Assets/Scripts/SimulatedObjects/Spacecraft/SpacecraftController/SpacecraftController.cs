@@ -114,7 +114,7 @@ public class SpacecraftController : MonoBehaviour
 
     public void FireMissile()
     {
-
+        Instantiate(Resources.Load("Prefabs/weapons/weaponMissile"), transform.position, transform.rotation);
     }
 
     public void FireLaser()

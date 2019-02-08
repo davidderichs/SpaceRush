@@ -30,4 +30,14 @@ public class GravityInitializationState : WeaponState
     {
         UnityEngine.Object.Destroy(startModule);
     }
+
+    public override void Stop()
+    {
+
+    }
+
+    public override void Resume()
+    {
+
+    }
 }

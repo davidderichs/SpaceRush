@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spacecraft : MonoBehaviour, ISimulatedObject
+public class Spacecraft : SimulatedObject
 {
     public Player player;
     private SpacecraftController controller;
@@ -113,7 +113,7 @@ public class Spacecraft : MonoBehaviour, ISimulatedObject
     }
 
 
-    public void StartPhysics()
+    public override void Play()
     {
         controller.enabled = true;
         attractor.enabled = true;
@@ -122,7 +122,7 @@ public class Spacecraft : MonoBehaviour, ISimulatedObject
         sleeping = false;
     }
 
-    public void StopPhysics()
+    public override void Pause()
     {
         controller.enabled = false;
         attractor.enabled = false;
