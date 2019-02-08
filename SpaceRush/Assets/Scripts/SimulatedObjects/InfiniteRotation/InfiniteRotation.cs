@@ -7,9 +7,10 @@ public class InfiniteRotation : SimulatedObject
 
     public float fullRotationTime;
     private bool active;
-    void Start()
+    public void Start()
     {
-        active = true;
+        base.Start();
+        active = false;
     }
 
     void Update()
