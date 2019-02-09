@@ -161,7 +161,7 @@ public class Player : MonoBehaviour
         if (addFuel > 0)
         {
             addFuel = addFuel - fuel;
-            if (addFuel < 0)
+            if (addFuel <= 0)
             {
                 mainFuel = mainFuel + addFuel;
                 addFuel = 0;
@@ -174,7 +174,10 @@ public class Player : MonoBehaviour
         if (mainFuel <= 5)
             mainFuel = mainFuel + fuel;
         if (mainFuel > 5)
+        {
             addFuel = addFuel + mainFuel - 5;
+            mainFuel = 5;
+        }
     }
 
     public void AddFuel(float fuel)
