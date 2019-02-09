@@ -34,6 +34,7 @@ public class MissileExplosionState : WeaponState
         explosionTime = 1f;
         removalTime = 0.3f;
         remove = false;
+        weapon.GetComponent<CircleCollider2D>().enabled = false;
         explosion = (ParticleSystem)weapon.transform.Find("explosion").GetComponent<ParticleSystem>();
         explosion.gameObject.SetActive(true);
         explosion.Play();
