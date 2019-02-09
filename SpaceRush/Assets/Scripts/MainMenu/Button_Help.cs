@@ -67,12 +67,14 @@ public class Button_Help : MonoBehaviour {
 
 	private void setup_Tutorial_Explaning_Image(){
 		tutorial_Explaining_Image = GameObject.Find("Tutorial_Explaining_Image").GetComponent<Image>();
-		set_Tutorial_Image_Source("Sprites/Tutorial_Images/MainRules");
+		set_Tutorial_Image_Source("");
+		this.tutorial_Explaining_Image.color = new Color32(255, 255, 255, 0);
 	}
 	private void setup_Tutorial_Buttons(){
 		tutorial_Button_MainRules = GameObject.Find("Tutorial_Button_MainRules").GetComponent<Button>();
 		tutorial_Button_MainRules.onClick.AddListener(delegate{
-			set_Tutorial_Image_Source("");				
+			set_Tutorial_Image_Source("");		
+			this.tutorial_Explaining_Image.color = new Color32(255, 255, 255, 0);
 			this.un_highlight_Tutorial_Buttons();
 			this.highlight_Tutorial_Button(tutorial_Button_MainRules);
 			this.change_tutorial_headline("Main Rules");
@@ -82,7 +84,8 @@ public class Button_Help : MonoBehaviour {
 
 		tutorial_Button_Checkpoints = GameObject.Find("Tutorial_Button_Checkpoints").GetComponent<Button>();
 		tutorial_Button_Checkpoints.onClick.AddListener(delegate{
-			set_Tutorial_Image_Source("");				
+			set_Tutorial_Image_Source("");
+			this.tutorial_Explaining_Image.color = new Color32(255, 255, 255, 0);
 			this.un_highlight_Tutorial_Buttons();
 			this.highlight_Tutorial_Button(tutorial_Button_Checkpoints);
 			this.change_tutorial_headline("Checkpoints");
@@ -91,7 +94,7 @@ public class Button_Help : MonoBehaviour {
 
 		tutorial_Button_Spacecrafts = GameObject.Find("Tutorial_Button_Spacecrafts").GetComponent<Button>();
 		tutorial_Button_Spacecrafts.onClick.AddListener(delegate{
-			set_Tutorial_Image_Source("");				
+			set_Tutorial_Image_Source("Sprites/Tutorial_Images/Spacecrafts");				
 			this.un_highlight_Tutorial_Buttons();
 			this.highlight_Tutorial_Button(tutorial_Button_Spacecrafts);
 			this.change_tutorial_headline("SpaceCrafts");
@@ -148,7 +151,7 @@ public class Button_Help : MonoBehaviour {
 
 		tutorial_Button_Collectables = GameObject.Find("Tutorial_Button_Collectables").GetComponent<Button>();
 		tutorial_Button_Collectables.onClick.AddListener(delegate{
-			set_Tutorial_Image_Source("");				
+			set_Tutorial_Image_Source("Sprites/Tutorial_Images/Collectables");				
 			this.un_highlight_Tutorial_Buttons();
 			this.highlight_Tutorial_Button(tutorial_Button_Collectables);
 			this.change_tutorial_headline("Collectables");
