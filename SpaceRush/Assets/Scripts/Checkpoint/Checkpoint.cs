@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    private Light point;
+    private GameObject indicator1;
+    private GameObject indicator2;
     public int id;
     public bool isFull;
     private GameManager game;
@@ -12,44 +13,29 @@ public class Checkpoint : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        indicator1 = transform.Find("indicator1").gameObject;
+        indicator2 = transform.Find("indicator2").gameObject;
+
         isFull = false;
-        point = GetComponent<Light>();
         game = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.transform.gameObject.name == "Spacecraft")
+        if (other.transform.gameObject.name == "Spacecraft1")
         {
-            if (point.color == Color.red)
-            {
-                point.color = game.player_1.playerColor;
-                game.checkpointTriggered(id, game.player_1);
-                isFull = true;
-            }
-            else
-            {
-                point.color = Color.green;
-                game.checkpointTriggered(id, game.player_1);
-                isFull = true;
-            }
-
+            indicator1.GetComponent<Renderer>().material.SetColor("Color_DDEDA7A6", game.player_1.playerColor);
+            indicator1.SetActive(true);
+            game.checkpointTriggered(id, game.player_1);
+            isFull = true;
         }
 
         if (other.transform.gameObject.name == "Spacecraft2")
         {
-            if (point.color == Color.red)
-            {
-                point.color = game.player_1.playerColor;
-                game.checkpointTriggered(id, game.player_2);
-                isFull = true;
-            }
-            else
-            {
-                point.color = Color.green;
-                game.checkpointTriggered(id, game.player_2);
-                isFull = true;
-            }
+            indicator2.GetComponent<Renderer>().material.SetColor("Color_DDEDA7A6", game.player_2.playerColor);
+            indicator2.SetActive(true);
+            game.checkpointTriggered(id, game.player_2);
+            isFull = true;
         }
     }
     void OnTriggerStay2D(Collider2D other)
