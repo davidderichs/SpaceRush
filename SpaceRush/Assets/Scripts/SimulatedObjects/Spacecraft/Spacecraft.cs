@@ -9,6 +9,7 @@ public class Spacecraft : SimulatedObject
     private List<SpacecraftAction> actions;
     private Rigidbody2D rb;
     private Attractor attractor;
+    private ActivateForTime damageIndication;
     private Vector2 m_velocity;
     private float m_angularVelocity;
     private bool sleeping;
@@ -39,6 +40,7 @@ public class Spacecraft : SimulatedObject
         actions = new List<SpacecraftAction>();
         rb = GetComponent<Rigidbody2D>();
         attractor = GetComponent<Attractor>();
+        damageIndication = GetComponent<ActivateForTime>();
     }
 
     void Update()
@@ -129,6 +131,11 @@ public class Spacecraft : SimulatedObject
         m_velocity = rb.velocity;
         m_angularVelocity = rb.angularVelocity;
         sleeping = true;
+    }
+
+    public void ShowDamage(float duration)
+    {
+        damageIndication.Play(duration);
     }
 
 }

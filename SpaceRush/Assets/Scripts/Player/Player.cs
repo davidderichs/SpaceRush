@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private int lastCheckpoint;
     public Color32 playerColor;
     public GameObject space;
+    public Spacecraft spacecraft;
     private string weapon1;
     private string weapon2;
     private string item1;
@@ -35,6 +36,8 @@ public class Player : MonoBehaviour
 
         init_Start_Values();
         init_card_Stack();
+
+        spacecraft = space.GetComponent<Spacecraft>();
     }
 
     void Update()
@@ -124,6 +127,7 @@ public class Player : MonoBehaviour
 
     public void looseLive(int damage)
     {
+        spacecraft.ShowDamage(2);
         if (shields > 0)
         {
             shields = shields - damage;
@@ -169,8 +173,8 @@ public class Player : MonoBehaviour
     {
         if (mainFuel <= 5)
             mainFuel = mainFuel + fuel;
-        if(mainFuel>5)
-        addFuel = addFuel + mainFuel - 5;
+        if (mainFuel > 5)
+            addFuel = addFuel + mainFuel - 5;
     }
 
     public void AddFuel(float fuel)
