@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
@@ -21,7 +22,14 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     private TickTimer tickTimer;
     private List<Spacecraft> spacecrafts;
 
+    public GameObject Win_Loose_Screen;
+    private UnityAction win_Loose_Screen_restart_listener;
+    private UnityAction win_Loose_Screen_exit_to_Main_listener;
+    private UnityAction win_Loose_Screen_exit_to_Windows_listener;
+    public bool gameHasEnded;
+
     public GameObject Pause_Menu;
+
     private UnityAction pause_Menu_continue_listener;
     private UnityAction pause_Menu_restart_listener;
     private UnityAction pause_Menu_exit_to_Main_listener;
@@ -102,7 +110,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         EventManager.StartListening("Player_1_lost", player_1_loose);
 
         player_2_loose = new UnityAction(propagate_player_2_loosing);
-        EventManager.StartListening("Player_1_lost", player_2_loose);
+        EventManager.StartListening("Player_2_lost", player_2_loose);
 
         player_indicator = new UnityAction(propagate_Indicator_change);
         EventManager.StartListening("Player_Indicator_Change", player_indicator);
@@ -117,6 +125,21 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         spacecrafts.Add(GameObject.Find("Spacecraft2").GetComponent<Spacecraft>());
 
         camera = GameObject.Find("Main Camera").GetComponent<CameraController>();
+
+        gameHasEnded = false;
+
+        Win_Loose_Screen = GameObject.Find("Win_Loose_Screen");
+        Win_Loose_Screen.gameObject.SetActive(false);
+
+        win_Loose_Screen_restart_listener = new UnityAction(restartScene);
+        EventManager.StartListening("Win_Loose_Screen_Button_Restart_Clicked", win_Loose_Screen_restart_listener);
+
+        win_Loose_Screen_exit_to_Main_listener = new UnityAction(exit_to_MainMenu);
+        EventManager.StartListening("Win_Loose_Screen_Button_Exit_to_Main_Clicked", win_Loose_Screen_exit_to_Main_listener);
+
+        win_Loose_Screen_exit_to_Windows_listener = new UnityAction(close_Application);
+        EventManager.StartListening("Win_Loose_Screen_Button_Exit_to_Windows_Clicked", win_Loose_Screen_exit_to_Windows_listener);
+
 
         Pause_Menu = GameObject.Find("Pause_Menu");
         resume();
@@ -310,11 +333,14 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
     private void propagate_player_1_loosing()
     {
-        Debug.Log("Player 1 Lost");
+        Win_Loose_Screen.gameObject.SetActive(true);
+        gameHasEnded = true;
+        GameObject.Find("Win_Loose_Text").GetComponent<Text>().text = "Player 2 has won the game";
     }
-    private void propagate_player_2_loosing()
-    {
-        Debug.Log("Player 2 Lost");
+    private void propagate_player_2_loosing()    {
+        Win_Loose_Screen.gameObject.SetActive(true);
+        gameHasEnded = true;
+        GameObject.Find("Win_Loose_Text").GetComponent<Text>().text = "Player 1 has won the game";
     }
 
     private void propagate_Indicator_change()

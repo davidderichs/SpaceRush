@@ -35,6 +35,12 @@ public class Player : MonoBehaviour
         init_card_Stack();
     }
 
+    void Update(){
+        if(!GameManager.GetInstance().gameHasEnded){
+            playerLost();
+        }        
+    }
+
     void init_Start_Values()
     {
         lives = 10;
