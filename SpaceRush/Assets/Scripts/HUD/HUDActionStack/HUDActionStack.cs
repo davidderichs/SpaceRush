@@ -52,7 +52,7 @@ public class HUDActionStack : MonoBehaviour
                 ActionCard currentAction = player.actionStack.getActionCard(i);
                 if (currentAction.type.Equals("forward") && currentAction.fuelCost < 6 || currentAction.type.Equals("backward") && currentAction.fuelCost < 6)
                 {
-                    currentAction.forceOrVelocity = currentAction.forceOrVelocity * 2;
+                    currentAction.forceOrVelocity = currentAction.forceOrVelocity + 100;
                     currentAction.fuelCost = currentAction.fuelCost + 1;
                     EventManager.TriggerEvent("Player_Card_Selection_Changed");
                     Debug.Log("test");
@@ -71,7 +71,7 @@ public class HUDActionStack : MonoBehaviour
                 ActionCard currentAction = player.actionStack.getActionCard(i);
                 if (currentAction.type.Equals("forward") && currentAction.fuelCost > 1 || currentAction.type.Equals("backward") && currentAction.fuelCost > 1)
                 {
-                    currentAction.forceOrVelocity = currentAction.forceOrVelocity / 2;
+                    currentAction.forceOrVelocity = currentAction.forceOrVelocity - 100;
                     currentAction.fuelCost = currentAction.fuelCost - 1;
                     EventManager.TriggerEvent("Player_Card_Selection_Changed");
                 }
@@ -117,7 +117,7 @@ public class HUDActionStack : MonoBehaviour
             }
             image = actionImage.GetComponent<Image>();
             image.sprite = Resources.Load<Sprite>("Sprites/" + currentAction.spriteName);
-            
+
             //Text for the Powerinfos
             Text powerComponent = GameObject.Find("HUDAvailableActionPower" + i).GetComponent<Text>();
             if (currentAction.type.Equals("forward") || currentAction.type.Equals("backward"))
@@ -156,29 +156,29 @@ public class HUDActionStack : MonoBehaviour
                             break;
                         }
                         else
-                        { 
+                        {
                             weapon2.sprite = Resources.Load<Sprite>("Sprites/WeaponGravityMine");
                             break;
                         }
                     case "rocket":
-                        if(i == 1)
+                        if (i == 1)
                         {
                             weapon1.sprite = Resources.Load<Sprite>("Sprites/WeaponRocket");
                             break;
                         }
                         else
-                        { 
+                        {
                             weapon2.sprite = Resources.Load<Sprite>("Sprites/WeaponRocket");
                             break;
                         }
-                        case "laser":
-                        if(i == 1)
+                    case "laser":
+                        if (i == 1)
                         {
                             weapon1.sprite = Resources.Load<Sprite>("Sprites/WeaponLaser");
                             break;
                         }
                         else
-                        { 
+                        {
                             weapon2.sprite = Resources.Load<Sprite>("Sprites/WeaponLaser");
                             break;
                         }
@@ -221,7 +221,7 @@ public class HUDActionStack : MonoBehaviour
                                     player.actionSelection.addActionCard(ActionCardStorage.GetGravityMine());
                                     player.looseFuel(3);
                                     player.CardCounterChange(1);
-                                    removeWeapon(player.getWeapon(1),player);
+                                    removeWeapon(player.getWeapon(1), player);
                                     EventManager.TriggerEvent("Player_Card_Selection_Changed");
                                     EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");
                                     EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed");
@@ -229,7 +229,7 @@ public class HUDActionStack : MonoBehaviour
                             });
                         }
                         else
-                        {    
+                        {
                             GameObject.Find("HUD_Weapon_2").GetComponent<Button>().onClick.AddListener(delegate
                             {
                                 if (player.actionSelection.getSize() < 5)
@@ -237,7 +237,7 @@ public class HUDActionStack : MonoBehaviour
                                     player.actionSelection.addActionCard(ActionCardStorage.GetGravityMine());
                                     player.CardCounterChange(1);
                                     player.looseFuel(3);
-                                    removeWeapon(player.getWeapon(2),player);
+                                    removeWeapon(player.getWeapon(2), player);
                                     EventManager.TriggerEvent("Player_Card_Selection_Changed");
                                     EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");
                                     EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed");
@@ -246,7 +246,7 @@ public class HUDActionStack : MonoBehaviour
                         }
                         break;
                     case "rocket":
-                    if (i == 1)
+                        if (i == 1)
                         {
                             GameObject.Find("HUD_Weapon_1").GetComponent<Button>().onClick.AddListener(delegate
                             {
@@ -255,7 +255,7 @@ public class HUDActionStack : MonoBehaviour
                                     player.actionSelection.addActionCard(ActionCardStorage.GetRocket());
                                     player.looseFuel(3);
                                     player.CardCounterChange(1);
-                                    removeWeapon(player.getWeapon(1),player);
+                                    removeWeapon(player.getWeapon(1), player);
                                     EventManager.TriggerEvent("Player_Card_Selection_Changed");
                                     EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");
                                     EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed");
@@ -263,7 +263,7 @@ public class HUDActionStack : MonoBehaviour
                             });
                         }
                         else
-                        {    
+                        {
                             GameObject.Find("HUD_Weapon_2").GetComponent<Button>().onClick.AddListener(delegate
                             {
                                 if (player.actionSelection.getSize() < 5)
@@ -271,7 +271,7 @@ public class HUDActionStack : MonoBehaviour
                                     player.actionSelection.addActionCard(ActionCardStorage.GetRocket());
                                     player.CardCounterChange(1);
                                     player.looseFuel(3);
-                                    removeWeapon(player.getWeapon(2),player);
+                                    removeWeapon(player.getWeapon(2), player);
                                     EventManager.TriggerEvent("Player_Card_Selection_Changed");
                                     EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");
                                     EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed");
@@ -280,7 +280,7 @@ public class HUDActionStack : MonoBehaviour
                         }
                         break;
                     case "laser":
-                    if (i == 1)
+                        if (i == 1)
                         {
                             GameObject.Find("HUD_Weapon_1").GetComponent<Button>().onClick.AddListener(delegate
                             {
@@ -289,7 +289,7 @@ public class HUDActionStack : MonoBehaviour
                                     player.actionSelection.addActionCard(ActionCardStorage.GetLaser());
                                     player.looseFuel(3);
                                     player.CardCounterChange(1);
-                                    removeWeapon(player.getWeapon(1),player);
+                                    removeWeapon(player.getWeapon(1), player);
                                     EventManager.TriggerEvent("Player_Card_Selection_Changed");
                                     EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");
                                     EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed");
@@ -297,7 +297,7 @@ public class HUDActionStack : MonoBehaviour
                             });
                         }
                         else
-                        {    
+                        {
                             GameObject.Find("HUD_Weapon_2").GetComponent<Button>().onClick.AddListener(delegate
                             {
                                 if (player.actionSelection.getSize() < 5)
@@ -305,7 +305,7 @@ public class HUDActionStack : MonoBehaviour
                                     player.actionSelection.addActionCard(ActionCardStorage.GetLaser());
                                     player.CardCounterChange(1);
                                     player.looseFuel(3);
-                                    removeWeapon(player.getWeapon(2),player);
+                                    removeWeapon(player.getWeapon(2), player);
                                     EventManager.TriggerEvent("Player_Card_Selection_Changed");
                                     EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");
                                     EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed");

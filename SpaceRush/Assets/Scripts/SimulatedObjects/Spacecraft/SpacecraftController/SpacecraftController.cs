@@ -94,7 +94,6 @@ public class SpacecraftController : MonoBehaviour
 
             EventManager.TriggerEvent("spacecraft_boost_start");
         }
-        FireMissile();
     }
 
     public void Rotate(SpacecraftAction.Direction direction, float speed, float duration)
