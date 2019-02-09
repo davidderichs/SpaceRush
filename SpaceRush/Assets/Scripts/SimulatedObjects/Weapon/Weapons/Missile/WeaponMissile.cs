@@ -16,9 +16,13 @@ public class WeaponMissile : Weapon
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (fired)
+        if (fired && (other.tag.Equals("spacecraft") || other.tag.Equals("planet")))
         {
             SetState(new MissileExplosionState(this));
+        }
+        if (other.tag.Equals("boundary"))
+        {
+            GameManager.GetInstance().RemoveSimulatedObject(this);
         }
     }
 

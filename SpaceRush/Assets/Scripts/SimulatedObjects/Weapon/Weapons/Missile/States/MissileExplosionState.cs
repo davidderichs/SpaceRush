@@ -9,6 +9,7 @@ public class MissileExplosionState : WeaponState
     private float removalTime;
     private ParticleSystem explosion;
     private bool remove;
+    private Rigidbody2D rb;
 
     public MissileExplosionState(Weapon weapon) : base(weapon)
     { }
@@ -43,6 +44,7 @@ public class MissileExplosionState : WeaponState
         GameObject thruster = weapon.transform.Find("thruster").gameObject;
         UnityEngine.Object.Destroy(thruster);
         EventManager.TriggerEvent("missile_explosion");
+        rb = weapon.GetComponent<Rigidbody2D>();
     }
 
     public override void OnStateExit()
@@ -52,11 +54,13 @@ public class MissileExplosionState : WeaponState
 
     public override void Stop()
     {
-
+        rb.simulated = false;
+        explosion.Pause();
     }
 
     public override void Resume()
     {
-
+        rb.simulated = true;
+        explosion.Play();
     }
 }
