@@ -16,13 +16,16 @@ public class WeaponMissile : Weapon
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (fired && (other.tag.Equals("spacecraft") || other.tag.Equals("planet")))
+        if ((fired && other.tag.Equals("planet")) || other.tag.Equals("boundary"))
         {
             SetState(new MissileExplosionState(this));
         }
-        if (other.tag.Equals("boundary"))
+        if (fired && other.tag.Equals("spacecraft"))
         {
-            GameManager.GetInstance().RemoveSimulatedObject(this);
+            SetState(new MissileExplosionState(this));
+            Player player = other.gameObject.GetComponent<Spacecraft>().player;
+            GameManager.GetInstance().resetPlayer(player);
+            player.looseLive(5);
         }
     }
 

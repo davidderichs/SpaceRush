@@ -373,11 +373,11 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             spacecraft.player.looseLive(3);
             resetPlayer(spacecraft.player);
         }
-        if (collider.name.Contains("Spacecraft"))
+        if (collider.tag.Equals("spacecraft"))
         {
             EventManager.TriggerEvent("spacecraft_planet_collision");
             spacecraft.player.looseLive(1);
-            resetPlayer(spacecraft.player);
+            //resetPlayer(spacecraft.player);
         }
     }
 

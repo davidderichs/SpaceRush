@@ -6064,7 +6064,7 @@ GameObject:
   - component: {fileID: 1065099002}
   m_Layer: 0
   m_Name: top_barrier
-  m_TagString: Untagged
+  m_TagString: boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7324,7 +7324,7 @@ GameObject:
   - component: {fileID: 1174220145}
   m_Layer: 0
   m_Name: right_barrier
-  m_TagString: Untagged
+  m_TagString: boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7827,7 +7827,7 @@ GameObject:
   - component: {fileID: 1214641911}
   m_Layer: 0
   m_Name: bottom_barrier
-  m_TagString: Untagged
+  m_TagString: boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8574,7 +8574,7 @@ GameObject:
   - component: {fileID: 1346363656}
   m_Layer: 0
   m_Name: left_barrier
-  m_TagString: Untagged
+  m_TagString: boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

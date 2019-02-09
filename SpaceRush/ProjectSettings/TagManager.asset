@@ -17,6 +17,7 @@ TagManager:
   - missile
   - gravitymine
   - spacecraft
+  - boundary
   layers:
   - Default
   - TransparentFX
