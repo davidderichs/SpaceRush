@@ -90,7 +90,7 @@ public class CameraController : MonoBehaviour
         SetState(newState);
     }
 
-    private void SetState(CameraState newState)
+    public void SetState(CameraState newState)
     {
         if (state != null)
         {
@@ -101,6 +101,35 @@ public class CameraController : MonoBehaviour
         {
             state.OnStateEnter();
         }
+    }
+
+    public Vector3 GetPointInBoundaries(Vector3 desiredPosition)
+    {
+        if (desiredPosition.x > maxX)
+        {
+            desiredPosition.x = maxX;
+        }
+        if (desiredPosition.x < minX)
+        {
+            desiredPosition.x = minX;
+        }
+        if (desiredPosition.y > maxY)
+        {
+            desiredPosition.y = maxY;
+        }
+        if (desiredPosition.y < minY)
+        {
+            desiredPosition.y = minY;
+        }
+        if (desiredPosition.z > maxZ)
+        {
+            desiredPosition.z = maxZ;
+        }
+        if (desiredPosition.z < minZ)
+        {
+            desiredPosition.z = minZ;
+        }
+        return desiredPosition;
     }
 
 }

@@ -314,7 +314,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             this.hud.actionStack.changePlayer(1);
             this.hud.selectedAction.changePlayer(1);
         }
-        camera.AnimateTo(acti_player.space.transform.position);
+        camera.SetState(new CameraAnimateToState(camera, acti_player.space.transform.position, 0.5f, new CameraNavigationState(camera)));
         propagate_Player_live_change();
         propagate_Player_shield_change();
         propagate_Player_main_fuel_change();
@@ -428,7 +428,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         {
             simulatedObject.Pause();
         }
-        camera.FreeNavigation();
+        camera.SetState(new CameraAnimateToState(camera, acti_player.space.transform.position, 0.5f, new CameraNavigationState(camera))); ;
         this.hud.show();
     }
 
