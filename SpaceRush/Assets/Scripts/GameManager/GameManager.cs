@@ -360,7 +360,11 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         string last = "Checkpoint" + player.getLastCheckpoint();
         player.space.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         player.space.GetComponent<Rigidbody2D>().angularVelocity = 0;
-        player.space.transform.position = GameObject.Find(last).GetComponent<Checkpoint>().transform.position;
+        Checkpoint check = GameObject.Find(last).GetComponent<Checkpoint>();
+        if (check.isFull == false)
+            player.space.transform.position = check.transform.position;
+        else
+            player.space.transform.position = new Vector3(check.transform.position.x, check.transform.position.y + 30, check.transform.position.z);
     }
 
     public void OnSpacecraftCollision(Spacecraft spacecraft, GameObject collider)
