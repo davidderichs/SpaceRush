@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     //Attributes for Players
     public int playerId;
+    public float currentSpeed;
     public int lives;
     public int shields;
     public float mainFuel;
@@ -30,6 +31,7 @@ public class Player : MonoBehaviour
         weapon2 = "";
         item1 = "fuel";
         item2 = "";
+        currentSpeed = 0;
 
         init_Start_Values();
         init_card_Stack();

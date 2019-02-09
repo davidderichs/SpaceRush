@@ -91,7 +91,6 @@ public class SpacecraftController : MonoBehaviour
             boostDirection = direction;
             boostForce = force;
             boostTimer = duration;
-
             EventManager.TriggerEvent("spacecraft_boost_start");
         }
     }
