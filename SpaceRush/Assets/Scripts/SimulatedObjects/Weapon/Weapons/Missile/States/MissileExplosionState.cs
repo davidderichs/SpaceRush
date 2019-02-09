@@ -41,6 +41,7 @@ public class MissileExplosionState : WeaponState
         UnityEngine.Object.Destroy(missile);
         GameObject thruster = weapon.transform.Find("thruster").gameObject;
         UnityEngine.Object.Destroy(thruster);
+        EventManager.TriggerEvent("missile_explosion");
     }
 
     public override void OnStateExit()

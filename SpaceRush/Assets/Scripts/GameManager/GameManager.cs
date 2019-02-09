@@ -115,14 +115,16 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         player_indicator = new UnityAction(propagate_Indicator_change);
         EventManager.StartListening("Player_Indicator_Change", player_indicator);
 
-        Spacecraft.AddCollisionListener(this);
-
         tickTimer = gameObject.AddComponent<TickTimer>();
         tickTimer.SetProperties(this, 2, 5);
 
         spacecrafts = new List<Spacecraft>();
-        spacecrafts.Add(GameObject.Find("Spacecraft1").GetComponent<Spacecraft>());
-        spacecrafts.Add(GameObject.Find("Spacecraft2").GetComponent<Spacecraft>());
+        Spacecraft spacecraft1 = GameObject.Find("Spacecraft1").GetComponent<Spacecraft>();
+        Spacecraft spacecraft2 = GameObject.Find("Spacecraft2").GetComponent<Spacecraft>();
+        spacecraft1.AddCollisionListener(this);
+        spacecraft2.AddCollisionListener(this);
+        spacecrafts.Add(spacecraft1);
+        spacecrafts.Add(spacecraft2);
 
         camera = GameObject.Find("Main Camera").GetComponent<CameraController>();
 
@@ -337,7 +339,8 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         gameHasEnded = true;
         GameObject.Find("Win_Loose_Text").GetComponent<Text>().text = "Player 2 has won the game";
     }
-    private void propagate_player_2_loosing()    {
+    private void propagate_player_2_loosing()
+    {
         Win_Loose_Screen.gameObject.SetActive(true);
         gameHasEnded = true;
         GameObject.Find("Win_Loose_Text").GetComponent<Text>().text = "Player 1 has won the game";
@@ -364,16 +367,10 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     {
         // Debug.Log(spacecraft.name + " collided with " + collider.name);
 
-        if (collider.name.Contains("planet"))
+        if (collider.tag.Equals("planet"))
         {
             EventManager.TriggerEvent("spacecraft_planet_collision");
             spacecraft.player.looseLive(3);
-            resetPlayer(spacecraft.player);
-        }
-        if (collider.name.Contains("moon"))
-        {
-            EventManager.TriggerEvent("spacecraft_planet_collision");
-            spacecraft.player.looseLive(2);
             resetPlayer(spacecraft.player);
         }
         if (collider.name.Contains("Spacecraft"))

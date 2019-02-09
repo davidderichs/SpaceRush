@@ -8,13 +8,14 @@ public class WeaponGravityMine : Weapon
 
     void Start()
     {
+        base.Start();
         SetState(new GravityInitializationState(this));
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.transform.gameObject.name.Contains("Spacecraft"))
+        if (other.transform.gameObject.tag.Equals("spacecraft"))
         {
             Vector3 direction = Vector3.Normalize(this.transform.position - other.transform.position);
             Rigidbody2D rb = other.GetComponent<Rigidbody2D>();

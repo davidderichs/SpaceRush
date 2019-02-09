@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.029320378, g: 0.043756835, b: 0.06000387, a: 1}
+  m_IndirectSpecularColor: {r: 0.030028421, g: 0.043730773, b: 0.060358748, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1503,7 +1503,7 @@ GameObject:
   - component: {fileID: 224044988}
   m_Layer: 0
   m_Name: planet_makemake
-  m_TagString: Untagged
+  m_TagString: planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3724,7 +3724,7 @@ GameObject:
   - component: {fileID: 716938776}
   m_Layer: 0
   m_Name: planet_eris
-  m_TagString: Untagged
+  m_TagString: planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5313,7 +5313,7 @@ GameObject:
   - component: {fileID: 961439575}
   m_Layer: 0
   m_Name: planet_mars
-  m_TagString: Untagged
+  m_TagString: planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6709,7 +6709,7 @@ GameObject:
   - component: {fileID: 1117230482}
   m_Layer: 0
   m_Name: planet_ceres
-  m_TagString: Untagged
+  m_TagString: planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7691,7 +7691,7 @@ GameObject:
   - component: {fileID: 1203064077}
   m_Layer: 0
   m_Name: planet_jupiter
-  m_TagString: Untagged
+  m_TagString: planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13773,6 +13773,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1701230676420556, guid: ecbfb9e9b1f7149b78e04f8c02fdc469, type: 2}
+      propertyPath: m_TagString
+      value: spacecraft
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecbfb9e9b1f7149b78e04f8c02fdc469, type: 2}
   m_IsPrefabAsset: 0
@@ -14061,7 +14065,7 @@ GameObject:
   - component: {fileID: 1417590214}
   m_Layer: 0
   m_Name: planet_venus
-  m_TagString: Untagged
+  m_TagString: planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16292,6 +16296,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1701230676420556, guid: ecbfb9e9b1f7149b78e04f8c02fdc469, type: 2}
+      propertyPath: m_TagString
+      value: spacecraft
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecbfb9e9b1f7149b78e04f8c02fdc469, type: 2}
   m_IsPrefabAsset: 0
@@ -17292,7 +17300,7 @@ GameObject:
   - component: {fileID: 1912903828}
   m_Layer: 0
   m_Name: planet_mercury
-  m_TagString: Untagged
+  m_TagString: planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18603,7 +18611,7 @@ GameObject:
   - component: {fileID: 2118740408}
   m_Layer: 0
   m_Name: moon_moon
-  m_TagString: Untagged
+  m_TagString: planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

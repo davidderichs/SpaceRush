@@ -5,29 +5,26 @@ using UnityEngine;
 public class WeaponMissile : Weapon
 {
 
-    private bool leftSpacecraft;
+    private bool fired;
 
     void Start()
     {
+        base.Start();
         SetState(new MissileMovingState(this));
-        leftSpacecraft = false;
+        fired = false;
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (leftSpacecraft)
+        if (fired)
         {
-            if (other.transform.gameObject.name.Contains("Spacecraft"))
-            {
-                // kill
-            }
             SetState(new MissileExplosionState(this));
         }
     }
 
-    public void OnTriggerExit2d(Collider2D other)
+    public void OnTriggerExit2D(Collider2D other)
     {
-        leftSpacecraft = true;
+        fired = true;
     }
 
     public void Initialize(Quaternion parentRotation, Vector2 parentVelocity)

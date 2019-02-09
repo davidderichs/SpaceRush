@@ -13,6 +13,10 @@ TagManager:
   - Loading_Circle
   - Loading_Progress_Circle
   - Loading_Text
+  - planet
+  - missile
+  - gravitymine
+  - spacecraft
   layers:
   - Default
   - TransparentFX

@@ -24,9 +24,7 @@ public class MissileMovingState : WeaponState
     }
 
     public override void OnStateExit()
-    {
-
-    }
+    { }
 
     public override void Stop()
     {

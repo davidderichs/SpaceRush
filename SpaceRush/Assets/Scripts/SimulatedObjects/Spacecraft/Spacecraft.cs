@@ -14,9 +14,9 @@ public class Spacecraft : SimulatedObject
     private bool sleeping;
 
 
-    private static List<ISpacecraftCollisionListener> listeners;
+    private List<ISpacecraftCollisionListener> listeners;
 
-    public static void AddCollisionListener(ISpacecraftCollisionListener listener)
+    public void AddCollisionListener(ISpacecraftCollisionListener listener)
     {
         if (listeners == null)
         {
@@ -25,7 +25,7 @@ public class Spacecraft : SimulatedObject
         listeners.Add(listener);
     }
 
-    public static void RemoveCollisionListener(ISpacecraftCollisionListener listener)
+    public void RemoveCollisionListener(ISpacecraftCollisionListener listener)
     {
         if (listener != null)
         {
@@ -101,7 +101,7 @@ public class Spacecraft : SimulatedObject
         }
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    public void OnCollisionEnter2D(Collision2D col)
     {
         if (listeners != null)
         {
