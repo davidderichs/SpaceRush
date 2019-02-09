@@ -6,7 +6,7 @@ public class Grav_Mine : Collectible {
 
 	void OnTriggerEnter2D(Collider2D other){
 		findGameManager();
-		if (other.transform.gameObject.name == "Spacecraft"){
+		if (other.transform.gameObject.name == "Spacecraft1"){
 			game.player_1.addWeapon("GravityMine");
 			// Debug.Log("collected");
 		}

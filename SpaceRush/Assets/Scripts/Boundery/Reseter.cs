@@ -7,7 +7,7 @@ public class Reseter : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.transform.gameObject.name == "Spacecraft")
+        if (other.transform.gameObject.name == "Spacecraft1")
         {
             EventManager.TriggerEvent("Player_1_reset");
         }
