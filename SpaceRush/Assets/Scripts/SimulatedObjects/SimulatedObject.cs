@@ -4,9 +4,10 @@ using UnityEngine;
 
 public abstract class SimulatedObject : MonoBehaviour
 {
-    void Awake()
+    public void Start()
     {
         GameManager.GetInstance().AddSimulatedObject(this);
+        Debug.Log("Added SimulatedObject instance to GameManger");
     }
     public abstract void Play();
     public abstract void Pause();

@@ -17,10 +17,11 @@ public class Orbiter : SimulatedObject
     private float timePassed;
     private bool active;
 
-    void Start()
+    public void Start()
     {
+        base.Start();
         timePassed = offsetTime;
-        active = true;
+        active = false;
     }
 
     // Update is called once per frame
