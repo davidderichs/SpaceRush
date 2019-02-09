@@ -35,10 +35,12 @@ public class Player : MonoBehaviour
         init_card_Stack();
     }
 
-    void Update(){
-        if(!GameManager.GetInstance().gameHasEnded){
+    void Update()
+    {
+        if (!GameManager.GetInstance().gameHasEnded)
+        {
             playerLost();
-        }        
+        }
     }
 
     void init_Start_Values()
@@ -160,6 +162,13 @@ public class Player : MonoBehaviour
             }
         }
         else mainFuel = mainFuel - fuel;
+    }
+    public void AddMainFuel(float fuel)
+    {
+        if (mainFuel <= 5)
+            mainFuel = mainFuel + fuel;
+        if(mainFuel>5)
+        addFuel = addFuel + mainFuel - 5;
     }
 
     public void AddFuel(float fuel)

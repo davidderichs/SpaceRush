@@ -35,7 +35,7 @@ public class HUDActionSelection : MonoBehaviour
                     }
                 }
 
-                player.AddFuel(player.actionSelection.getActionCard(copy).fuelCost);
+                player.AddMainFuel(player.actionSelection.getActionCard(copy).fuelCost);
                 player.actionSelection.removeActionCardwithIndex(copy);
                 player.CardCounterChange(-1);
                 EventManager.TriggerEvent("Player_Card_Selection_Changed");
