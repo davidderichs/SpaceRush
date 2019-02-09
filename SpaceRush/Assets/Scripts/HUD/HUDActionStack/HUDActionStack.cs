@@ -121,7 +121,7 @@ public class HUDActionStack : MonoBehaviour
             //Text for the Powerinfos
             Text powerComponent = GameObject.Find("HUDAvailableActionPower" + i).GetComponent<Text>();
             if (currentAction.type.Equals("forward") || currentAction.type.Equals("backward"))
-                powerComponent.text = actionStack.getActionCard(i).forceOrVelocity.ToString();
+                powerComponent.text = actionStack.getActionCard(i).forceOrVelocity.ToString() + "kN";
             else if (currentAction.type.Equals("rotateRight") || currentAction.type.Equals("rotateLeft"))
                 powerComponent.text = (actionStack.getActionCard(i).forceOrVelocity * 2).ToString() + "°";
             powerComponent.alignment = TextAnchor.MiddleCenter;
