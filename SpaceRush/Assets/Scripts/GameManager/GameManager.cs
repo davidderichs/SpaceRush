@@ -406,6 +406,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     private void StartSimulation()
     {
         Debug.Log("Starting Simulation");
+        EventManager.TriggerEvent("start_simulation");
         this.hud.hide();
         foreach (SimulatedObject simulatedObject in simulatedObjects)
         {
@@ -418,6 +419,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     private void StopSimulation()
     {
         Debug.Log("Stopping Simulation");
+        EventManager.TriggerEvent("stop_simulation");
         foreach (SimulatedObject simulatedObject in simulatedObjects)
         {
             simulatedObject.Pause();

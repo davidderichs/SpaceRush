@@ -16685,9 +16685,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8900168d307ceeb479048f3ae8e27d2c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.122
+  m_Volume: 0.099
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -16697,7 +16697,7 @@ AudioSource:
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
-  BypassEffects: 0
+  BypassEffects: 1
   BypassListenerEffects: 0
   BypassReverbZones: 0
   rolloffCustomCurve:
@@ -18617,7 +18617,7 @@ GameObject:
   - component: {fileID: 1851276516}
   - component: {fileID: 1851276517}
   m_Layer: 0
-  m_Name: Audio_Source_Spacecraft_Collition
+  m_Name: Audio_Source_Spacecraft_Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
