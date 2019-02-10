@@ -40,7 +40,7 @@ public class SoundManager : MonoBehaviour {
 		spacecraft_boost_stop_listener = new UnityAction (play_sound_spacecraft_boost);
 		EventManager.StartListening("spacecraft_boost_start", spacecraft_boost_stop_listener);
 
-		spacecraft_boost_stop_listener = new UnityAction (play_sound_spacecraft_boost);
+		spacecraft_boost_stop_listener = new UnityAction (stop_sound_spacecraft_boost);
 		EventManager.StartListening("HUD_Player_is_ready", spacecraft_boost_stop_listener);
 	}
 	
@@ -68,9 +68,9 @@ public class SoundManager : MonoBehaviour {
 		GameObject.Find("Audio_Source_Spacecraft_Collition").GetComponent<AudioSource>().Play();
 	}
 	void play_sound_spacecraft_boost(){
-
+		GameObject.Find("Audio_Source_Spacecraft_Boost").GetComponent<AudioSource>().Play();
 	}
 	void stop_sound_spacecraft_boost(){
-
+		GameObject.Find("Audio_Source_Spacecraft_Boost").GetComponent<AudioSource>().Stop();
 	}
 }
