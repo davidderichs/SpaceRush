@@ -261,7 +261,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         StartStateMachine();
     }
 
-    public void checkpointTriggered(int id, Player player)
+    /* public void checkpointTriggered(int id, Player player)
     {
         bool activated = false;
         for (int i = 0; i < player.check.Count; i++)
@@ -271,7 +271,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         }
         if (activated == false)
             player_1.addCheckpoint(id);
-    }
+    } */
     void propagate_Player_live_change()
     {
         this.hud.live.set_ActiveItemsColor(this.acti_player.lives);
