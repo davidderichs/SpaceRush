@@ -33,7 +33,7 @@ public class HUDActionStack : MonoBehaviour
                         removeWeapon(player.actionStack.getActionCard(copy).type, player);
                     if (player.actionStack.getActionCard(copy) is MoveActionCard && player.actionStack.getActionCard(copy).type.Equals("forward"))
                         player.currentSpeed = player.currentSpeed + player.actionStack.getActionCard(copy).forceOrVelocity;
-                    if (player.actionStack.getActionCard(copy) is MoveActionCard && player.actionStack.getActionCard(copy).type.Equals("Backward"))
+                    if (player.actionStack.getActionCard(copy) is MoveActionCard && player.actionStack.getActionCard(copy).type.Equals("backward"))
                         player.currentSpeed = player.currentSpeed - player.actionStack.getActionCard(copy).forceOrVelocity;
                     EventManager.TriggerEvent("Player_Card_Selection_Changed");
                     EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");

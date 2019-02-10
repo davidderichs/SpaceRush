@@ -386,10 +386,14 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
     public void PlayerWon(Player player)
     {
-        if (player_1 == player)
+        if (player_1 == player){
             propagate_player_2_loosing();
-        else
+            gameHasEnded = true;
+        }
+        else{
             propagate_player_1_loosing();
+            gameHasEnded = true;
+        }
     }
 
     public void Tick(bool done)
