@@ -397,7 +397,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
                 spacecraft.player.actionSelection.actionList.Clear();
                 spacecraft.player.ResetCounter();
             }
-            propagate_Player_stack_change();
+            propagate_Indicator_change();
         }
         else
         {
