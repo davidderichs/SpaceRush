@@ -127,7 +127,7 @@ public class Button_Help : MonoBehaviour
             this.un_highlight_Tutorial_Buttons();
             this.highlight_Tutorial_Button(tutorial_Button_Movement);
             this.change_tutorial_headline("Movement");
-            this.change_tutorial_text("The movement actions: Forward, Backward, Rotation, allow the spacecraft to move through the galaxy. Each action costs fuel and the cost depends on the selected action. Forward and Backward can cost up to 6 fuel, while the cost of Rotation remains at 1 Fuel. The intensity of the movements are shown over the cards and the fuel cost are shown under the card. The motion can be slowed down by using the opposite movement action.");
+            this.change_tutorial_text("The movement actions: Forward, Backward, Rotation, allow the spacecraft to move through the galaxy. Forward and Backward can cost up to 6 fuel, while the cost of Rotation remains at 1 Fuel. The intensity of the movements are shown over the cards and the fuel cost are shown under the card.");
         });
 
         tutorial_Button_Weapons = GameObject.Find("Tutorial_Button_Weapons").GetComponent<Button>();
