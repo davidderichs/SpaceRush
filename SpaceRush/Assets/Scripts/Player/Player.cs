@@ -75,11 +75,14 @@ public class Player : MonoBehaviour
 
     public void addCheckpoint(int checkpoint)
     {
-        check.Add(checkpoint);
-        lastCheckpoint = checkpoint;
-        EventManager.TriggerEvent("Player_Reached_A_Checkpoint");
-        if(check.Count == 4)
-            GameManager.GetInstance().PlayerWon(this);
+        if (AlreadyChecked(checkpoint))
+        {
+            check.Add(checkpoint);
+            lastCheckpoint = checkpoint;
+            EventManager.TriggerEvent("Player_Reached_A_Checkpoint");
+            if (check.Count == 4)
+                GameManager.GetInstance().PlayerWon(this);
+        }
     }
 
     public void addWeapon(string weapon)
@@ -244,5 +247,16 @@ public class Player : MonoBehaviour
     public void ResetCounter()
     {
         cardCounter = 0;
+    }
+
+    public bool AlreadyChecked(int id)
+    {
+        bool activated = false;
+        for (int i = 0; i < check.Count; i++)
+        {
+            if (check[i] == id)
+                return true;
+        }
+        return activated;
     }
 }
