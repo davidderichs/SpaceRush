@@ -78,8 +78,8 @@ public class Player : MonoBehaviour
             check.Add(checkpoint);
             lastCheckpoint = checkpoint;
             EventManager.TriggerEvent("Player_Reached_A_Checkpoint");
-            //if (check.Count == 4)
-                //GameManager.GetInstance().PlayerWon(this);
+            if (check.Count == 4)
+                GameManager.GetInstance().PlayerWon(this);
         }
     }
 

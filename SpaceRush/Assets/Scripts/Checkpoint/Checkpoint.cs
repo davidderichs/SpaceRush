@@ -8,7 +8,6 @@ public class Checkpoint : MonoBehaviour
     private GameObject indicator2;
     public int id;
     public bool isFull;
-    public bool enable;
     private GameManager game;
 
     // Use this for initialization
@@ -16,15 +15,12 @@ public class Checkpoint : MonoBehaviour
     {
         indicator1 = transform.Find("indicator1").gameObject;
         indicator2 = transform.Find("indicator2").gameObject;
-        enable = false;
         isFull = false;
         game = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (enable)
-        {
             if (other.transform.gameObject.name == "Spacecraft1" && other.transform.gameObject.tag == "spacecraft")
             {
                 Debug.Log("Id" + id);
@@ -41,7 +37,6 @@ public class Checkpoint : MonoBehaviour
                 indicator2.GetComponent<Renderer>().material.SetColor("Color_DDEDA7A6", game.player_2.playerColor);
                 game.player_2.addCheckpoint(id);
                 isFull = true;
-            }
         }
     }
     void OnTriggerStay2D(Collider2D other)

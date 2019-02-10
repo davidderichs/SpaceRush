@@ -43,10 +43,6 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     private UnityAction player_card_selection_listener;
     private UnityAction player_ready_listener;
 
-    private UnityAction player_1_reset;
-
-    private UnityAction player_2_reset;
-
     private UnityAction player_1_loose;
 
     private UnityAction player_2_loose;
@@ -96,12 +92,6 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
         player_ready_listener = new UnityAction(propagate_Player_ready);
         EventManager.StartListening("HUD_Player_is_ready", player_ready_listener);
-
-        player_1_reset = new UnityAction(propagate_Player_1_reset);
-        EventManager.StartListening("Player_1_reset", player_1_reset);
-
-        player_2_reset = new UnityAction(propagate_Player_2_reset);
-        EventManager.StartListening("Player_2_reset", player_2_reset);
 
         player_1_loose = new UnityAction(propagate_player_1_loosing);
         EventManager.StartListening("Player_1_lost", player_1_loose);
@@ -322,22 +312,13 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         propagate_Player_stack_change();
     }
 
-    void propagate_Player_1_reset()
-    {
-        resetPlayer(player_1);
-    }
-
-    void propagate_Player_2_reset()
-    {
-        resetPlayer(player_2);
-    }
-
     private void propagate_player_1_loosing()
     {
         Win_Loose_Screen.gameObject.SetActive(true);
         gameHasEnded = true;
         GameObject.Find("Win_Loose_Text").GetComponent<Text>().text = "Player 2 has won the game";
     }
+
     private void propagate_player_2_loosing()
     {
         Win_Loose_Screen.gameObject.SetActive(true);
@@ -386,11 +367,13 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
     public void PlayerWon(Player player)
     {
-        if (player_1 == player){
+        if (player_1 == player)
+        {
             propagate_player_2_loosing();
             gameHasEnded = true;
         }
-        else{
+        else
+        {
             propagate_player_1_loosing();
             gameHasEnded = true;
         }

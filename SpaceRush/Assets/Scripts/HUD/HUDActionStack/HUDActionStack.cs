@@ -16,6 +16,7 @@ public class HUDActionStack : MonoBehaviour
     }
     void setListeners()
     {
+
         for (int i = 0; i < player.actionStack.getSize(); i++)
         {
             int copy = i;
