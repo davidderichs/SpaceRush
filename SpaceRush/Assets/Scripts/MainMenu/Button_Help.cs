@@ -18,7 +18,6 @@ public class Button_Help : MonoBehaviour
     private Button tutorial_Button_Weapons;
     private Button tutorial_Button_Life;
     private Button tutorial_Button_Boost;
-    private Button tutorial_Button_Collectables;
     private Image tutorial_Explaining_Image;
     private Text tutorial_headline;
     private Text tutorial_text;
@@ -43,8 +42,8 @@ public class Button_Help : MonoBehaviour
                 this.setup_Tutorial_Buttons();
                 this.un_highlight_Tutorial_Buttons();
                 this.highlight_Tutorial_Button(tutorial_Button_MainRules);
-                this.change_tutorial_headline("Main Rules");
-                this.change_tutorial_text("The ");
+                this.change_tutorial_headline("Goal");
+                this.change_tutorial_text("The Mission is to reach all checkpoints faster than the opponent by tactical use of movements, fuel, weapons, items and health. Survive by avoiding crashes with planets attacks of the opponent or other dangers in this foreign galaxy.");
 
             }
             else
@@ -88,9 +87,8 @@ public class Button_Help : MonoBehaviour
             this.tutorial_Explaining_Image.color = new Color32(255, 255, 255, 0);
             this.un_highlight_Tutorial_Buttons();
             this.highlight_Tutorial_Button(tutorial_Button_MainRules);
-            this.change_tutorial_headline("Main Rules");
-            this.change_tutorial_text("Reach all Checkpoints faster than your opponent. Use Boost and Rotation to move around. " +
-            "Use Weapons to interfere with your opponent. Fill up your boost by collecting fuel items.");
+            this.change_tutorial_headline("Goal");
+            this.change_tutorial_text("The Mission is to reach all checkpoints faster than the opponent by tactical use of movements, fuel, weapons, items and health. Survive by avoiding crashes with planets attacks of the opponent or other dangers in this foreign galaxy.");
         });
 
         tutorial_Button_Checkpoints = GameObject.Find("Tutorial_Button_Checkpoints").GetComponent<Button>();
@@ -100,7 +98,7 @@ public class Button_Help : MonoBehaviour
             this.un_highlight_Tutorial_Buttons();
             this.highlight_Tutorial_Button(tutorial_Button_Checkpoints);
             this.change_tutorial_headline("Checkpoints");
-            this.change_tutorial_text("Checkpoints have to be reached. The player who first reached all Checkpoints wins the game.");
+            this.change_tutorial_text("If a checkpoint is a reached they'll be marked with the colour of the player. Last reached checkpoint is used as a respawn point if the players ship is destroyed.");
         });
 
         tutorial_Button_Spacecrafts = GameObject.Find("Tutorial_Button_Spacecrafts").GetComponent<Button>();
@@ -109,9 +107,8 @@ public class Button_Help : MonoBehaviour
             set_Tutorial_Image_Source("Sprites/Tutorial_Images/Spacecrafts");
             this.un_highlight_Tutorial_Buttons();
             this.highlight_Tutorial_Button(tutorial_Button_Spacecrafts);
-            this.change_tutorial_headline("SpaceCrafts");
-            this.change_tutorial_text("Spacecrafts are the players Avatar. They need to be moved around the playing area." +
-            "Use Boosts and Rotation to move around.");
+            this.change_tutorial_headline("Spacecrafts");
+            this.change_tutorial_text("The spacecrafts are used as the players avatar. Spacecrafts are equipped with weapons, a protective shield and extra fuel. The avatar can be moved with the use of the movement actions: Forward, Backward and Rotation.");
         });
 
         tutorial_Button_Planets = GameObject.Find("Tutorial_Button_Planets").GetComponent<Button>();
@@ -121,7 +118,7 @@ public class Button_Help : MonoBehaviour
             this.un_highlight_Tutorial_Buttons();
             this.highlight_Tutorial_Button(tutorial_Button_Planets);
             this.change_tutorial_headline("Planets");
-            this.change_tutorial_text("Do not crush into Planets. It will cause you to loose live points. If you loose all life points the game is over.");
+            this.change_tutorial_text("The Planets with thier gravity should be avoided at all cost. If a player crashes with a planet, the player will lose some of his health and respawn at the last claimed checkpoint.");
         });
 
         tutorial_Button_Movement = GameObject.Find("Tutorial_Button_Movement").GetComponent<Button>();
@@ -131,8 +128,7 @@ public class Button_Help : MonoBehaviour
             this.un_highlight_Tutorial_Buttons();
             this.highlight_Tutorial_Button(tutorial_Button_Movement);
             this.change_tutorial_headline("Movement");
-            this.change_tutorial_text("Use Forward, Backward and Rotation to move your Spacecraft." +
-            "You can choose the amount of fuel to be used while boosting which increases throttle.");
+            this.change_tutorial_text("The movement actions: Forward, Backward, Rotation, allow the spacecraft to move through the galaxy. Each action costs fuel and the cost depends on the selected action. Forward and Backward can cost up to 6 fuel, while the cost of Rotation remain at 1 Fuel. The intensity of the movements are shown over the cards and the fuel cost are shown under the card. The motion can be slowed down bby using the opposite movement action.");
         });
 
         tutorial_Button_Weapons = GameObject.Find("Tutorial_Button_Weapons").GetComponent<Button>();
@@ -142,7 +138,7 @@ public class Button_Help : MonoBehaviour
             this.un_highlight_Tutorial_Buttons();
             this.highlight_Tutorial_Button(tutorial_Button_Weapons);
             this.change_tutorial_headline("Weapons");
-            this.change_tutorial_text("Use Weapons in your Weapons slot in order to fire them during the round.");
+            this.change_tutorial_text("Weapons as rockets and mines can be collected through the galaxy. Weapons are used to damage the opponent or push them around.");
         });
 
         tutorial_Button_Life = GameObject.Find("Tutorial_Button_Life").GetComponent<Button>();
@@ -151,9 +147,8 @@ public class Button_Help : MonoBehaviour
             set_Tutorial_Image_Source("Sprites/Tutorial_Images/Life");
             this.un_highlight_Tutorial_Buttons();
             this.highlight_Tutorial_Button(tutorial_Button_Life);
-            this.change_tutorial_headline("Life");
-            this.change_tutorial_text("Life is indicated in green color. All collisions and weapon based impacts cost life points." +
-            "If you loose all your life, the game is over.");
+            this.change_tutorial_headline("Health & Shield");
+            this.change_tutorial_text("The Health is shown at the bottom of the left corner and the shield is shown on the right corner. Health and shield decreases if you take damage and if the player loses all the health they'll lose the game.");
         });
 
         tutorial_Button_Boost = GameObject.Find("Tutorial_Button_Boost").GetComponent<Button>();
@@ -162,19 +157,8 @@ public class Button_Help : MonoBehaviour
             set_Tutorial_Image_Source("Sprites/Tutorial_Images/FuelTankMain");
             this.un_highlight_Tutorial_Buttons();
             this.highlight_Tutorial_Button(tutorial_Button_Boost);
-            this.change_tutorial_headline("Fuel & Boost");
-            this.change_tutorial_text("The boost indicators show how much fuel you have left. Use fuel to fire your spacecraft boosters.");
-        });
-
-        tutorial_Button_Collectables = GameObject.Find("Tutorial_Button_Collectables").GetComponent<Button>();
-        tutorial_Button_Collectables.onClick.AddListener(delegate
-        {
-            set_Tutorial_Image_Source("Sprites/Tutorial_Images/Collectables");
-            this.un_highlight_Tutorial_Buttons();
-            this.highlight_Tutorial_Button(tutorial_Button_Collectables);
-            this.change_tutorial_headline("Collectables");
-            this.change_tutorial_text("You can collect items along your way. For example fuel items that you can use to fill up your fuel tanks." +
-            "You can also collect weapons which will then be available in your weapon slots.");
+            this.change_tutorial_headline("Items");
+            this.change_tutorial_text("These items can be collected through the galaxy: \r\nRepair: restores up to 3 Health\r\nShield: restores up to 2 shield\r\nFuel: restores up to 5 Fuel");
         });
     }
 
@@ -188,7 +172,6 @@ public class Button_Help : MonoBehaviour
         tutorial_Button_Weapons.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         tutorial_Button_Life.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         tutorial_Button_Boost.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-        tutorial_Button_Collectables.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
     }
 
     void highlight_Tutorial_Button(Button clickedButton)
