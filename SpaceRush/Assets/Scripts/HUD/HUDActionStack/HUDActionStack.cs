@@ -151,7 +151,7 @@ public class HUDActionStack : MonoBehaviour
     {
         Image weapon1 = GameObject.Find("HUD_Weapon_1").GetComponent<Image>();
         Image weapon2 = GameObject.Find("HUD_Weapon_2").GetComponent<Image>();
-        for (int i = 0; i < 2; i++)
+        for (int i = 1; i <= 2; i++)
         {
             if (player.getWeapon(i) != "")
                 switch (player.getWeapon(i))
@@ -213,7 +213,7 @@ public class HUDActionStack : MonoBehaviour
 
     private void AddWeaponListener()
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 1; i <= 2; i++)
         {
             if (player.getWeapon(i) != "" && player.mainFuel >= 3)
                 switch (player.getWeapon(i))
@@ -357,7 +357,7 @@ public class HUDActionStack : MonoBehaviour
         RemoveImageListeners();
         Image item1 = GameObject.Find("HUD_Item_1").GetComponent<Image>();
         Image item2 = GameObject.Find("HUD_Item_2").GetComponent<Image>();
-        for (int i = 0; i < 2; i++)
+        for (int i = 1; i <= 2; i++)
         {
             if (player.GetItem(i) != "")
                 switch (player.GetItem(i))
@@ -404,7 +404,7 @@ public class HUDActionStack : MonoBehaviour
     {
         Button item1 = GameObject.Find("HUD_Item_1").GetComponent<Button>();
         Button item2 = GameObject.Find("HUD_Item_2").GetComponent<Button>();
-        for (int i = 0; i < 2; i++)
+        for (int i = 1; i <= 2; i++)
         {
             if (player.GetItem(i) != "")
                 switch (player.GetItem(i))
