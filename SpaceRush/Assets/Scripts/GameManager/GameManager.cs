@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     void Awake()
     {
         instance = this;
-        
+
         player_live_listener = new UnityAction(propagate_Player_live_change);
         EventManager.StartListening("Player_Live_Has_Changed", player_live_listener);
 
@@ -263,7 +263,14 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
 
     public void checkpointTriggered(int id, Player player)
     {
-        player_1.addCheckpoint(id);
+        bool activated = false;
+        for (int i = 0; i < player.check.Count; i++)
+        {
+            if (player.check[i] == id)
+                activated = true;
+        }
+        if (activated == false)
+            player_1.addCheckpoint(id);
     }
     void propagate_Player_live_change()
     {
@@ -381,7 +388,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     {
         if (player_1 == player)
             propagate_player_2_loosing();
-        else 
+        else
             propagate_player_1_loosing();
     }
 
