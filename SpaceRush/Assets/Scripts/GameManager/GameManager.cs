@@ -69,10 +69,7 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
     void Awake()
     {
         instance = this;
-
-        player_Weapon_Listener = new UnityAction(propagate_Player_Weapons);
-        EventManager.StartListening("Player_Weapon_Reset", player_Weapon_Listener);
-
+        
         player_live_listener = new UnityAction(propagate_Player_live_change);
         EventManager.StartListening("Player_Live_Has_Changed", player_live_listener);
 
@@ -295,11 +292,6 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
         this.hud.selectedAction.SetActionCards(this.acti_player.actionSelection);
     }
 
-    void propagate_Player_Weapons()
-    {
-
-    }
-
     void propagate_Player_change()
     {
         if (acti_player == player_1)
@@ -383,6 +375,14 @@ public class GameManager : MonoBehaviour, ISpacecraftCollisionListener, ITickabl
             spacecraft.player.looseLive(1);
             //resetPlayer(spacecraft.player);
         }
+    }
+
+    public void PlayerWon(Player player)
+    {
+        if (player_1 == player)
+            propagate_player_2_loosing();
+        else 
+            propagate_player_1_loosing();
     }
 
     public void Tick(bool done)
