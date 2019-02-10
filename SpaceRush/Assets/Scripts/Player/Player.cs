@@ -88,10 +88,12 @@ public class Player : MonoBehaviour
         if (weapon1 == "")
         {
             weapon1 = weapon;
+            EventManager.TriggerEvent("Player_Card_Stack_Changed");
         }
         else if (weapon2 == "")
         {
             weapon2 = weapon;
+            EventManager.TriggerEvent("Player_Card_Stack_Changed");
         }
     }
 
@@ -100,10 +102,12 @@ public class Player : MonoBehaviour
         if (item1 == "")
         {
             item1 = item;
+            EventManager.TriggerEvent("Player_Card_Stack_Changed");
         }
         else if (item2 == "")
         {
             item2 = item;
+            EventManager.TriggerEvent("Player_Card_Stack_Changed");
         }
     }
 
