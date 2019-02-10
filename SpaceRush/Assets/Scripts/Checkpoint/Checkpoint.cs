@@ -26,8 +26,7 @@ public class Checkpoint : MonoBehaviour
         {
             indicator1.GetComponent<Renderer>().material.SetColor("Color_DDEDA7A6", game.player_1.playerColor);
             indicator1.SetActive(true);
-            
-            other.gameObject.GetComponent<Player>().addCheckpoint(id);
+            GameManager.GetInstance().player_1.addCheckpoint(id);
             isFull = true;
         }
 
@@ -35,7 +34,7 @@ public class Checkpoint : MonoBehaviour
         {
             indicator2.GetComponent<Renderer>().material.SetColor("Color_DDEDA7A6", game.player_2.playerColor);
             indicator2.SetActive(true);
-            other.gameObject.GetComponent<Player>().check.Add(id);
+           GameManager.GetInstance().player_2.check.Add(id);
             isFull = true;
         }
     }
