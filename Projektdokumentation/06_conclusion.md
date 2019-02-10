@@ -56,11 +56,19 @@ Die SpaceCrafts und ihre Boost zeigen durch ihre Animation genau an, welche Bewe
 
 ## Erwartungen
 
+Unsere Erwartungen konnten Größenteils umgesetzt werden. Die kleineren Rückschläge haben wir durch einen Workaround oft lösen können. Da unsere Idee immer noch im Spiel vertreten ist sind wir auf unsere Arbeit stolz.
+
 ## Zeit-Management
+
+Die Zeit war selten ein großes Problem. Die interne Zeiteinteilung war jedoch öfter abweichend von unserem Ziel. 
 
 ## Technische Schwierigkeiten
 
+
+
 ## Thema "Speed"
+
+Ein Thema bei einer sehr offenen Arbeit zu setzen ist eine gute Idee, da sie uns zu einer zielgerichteten Arbeit mit einem Konzept führt. Jedoch gefiel uns das Thema Speed nicht so gut. Dies liegt jedoch wohl er an dem einzelnen Thema nicht an dem Konzept der thematischen Arbeit.
 
 ## Was würden wir beim nächsten Mal anders machen?
 
