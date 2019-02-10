@@ -108,11 +108,13 @@ public class SpacecraftController : MonoBehaviour
     public void FireGravityMine()
     {
         Instantiate(Resources.Load("Prefabs/weapons/weaponGravityMine"), transform.position, new Quaternion());
+        EventManager.TriggerEvent("gravitymine_put");
     }
 
     public void FireMissile()
     {
         Instantiate(Resources.Load("Prefabs/weapons/weaponMissile"), transform.position, transform.rotation);
+        EventManager.TriggerEvent("missile_fired");
     }
 
     public void FireLaser()

@@ -42,6 +42,7 @@ public class GravityExplosionState : WeaponState
     public override void OnStateExit()
     {
         GameManager.GetInstance().RemoveSimulatedObject(weapon);
+        EventManager.TriggerEvent("gravitymine_explosion");
     }
 
     public override void Stop()

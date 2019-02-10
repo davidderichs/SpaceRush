@@ -8,11 +8,11 @@ Kamera-Bewegungen und Verhalten wurde überarbeitet und verbessert.
 
 Im Hauptmenü kann man sich auf Wunsch die Spielregeln und Erklärungen der einzelnen Spiel-Elemente anschauen. 
 
-Geschwindigkeit des Raumschiffs wird während des Spiels angezeigt.
+Die Geschwindigkeit des Raumschiffs wird während des Spiels angezeigt.
 
-Waffen und Collectables jetzt vollständig im Spiel verfügbar. 
+Waffen und Collectables sind jetzt vollständig im Spiel verfügbar. 
 
-Kartenstapel ist durch permanente Aktions-Freiheit ersetzt worden und nicht mehr an den Zufall geknüpft. Einzige Einschränkungen sind Boost und Leben. Die Spacecraft Avatare wurden ersetzt und besitzen einzeln animierbare Boosts. 
+Der Kartenstapel ist durch permanente Aktions-Freiheit ersetzt worden und nicht mehr an den Zufall geknüpft. Einzige Einschränkungen sind Boost und Leben. Die Spacecraft Avatare wurden ersetzt und besitzen einzeln animierbare Boosts. 
 
 HUD und Menü-Elemente haben nun homogene Styles. Die Raumschiffe können den Spielbereich nicht mehr verlassen. 
 
