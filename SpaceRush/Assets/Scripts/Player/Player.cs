@@ -75,8 +75,7 @@ public class Player : MonoBehaviour
 
     public void addCheckpoint(int checkpoint)
     {
-        if (AlreadyChecked(checkpoint))
-        {
+        if(!check.Contains(checkpoint)){
             check.Add(checkpoint);
             lastCheckpoint = checkpoint;
             EventManager.TriggerEvent("Player_Reached_A_Checkpoint");
@@ -247,16 +246,5 @@ public class Player : MonoBehaviour
     public void ResetCounter()
     {
         cardCounter = 0;
-    }
-
-    public bool AlreadyChecked(int id)
-    {
-        bool activated = false;
-        for (int i = 0; i < check.Count; i++)
-        {
-            if (check[i] == id)
-                return true;
-        }
-        return activated;
     }
 }

@@ -24,17 +24,19 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.transform.gameObject.name == "Spacecraft1")
         {
-            indicator1.GetComponent<Renderer>().material.SetColor("Color_DDEDA7A6", game.player_1.playerColor);
+            Debug.Log("Checkpoint checked Player 1");
             indicator1.SetActive(true);
-            GameManager.GetInstance().player_1.addCheckpoint(id);
+            indicator1.GetComponent<Renderer>().material.SetColor("Color_DDEDA7A6", game.player_1.playerColor);
+            game.player_1.addCheckpoint(id);
             isFull = true;
         }
 
         if (other.transform.gameObject.name == "Spacecraft2")
         {
-            indicator2.GetComponent<Renderer>().material.SetColor("Color_DDEDA7A6", game.player_2.playerColor);
+            Debug.Log("Checkpoint checked Player 2");
             indicator2.SetActive(true);
-           GameManager.GetInstance().player_2.check.Add(id);
+            indicator2.GetComponent<Renderer>().material.SetColor("Color_DDEDA7A6", game.player_2.playerColor);
+            game.player_2.check.Add(id);
             isFull = true;
         }
     }
