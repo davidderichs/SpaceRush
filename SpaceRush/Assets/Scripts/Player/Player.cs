@@ -33,7 +33,6 @@ public class Player : MonoBehaviour
         item1 = "";
         item2 = "";
         currentSpeed = 0;
-
         init_Start_Values();
         init_card_Stack();
 
@@ -79,8 +78,8 @@ public class Player : MonoBehaviour
             check.Add(checkpoint);
             lastCheckpoint = checkpoint;
             EventManager.TriggerEvent("Player_Reached_A_Checkpoint");
-            if (check.Count == 4)
-                GameManager.GetInstance().PlayerWon(this);
+            //if (check.Count == 4)
+                //GameManager.GetInstance().PlayerWon(this);
         }
     }
 

@@ -22,21 +22,21 @@ public class Checkpoint : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.transform.gameObject.name == "Spacecraft1")
+        if (other.transform.gameObject.name == "Spacecraft1" && other.transform.gameObject.tag == "spacecraft")
         {
-            Debug.Log("Checkpoint checked Player 1");
+            Debug.Log("Id" + id);
             indicator1.SetActive(true);
             indicator1.GetComponent<Renderer>().material.SetColor("Color_DDEDA7A6", game.player_1.playerColor);
             game.player_1.addCheckpoint(id);
             isFull = true;
         }
 
-        if (other.transform.gameObject.name == "Spacecraft2")
+        if (other.transform.gameObject.name == "Spacecraft2" && other.transform.gameObject.tag == "spacecraft")
         {
-            Debug.Log("Checkpoint checked Player 2");
+            Debug.Log("id:" + id);
             indicator2.SetActive(true);
             indicator2.GetComponent<Renderer>().material.SetColor("Color_DDEDA7A6", game.player_2.playerColor);
-            game.player_2.check.Add(id);
+            game.player_2.addCheckpoint(id);
             isFull = true;
         }
     }
