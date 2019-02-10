@@ -90,11 +90,13 @@ public class Player : MonoBehaviour
         {
             weapon1 = weapon;
             EventManager.TriggerEvent("Player_Card_Stack_Changed");
+            EventManager.TriggerEvent("Item_Pickup");
         }
         else if (weapon2 == "")
         {
             weapon2 = weapon;
             EventManager.TriggerEvent("Player_Card_Stack_Changed");
+            EventManager.TriggerEvent("Item_Pickup");
         }
     }
 
@@ -104,11 +106,13 @@ public class Player : MonoBehaviour
         {
             item1 = item;
             EventManager.TriggerEvent("Player_Card_Stack_Changed");
+            EventManager.TriggerEvent("Item_Pickup");
         }
         else if (item2 == "")
         {
             item2 = item;
             EventManager.TriggerEvent("Player_Card_Stack_Changed");
+            EventManager.TriggerEvent("Item_Pickup");
         }
     }
 

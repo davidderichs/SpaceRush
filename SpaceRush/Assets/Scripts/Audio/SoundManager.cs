@@ -19,6 +19,7 @@ public class SoundManager : MonoBehaviour {
 	private UnityAction gravity_mine_explosion_listener;
 	private UnityAction missile_launch_listener;
 	private UnityAction missile_explosion_listener;
+	private UnityAction item_pickup_listener;
 	private UnityAction simulation_start_listener;
 	private UnityAction simulation_stop_listener;
 
@@ -69,6 +70,9 @@ public class SoundManager : MonoBehaviour {
 
 		missile_explosion_listener = new UnityAction (missile_explosion);
 		EventManager.StartListening("missile_explosion", missile_explosion_listener);
+
+		item_pickup_listener = new UnityAction (item_pickup);
+		EventManager.StartListening("Item_Pickup", item_pickup_listener);
 	}
 	
 	// Update is called once per frame
@@ -79,6 +83,9 @@ public class SoundManager : MonoBehaviour {
 		boostSoundStopped = false;
 	}
 
+	void item_pickup(){
+		GameObject.Find("Audio_Source_Collectable_Pickup").GetComponent<AudioSource>().Play();
+	}
 	void missile_launch(){
 		GameObject.Find("Audio_Source_Missile_Launch").GetComponent<AudioSource>().Play();
 	}
