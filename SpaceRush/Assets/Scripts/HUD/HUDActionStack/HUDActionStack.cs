@@ -46,9 +46,9 @@ public class HUDActionStack : MonoBehaviour
             });
         }
         Button HUDPlus = GameObject.Find("HUDButtonPlus").GetComponent<Button>();
-        HUDPlus.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/plusButton");
+        HUDPlus.GetComponentInChildren<Text>().text = "+";
         Button HUDMinus = GameObject.Find("HUDButtonMinus").GetComponent<Button>();
-        HUDMinus.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/minusButton");
+        HUDMinus.GetComponentInChildren<Text>().text = "-";
         HUDPlus.onClick.AddListener(delegate
         {
             for (int i = 0; i < 5; i++)
@@ -121,6 +121,8 @@ public class HUDActionStack : MonoBehaviour
             }
             image = actionImage.GetComponent<Image>();
             image.sprite = Resources.Load<Sprite>("Sprites/" + currentAction.spriteName);
+
+            Debug.Log("Current Action Name: " + currentAction.spriteName);
 
             //Text for the Powerinfos
             Text powerComponent = GameObject.Find("HUDAvailableActionPower" + i).GetComponent<Text>();
