@@ -83,8 +83,7 @@ public class Button_Help : MonoBehaviour
         tutorial_Button_MainRules = GameObject.Find("Tutorial_Button_MainRules").GetComponent<Button>();
         tutorial_Button_MainRules.onClick.AddListener(delegate
         {
-            set_Tutorial_Image_Source("");
-            this.tutorial_Explaining_Image.color = new Color32(255, 255, 255, 0);
+            set_Tutorial_Image_Source("Sprites/Tutorial_Images/Main");
             this.un_highlight_Tutorial_Buttons();
             this.highlight_Tutorial_Button(tutorial_Button_MainRules);
             this.change_tutorial_headline("Goal");
@@ -98,7 +97,7 @@ public class Button_Help : MonoBehaviour
             this.un_highlight_Tutorial_Buttons();
             this.highlight_Tutorial_Button(tutorial_Button_Checkpoints);
             this.change_tutorial_headline("Checkpoints");
-            this.change_tutorial_text("If a checkpoint is a reached they'll be marked with the colour of the player. Last reached checkpoint is used as a respawn point if the players ship is destroyed.");
+            this.change_tutorial_text("If a checkpoint is reached they'll be marked with the colour of the player. Last reached checkpoint is used as a respawn point if the players ship is destroyed.");
         });
 
         tutorial_Button_Spacecrafts = GameObject.Find("Tutorial_Button_Spacecrafts").GetComponent<Button>();
@@ -124,7 +123,7 @@ public class Button_Help : MonoBehaviour
         tutorial_Button_Movement = GameObject.Find("Tutorial_Button_Movement").GetComponent<Button>();
         tutorial_Button_Movement.onClick.AddListener(delegate
         {
-            set_Tutorial_Image_Source("Sprites/Tutorial_Images/MovementSelection");
+            set_Tutorial_Image_Source("Sprites/Tutorial_Images/Movements");
             this.un_highlight_Tutorial_Buttons();
             this.highlight_Tutorial_Button(tutorial_Button_Movement);
             this.change_tutorial_headline("Movement");
@@ -134,7 +133,7 @@ public class Button_Help : MonoBehaviour
         tutorial_Button_Weapons = GameObject.Find("Tutorial_Button_Weapons").GetComponent<Button>();
         tutorial_Button_Weapons.onClick.AddListener(delegate
         {
-            set_Tutorial_Image_Source("Sprites/Tutorial_Images/WeaponSlots");
+            set_Tutorial_Image_Source("Sprites/Tutorial_Images/Weapons");
             this.un_highlight_Tutorial_Buttons();
             this.highlight_Tutorial_Button(tutorial_Button_Weapons);
             this.change_tutorial_headline("Weapons");
@@ -154,7 +153,7 @@ public class Button_Help : MonoBehaviour
         tutorial_Button_Boost = GameObject.Find("Tutorial_Button_Boost").GetComponent<Button>();
         tutorial_Button_Boost.onClick.AddListener(delegate
         {
-            set_Tutorial_Image_Source("Sprites/Tutorial_Images/FuelTankMain");
+            set_Tutorial_Image_Source("Sprites/Tutorial_Images/Items");
             this.un_highlight_Tutorial_Buttons();
             this.highlight_Tutorial_Button(tutorial_Button_Boost);
             this.change_tutorial_headline("Items");
