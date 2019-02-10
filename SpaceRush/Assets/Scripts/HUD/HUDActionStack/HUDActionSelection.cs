@@ -37,19 +37,6 @@ public class HUDActionSelection : MonoBehaviour
                             break;
                     }
                 }
-                if (currentActionCard is MoveActionCard && player.actionStack.getActionCard(copy).type.Equals("forward"))
-                {
-                    Debug.Log(player.currentSpeed);
-                    Debug.Log(currentActionCard.forceOrVelocity);
-                    player.currentSpeed = player.currentSpeed - currentActionCard.forceOrVelocity;
-                }
-                else
-                if (currentActionCard is MoveActionCard && player.actionStack.getActionCard(copy).type.Equals("backward"))
-                {
-                    Debug.Log(player.currentSpeed);
-                    Debug.Log(currentActionCard.forceOrVelocity);
-                    player.currentSpeed = player.currentSpeed + currentActionCard.forceOrVelocity;
-                }
                 player.AddMainFuel(currentActionCard.fuelCost);
                 player.actionSelection.removeActionCardwithIndex(copy);
                 player.CardCounterChange(-1);
@@ -63,7 +50,7 @@ public class HUDActionSelection : MonoBehaviour
 
     void removeListeners()
     {
-
+        player.currentSpeed = player.spacecraft.rb.velocity.magnitude;
         for (int i = 0; i < 5; i++)
         {
             int copy = i;
@@ -118,7 +105,7 @@ public class HUDActionSelection : MonoBehaviour
             fuelComponent.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
             fuelComponent.fontSize = 40;
             Text currentSpeed = GameObject.Find("HUDBoostPower").GetComponent<Text>();
-            currentSpeed.text = player.currentSpeed + "kN";
+            currentSpeed.text = System.Math.Round(player.currentSpeed / 5, 2) + "km/s";
             currentSpeed.alignment = TextAnchor.MiddleCenter;
             currentSpeed.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
             currentSpeed.fontSize = 40;

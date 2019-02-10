@@ -31,10 +31,6 @@ public class HUDActionStack : MonoBehaviour
                     player.CardCounterChange(1);
                     if (player.actionStack.getActionCard(copy) is WeaponActionCard)
                         removeWeapon(player.actionStack.getActionCard(copy).type, player);
-                    if (player.actionStack.getActionCard(copy) is MoveActionCard && player.actionStack.getActionCard(copy).type.Equals("forward"))
-                        player.currentSpeed = player.currentSpeed + player.actionStack.getActionCard(copy).forceOrVelocity;
-                    if (player.actionStack.getActionCard(copy) is MoveActionCard && player.actionStack.getActionCard(copy).type.Equals("backward"))
-                        player.currentSpeed = player.currentSpeed - player.actionStack.getActionCard(copy).forceOrVelocity;
                     EventManager.TriggerEvent("Player_Card_Selection_Changed");
                     EventManager.TriggerEvent("Player_Main_Fuel_Has_Changed");
                     EventManager.TriggerEvent("Player_Add_Fuel_Has_Changed");
@@ -59,7 +55,6 @@ public class HUDActionStack : MonoBehaviour
                     currentAction.forceOrVelocity = currentAction.forceOrVelocity + 100;
                     currentAction.fuelCost = currentAction.fuelCost + 1;
                     EventManager.TriggerEvent("Player_Card_Selection_Changed");
-                    Debug.Log("test");
                 }
                 else if (currentAction.type.Equals("rotateRight") && currentAction.forceOrVelocity < 45 || currentAction.type.Equals("rotateLeft") && currentAction.forceOrVelocity < 45)
                 {
@@ -91,6 +86,7 @@ public class HUDActionStack : MonoBehaviour
 
     void removeListeners()
     {
+        player.currentSpeed = player.spacecraft.rb.velocity.magnitude;
         for (int i = 0; i < player.actionStack.getSize(); i++)
         {
             int copy = i;
@@ -139,7 +135,7 @@ public class HUDActionStack : MonoBehaviour
             fuelComponent.fontSize = 40;
             //Text for CurrentSpeed
             Text currentSpeed = GameObject.Find("HUDBoostPower").GetComponent<Text>();
-            currentSpeed.text = player.currentSpeed + "kN";
+            currentSpeed.text = System.Math.Round(player.currentSpeed / 5, 2) + "km/s";
             currentSpeed.alignment = TextAnchor.MiddleCenter;
             currentSpeed.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
             currentSpeed.fontSize = 40;

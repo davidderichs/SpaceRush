@@ -47,12 +47,10 @@ public class CardParser
         }
         else if (card.type.Equals("laser"))
         {
-            Debug.Log("Laser");
             return new SpacecraftWeaponAction(SpacecraftWeaponAction.WeaponType.Laser, card.fuelCost);
         }
         else if (card.type.Equals("rocket"))
         {
-            Debug.Log("Rocket");
             return new SpacecraftWeaponAction(SpacecraftWeaponAction.WeaponType.Rocket, card.fuelCost);
         }
         else if (card.type.Equals("none"))

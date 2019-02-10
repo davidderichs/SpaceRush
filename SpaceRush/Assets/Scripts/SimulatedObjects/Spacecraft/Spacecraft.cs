@@ -7,7 +7,7 @@ public class Spacecraft : SimulatedObject
     public Player player;
     private SpacecraftController controller;
     private List<SpacecraftAction> actions;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private Attractor attractor;
     private ActivateForTime damageIndication;
     private Vector2 m_velocity;
@@ -83,21 +83,19 @@ public class Spacecraft : SimulatedObject
                 {
                     case SpacecraftWeaponAction.WeaponType.GravityMine:
                         controller.FireGravityMine();
+                        actions.RemoveAt(0);
                         break;
                     case SpacecraftWeaponAction.WeaponType.Laser:
                         controller.FireLaser();
+                        actions.RemoveAt(0);
                         break;
                     case SpacecraftWeaponAction.WeaponType.Rocket:
                         controller.FireMissile();
+                        actions.RemoveAt(0);
                         break;
                     default:
                         weapon = null;
                         break;
-
-                }
-                if (weapon != null)
-                {
-                    actions.RemoveAt(0);
                 }
             }
         }
