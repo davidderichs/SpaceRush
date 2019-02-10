@@ -34,23 +34,25 @@ Das Final Release bzw. Alpha Release weißt im Vergleich zum Prototypen einige G
 beinhaltet Waffen- und Item-Platzhalter, Spacecraft ist nur ein einfaches Sprite. Checkpoints sind einfache Point-Light-Objekte, die Skybox ist schlecht aufgelöst. Es gibt kein Pause-Menü oder eine Möglichkeit das Spiel zu beenden oder neu zu starten. Es gibt kein Hauptmenü. Die Steuerung mit Karten war erst sehr spät im Spiel möglich. Die Karten-Auswahl ist Zufallsbasiert und funktioniert oft nicht, weil die Karten nicht gut durchmischt sind bzw. nicht "gebalanced".
 
 
-![HUD](F:\Beuth\Creative Programming und Game Design\SpaceRush_2019_02_10\Projektdokumentation\images\Progress\05-Dez-2018\HUD.JPG)
+![HUD](images/Progress/05-Dez-2018/HUD.JPG)
 
 ### Unterschiede zur Final-Version:
 
-![NewHUD](F:\Beuth\Creative Programming und Game Design\SpaceRush_2019_02_10\Projektdokumentation\images\Conclusion\NewHUD.PNG)
+![NewHUD](images/Conclusion/NewHUD.PNG)
 
 Die Karten-Auswahl ist nun nicht mehr Zufalls-Basierend aufgebaut sondern erfordert mehr Resourcen-Management. Die Intensität der einzelnen Bewewegungen lässt sich duch Buttons skalieren und es müssen nicht länger 5 Aktionen definiert werden. Es können bis zu 5 ausgewählt werden, aber der Spieler kann Aktionskarten überspringen.
 
-In der Finalen Version des Spiels sind die Spacecrafts überarbeitet und haben Blender-Animationen. Die Planeten haben HD-Texturen, die sich stark voneinander unterscheiden. Außerdem ist das directional-Light verändert worden und die Skybox ist ein hochauflösender Weltraum, der durch ein diffuses Flimmern an den echten Weltraum erinnert. 
+![HUD](images/Progress/05-Dez-2018/spacecraftModel.png)
 
-![Items_Weapons](F:\Beuth\Creative Programming und Game Design\SpaceRush_2019_02_10\Projektdokumentation\images\Conclusion\Items_Weapons.PNG)
+In der Finalen Version des Spiels sind die Spacecrafts überarbeitet. Wir haben in Blender eigene Modelle gemodelt und texturiert. Die Planeten haben HD-Texturen, die sich stark voneinander unterscheiden. Außerdem ist das directional-Light verändert worden und die Skybox ist ein hochauflösender Weltraum, der durch ein diffuses Flimmern an den echten Weltraum erinnert. 
+
+![Items_Weapons](images/Conclusion/Items_Weapons.PNG)
 
 Items und Waffen sind keine Platzhalter mehr, sondern Collectable Items in der Spielwelt. 
 
-![SpaceCraft_Boost](F:\Beuth\Creative Programming und Game Design\SpaceRush_2019_02_10\Projektdokumentation\images\Conclusion\SpaceCraft_Boost.PNG)
+![SpaceCraft_Boost](images/Conclusion/SpaceCraft_Boost.PNG)
 
-Die SpaceCrafts und ihre Boost zeigen durch ihre Animation genau an, welche Bewegungen gerade durchlaufen werden. Außerdem sind sie farblich voneinander unterscheidbar und das HUD passt sich auch dan die jeweilige Spieler-Farbe an.
+Die SpaceCrafts und ihre Booster zeigen durch ihre Animation genau an, welche Bewegungen gerade durchlaufen werden. Außerdem sind sie farblich voneinander unterscheidbar und das HUD passt sich auch an die jeweilige Spieler-Farbe an.
 
 Leider konnten wir aus Zeitgründen nicht alle Waffen umsetzten, die wir uns vorgenommen hatten (Laser).
 
