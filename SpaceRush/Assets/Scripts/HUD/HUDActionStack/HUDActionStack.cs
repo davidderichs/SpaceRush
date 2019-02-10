@@ -122,6 +122,8 @@ public class HUDActionStack : MonoBehaviour
             image = actionImage.GetComponent<Image>();
             image.sprite = Resources.Load<Sprite>("Sprites/" + currentAction.spriteName);
 
+            Debug.Log("Current Action Name: " + currentAction.spriteName);
+
             //Text for the Powerinfos
             Text powerComponent = GameObject.Find("HUDAvailableActionPower" + i).GetComponent<Text>();
             if (currentAction.type.Equals("forward") || currentAction.type.Equals("backward"))
