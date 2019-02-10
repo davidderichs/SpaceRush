@@ -28,9 +28,9 @@ public class Player : MonoBehaviour
     void Start()
     {
         // For testing purpose
-        weapon1 = "rocket";
+        weapon1 = "";
         weapon2 = "";
-        item1 = "fuel";
+        item1 = "";
         item2 = "";
         currentSpeed = 0;
 

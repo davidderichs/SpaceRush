@@ -21,9 +21,10 @@ public class HUDActionSelection : MonoBehaviour
             Button HUD_clickable_Card = GameObject.Find("HUDSelectedAction" + (copy)).GetComponent<Button>();
             HUD_clickable_Card.onClick.AddListener(delegate
             {
-                if (player.actionSelection.getActionCard(copy) is WeaponActionCard)
+                ActionCard currentActionCard = player.actionSelection.getActionCard(copy);
+                if (currentActionCard is WeaponActionCard)
                 {
-                    switch (player.actionSelection.getActionCard(copy).type)
+                    switch (currentActionCard.type)
                     {
                         case "gravityMine":
                             player.addWeapon("gravityMine");
@@ -36,11 +37,20 @@ public class HUDActionSelection : MonoBehaviour
                             break;
                     }
                 }
-                if (player.actionStack.getActionCard(copy) is MoveActionCard && player.actionStack.getActionCard(copy).type.Equals("forward"))
-                    player.currentSpeed = player.currentSpeed - player.actionStack.getActionCard(copy).forceOrVelocity;
-                if (player.actionStack.getActionCard(copy) is MoveActionCard && player.actionStack.getActionCard(copy).type.Equals("backward"))
-                    player.currentSpeed = player.currentSpeed + player.actionStack.getActionCard(copy).forceOrVelocity;
-                player.AddMainFuel(player.actionSelection.getActionCard(copy).fuelCost);
+                if (currentActionCard is MoveActionCard && player.actionStack.getActionCard(copy).type.Equals("forward"))
+                {
+                    Debug.Log(player.currentSpeed);
+                    Debug.Log(currentActionCard.forceOrVelocity);
+                    player.currentSpeed = player.currentSpeed - currentActionCard.forceOrVelocity;
+                }
+                else
+                if (currentActionCard is MoveActionCard && player.actionStack.getActionCard(copy).type.Equals("backward"))
+                {
+                    Debug.Log(player.currentSpeed);
+                    Debug.Log(currentActionCard.forceOrVelocity);
+                    player.currentSpeed = player.currentSpeed + currentActionCard.forceOrVelocity;
+                }
+                player.AddMainFuel(currentActionCard.fuelCost);
                 player.actionSelection.removeActionCardwithIndex(copy);
                 player.CardCounterChange(-1);
                 EventManager.TriggerEvent("Player_Card_Selection_Changed");

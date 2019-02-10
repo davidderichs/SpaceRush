@@ -7,19 +7,19 @@ public class ActionCardStorage
 {
     public static MoveActionCard GetForward()
     {
-        return new MoveActionCard("Forward", "forward", 1, "forward", new Color(1, 1, 1, 1), 2, 100);
+        return new MoveActionCard("Forward", "forward", 1, "arrowForward", new Color(1, 1, 1, 1), 2, 100);
     }
     public static MoveActionCard GetBackward()
     {
-        return new MoveActionCard("Backward", "backward", 1, "backward", new Color(1, 1, 1, 1), 2, 100);
+        return new MoveActionCard("Backward", "backward", 1, "arrowBackward", new Color(1, 1, 1, 1), 2, 100);
     }
     public static MoveActionCard GetRotationLeft()
     {
-        return new MoveActionCard("Left", "rotateLeft", 1, "Rotate_Left", new Color(1, 1, 1, 1), 2, 5);
+        return new MoveActionCard("Left", "rotateLeft", 1, "arrowLeft", new Color(1, 1, 1, 1), 2, 5);
     }
     public static MoveActionCard GetRotationRight()
     {
-        return new MoveActionCard("Right", "rotateRight", 1, "Rotate_Right", new Color(1, 1, 1, 1), 2, 5);
+        return new MoveActionCard("Right", "rotateRight", 1, "arrowRight", new Color(1, 1, 1, 1), 2, 5);
     }
     public static MoveActionCard GetEmpty()
     {
