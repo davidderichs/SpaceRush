@@ -10,7 +10,7 @@ public class SoundManager : MonoBehaviour {
 	private UnityAction card_selection_impossible_listener;
 	private UnityAction card_selection_complete_listener;
 	private UnityAction player_ready_listener;
-	private UnityAction spacecraft_collition_listener;
+	private UnityAction spacecraft_collision_listener;
 	private UnityAction spacecraft_boost_start_listener;
 	private UnityAction spacecraft_boost_stop_listener;
 
@@ -31,8 +31,9 @@ public class SoundManager : MonoBehaviour {
 		player_ready_listener = new UnityAction (play_sound_player_ready);
 		EventManager.StartListening("HUD_Player_is_ready", player_ready_listener);
 
-		spacecraft_collition_listener = new UnityAction (play_sound_spacecraft_collition);
-		EventManager.StartListening("spacecraft_spacecraft_collision", spacecraft_collition_listener);
+		spacecraft_collision_listener = new UnityAction (play_sound_spacecraft_collision);
+		EventManager.StartListening("spacecraft_spacecraft_collision", spacecraft_collision_listener);
+		EventManager.StartListening("spacecraft_planet_collision", spacecraft_collision_listener);
 
 		spacecraft_boost_start_listener = new UnityAction (play_sound_spacecraft_boost);
 		EventManager.StartListening("spacecraft_boost_start", spacecraft_boost_start_listener);
@@ -64,13 +65,16 @@ public class SoundManager : MonoBehaviour {
 		GameObject.Find("Audio_Source_Player_Ready").GetComponent<AudioSource>().Play();
 	}
 
-	void play_sound_spacecraft_collition(){
-		GameObject.Find("Audio_Source_Spacecraft_Collition").GetComponent<AudioSource>().Play();
+	void play_sound_spacecraft_collision(){
+		GameObject.Find("Audio_Source_Spacecraft_Collision").GetComponent<AudioSource>().Play();
 	}
 	void play_sound_spacecraft_boost(){
-		GameObject.Find("Audio_Source_Spacecraft_Boost").GetComponent<AudioSource>().Play();
+		if (!GameObject.Find("Audio_Source_Spacecraft_Boost").GetComponent<AudioSource>().isPlaying){
+			GameObject.Find("Audio_Source_Spacecraft_Boost").GetComponent<AudioSource>().Play();
+		}		
 	}
 	void stop_sound_spacecraft_boost(){
+		Debug.Log("Stopping Boost sound");
 		GameObject.Find("Audio_Source_Spacecraft_Boost").GetComponent<AudioSource>().Stop();
 	}
 }
