@@ -74,7 +74,8 @@ public class Player : MonoBehaviour
 
     public void addCheckpoint(int checkpoint)
     {
-        if(!check.Contains(checkpoint)){
+        if (!check.Contains(checkpoint))
+        {
             check.Add(checkpoint);
             lastCheckpoint = checkpoint;
             EventManager.TriggerEvent("Player_Reached_A_Checkpoint");
@@ -145,7 +146,7 @@ public class Player : MonoBehaviour
             }
         }
         else lives = lives - damage;
-
+        EventManager.TriggerEvent("player_looses_live");
     }
 
     private void playerLost()
