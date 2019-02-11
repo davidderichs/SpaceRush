@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.029320378, g: 0.043756835, b: 0.06000387, a: 1}
+  m_IndirectSpecularColor: {r: 0.030028421, g: 0.043730773, b: 0.060358748, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -21515,7 +21515,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 2500
+  far clip plane: 4000
   field of view: 26.991467
   orthographic: 0
   orthographic size: 5
@@ -21561,11 +21561,11 @@ MonoBehaviour:
   smoothFac: 0.2
   offset: {x: 0, y: 0, z: 0}
   extraDist: 100
-  minX: -750
-  maxX: 750
-  minY: -150
-  maxY: 800
-  minZ: -1500
+  minX: -900
+  maxX: 900
+  minY: -200
+  maxY: 1000
+  minZ: -2600
   maxZ: -100
 --- !u!1 &2013656244
 GameObject:
