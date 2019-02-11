@@ -44,7 +44,7 @@ public class Button_Help : MonoBehaviour
                 this.highlight_Tutorial_Button(tutorial_Button_MainRules);
                 this.change_tutorial_headline("Goal");
                 this.change_tutorial_text("The Mission is to reach all checkpoints faster than the opponent by tactical use of movements, fuel, weapons, items and health. Survive by avoiding crashes with planets attacks of the opponent or other dangers in this foreign galaxy.");
-
+                set_Tutorial_Image_Source("Sprites/Tutorial_Images/Main");
             }
             else
             {
