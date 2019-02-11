@@ -7,7 +7,7 @@ public class HUD_Shield_Indicator : HUD_Indicator {
 	override public void Awake (){
 		// Debug.Log("Initializing HUD_Shield_Indicator");
 		this.initColors();
-		this.maxValue = 10;
+		this.maxValue = 5;
 		this.item_List = new List<KeyValuePair<int, GameObject>>();
 		this.itemNameClass = "HUD_Shield_Item_";
 		this.useSprite = false;
