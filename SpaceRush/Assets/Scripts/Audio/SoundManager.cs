@@ -22,6 +22,7 @@ public class SoundManager : MonoBehaviour {
 	private UnityAction item_pickup_listener;
 	private UnityAction player_healed_listener;
 	private UnityAction player_fuel_fill_listener;
+	private UnityAction player_shield_charge_listener;
 	private UnityAction simulation_start_listener;
 	private UnityAction simulation_stop_listener;
 
@@ -81,6 +82,9 @@ public class SoundManager : MonoBehaviour {
 
 		player_fuel_fill_listener = new UnityAction (player_fuel_fill);
 		EventManager.StartListening("Player_Fuel_Filled", player_fuel_fill_listener);
+
+		player_shield_charge_listener = new UnityAction (player_shield_charge);
+		EventManager.StartListening("Player_Shield_Charged", player_shield_charge_listener);
 	}
 	
 	// Update is called once per frame
@@ -91,6 +95,9 @@ public class SoundManager : MonoBehaviour {
 		boostSoundStopped = false;
 	}
 
+	void player_shield_charge(){
+		GameObject.Find("Audio_Source_Shield_Item_Used").GetComponent<AudioSource>().Play();
+	}
 	void player_fuel_fill(){
 		GameObject.Find("Audio_Source_Fuel_Fill_Item_Used").GetComponent<AudioSource>().Play();
 	}

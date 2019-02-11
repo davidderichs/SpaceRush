@@ -67,6 +67,7 @@ public class HUDItem : MonoBehaviour
                         {
                             item1.onClick.AddListener(delegate
                             {
+                                EventManager.TriggerEvent("Player_Fuel_Filled");
                                 player.AddFuel(5);
                                 player.removeItem(1);
                                 EventManager.TriggerEvent("Player_Indicator_Change");
@@ -77,6 +78,7 @@ public class HUDItem : MonoBehaviour
                         {
                             item2.onClick.AddListener(delegate
                             {
+                                EventManager.TriggerEvent("Player_Fuel_Filled");
                                 player.AddFuel(5);
                                 player.removeItem(2);
                                 EventManager.TriggerEvent("Player_Indicator_Change");
@@ -88,6 +90,7 @@ public class HUDItem : MonoBehaviour
                         {
                             item1.onClick.AddListener(delegate
                             {
+                                EventManager.TriggerEvent("Player_Shield_Charged");
                                 player.AddShield(2);
                                 player.removeItem(1);
                                 EventManager.TriggerEvent("Player_Indicator_Change");
@@ -98,6 +101,7 @@ public class HUDItem : MonoBehaviour
                         {
                             item2.onClick.AddListener(delegate
                             {
+                                EventManager.TriggerEvent("Player_Shield_Charged");
                                 player.AddShield(2);
                                 player.removeItem(2);
                                 EventManager.TriggerEvent("Player_Indicator_Change");
@@ -109,6 +113,7 @@ public class HUDItem : MonoBehaviour
                         {
                             item1.onClick.AddListener(delegate
                             {
+                                EventManager.TriggerEvent("Player_Healed");
                                 player.AddLive(3);
                                 player.removeItem(1);
                                 EventManager.TriggerEvent("Player_Indicator_Change");
@@ -119,6 +124,7 @@ public class HUDItem : MonoBehaviour
                         {
                             item2.onClick.AddListener(delegate
                             {
+                                EventManager.TriggerEvent("Player_Healed");
                                 player.AddLive(3);
                                 player.removeItem(2);
                                 EventManager.TriggerEvent("Player_Indicator_Change");

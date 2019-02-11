@@ -182,8 +182,7 @@ public class Player : MonoBehaviour
         else mainFuel = mainFuel - fuel;
     }
     public void AddMainFuel(float fuel)
-    {
-        EventManager.TriggerEvent("Player_Fuel_Filled");
+    {        
         if (mainFuel <= 5)
             mainFuel = mainFuel + fuel;
         if (mainFuel > 5)
@@ -195,7 +194,6 @@ public class Player : MonoBehaviour
 
     public void AddFuel(float fuel)
     {
-        EventManager.TriggerEvent("Player_Fuel_Filled");
         addFuel = addFuel + fuel;
     }
 
@@ -207,8 +205,7 @@ public class Player : MonoBehaviour
     }
 
     public void AddLive(int live)
-    {
-        EventManager.TriggerEvent("Player_Healed");
+    {        
         lives = lives + live;
         if (lives > 10)
             lives = 10;
