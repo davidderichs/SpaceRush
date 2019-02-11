@@ -20,6 +20,8 @@ public class SoundManager : MonoBehaviour {
 	private UnityAction missile_launch_listener;
 	private UnityAction missile_explosion_listener;
 	private UnityAction item_pickup_listener;
+	private UnityAction player_healed_listener;
+	private UnityAction player_fuel_fill_listener;
 	private UnityAction simulation_start_listener;
 	private UnityAction simulation_stop_listener;
 
@@ -73,6 +75,12 @@ public class SoundManager : MonoBehaviour {
 
 		item_pickup_listener = new UnityAction (item_pickup);
 		EventManager.StartListening("Item_Pickup", item_pickup_listener);
+
+		player_healed_listener = new UnityAction (player_heal);
+		EventManager.StartListening("Player_Healed", player_healed_listener);
+
+		player_fuel_fill_listener = new UnityAction (player_fuel_fill);
+		EventManager.StartListening("Player_Fuel_Filled", player_fuel_fill_listener);
 	}
 	
 	// Update is called once per frame
@@ -83,9 +91,17 @@ public class SoundManager : MonoBehaviour {
 		boostSoundStopped = false;
 	}
 
+	void player_fuel_fill(){
+		GameObject.Find("Audio_Source_Fuel_Fill_Item_Used").GetComponent<AudioSource>().Play();
+	}
+	void player_heal(){
+		GameObject.Find("Audio_Source_Heal_Item_Used").GetComponent<AudioSource>().Play();
+	}
+
 	void item_pickup(){
 		GameObject.Find("Audio_Source_Collectable_Pickup").GetComponent<AudioSource>().Play();
 	}
+
 	void missile_launch(){
 		GameObject.Find("Audio_Source_Missile_Launch").GetComponent<AudioSource>().Play();
 	}
