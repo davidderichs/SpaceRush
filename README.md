@@ -1,2 +1,2 @@
-<a href="http://david-derichs.de"> SpaceRush Website </a>
+<a href="http://david-derichs.de/SpaceRush"> SpaceRush Website </a>
 # SpaceRush
